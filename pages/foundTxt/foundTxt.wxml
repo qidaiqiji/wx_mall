@@ -1,0 +1,212 @@
+<!--pages/foundTxt/foundTxt.wxml-->
+<import src="/utils/wxParse/wxParse.wxml" />
+<view class="wrap">
+    <view class="wrap_tap">
+        <view class="card_wrap">
+            <!-- 品牌 -->
+            <view class="brand_wrap " data-brandId="{{mode.brandId}}" catchtap='istitle'>
+                <view class="brand_left">
+                    <view class="brand_tag">
+                        <image src="{{mode.authorImg}}" />
+                    </view>
+                    <view class="brand_text">
+                        <text class="brand_name">{{mode.authorName}}</text>
+                        <text class="brand_time">{{mode.publishTime}}</text>
+                    </view>
+                </view>
+                <!-- 阅读数量 -->
+                <view class="reading_txt">{{mode.readCount}}阅读</view>
+            </view>
+            <!-- 文字 -->
+            <view class="tetx_wrap">
+                <view class="all_text" data-title="{{mode.title}}" data-index="{{titleIndex}}"
+                    data-foundList="{{mode.title}}" data-articleId="{{mode.articleId}}" bindlongtap="longTap"
+                    bindtouchend="mytouchend">{{mode.title}}</view>
+            </view>
+            <!-- 九宫图 -->
+            <view class="img_wrap" wx:if="{{mode.imgs.length > 0}}">
+                <view>
+                    <block wx:for="{{mode.imgs}}" wx:for-item="imgs" wx:for-index="titleIndex" wx:key="{{titleIndex}}">
+                        <image class="insets_img" mode="aspectFill" src="{{imgs}}" data-imgs="{{mode.imgs}}"
+                            data-img="{{imgs}}" catchtap='isMaxShow' wx:if="{{mode.imgs.length > 1}}" />
+                        <view class="a_picture" wx:if="{{mode.imgs.length ==1}}">
+                            <!-- 横图 -->
+                            <image class="first_img_width" src="{{imgs}}" data-imgs="{{mode.imgs}}" data-img="{{imgs}}"
+                                catchtap='isMaxShow'
+                                style="max-width:500rpx; max-height:374rpx; width:{{mode.firstImgWidth}}rpx;height: {{mode.firstImgHigh}}rpx;" />
+                        </view>
+                    </block>
+                </view>
+            </view>
+            <!-- 视频 -->
+            <view class="video_wrap" wx:if="{{mode.video}}">
+                <view class='container'>
+                    <view class='video-host-wrapper' hidden='{{mode.isPlay}}'>
+                        <image class="imgcover" src="{{mode.videoImg}}"></image>
+                        <image class="playbtn" bindtap='topOnStartPlay' data-index='{{titleIndex}}' src="/images/play.png">
+                        </image>
+                    </view>
+                    <view wx:if='{{mode.isPlay}}' class='showVideo' id="topVideo" catchtouchmove='move'>
+                        <video src="{{mode.video}}" id='myVideo' class='myVideo' bindfullscreenchange='xuanzhuang'
+                            autoplay='{{true}}' objectFit='fill' controls show-mute-btn initial-time='{{0}}'
+                            custom-cache="{{false}}" bindended="videoEnd" data-isVideoTop="isVideoTop"
+                            wx:if='{{mode.isPlay}}'></video>
+                    </view>
+                </view>
+            </view>
+            <view class="video-{{titleIndex}}"></view>
+            <view class="The_horn" data-guideLink="{{mode.guideData.guideLink}}" catchtap="guideLink"
+                wx:if="{{mode.guideData.guideLink}}">
+                <view class="the_horn_left">
+                    <image class="horn_img" src="/images/icon_laba.png" />
+                    <text class="horn_txt">{{mode.guideData.guideText}}</text>
+                </view>
+                <view>
+                    <image class="cart_img" src="/images/icon_putaway.png" />
+                </view>
+            </view>
+            <!-- 阅读数量 -->
+            <view class="number_wrap">
+                <view class="collection_wrap collection_wrap_two" catchtap='collection' data-istop="istop"
+                    data-isCollect="{{mode.isCollect}}" data-articleId="{{mode.articleId}}">
+                    <image src="{{mode.isCollect == 0? '/images/collection.png':'/images/collection_two.png'}}" />
+                    <text>{{mode.isCollect == 0? '收藏':'已收藏'}}</text>
+                </view>
+                <view class="">
+                    <view class="collection_wrap" catchtap='zhuanfa' data-relayImg="{{mode.relayImg}}"
+                        data-relayImg="{{mode.relayImg}}" wx:if="{{mode.relayImg.length > 0}}">
+                        <image src="/images/icon_zhuanfa_two.png" />
+                        <text>转发</text>
+                    </view>
+                </view>
+                <view class="cart_wrap_two">
+                    <view class="cart_wrap" catchtap='canShu' data-foundGoods="{{mode.foundGoods}}"
+                        wx:if="{{mode.foundGoods.length > 0}}">去采购</view>
+                </view>
+            </view>
+            <view class="bottom" wx:if="{{mode.content.length > 0}}">
+                <template is="wxParse" data="{{wxParseData:article.nodes}}" />
+            </view>
+        </view>
+    </view>
+    <view>
+        <view class="related_to_recommend" wx:if="{{foundList.length > 0}}">相关动态推荐</view>
+        <!--  -->
+        <view class="found_card">
+            <view class="found_up_new" wx:if="{{foundUpNew}}">{{updateContent}}</view>
+            <view style="width: 750rpx;height: 20rpx;"></view>
+            <view>
+                <block wx:for="{{foundList}}" wx:for-item="foundList" wx:for-index="titleIndex" wx:key="{{titleIndex}}">
+                    <view class="card_wrap">
+                        <!-- 品牌 -->
+                        <view class="brand_wrap v-{{titleIndex}}" data-brandId="{{foundList.brandId}}"
+                            catchtap='istitle'>
+                            <view class="brand_left">
+                                <view class="brand_tag">
+                                    <image src="{{foundList.authorImg}}" />
+                                </view>
+                                <view class="brand_text">
+                                    <text class="brand_name">{{foundList.authorName}}</text>
+                                    <text class="brand_time">{{foundList.publishTime}}</text>
+                                </view>
+                            </view>
+                            <!-- 阅读数量 -->
+                            <view class="reading_txt">{{foundList.readCount}}阅读</view>
+                        </view>
+                        <!-- 文字 -->
+                        <view class="tetx_wrap">
+                            <view id="data-{{titleIndex}}" class="{{foundList.isDown?'':'tetx_describe_up'}}"
+                                data-index="{{titleIndex}}" catchtap='jumpToDetail' data-foundList="{{foundList}}"
+                                data-articleId="{{foundList.articleId}}" catchtap='jumpToDetail'>{{foundList.title}}
+                            </view>
+                            <view class="fullText" data-index="{{titleIndex}}" catchtap='jumpToDetail'
+                                data-index="{{titleIndex}}" catchtap='jumpToDetail' data-foundList="{{foundList}}"
+                                data-articleId="{{foundList.articleId}}" wx:if="{{foundList.title.length > 66}}">
+                                {{foundList.isDown?'':'全文'}}</view>
+                        </view>
+                        <!-- 九宫图 -->
+                        <view class="img_wrap" wx:if="{{foundList.imgs.length > 0}}">
+                            <view>
+                                <block wx:for="{{foundList.imgs}}" wx:for-item="imgs" wx:for-index="titleIndex"
+                                    wx:key="{{titleIndex}}">
+                                    <image class="insets_img" mode="aspectFill" src="{{imgs}}"
+                                        data-imgs="{{foundList.imgs}}" data-img="{{imgs}}" catchtap='isMaxShow'
+                                        wx:if="{{foundList.imgs.length > 1}}" />
+                                    <view class="a_picture" wx:if="{{foundList.imgs.length ==1}}">
+                                        <!-- 横图 -->
+                                        <image class="first_img_width" src="{{imgs}}" data-imgs="{{foundList.imgs}}"
+                                            data-img="{{imgs}}" catchtap='isMaxShow'
+                                            style="max-width:500rpx; max-height:374rpx; width:{{foundList.firstImgWidth}}rpx;height: {{foundList.firstImgHigh}}rpx;" />
+                                    </view>
+                                </block>
+                            </view>
+                        </view>
+                        <!-- 视频 -->
+                        <view class="video_wrap" wx:if="{{foundList.video}}">
+                            <view class='container'>
+                                <view class='video-host-wrapper' hidden='{{foundList.isPlay}}'>
+                                    <image class="imgcover" src="{{foundList.videoImg}}"></image>
+                                    <image class="playbtn" bindtap='onStartPlay' data-index='{{titleIndex}}'
+                                        src="/images/play.png"></image>
+                                </view>
+                                <view wx:if='{{foundList.isPlay}}' class='showVideo' catchtouchmove='move'>
+                                    <video src="{{foundList.video}}" id='myVideo-{{titleIndex}}' class='myVideo'
+                                        bindfullscreenchange='xuanzhuang' autoplay='{{true}}' objectFit='fill' controls
+                                        show-mute-btn initial-time='{{0}}' custom-cache="{{false}}" bindended="videoEnd"
+                                        wx:if='{{foundList.isPlay}}'></video>
+                                </view>
+                            </view>
+                        </view>
+                        <view class="video-{{titleIndex}}"></view>
+                        <view class="The_horn" data-guideLink="{{foundList.guideData.guideLink}}" catchtap="guideLink"
+                            wx:if="{{foundList.guideData.guideLink}}">
+                            <view class="the_horn_left">
+                                <image class="horn_img" src="/images/icon_laba.png" />
+                                <text class="horn_txt">{{foundList.guideData.guideText}}</text>
+                            </view>
+                            <view>
+                                <image class="cart_img" src="/images/icon_putaway.png" />
+                            </view>
+                        </view>
+                        <!-- 阅读数量 -->
+                        <view class="number_wrap">
+                            <view class="collection_wrap collection_wrap_two" catchtap='collection'
+                                data-isCollect="{{foundList.isCollect}}" data-articleId="{{foundList.articleId}}">
+                                <image
+                                    src="{{foundList.isCollect == 0? '/images/collection.png':'/images/collection_two.png'}}" />
+                                <text>{{foundList.isCollect == 0? '收藏':'已收藏'}}</text>
+                            </view>
+                            <view>
+                                <view class="collection_wrap" catchtap='zhuanfa' data-relayImg="{{foundList.relayImg}}"
+                                    data-relayImgThumb="{{foundList.relayImgThumb}}"
+                                    wx:if="{{foundList.relayImg.length > 0}}">
+                                    <image src="/images/icon_zhuanfa_two.png" />
+                                    <text>转发</text>
+                                </view>
+                            </view>
+                            <view class="cart_wrap_two">
+                                <view class="cart_wrap" catchtap='canShu' data-foundGoods="{{foundList.foundGoods}}"
+                                    wx:if="{{foundList.foundGoods.length > 0}}">去采购</view>
+                            </view>
+                        </view>
+                    </view>
+                </block>
+            </view>
+            <view style='display:flex;justify-content:center;margin-top:-20rpx;'>
+                <image wx:if='{{isLoading}}' style='width:100rpx;height:100rpx;margin:0 auto;'
+                    src='/images/bottomLoading.gif' />
+            </view>
+            <reachTheBottom wx:if="{{!isLoading&&foundList.length >0}}" reachTheBottom="{{'已经到底了'}}">
+            </reachTheBottom>
+        </view>
+    </view>
+</view>
+<c-foundParameter id="foundParameter" woshi="{{woshi}}" class="c-foundParameter" foundgoods='{{foundgoods}}'
+    bindfoundParameter="onFoundParameter" bindshopba="onevokeAddCart" wx:if="{{foundParameterShow}}"></c-foundParameter>
+<c-shopba kind='addCart' wx:if='{{isPopCart}}' maskLayer="maskLayer" goodsId='{{goodsId}}' catchtouchmove='true'
+    goodsList='{{goodsList}}' id="addCart" bindhideCart="onhideCart">
+</c-shopba>
+<c-navigationToolsTwo toTheTop="{{toTheTop}}" catchtoUpImgs="ontoUpImgs" />
+<remind kind="rectangle" id="premind"></remind>
+<i-toast id="toast" />
+<c-navigationTools totalCount='{{isTotalCount}}'></c-navigationTools>

@@ -1,0 +1,229 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  padding-bottom: 20rpx;
+  background: #fff;
+}
+
+.itemClass {
+  padding: 0rpx;
+}
+
+.buttonRightItemClass {
+
+  font-size: 28rpx;
+  font-family: PingFangSC-Regular;
+  font-weight: 400;
+}
+
+.swipeoutWrap {
+  border: none;
+}
+
+.container .main {
+  display: flex;
+  align-items: center;
+  width: 750rpx;
+  height: 204rpx;
+}
+
+.container .main .left {
+  width: 80rpx;
+  height: 100rpx;
+  line-height: 100rpx;
+  padding: 0rpx 20rpx;
+}
+
+.container .main .left checkbox {
+  border-radius: 50%;
+}
+
+.container .main .middle {
+  width: 144rpx;
+  height: 154rpx;
+}
+
+.container .main .middle image {
+  width: 144rpx;
+  height: 154rpx;
+}
+
+.container .main .middle view {
+  width: 144rpx;
+  font-size: 20rpx;
+  transform: translate(0rpx, -38rpx);
+  background: rgb(103, 113, 114);
+  text-align: center;
+  color: #fff;
+}
+
+.container .main .right {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-content: flex-start;
+  flex: 1;
+  margin: 0rpx 24rpx;
+}
+
+.container .main .right .title {
+  font-size: 24rpx;
+  color: rgb(47, 58, 64);
+  width: 484rpx;
+  height: 70rpx;
+  text-overflow: -o-ellipsis-lastline !important;
+  overflow: hidden !important;
+  text-overflow: ellipsis !important;
+  display: -webkit-box !important;
+  -webkit-line-clamp: 2 !important;
+  -webkit-box-orient: vertical !important;
+}
+
+.container .main .right .desc {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.container .main .right .desc .price {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
+.container .main .right .desc .price .money {
+  color: #f36;
+  margin-top: 10rpx;
+  font-weight: bold;
+  font-size: 32rpx;
+}
+
+.container .main .right .desc .price .money::before {
+  content: '￥';
+  font-size: 24rpx;
+  font-weight: normal;
+}
+
+.container .main .right .desc .counter {
+
+
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  padding-top: 18rpx;
+  width: 220rpx;
+  height: 48rpx;
+  box-sizing: border-box;
+}
+
+.container .main .right .desc .counter .changeNum {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 180rpx;
+  height: 48rpx;
+  border: 1px solid #ccc;
+  border-radius: 8rpx;
+}
+
+.container .main .right .desc .counter .changeNum text {
+  width: 48rpx;
+  height: 44rpx;
+  line-height: 36rpx;
+  text-align: center;
+  font-size: 24px;
+  font-weight: bold;
+  color: #bbb;
+}
+
+.container .main .right .desc .counter .changeNum text.reduce {
+  border-right: 1px solid #ccc;
+}
+
+.container .main .right .desc .counter .changeNum text.add {
+  border-left: 1px solid #ccc;
+}
+
+.container .main .right .desc .counter .changeNum input {
+  width: 80rpx;
+  font-size: 28rpx;
+  text-align: center;
+  box-sizing: border-box;
+}
+
+.container .main .right .desc .counter .changeNum text.disabled {
+  background: #ccc;
+}
+
+.container .main .right .desc .counter .changeNum text.normal {
+  background: #fff;
+}
+
+.tags {
+  width: 52rpx;
+  height: 28rpx;
+  line-height: 28rpx;
+  font-size: 22rpx;
+  padding: 0;
+}
+
+.mz {
+  background: #f36;
+}
+
+.wl {
+
+  background: #3a93ff;
+}
+
+.warning {
+  width: 23rpx;
+  height: 48rpx;
+  line-height: 48rpx;
+  margin-right: 10rpx;
+}
+
+.warning image {
+  width: 23rpx;
+  height: 21rpx;
+}
+
+.tagList {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  margin-top: 10rpx;
+}
+
+.top_active_tags {
+  padding: 2rpx 6rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 4rpx;
+  margin-right: 10rpx;
+  color: #fff;
+}
+
+.top_active_tags image {
+  width: 20rpx;
+  height: 20rpx;
+}
+
+.top_active_tags text {
+  font-size: 20rpx;
+}
+
+.check_img {
+  width: 32rpx;
+  height: 32rpx;
+  vertical-align: middle;
+}
+.contentChangeClass{
+  white-space: wrap;
+  overflow: auto;
+}

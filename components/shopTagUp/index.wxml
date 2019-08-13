@@ -1,0 +1,70 @@
+<!-- components/shopTagUp/index.wxml -->
+<import src="/utils/wxParse/wxParse.wxml" />
+<!-- 底部 -->
+<view class='Mask' wx:if="{{modalName}}" catchtap='onConfirm' catchtouchmove='move'></view>
+<view class="shopTagUp_content {{modalName ?'shopTagUpShowTwo':''}}" catchtouchmove='move'>
+    <view class="shopTagUp_conter" wx:if="{{kind=='activityInfo'}}">
+        <view wx:if="{{articleType}}">
+            <view class='shopTagUp_title'>活动规则</view>
+            <!-- <view class="rich_ext"></view> -->
+            <scroll-view class="shopTagUpScroll" scroll-y style="height: 780rpx;">
+                <template is="wxParse" data="{{wxParseData:article.nodes}}" />
+            </scroll-view>
+        </view>
+        <view wx:else>
+            <view class='shopTagUp_title'>活动专享</view>
+            <view class="shopTagUp_tag">
+                <image class='shopTagUp_tag_img' src="{{info.tag == '套餐'?'/images/product_taocan.png':info.tag == '满赠'?'/images/product_manzeng.png':info.tag == '物料'?'/images/product_wuliao.png':''}}" />
+                <!-- <text class="shopTagUp_wuliao_" style="background: {{info.tagColor}}">{{info.tag}}</text> -->
+                <text class="shopTagUp_tag_txt">{{info.desc}}</text>
+            </view>
+            <scroll-view scroll-y style="height: 658rpx;width: 100%;">
+                <block wx:for="{{info.goodsList}}" wx:for-item="goodsList" wx:for-index="goodsListIndex" wx:key="{{goodsListIndex}}">
+                    <view class="shopTagUpSwiper" data-goodsId="{{goodsList.goodsId}}" data-kind="{{kind}}" catchtap="shopTagUpGoshop">
+                        <view class="taocan_left">
+                            <view>
+                                <image class="taocan_left_img" mode='widthFix' src="{{goodsList.thumb}}" style="width: 98rpx;min-height: 83rpx;"></image>
+                            </view>
+                            <view class="shopTagUp_tag_name">{{goodsList.goodsName}}</view>
+                        </view>
+                        <view class="shopTagUp_right">￥{{goodsList.price}}</view>
+                    </view>
+                </block>
+            </scroll-view>
+        </view>
+    </view>
+    <view class="shopTagUp_conter" wx:if="{{kind=='eventList'}}">
+        <view class='shopTagUp_title'>活动专享</view>
+        <view class="shopTagUp_tag" wx:if="{{info.type !='优惠券'}}">
+            <block wx:for="{{arr}}" wx:for-item="arr" wx:for-index="arr_in" wx:key="{{arr_in}}">
+                <image class="shopbb_img" style="width:{{arr.width}}rpx;height: {{arr.height}}rpx;" src="{{arr.url}}" wx:if='{{info.tag == arr.name}}' />
+            </block>
+            <text class="shopTagUp_tag_txt">{{info.desc}}</text>
+        </view>
+        <view wx:if="{{info.type =='满赠' ||info.type =='物料'||info.type =='套餐'}}">
+            <scroll-view scroll-y style="height: 658rpx;width: 100%;">
+                <block wx:for="{{info.goodsList}}" wx:for-item="goodsList" wx:for-index="taocan_in" wx:key="{{taocan_in}}">
+                    <view class="shopTagUpSwiper" data-kind="{{kind}}" data-isOnSale="{{goodsList.isOnSale}}" data-goodsId="{{goodsList.goodsId}}" catchtap="shopTagUpGoshop">
+                        <view class="taocan_left">
+                            <view>
+                                <image class="taocan_left_img" src="{{goodsList.thumb}}" style="width: 98rpx;min-height: 83rpx;"></image>
+                            </view>
+                            <view class="shopTagUp_tag_name">{{goodsList.goodsName}}</view>
+                        </view>
+                        <view class="shopTagUp_right">￥{{goodsList.price}}</view>
+                    </view>
+                </block>
+            </scroll-view>
+        </view>
+        <view class="" wx:if="{{info.type =='优惠券'&&info.couponList.length >0}}">
+            <scroll-view scroll-y style="height: 728rpx;width: 100%;">
+                <!-- <block wx:for="{{info.couponList}}" wx:for-item="goodsList" wx:for-index="taocan_in"
+                    wx:key="{{taocan_in}}"> -->
+                <c-coupon couponList='{{couponList}}' bindchangeType='onchangeType' bindgetCouponList='ongetCouponList' semicircleBg='{{true}}' />
+                <!-- </block> -->
+            </scroll-view>
+            <view class='shopTagUp_tip'>除秒杀、巨划算、满减、套餐、直降等活动外可用</view>
+        </view>
+    </view>
+    <view class='shopTagUp_bottom' bindtap='onConfirm'>确定</view>
+</view>

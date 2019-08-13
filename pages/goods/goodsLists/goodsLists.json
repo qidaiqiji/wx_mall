@@ -1,0 +1,15 @@
+{
+  "navigationBarTitleText": "商品列表",
+  "usingComponents": {
+    "c-headSearch": "/components/headSearch/index",
+    "c-searchLists": "/components/searchLists/index",
+    "c-shopba": "/components/product_b/shopba/index",
+    "c-navigationTools": "/components/navigationTools/index",
+    "c-navigationToolsTwo": "/components/navigationToolsTwo/index",
+    "c-filtrateDrawer": "/components/filtrateDrawer/index",
+    "c-sizerLine": "/components/sizerLine/index",
+    "c-goodsItem_row": "/components/goodsItem_row/index",
+    "c-reachTheBottom": "/components/reachTheBottom/index",
+    "i-toast": "../../../dist/toast/index"
+  }
+}

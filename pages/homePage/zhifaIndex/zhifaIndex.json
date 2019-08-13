@@ -1,0 +1,11 @@
+{
+  "navigationBarTitleText": "合资优选",
+  "usingComponents": {
+    "c-headSearch": "/components/headSearch/index",
+    "categoryGoodsList": "/components/categoryGoodsList/index",
+    "c_goodsItem_col": "/components/goodsItem_col/index",
+    "c-shopba": "/components/product_b/shopba/index",
+    "c-navigationToolsTwo":"/components/navigationToolsTwo/index",
+    "i-toast": "../../../dist/toast/index"
+  }
+}

@@ -1,0 +1,26 @@
+<!--components/goodsShow_active/index.wxml-->
+<!-- <text>components/goodsShow_active/index.wxml</text> -->
+<view class='main' >
+  <view class='left'>
+    <view class='left_tag'>
+      <slot name='tag'></slot>
+    </view>
+  </view>
+  <view class='right'>
+    <view class='right_titles'>
+      <view class='right_title_main'>{{desc}}</view>
+      <view class='right_img'>
+        <image class='right_img_' src='/images/finger.png' mode="widthFix" /> 戳上加购
+      </view>
+    </view>
+    <view class='right_allgoods'>
+      <block wx:for="{{goodsList}}" wx:for-item="Item" wx:for-index="index" wx:key="index">
+      <view class='right_goodsMsg'>
+        <view class='right_title_sub'>{{Item.name}}</view>
+        <view class='right_num'>X{{Item.number}}</view>
+      </view>
+    </block>  
+    </view>
+  </view>
+
+</view>

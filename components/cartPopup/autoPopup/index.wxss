@@ -1,0 +1,34 @@
+/* components/cartPopup/autoPopup/index.wxss */
+.pop_main {
+  opacity: 0.5;
+  text-align: center;
+  padding: 0 24rpx;
+  border-radius: 6rpx;
+  background-color: #1b1f22;
+  position: absolute;
+  top: 30%;
+  left: 50%;
+  transform: translateX(-50%);
+  transition: all 1s ease-in;
+}
+
+.pop_content {
+  width: 300rpx;
+  font-size: 24rpx;
+  color: #ffffff;
+  margin: 0 auto;
+  padding: 30rpx 0;
+
+}
+
+.shows {
+  opacity: 1;
+  z-index: 9999;
+
+}
+
+.hides {
+  opacity: 0;
+  z-index: 0;
+
+}

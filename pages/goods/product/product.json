@@ -1,0 +1,23 @@
+{
+  "navigationBarTitleText": "商品详情",
+  "usingComponents": {
+    "c-shopba": "/components/product_b/shopba/index",
+    "i-toast": "../../dist/toast/index",
+    "i-count-down": "../../../dist/count-down/index",
+    "pro_swiper": "../../../components/product_b/pro_swiper/index",
+    "pro_send": "../../../components/product_b/pro_send/index",
+    "pro_brand": "../../../components/product_b/pro_brand/index",
+    "pro_bottom": "../../../components/product_b/pro_bottom/index",
+    "package_details": "../../../components/product_b/package_details/index",
+    "txtInfo": "../../../components/product_b/txtInfo/index",
+    "times": "../../../components/times/index",
+    "c-navigationToolsTwo":"/components/navigationToolsTwo/index",
+    "shopTagUp":"/components/shopTagUp/index",
+    "pro_problem": "../../../components/product_b/pro_problem/index",
+    "c-goodsItem_col": "/components/goodsItem_col/index",
+    "c-spellGroupList": "/components/spellGroupList/index" ,
+    "c-popupWindow": "/components/popupWindow/index",
+    "c-groupShoppingCart":"/components/groupShoppingCart/index",
+    "reachTheBottom":"/components/reachTheBottom/index"
+  }
+}

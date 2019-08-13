@@ -1,0 +1,22 @@
+<!--components/goodsItemThree_col/index.wxml-->
+<view class="c_conter_shop">
+    <view class="c_conter_wrap" data-goodsid="{{goodsList.goodsInfo.goodsId}}" catchtap='jumpToGoodsDetail'>
+        <image class="c_main_img" src="{{goodsList.goodsInfo.thumb}}" />
+        <image class="c_main_icon_img" src="{{goodsList.goodsInfo.themeIcon}}" />
+    </view>
+    <view class="c_txt_wrap">
+        <view class="c_title">{{goodsList.goodsInfo.goodsName}}</view>
+        <view class="c_save_money">{{goodsList.desc}}</view>
+    </view>
+    <view class="c_produce_wrap">
+        <view class="c_produce_symbol">￥</view>
+        <view class="c_produce">{{goodsList.goodsInfo.goodsPrice}}</view>
+    </view>
+    <view class="c_bottom" data-addGoodslist="{{goodsList}}" data-addGoodsId="{{goodsList.goodsInfo.goodsId}}"
+        catchtap="preferentialShop">
+        <view class="c_buyNow">立即购买</view>
+        <view class="">
+            <image class="c_conter_car_img" src="/images/car_two.png" />
+        </view>
+    </view>
+</view>

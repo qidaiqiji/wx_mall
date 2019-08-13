@@ -1,0 +1,74 @@
+/* pages/homePage/colldetail/colldetail.wxss */
+
+.colldetailTap {
+  position: relative;
+  left: 0;
+  top: 0;
+  background-size: 100%;
+  background-repeat: no-repeat;
+  width: 750rpx;
+  height: 360rpx;
+}
+
+.colldetailTap_bottom {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 750rpx;
+  height: 160rpx;
+  background: linear-gradient(0deg, rgba(0, 0, 0, 1) 0%, rgba(0, 0, 0, 0) 100%);
+  z-index: 2;
+  opacity: 0.5;
+}
+
+.colldetailTap1 {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 750rpx;
+  height: 160rpx;
+  z-index: 3;
+  padding-left: 24rpx;
+  padding-right: 24rpx;
+}
+
+/*  */
+
+.colldetailTap_txt1 {
+  width: 702rpx;
+  height: 40rpx;
+  line-height: 40rpx;
+  font-size: 39rpx;
+  font-family: PingFang-SC-Bold;
+  font-weight: bold;
+  color: rgb(255, 255, 255);
+  margin-top: 58rpx;
+  margin-bottom: 16rpx;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+}
+
+.colldetailTap_txt3 {
+  font-size: 24rpx;
+  font-family: PingFang-SC-Medium;
+  font-weight: 500;
+  color: rgba(255, 255, 255, 1);
+  line-height: 42rpx;
+  display: flex;
+  justify-content: space-between;
+}
+
+.colldetailTap_txt4 {
+  width: 678rpx;
+  display: flex;
+  justify-content: space-between;
+}
+
+.icon_eye_white {
+  position: relative;
+  left: 0;
+  top: 6rpx;
+}

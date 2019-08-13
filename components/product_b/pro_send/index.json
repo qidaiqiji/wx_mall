@@ -1,0 +1,8 @@
+{
+  "component": true,
+  "usingComponents": {
+    "c-shopba": "../shopba",
+    "shopbc": "../shopbc",
+    "c-choose_address": "/components/choose_address/index" 
+  }
+}

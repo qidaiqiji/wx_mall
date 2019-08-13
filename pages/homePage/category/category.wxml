@@ -1,0 +1,132 @@
+<!-- <view class='category'> -->
+
+<view
+  class='header_nav  {{titleChange&&!hideHeader?"haveBg":titleChange&&hideHeader?"justShowTitle":""}} {{currentTab ==0?"tab0":currentTab ==1?"tab1":currentTab ==2?"tab2":"tab3"}}  '>
+  <view class='header_nav_search' wx:if='{{!hideHeader}}'>
+    <c-headSearch />
+  </view>
+  <view class='header_nav_jump'>
+    <block wx:for='{{nav}}' wx:key='index'>
+      <view class='jump_item  {{currentTab==(index)?"opcityItem":""}}' bindtap="switchTab" data-current="{{index}}"
+        style='background:{{titleChange?blue:""}}'>
+        <image class='jump_item_img' src='{{item.img}}' wx:if='{{!titleChange}}'></image>
+        <view
+          class="jump_item_title {{currentTab==(index) ? 'titleClick' : ''}} {{titleChange&&currentTab==(index)?'addFont':''}} ">
+          {{item.title}}</view>
+        <view class=" {{currentTab==(index)? 'title_active' : ''}} {{titleChange&&currentTab==(index)?'addWidth':''}}">
+        </view>
+      </view>
+    </block>
+  </view>
+</view>
+<!-- //fenkai -->
+<view class='swiper_main'>
+  <view
+    style='background-image:url({{currentTab==0?img_bg_0:currentTab==1?img_bg_1 :currentTab==2?img_bg_2:currentTab==3?img_bg_3:img_bg_0}})'
+    class='category_header'>
+    <view class='header_nav_slideshow'>
+      <swiper indicator-dots="true" autoplay="true" circular='true' interval="5000" duration="500"
+        class='header_nav_slideshow' current='{{current}}' indicator-color='rgba(rgba(215,184,191,1)'
+        indicator-active-color='rgba(255,255,255,1)'>
+        <block wx:for='{{bannerList}}' wx:for-item='bannerItem' wx:key='index'>
+          <swiper-item>
+              <image src="{{bannerItem.img}}" class="slide-image" catchtap='goAdvertising' data-item='{{bannerItem}}'/>
+          </swiper-item>
+
+        </block>
+      </swiper>
+    </view>
+  </view>
+  <!-- 热销尖货 -->
+  <view class='hot_goods' wx:if='{{hotGoodsList.length>0}}'>
+    <view class='hot_goods_title'>热销尖货</view>
+    <view class='hot_goods_list'>
+      <swiper class="hot_swiper" autoplay="true" indicator-dots="true" interval='5000' duration='500' circular="true"
+        indicator-color='rgba(rgba(215,184,191,1)' indicator-active-color='#FF3366'>
+        <block wx:for="{{hotGoodsList}}" wx:for-item="hotGoodsListSwiper" wx:for-index="swiper_index"
+          wx:key="swiper_index">
+          <swiper-item wx:key="swiper_index">
+            <c-categoryGoodsList bindevokeAddCart='onevokeAddCart' goodsList='{{hotGoodsListSwiper}}' />
+          </swiper-item>
+        </block>
+      </swiper>
+    </view>
+  </view>
+  <!-- 面膜榜单 -->
+  <view class='mask_list' wx:if='{{topGoodsList.length>0}}'
+    style='background-image:url({{currentTab==0?cart_bg0:currentTab==1?cart_bg1 :currentTab==2?cart_bg2:currentTab==3?cart_bg3:img_bg_0}})'>
+    <block wx:for='{{nav}}' wx:for-item='navItem' wx:key='index'>
+      <view class='mask_list_title' wx:if='{{currentTab== index}}'>{{navItem.title}}榜单</view>
+    </block>
+    <view class='mask_list_all'>
+      <!-- <c-categoryGoodsList bindevokeAddCart='onevokeAddCart' kind='ranking' goodsList='{{topGoodsList}}' /> -->
+
+      <!-- <view class='category_goods'> -->
+      <block wx:for='{{topGoodsList}}' wx:for-item='goodsItem' wx:key='index'>
+        <view class='goodsItem'>
+          <image src='/images/icon_no{{index+1}}_mask.png' class='goodsItem_tag'></image>
+          <view class='getGoodsItemBorder getMargin{{index+1}}'>
+            <view class='goodsItem_img' catchtap='jumpToGoodsDetail' data-goodsId='{{goodsItem.goodsInfo.goodsId}}'>
+
+              <image src='{{goodsItem.goodsInfo.thumb}}' class='goodsItem_img_'></image>
+            </view>
+            <view class=' {{kind=="ranking"?"goodsItem_titles":"goodsItem_title"}}'>{{goodsItem.goodsInfo.goodsName}}
+            </view>
+            <view class='goodsItem_bottom'>
+              <view class='goodsItem_price'>￥{{goodsItem.goodsInfo.goodsPrice}}</view>
+              <view class='toBuy' data-goodsId='{{goodsItem.goodsInfo.goodsId}}' catchtap='handleToBuy'
+                data-goodsList="{{goodsItem}}">
+                <image src='/images/icon_shopping.png' class='goodsItem_cart'></image>
+              </view>
+            </view>
+          </view>
+        </view>
+      </block>
+      <!-- </view> -->
+    </view>
+  </view>
+
+  <!-- 优选品牌 -->
+  <view class='high_quality_brand'>
+    <view class='high_quality_brand_title'>优选品牌</view>
+    <view class='high_quality_brand_all'>
+      <block wx:for='{{brandList}}' wx:for-item='brandItem' wx:key='index'>
+        <view class='high_quality_brand_item' data-brandId='{{brandItem.brandId}}' bindtap='jumpToBrandDetail'>
+          <image src='{{brandItem.img}}' class='brand_item_img' mode='widthFix'></image>
+        </view>
+      </block>
+    </view>
+  </view>
+
+  <!-- 精选分类 -->
+  <view class='high_quality_classify' wx:if='{{keywordsList.length>0}}'>
+    <view class='high_quality_classify_title'>精选分类</view>
+    <view class='high_quality_classify_all'>
+      <block wx:for='{{keywordsList}}' wx:for-item='keywordsItem' wx:key='index'>
+        <view class='high_quality_classify_item' bindtap='jumpToGoodsList' data-keywords='{{keywordsItem}}'>
+          {{keywordsItem}}</view>
+      </block>
+    </view>
+  </view>
+
+  <!-- 专辑推荐 -->
+  <view class='recommend_goods'>
+    <view class='recommend_goods_title'>
+      <view class='title_'>为您推荐</view>
+    </view>
+    <view class='recommend_goods_all'>
+      <c-goodsItem_col bindevokeAddCart='onevokeAddCart' goodsList='{{goodsList}}' />
+    </view>
+    <view style='display:flex;justify-content:center;'>
+      <image wx:if='{{isLoadings}}' style='width:100rpx;height:100rpx;margin:0 auto;' src='/images/bottomLoading.gif' />
+    </view>
+    <c-reachTheBottom wx:if='{{reachTheBottom}}' />
+  </view>
+</view>
+<c-shopba kind='addCart' wx:if='{{isPopCart}}' shbpbaWrapHeight='999' shbpbaListHeight='444' goodsId='{{addGoodsId}}'
+  catchtouchmove='true' goodsList='{{addGoodslist}}' id="addCart" bindhideCart="onhideCart" bindgetTotle='ongetTotle'>
+</c-shopba>
+
+<i-toast id="toast" />
+<c-navigationTools totalCount='{{totalCounts}}' />
+<c-navigationToolsTwo toTheTop="{{toTheTop}}" catchtoUpImgs="ontoUpImgs" />

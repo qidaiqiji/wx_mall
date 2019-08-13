@@ -1,0 +1,24 @@
+<!--pages/myCollection/myCollection.wxml-->
+<view class="wrap">
+    <block wx:for='{{collectList}}' wx:for-item='goodsItem' wx:key='index'>
+        <view class='list_wrap'>
+            <view class="list_top">
+                <view class="list_top_left">
+                    <image src='{{goodsItem.authorImg}}' class='icon_top_left' />
+                    <view>{{goodsItem.authorName}}</view>
+                </view>
+                <view class="list_top_right" catchtap='collection' data-isCollect="{{goodsItem.isCollect}}"
+                    data-articleId="{{goodsItem.articleId}}">
+                    <image src='{{goodsItem.isCollect?"/images/collection_two.png":"/images/collection.png"}}' class='icon_top_right' />
+                    <text>{{goodsItem.isCollect?'已收藏':'收藏'}}</text>
+                </view>
+            </view>
+            <view class="list_conter" data-articleId="{{goodsItem.articleId}}" catchtap='jumpToDetail'>{{goodsItem.title}}</view>
+            <view class="left_bottom">{{goodsItem.publishTimeTwo}}</view>
+        </view>
+    </block>
+</view>
+<c-reachTheBottom reachTheBottom="{{'已经到底了'}}" wx:if="{{data.length > 0}}"></c-reachTheBottom>
+<c-navigationTools totalCount='{{totalCounts}}' />
+<c-navigationToolsTwo toTheTop="{{toTheTop}}" bottomToTheTop="20" catchtoUpImgs="ontoUpImgs" />
+<i-toast id="toast" />

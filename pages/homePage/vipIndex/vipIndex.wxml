@@ -1,0 +1,87 @@
+<view class='all'>
+  <view style='background-image:url({{img_top_bg}})' class='vip_header'>
+    <view class='vip_header_nav'>
+      <view class='header_nav_jump'>
+        <view class='jump_item' bindtap='jumpTogoodsList'>
+          <image class='jump_item_img' src='{{icon_vip_shop}}'></image>
+          <view class='jump_item_title'>贵宾商品</view>
+        </view>
+        <button style='background:transparent' open-type="contact" session-from="weapp">
+          <view class='jump_item'>
+            <image class='jump_item_img' src='{{icon_vip_service }}'></image>
+            <view class='jump_item_title'>专属客服</view>
+          </view>
+        </button>
+        <view class='jump_item' bindtap='handleShowBottomModal'>
+          <image class='jump_item_img' src='{{icon_rule }}'></image>
+          <view class='jump_item_title'>贵宾规则</view>
+        </view>
+
+
+      </view>
+    </view>
+    <view class='header_nav_slideshow'>
+
+      <swiper indicator-dots="true" circular="true" autoplay="true" interval="5000" duration="500" class='header_nav_slideshow' indicator-color='rgba(rgba(215,184,191,1)' indicator-active-color='rgba(255,255,255,1)'>
+        <block wx:for='{{bannerList}}' wx:for-item='bannerItem' wx:key='index'>
+          <swiper-item>
+            <image src="{{bannerItem.img}}" class="slide-image" catchtap='goAdvertising' data-item='{{bannerItem}}' />
+          </swiper-item>
+        </block>
+      </swiper>
+    </view>
+  </view>
+  <!-- 五个广告位 -->
+  <view class='vip_ad'>
+    <view class='vip_ad_title'>
+      <image src='{{img_item}}'></image>
+    </view>
+    <view class='vip_ad_content'>
+
+      <block wx:for='{{adList}}' wx:for-item='adItem' wx:key='index'>
+        <view class='{{index ==0 ?"big_ad_img":"ad_img"}}'>
+          <image src='{{adItem.img}}' class='{{index == 0 ? "big_ad_img_":"ad_img_"}}' catchtap='goAdvertising' data-item='{{adItem}}'></image>
+        </view>
+      </block>
+
+    </view>
+  </view>
+  <view class='mxdp' style='background-image:url({{img_goods_bg }})' wx:if='{{starList.length>0}}'>
+    <view class='mxdp_title'>明星单品</view>
+    <view class='mxdp_msg'>VIP都在看的爆款</view>
+    <view class='mxdp_list'>
+      <c-goodsItem_col bindevokeAddCart='onevokeAddCart' goodsList='{{starList}}' kind='vip' bindfixedPage='onfixedPage' />
+    </view>
+
+
+  </view>
+  <!-- 门店必备 -->
+  <view class='mdbb' style='background-image:url({{img_mendian}})' wx:if='{{bibeiList.length>0}}'>
+    <view class='mdbb_title'>门店必备</view>
+    <view class='mdbb_msg'>当季大赏 特惠狂欢</view>
+    <view class='mdbb_list'>
+      <c-goodsItem_col bindevokeAddCart='onevokeAddCart' goodsList='{{bibeiList}}' kind='vip' bindfixedPage='onfixedPage' />
+    </view>
+
+  </view>
+  <!-- 专享优惠 -->
+  <view class='vip_goodsList'>
+    <view class='vip_goodsList_title'>
+      <image src='{{img_zhuanshuyouhui}}'></image>
+    </view>
+    <view class='vip_goodsList_content'>
+
+      <c-goodsItem_row bindevokeAddCart='onevokeAddCart' goodsList='{{goodsList}}' kind='vip' bindfixedPage='onfixedPage' />
+      <view style='display:flex;justify-content:center;'>
+        <image wx:if='{{isLoadings}}' style='width:100rpx;height:100rpx;margin:0 auto;' src='/images/bottomLoading.gif' />
+      </view>
+      <c-reachTheBottom wx:if='{{reachTheBottom}}' />
+    </view>
+  </view>
+</view>
+<c-shopba kind='addCart' wx:if='{{isPopCart}}' shbpbaWrapHeight='999' shbpbaListHeight='444' goodsId='{{addGoodsId}}' catchtouchmove='true' goodsList='{{addGoodslist}}' id="addCart" bindhideCart="onhideCart" bindgetTotle='ongetTotle' vip='{{true}}'>
+</c-shopba>
+<i-toast id="toast" />
+<c-navigationTools totalCount='{{totalCountVip}}' />
+<c-navigationToolsTwo toTheTop="{{toTheTop}}" catchtoUpImgs="ontoUpImgs" />
+<c-bottomModal kind='vip' wx:if='{{isShowBottomModal}}' bindhideMask='onhideMask' id='showBottomModal'></c-bottomModal>

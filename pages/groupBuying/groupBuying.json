@@ -1,0 +1,9 @@
+{  "navigationBarTitleText": "小美拼团",
+  "usingComponents": {
+    "c-navigationToolsTwo": "/components/navigationToolsTwo/index",
+    "c-navigationTools": "/components/navigationTools/index",
+    "c-times": "/components/times/index",
+    "c-noGoods":"/components/noGoods/index",
+    "reachTheBottom":"/components/reachTheBottom/index"
+  }
+}

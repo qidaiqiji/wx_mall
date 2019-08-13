@@ -1,0 +1,15 @@
+{
+  "navigationBarTitleText": "榜单优选",
+  "usingComponents": {
+    "c-goodsItem_row": "/components/goodsItem_row/index",
+    "c-bottomModal": "/components/bottomModal/index",
+    "c-reachTheBottom": "/components/reachTheBottom/index",
+    "c-headSearch": "/components/headSearch/index",
+    "c-navigationTools": "/components/navigationTools/index",
+    "c-shopba": "/components/product_b/shopba/index",
+    "i-toast": "../../../dist/toast/index",
+    "c-navigationToolsTwo": "/components/navigationToolsTwo/index",
+    "reachTheBottom": "/components/reachTheBottom/index",
+    "c-categoryGoodsList": "/components/categoryGoodsList/index"
+  }
+}

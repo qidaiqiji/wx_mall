@@ -1,0 +1,56 @@
+<!--components/product_b/txtInfo/index.wxml-->
+<view class='txtInfo_wrap'>
+  <!-- 市场参谋 -->
+  <view class="pro_stall_wrap">
+    <view class="pro_stall_one">
+      <text class="pro_stall_two">市场参谋</text>
+    </view>
+    <view class="pro_stall_three">
+      <view class="pro_stall_three_left">
+        <view class="pro_stall_txt_one">门店指导价</view>
+        <view class="pro_stall_txt_two pro_stall_txt_two_ {{isDaiFa=='isDaiFa'?'isDaiFa':''}}">{{marketSuggest.guidancePrice}}</view>
+        <view style="height: 28rpx;line-height: 24rpx;">
+          <text class="pro_stall_txt_one">推荐星级</text>
+
+          <i-rate i-class="test" disabled="{{true}}" size="12" count="{{5}}" value="{{marketSuggest.recommendLevel}}">
+          </i-rate>
+
+        </view>
+      </view>
+      <view class="pro_stall_border"></view>
+      <view class="pro_stall_three_right">
+        <view class="pro_stall_txt_one">门店零售利润率</view>
+        <view class="pro_stall_txt_two {{isDaiFa=='isDaiFa'?'isDaiFa':''}}">{{marketSuggest.guidanceRate}}</view>
+        <view>
+          <text class="pro_stall_txt_one">已成交门店数量</text>
+          <text class="pro_stall_txt_three"> {{marketSuggest.buyerNum}}</text>
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <!-- 市场评价 -->
+  <view wx:if="{{marketComment.length}}">
+    <view class="txtInfo_spacing"></view>
+    <view class="market_one">
+      <text class="market_two">市场评价</text>
+    </view>
+    <view class="market_comment">
+      <block wx:for="{{marketComment}}" wx:for-item="marketc" wx:for-index="marketcc" wx:key="marketcc">
+        <view class="xin"> {{marketc}}</view>
+      </block>
+    </view>
+  </view>
+  <!-- 客户反馈 -->
+  <view class="pro_feedback_wrap" wx:if="{{feedback}}">
+    <view class="txtInfo_spacing"></view>
+    <view class="feedback_one">
+      <text class="feedback_two">客户反馈</text>
+    </view>
+    <view class="feedback_comment">
+      <view class="feedback_ttext">
+        {{feedback}}
+      </view>
+    </view>
+  </view>
+</view>

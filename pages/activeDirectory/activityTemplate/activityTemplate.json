@@ -1,0 +1,11 @@
+{
+  "navigationBarTitleText": "",
+  "usingComponents": {
+    "goodlsListTwo_col": "/components/goodsItemTwo_col/index",
+    "c-shopba": "/components/product_b/shopba/index",
+    "c-navigationTools": "/components/navigationTools/index",
+    "c-navigationToolsTwo": "/components/navigationToolsTwo/index",
+    "popupWindow": "/components/popupWindow/index",
+    "i-toast": "/dist/toast/index"
+  }
+}

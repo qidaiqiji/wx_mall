@@ -1,0 +1,36 @@
+/* components/countDown/index.wxss */
+image{
+    vertical-align: top;
+}
+.countDownOne {
+    display: flex;
+    align-items: center;
+}
+
+.flashSaleTime {
+    height: 24rpx;
+    background: rgba(255, 255, 255, 1);
+    border-radius: 4rpx;
+    font-size: 18rpx;
+    font-family: MicrosoftYaHei-Bold;
+    font-weight: bold;
+    color: rgba(47, 58, 64, 1);
+    padding: 4rpx;
+}
+
+.flashSaleTxt {
+    height: 18rpx;
+    font-size: 18rpx;
+    font-family: MicrosoftYaHei;
+    font-weight: 400;
+    color: rgba(254, 254, 254, 1);
+    margin: 0rpx 4rpx;
+}
+
+.flashSaleImg {
+    width: 30rpx;
+    height: 30rpx;
+    font-family: MicrosoftYaHei-Bold;
+    font-weight: bold;
+    color: rgba(255, 255, 255, 1);
+}

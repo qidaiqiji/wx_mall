@@ -1,0 +1,184 @@
+/* components/product_b/txtInfo/index.wxss */
+
+/* 市场参谋 */
+
+.pro_stall_one {
+  width: 750rpx;
+  height: 88rpx;
+  background: rgba(255, 255, 255, 1);
+  border-bottom: 1rpx solid #DCE4E6;
+  display: flex;
+  align-items: center;
+}
+
+.pro_stall_two {
+  height: 27rpx;
+  font-size: 28rpx;
+  font-family: PingFang-SC-medium;
+  font-weight: bold;
+  color: rgba(47, 58, 64, 1);
+  margin-left: 25rpx;
+}
+
+/* 内容 */
+
+.pro_stall_three {
+  width: 750rpx;
+  height: 204rpx;
+  background: rgba(255, 255, 255, 1);
+  display: flex;
+  justify-content: space-between;
+   font-family: PingFang-SC-regular !important;
+}
+.pro_stall_three_left{
+  width: 374rpx;
+  height: 204rpx;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  padding-left: 54rpx;
+}
+.pro_stall_border{
+  width:1rpx;
+  height:121rpx;
+  background:rgba(229,229,229,1);
+  margin-top: 22rpx;
+}
+ .pro_stall_three_right {
+  width: 374rpx;
+  height: 204rpx;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  padding-left: 54rpx;
+}
+
+.pro_stall_txt_one {
+  height: 28rpx;
+  font-size: 24rpx;
+  font-family: PingFang-SC-regular;
+  font-weight: 400;
+  color: rgba(136, 150, 150, 1);
+}
+
+.pro_stall_txt_two {
+  font-size: 32rpx;
+  font-family: SFUIDisplay-Regular;
+  font-weight: 400;
+  color: rgba(255, 51, 102, 1);
+  line-height: 28rpx;
+}
+.pro_stall_txt_two_{
+  position: relative;
+  left: -8rpx;
+  top: 0rpx;
+}
+.pro_stall_txt_three {
+  font-size: 24rpx;
+  font-family: PingFang-SC-regular;
+  font-weight: 400;
+  color: rgba(47, 58, 64, 1);
+  line-height: 28rpx;
+}
+
+.test {
+  padding: 0rpx;
+  margin: 0rpx;
+  position: relative;
+  left: 0rpx;
+  top: -4rpx;
+}
+
+/* 市场评价 */
+
+.market_one {
+  width: 750rpx;
+  height: 88rpx;
+  background: rgba(255, 255, 255, 1);
+  border-bottom: 1rpx solid #DCE4E6;
+  line-height: 88rpx;
+}
+
+.market_two {
+  height: 27rpx;
+  font-size: 28rpx;
+  font-family: PingFang-SC-Bold;
+  font-weight: bold;
+  color: rgba(47, 58, 64, 1);
+  margin-left: 25rpx;
+}
+
+/* 内容 */
+
+.market_comment {
+  width: 750rpx;
+  background: rgba(255, 255, 255, 1);
+  display: flex;
+  flex-wrap: wrap;
+  font-size: 24rpx;
+  font-family: PingFang-SC-Medium;
+  font-weight: 400;
+  color: rgba(103, 113, 114, 1);
+  padding-top: 24rpx;
+}
+
+.xin {
+  height: 40rpx;
+  background: rgba(255, 227, 237, 1);
+  border-radius: 20rpx;
+  font-size: 24rpx;
+  font-family: PingFang-SC-regular;
+  font-weight: 400;
+  color: rgba(103, 113, 114, 1);
+  line-height: 40rpx;
+  padding: 0 13rpx;
+  margin-left: 32rpx;
+  margin-bottom: 24rpx;
+}
+
+/* 客户反馈 */
+
+.pro_feedback_wrap {
+  background: rgba(255, 255, 255, 1);
+}
+
+.feedback_one {
+  width: 750rpx;
+  height: 88rpx;
+  border-bottom: 1rpx solid #DCE4E6;
+  display: flex;
+  align-items: center;
+}
+
+.feedback_two {
+  height: 27rpx;
+  font-size: 28rpx;
+  font-family: PingFang-SC-Bold;
+  font-weight: bold;
+  color: rgba(47, 58, 64, 1);
+  margin-left: 25rpx;
+}
+
+.feedback_comment {
+  width: 750rpx;
+  background: rgba(255, 255, 255, 1);
+}
+
+.feedback_ttext {
+  font-size: 28rpx;
+  font-family: PingFang-SC-regular;
+  font-weight: 500;
+  color: rgba(136, 150, 150, 1);
+  line-height: 42rpx;
+  margin: 25rpx 44rpx 24rpx 27rpx;
+  padding-bottom: 24rpx;
+}
+
+.txtInfo_spacing {
+  width: 750rpx;
+  height: 20rpx;
+  background: rgb(243, 243, 243);
+}
+.isDaiFa{
+  color: #0087EA;
+}

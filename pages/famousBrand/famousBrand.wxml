@@ -1,0 +1,245 @@
+<!--pages/famousBrand/famousBrand.wxml-->
+<view class="wrap">
+    <view class="top_img" style="background-image: url({{famous_brand}})">
+        <!-- 顶部轮播 -->
+        <view class="top_wrap">
+            <swiper class="top_swiper_wrap" autoplay="true" circular='{{true}}' interval='5000' duration='500'
+                bindchange="swiperChange">
+                <block wx:for="{{carouselList}}" wx:for-item="carouselItem" wx:for-index="carouselIndex"
+                    wx:key="carouselIndex">
+                    <swiper-item>
+                        <view class="top_swiper" data-jumpUrl="{{carouselItem.url}}" catchtap="onCarouselItem">
+                            <image  src="{{carouselItem.img}}" />
+                            <view class="top_swiper_">
+                                 <image  class="top_swiper_" src="{{carouselItem.img}}" />
+                            </view>
+                          
+                            <view class="frosted_glass">
+                                <view class="famous_linear_gradient">
+                                    <view>{{carouselItem.goodsName}}</view>
+                                    <view class="famous_linear_price">
+                                        <view>{{carouselItem.intPrice}}</view>
+                                        <view>.{{carouselItem.flootPrice}}</view>
+                                    </view>
+                                </view>
+                            </view>
+                        </view>
+                    </swiper-item>
+                </block>
+            </swiper>
+            <view class="by_point_wrap">
+                <block wx:for="{{carouselList}}" wx:for-index="pointIndex" wx:key="pointIndex">
+                    <view class="{{current ==pointIndex?'by_point_':'by_point'}}"></view>
+                </block>
+            </view>
+        </view>
+        <!-- 名品汇聚 -->
+        <view class="top_bottom_wrap">
+            <image class="top_bottom_lfet" src="/images/img_neww.png"></image>
+            <view class="top_bottom_right">
+                <scroll-view scroll-x="true" style=" white-space: nowrap;display: flex;"
+                    class="top_bottom_right_scroll">
+
+                    <block wx:for='{{segmentationList}}' wx:for-inded="listIndex" wx:key='{{listIndex}}'>
+                        <view class='brand_right'>
+                            <block wx:for="{{item}}" wx:for-item="ii" wx:for-inded="im" wx:key="{{im}}">
+                                <view class="brandList_img_solid">
+                                    <image mode=' widthFix' class="brandList_img" src="{{ii.imgUrl}}"
+                                        data-id="{{ii.brandId}}" catchtap='onSegmentationList' />
+                                </view>
+                            </block>
+                        </view>
+                    </block>
+                </scroll-view>
+            </view>
+        </view>
+    </view>
+    <view class="white_bottom">
+
+    </view>
+    <view class="conter_popup">
+        <view class="conter_popup_left">
+            <block wx:for="{{arrTxt}}" wx:for-item='txtItem' wx:for-index="txtIndex" wx:key="txtIndex">
+                <view class="conter_popup_txt">
+                    <image class="for_img" src="/images/icon_gou.png" />
+                    <view class="">{{txtItem}}</view>
+                </view>
+            </block>
+        </view>
+        <view class="conter_popup_right" catchtap="showEventPopups">
+            <image class="right_green" src="/images/icon_diamond.png" />
+            <text>名品采购告知书</text>
+            <image class="right_green" src="/images/right_green.png" />
+        </view>
+    </view>
+    <view id="classification_wrap" class="the_selection_list_wrap">
+        <view class="the_selection">
+            <view class="">甄选名品</view>
+            <view class="">
+                <!-- <image class="right_green" src="/images/right_green.png" /> -->
+            </view>
+        </view>
+        <view>
+            <block wx:for="{{brandInfo}}" wx:for-item='txtItem' wx:for-index="txtIndex" wx:key="txtIndex">
+                <view class="the_selection_list">
+                    <view class="the_selection_list_img" data-displayAspectRatio="{{txtItem.displayAspectRatio}}"
+                        data-videoWidth="{{txtItem.videoWidth}}" data-videoHeight="{{txtItem.videoHeight}}"
+                        data-isvideo='{{txtItem.videoUrl}}' data-url="{{txtItem.jumpUrl}}" catchtap='goJumpUrl'>
+                        <image class="selection_img" src="{{txtItem.imgUrl}}" />
+                        <image class="playbtn" src="/images/play.png" wx:if="{{txtItem.videoUrl}}">
+                        </image>
+                    </view>
+                    <view class="selection_shop_wrap">
+                        <scroll-view scroll-x="true" style=" white-space: nowrap;display: flex;"
+                            class="selection_shop_scroll">
+                            <block wx:for="{{txtItem.goodsList}}" wx:for-item='goodsListItem'
+                                wx:for-index="goodsListIndex" wx:key="{{goodsList}}">
+                                <view class="selection_shop">
+                                    <view class="">
+                                        <image class="selection_shop_img" src="{{goodsListItem.goodsInfo.thumb}}"
+                                            data-goodsid="{{goodsListItem.goodsInfo.goodsId}}" catchtap="goProduct" />
+                                    </view>
+                                    <view class="selection_shop_title">{{goodsListItem.goodsInfo.goodsName}}</view>
+                                    <view class="selection_price_wrap">
+                                        <view class="selection_price">
+                                            <view class="selection_price_wrap_">
+                                                <view>{{goodsListItem.goodsInfo.intPrice}}</view>
+                                                <view>.{{goodsListItem.goodsInfo.flootPrice}}</view>
+                                            </view>
+                                            <view class="">{{goodsListItem.goodsInfo.marketPrice}}</view>
+                                        </view>
+                                        <image class="green_shop" src="/images/green_shop.png"
+                                            data-goodslist="{{goodsListItem}}"
+                                            data-goodsid="{{goodsListItem.goodsInfo.goodsId}}" catchtap="goShop" />
+                                    </view>
+                                </view>
+                            </block>
+                            <view class="selection_shop_" data-goodsid="{{txtItem.brandId}}" catchtap="goAllShop">
+                                <view class="more_shop_padding">
+                                    <image class="more_shop_img" src="/images/icon_more.png" />
+                                    <view class="more_shop">查看更多</view>
+
+                                </view>
+                                <view class="selection_shop_title selection_shop_title_"></view>
+                                <view class="selection_price_wrap">
+                                    <view class="selection_price_">
+                                        <view class=""></view>
+                                        <view class=""></view>
+                                    </view>
+                                    <image class="green_shop" src="" />
+                                </view>
+                            </view>
+                        </scroll-view>
+                    </view>
+                </view>
+            </block>
+        </view>
+
+    </view>
+    <!-- 中小样 -->
+    <view class="classification_wrap">
+        <view class="{{isFoundList?'brand_classification_wrap_':'brand_classification_wrap'}}">
+            <scroll-view scroll-x="true" style=" white-space: nowrap; display: flex" class="brand_classification_list">
+                <block wx:for="{{categoryList}}" wx:for-item='txtItem' wx:for-index="classIndex" wx:key="classIndex">
+                    <view class="title_choose" data-id="{{txtItem.catId}}" data-index="{{classIndex}}"
+                        catchtap="TitltIndex">
+                        <view class="title_choose_flex">
+                            <view class="{{classIndex ==arrTitltIndex ?'title_choose_title':''}}">{{txtItem.catName}}
+                            </view>
+                            <view class="{{classIndex ==arrTitltIndex ?'title_choose_border':'title_choose_border_'}}">
+                            </view>
+                        </view>
+                    </view>
+                </block>
+            </scroll-view>
+            <view class="small_kind  {{isFoundList?'small_kind_':''}}" data-id="1" data-index="-1" catchtap="tipsText">
+                <view class="small_kind_bottom">
+
+                </view>
+                <view class="small_kind_txt">中小样</view>
+                <view class="tips_text" style="background-image: url({{tips_text_img}})" wx:if="{{tipsTextHide}}">
+                    <view>{{tipsText}}</view>
+                </view>
+            </view>
+        </view>
+        <!-- 底部高度 -->
+        <view class="brand_classification_bottom"></view>
+        <!-- 可能是组件 -->
+        <view style="min-height: {{appHeight}}rpx">
+            <block wx:for="{{classificationList}}" wx:for-item='txtItem' wx:for-index="classIndex" wx:key="classIndex">
+                <view class="temporary_wrap">
+                    <view class="goodsList_row_two">
+                        <view class="list_thum_wrap">
+                            <image class="two_row_wrap" src="{{txtItem.goodsInfo.thumb}}"
+                                data-goodsid="{{txtItem.goodsInfo.goodsId}}" catchtap="goProduct">
+                            </image>
+                            <image class="playbtn" data-goodsid="{{txtItem.goodsInfo.goodsId}}" catchtap="goProduct"
+                                src="/images/play.png" wx:if="{{txtItem.isVideoTag}}"></image>
+                        </view>
+                        <view class="goodsList_row_right" data-goodsid="{{txtItem.goodsInfo.goodsId}}"
+                            catchtap="goProduct">
+                            <view class="goodsList_row_right_top">
+                                <view class="">{{txtItem.goodsInfo.goodsName}}</view>
+                                <view class="">{{txtItem.goodsInfo.desc}}</view>
+                                <view class="goodsItem_tag_wrap">
+                                    <block wx:for='{{txtItem.tagList}}' wx:for-item='tagItem' wx:key='index'>
+                                        <image class="goodsItem_row_tag"
+                                            src="{{tagItem.text=='物料'?'/images/tag_wuliao@2x.png':tagItem.text=='贵宾价'?'/images/tag_vip@2x.png':tagItem.text=='套餐'?'/images/tag_taocan@2x.png':tagItem.text=='满赠'?'/images/tag_manzeng@2x.png':tagItem.text=='满减'?'/images/tag_manjian@2x.png':tagItem.text=='巨划算'?'/images/tag_huasuan@2x.png':tagItem.text=='直降'?'/images/zhijiang1.png':tagItem.text=='秒杀'?'/images/miaosha1.png':tagItem.text == '优惠券'?'/images/tag_youhui.png':''}}"
+                                            style="width: {{tagItem.text.length == 3 ?65:tagItem.text.length == 2?47: 0}}rpx;"
+                                            wx:if="{{tagItem.text =='直发'||tagItem.text =='新品'||tagItem.text =='明星'?false:true}}"></image>
+                                    </block>
+                                </view>
+                            </view>
+                            <view class="goodsList_row_right_bottom">
+                                <view class="goodsList_row_price">
+                                    <text>{{txtItem.goodsInfo.intPrice}}</text>
+                                    <text>.{{txtItem.goodsInfo.flootPrice}}</text>
+                                    <text>{{txtItem.goodsInfo.marketPrice}}</text>
+                                </view>
+                                <view class="goodsList_row_car_" data-goodslist="{{txtItem}}"
+                                    data-goodsid="{{txtItem.goodsInfo.goodsId}}" catchtap="goShop"
+                                    wx:if="{{txtItem.goodsInfo.stock>0&&txtItem.goodsInfo.stock-txtItem.goodsInfo.startNum>=0}}">
+                                    <image class="green_shop" src="/images/green_shop.png" />
+                                </view>
+                                <view class="goodsList_row_car" data-goodslist="{{txtItem}}"
+                                    data-goodsid="{{txtItem.goodsInfo.goodsId}}" catchtap="goShop" wx:else>
+                                    <view class="" wx:if="{{txtItem.goodsInfo.reminder ==2}}">到货提醒</view>
+                                    <view class="" wx:if="{{txtItem.goodsInfo.reminder == 1}}">取消提醒</view>
+                                    <image class="green_shop" src="/images/icon_shop_green.png" />
+                                </view>
+
+                            </view>
+                        </view>
+                    </view>
+                </view>
+            </block>
+            <view>
+                <view style='display:flex;justify-content:center;margin-top:-20rpx;' wx:if='{{isLoading}}'>
+                    <image style='width:100rpx;height:100rpx;margin:0 auto;' src='/images/bottomLoading.gif' />
+                </view>
+                <reachTheBottom reachTheBottom="{{reachTheBottom}}" wx:if='{{!isLoading}}'></reachTheBottom>
+            </view>
+        </view>
+    </view>
+
+</view>
+<c-navigationTools totalCount='{{totalCounts}}' />
+<c-navigationToolsTwo toTheTop="{{toTheTop}}" catchtoUpImgs="ontoUpImgs" />
+<c-eventPopups catcheventPopups="onEventPopups" purchaseTips="{{purchaseTips.content}}" wx:if="{{isEventPopupsHide}}" />
+<c-shopba kind='addCart' bigbrand="bigbrand" wx:if='{{isPopCart}}' goodsId='{{addGoodsId}}' catchtouchmove='true'
+    goodsList='{{addGoodslist}}' id="addCart" bindisBigBrand="onIsBigBrand" bindhideCart="onhideCart"
+    bindgetTotle='ongetTotle'>
+</c-shopba>
+<!-- 视频播放 -->
+<view class="videoHide" wx:if="{{shouVideo}}" catchtouchmove='move' catchtap="hideVideo">
+
+
+</view>
+<view class="showVideo" wx:if="{{shouVideo}}" catchtouchmove='move'>
+    <video src="{{shouVideo}}" style="width: {{changeWidth}}rpx;height:{{changeHeight}}rpx;"
+        bindfullscreenchange='xuanzhuang' autoplay='{{true}}' objectFit='fill' controls show-mute-btn
+        initial-time='{{0}}' custom-cache="{{false}}" bindended="videoEnd" wx:if="{{shouVideo}}"></video>
+</view>
+
+
+<i-toast id="toast" />

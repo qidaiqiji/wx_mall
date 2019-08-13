@@ -1,0 +1,20 @@
+{
+  "navigationBarBackgroundColor": "#DE0E0E",
+  "navigationBarTextStyle": "white",
+  "navigationBarTitleText": "拼团详情",
+  "usingComponents": {
+    "i-toast": "../../dist/toast/index",
+    "pro_brand": "/components/product_b/pro_brand/index",
+    "pro_bottom": "/components/product_b/pro_bottom/index",
+    "package_details": "/components/product_b/package_details/index",
+    "txtInfo": "/components/product_b/txtInfo/index",
+    "times": "/components/times/index",
+    "c-navigationToolsTwo": "/components/navigationToolsTwo/index",
+    "pro_problem": "/components/product_b/pro_problem/index",
+    "c-popupWindow": "/components/popupWindow/index",
+    "c-shopba": "/components/product_b/shopba/index",
+    "c-spellGroupList": "/components/spellGroupList/index",
+    "c-groupShoppingCart":"/components/groupShoppingCart/index",
+    "reachTheBottom": "/components/reachTheBottom/index"
+  }
+}

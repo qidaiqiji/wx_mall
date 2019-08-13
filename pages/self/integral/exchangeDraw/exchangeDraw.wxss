@@ -1,0 +1,72 @@
+/* pages/integral/exchangeDraw/exchangeDraw.wxss */
+page {
+  background: rgba(255, 175, 75, 1);
+}
+image {
+  vertical-align: top;
+}
+
+.top_bananer,.top_bananer_image{
+  width: 750rpx;
+  height: 500rpx;
+}
+
+.border_wrap {
+  width: 710rpx;
+  height: 634rpx;
+  position: relative;
+  left: 20rpx;
+  top: 8rpx;
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+}
+
+.bottom {
+  display: flex;
+  justify-content: space-around;
+  position: relative;
+  left: 0rpx;
+  top: 58rpx;
+  padding-bottom: 260rpx;
+}
+
+.bottom_txt {
+  font-size: 26rpx;
+  font-family: PingFang-SC-Medium;
+  font-weight: 500;
+  text-decoration: underline;
+  color: rgba(255, 255, 255, 1);
+  line-height: 27rpx;
+  border-bottom: 1rpx solid rgba(255, 255, 255, 1);
+}
+
+.luckyDraw_wrap_zero {
+  width: 630rpx;
+  position: relative;
+  left: 42rpx;
+  top: 43rpx;
+}
+
+.luckyDraw_wrap {
+  display: flex;
+  flex-wrap: wrap;
+  width: 630rpx;
+}
+
+.luckyDraw {
+  width: 203rpx;
+  height: 174rpx;
+  border-radius: 8rpx;
+  margin-left: 7rpx;
+  margin-top: 7rpx;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.luckyDraw_img {
+  width: 190rpx;
+  height: 160rpx;
+  vertical-align: top;
+}

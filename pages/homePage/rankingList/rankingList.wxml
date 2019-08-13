@@ -1,0 +1,54 @@
+<view>
+  <view class='banner_img'>
+    <image class='banner_img_' src='{{banner.img}}'></image>
+  </view>
+  <view class='banner_classify'>
+    <block wx:for='{{paihangList}}' wx:for-item='paihangItem' wx:key='index'>
+      <view class='classify_item'>
+
+        <view class='item_title' bindtap='jumpToRankingDetail' data-id='{{paihangItem.id}}' style='background:{{paihangItem.color}}'>
+          <view class='item_theme_words'>{{paihangItem.title}}热销榜</view>
+          <view class='item_img_desc' >
+            <view class='item_desc_'>
+              <text>详情</text>
+              <image src='/images/icon_more_white.png'></image>
+            </view>
+          </view>
+        </view>
+        <view class='item_goodsList'>
+          <view class='category_goods'>
+            <block wx:for='{{paihangItem.goodsList}}' wx:for-item='goodsItem' wx:key='index'>
+              <view class='goodsItem'>
+                <view class='goodsItem_img' catchtap='jumpToGoodsDetail' data-goodsId='{{goodsItem.goodsInfo.goodsId}}'>
+                  <image src='/images/icon_no{{index+1}}.png' class='goodsItem_tag'></image>
+                  <image src='{{goodsItem.goodsInfo.thumb}}' class='goodsItem_img_'></image>
+                </view>
+                <view class='goodsItem_titles'>{{goodsItem.goodsInfo.goodsName}}</view>
+                <view class='goodsItem_bottom'>
+                  <view class='goodsItem_price'>￥{{goodsItem.goodsInfo.goodsPrice}}</view>
+
+                  <view class='toBuy' data-goodsId='{{goodsItem.goodsInfo.goodsId}}' catchtap='handleToBuy' data-goodsList="{{goodsItem}}">
+                    <image src='/images/icon_shopping.png' class='goodsItem_cart'></image>
+                  </view>
+                </view>
+              </view>
+            </block>
+          </view>
+        </view>
+      </view>
+
+    </block>
+   
+  </view>
+ 
+  <view>
+ <reachTheBottom wx:if="{{isShow}}"></reachTheBottom>
+  </view>
+  <c-navigationToolsTwo toTheTop="{{toTheTop}}" catchtoUpImgs="ontoUpImgs" />
+</view>
+
+<c-shopba kind='addCart' wx:if='{{isPopCart}}' shbpbaWrapHeight='999' shbpbaListHeight='444' goodsId='{{addGoodsId}}' catchtouchmove='true' goodsList='{{addGoodslist}}' id="addCart" bindhideCart="onhideCart" bindgetTotle='ongetTotle'>
+</c-shopba>
+
+<i-toast id="toast" />
+<c-navigationTools  totalCount='{{totalCounts}}'/>

@@ -1,0 +1,40 @@
+<!--components/swiper_conter/index.wxml-->
+<view class="showListWrap_zero">
+  <block wx:for="{{showList}}" wx:for-item="showList" wx:for-index="showListIndex" wx:key="{{showListIndex}}">
+    <view class="showListWrap" wx:if="{{showList.goodsList.length > 0}}">
+      <navigator url='{{showList.url}}' hover-class="none">
+        <view class="showListTop">
+          <view class="showListleft">{{showList.title}}</view>
+          <view class="showListright">
+            <text>更多</text>
+            <image class="icon_return" src="/images/icon_return.png" style="width: 30rpx;height: 30rpx;" />
+          </view>
+        </view>
+      </navigator>
+      <view class="showListbottom">
+        <block wx:for="{{showList.goodsList}}" wx:for-item="goodsList" wx:for-index="goodsListIndex"
+          wx:key="{{goodsListIndex}}">
+          <view class="showListbottom_flex">
+            <view class="showListbottom_flex_one" data-goodId="{{goodsList.goodId}}" catchtap="showListdetails">
+              <view class="goodsListthumb">
+                <image src="{{goodsList.thumb}}" mode="widthFix"></image>
+              </view>
+            </view>
+            <view>
+              <view class="showListTxtOne">{{goodsList.goodsName}}</view>
+
+              <view class="showListTxtTwo_zero">
+                <text class="showListTxtTwo">{{goodsList.tags}}</text>
+              </view>
+
+              <view>
+                <text class="showListTxtThree">￥{{goodsList.actPrice}}</text>
+                <text class="showListTxtFour">{{goodsList.maketPrice}}</text>
+              </view>
+            </view>
+          </view>
+        </block>
+      </view>
+    </view>
+  </block>
+</view>

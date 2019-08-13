@@ -1,0 +1,7 @@
+{
+  "navigationBarTitleText": "授权登录",
+  "usingComponents": {
+    "title": "../../components/title/title",
+    "i-toast": "../../dist/toast/index"
+  }
+}

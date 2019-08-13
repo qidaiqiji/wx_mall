@@ -1,0 +1,129 @@
+<!--pages/integral/integral/integral.wxml-->
+<view class="wrap">
+  <!-- header -->
+  <view class="integral_top" style="background-image: url({{isActTime?integral_activeHeader:header_bg}});">
+    <!-- <image class="integral_img" src="./image/bg.png" mode="widthFix" /> -->
+    <view class="integral_user_wrap">
+      <view class="integral_user">
+        <view class="user_left">
+          <view class="user_img">
+            <open-data type="userAvatarUrl"></open-data>
+          </view>
+          <view class="user_txt">
+            <view class="user_name {{isActTime?'ActiveDescColor':''}}">{{myUser.nickName}}</view>
+            <view class="user_message {{isActTime?'ActiveDescColor':''}}">
+              <view class="integral_img_three_wrap">
+                <image class="integral_img_three"
+                  src="{{isActTime?'/images/icon_vip_integral.png':'/images/icon_vip_two.png'}}" />
+              </view>
+              <view>
+                <text class="boardLevel">{{myUser.rankName}}</text>
+                <text class="">{{myUser.balance}}积分</text>
+              </view>
+            </view>
+          </view>
+        </view>
+        <view class="user_right {{isActTime?'ActiveRuleBg':''}}" bindtap='handleJumpToRule'>
+          <view class="user_right_txt">
+            <view> 积分规则</view>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+  <view class="top_bottom_wrap {{isActTime?'ActivetabBg':''}}">
+    <view class="top_bottom" catchtap='mingxi'>
+      <view>
+       <image class="integral_img_min" src="{{isActTime?icon_mingxi:'/images/icon_mingxi_two.png'}}" />
+     
+      </view>
+      <view class="top_bottom_txt {{isActTime ?'ActiveColor' :''}}">积分明细</view>
+    </view>
+    <view class="top_bottom" catchtap='dingdan'>
+      <view>
+          <image class="integral_img_min" src="{{isActTime?icon_dingdan:'/images/icon_dingdan_two.png'}} " />
+      </view>
+      <view class="top_bottom_txt {{isActTime?'ActiveColor':''}}">积分订单</view>
+    </view>
+  </view>
+  <!-- 抽奖 -->
+  <view class="integral_bottom">
+    <view class="bottom_img_wrap" wx:if='{{ads.length>0}}'>
+      <block wx:for="{{ads}}" wx:for-item="ads" wx:key="index">
+        <navigator class="integral_bottom_img" url="{{ads.url}}" hover-class="none">
+          <image class="integral_bottom_img" src="{{ads.img}}" />
+        </navigator>
+      </block>
+    </view>
+    <view class="bottom_securities" wx:if="{{couponList.length}}">
+      <view class="bottom_title">积分兑换超值券</view>
+      <view wx:for="{{couponList}}" wx:for-item="couponList" wx:for-index='couponIndex' wx:key="couponIndex">
+        <view class="securities_wrap">
+
+          <view class="">
+            <view class="securities_left" style=" background: {{couponList.color}};"></view>
+            <view class="securities_r_left" style="color: {{couponList.color}}">
+              <text class="yuan">￥</text>
+              <text class="price">{{couponList.cut}}</text>
+            </view>
+          </view>
+          <view class="">
+            <view class="">
+              <view class="subType">{{couponList.subType}}</view>
+              <view class="above">实付满{{couponList.above}}可用</view>
+              <view class="integral">{{couponList.integral}}积分兑换</view>
+            </view>
+            <view class="">
+              <view class="exchange" style=" border: 1px solid {{couponList.color}};color: {{couponList.color}}"
+                data-ruleId="{{couponList.ruleId}}" catchtap='coupon' wx:if="{{couponList.canTakeNums>0}}">立即兑换</view>
+              <view class="exchange" wx:if="{{couponList.canTakeNums<=0}}">已兑完</view>
+            </view>
+          </view>
+        </view>
+      </view>
+    </view>
+    <view class="bottom_list">
+      <view class="bottom_title">积分换好物</view>
+      <view class="goodsList_flex">
+        <block wx:for="{{goodsList}}" wx:for-item="goodsList" wx:for-index='goodsIndex' wx:key="goodsIndex">
+          <view class="list_wrap">
+            <view class="list_wrap_img" data-goodsId="{{goodsList.goodsId}}" catchtap='shopexchange'>
+              <image class="list_img" src="{{goodsList.thumb}}" />
+            </view>
+            <view class="list_bottom">
+              <view class="listB_top">
+                <text>{{goodsList.goodsName}}</text>
+              </view>
+              <view class="listB_bottom">
+                <view class="listB_b_left">
+                  <view class="list_jifen">{{goodsList.integral}}积分</view>
+                  <view class="list_price">
+                    <text>市场价:</text>
+                    <text>￥{{goodsList.marketPrice}}</text>
+                  </view>
+                </view>
+                <view class="listB_b_right" data-goodsId="{{goodsList.goodsId}}" catchtap='immediatelyExchange'>
+                  <view class="listB_b_right_txt">立即兑换</view>
+                </view>
+              </view>
+            </view>
+          </view>
+        </block>
+      </view>
+      <view class="anniversary_bottom"></view>
+    </view>
+  </view>
+  <remind kind="rectangle" id="premind" class="c_remind"></remind>
+</view>
+
+<view class="navigation_button" catchtap="allremind" wx:if='{{isActTime}}'>
+  <image src="/images/navigation_button.png" />
+</view>
+<c-remind_right id="remind_right" isPageId="{{isPageId}}" menus="{{menus}}" autoJump='{{false}}'
+  bindallPreferential='onallPreferential' bindupMenus='handleMenus' wx:if="{{isShowNavigation}}" title='膜法保湿节会场直达'>
+</c-remind_right>
+<Integralshopping class="Integralshopping" balance="{{pBalance}}" addCartList="{{pAddCartList}}"
+  marketPrice="{{pParketPrice}}"></Integralshopping>
+<c-navigationTools />
+<c-navigationToolsTwo toTheTop="{{toTheTop}}" catchtoUpImgs="ontoUpImgs" />
+<i-toast id="toast" />

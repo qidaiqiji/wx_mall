@@ -1,0 +1,10 @@
+{
+  "navigationBarTitleText": "本场必拼",
+  "usingComponents": {
+    "c-navigationTools": "/components/navigationTools/index",
+    "c-navigationToolsTwo": "/components/navigationToolsTwo/index",
+    "reachTheBottom":"/components/reachTheBottom/index",
+    "c-noGoods":"/components/noGoods/index",
+    "c-times": "/components/times/index"
+  }
+}

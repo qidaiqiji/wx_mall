@@ -1,0 +1,13 @@
+{
+  "navigationBarTitleText": "贵宾区",
+  "usingComponents": {
+    "c-goodsItem_col": "/components/goodsItem_col/index",
+    "c-goodsItem_row": "/components/goodsItem_row/index",
+    "c-bottomModal": "/components/bottomModal/index",
+    "c-reachTheBottom": "/components/reachTheBottom/index",
+    "c-navigationTools": "/components/navigationTools/index",
+    "c-navigationToolsTwo":"/components/navigationToolsTwo/index",
+    "c-shopba": "/components/product_b/shopba/index",
+    "i-toast": "../../../dist/toast/index"
+  }
+}

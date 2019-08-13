@@ -1,0 +1,58 @@
+<view class='save_address'>
+  <view class='item save_address_man'>
+    <text class='item_title'>收货人</text>
+    <input bindconfirm='handleInput' bindblur='handleInput'  data-type='consignee' placeholder='请填写收货人' placeholder-class='placeholderClass' value='{{consignee?consignee:""}}'></input>
+    <view class='cancelView' wx:if='{{consignee}}' bindtap='clearValue' data-value='consignee'>
+      <image class='cancelIcon' src='/images/icon_search_delete.png'></image>
+    </view>
+  </view>
+  <view class='item save_address_mobile'>
+    <text class='item_title'>手机号码</text>
+    <input maxlength="11" bindconfirm='handleInput' type='number' bindblur='handleInput' data-type='mobile' placeholder='请填写手机号' placeholder-class='placeholderClass' value='{{mobile?mobile:""}}'></input>
+    <view class='cancelView' wx:if='{{mobile}}' bindtap='clearValue' data-value='mobile'>
+      <image class='cancelIcon' src='/images/icon_search_delete.png'></image>
+    </view>
+  </view>
+  <view class='item save_address_area'>
+    <text class='item_title'>所在地区</text>
+    <view class="item_area_choose_wrap">
+        <view class='item_area_choose'>
+            <!-- 开始test -->
+            <view class="selectArea {{!provinceName?'redSelect':''}}" bindtap="open">
+              <view>{{provinceName?provinceName:'请选择'}}</view>
+              <view>{{provinceName?cityName:''}}</view>
+              <view>{{provinceName?districtName:''}}</view>
+            </view>
+      
+            <!-- 结束 -->
+          </view>
+          <image class="selectArea_img" src="/images/icon_return.png" /> 
+    </view>
+  </view>
+  <view class='item save_address_desc'>
+    <text class='item_title'>详细地址</text>
+    <input bindconfirm='handleInput' bindblur='handleInput' data-type='address' placeholder='请填写详细地址' placeholder-class='placeholderClass' value='{{address?address:""}}'></input>
+    <view class='cancelView' wx:if='{{address}}' bindtap='clearValue' data-value='address'>
+      <image class='cancelIcon' src='/images/icon_search_delete.png'></image>
+    </view>
+  </view>
+  <view class='item save_address_defailt' style="border-bottom:1rpx solid rgb(255, 255, 255)">
+    <text class='item_title'>设置默认地址</text>
+    <switch bindchange="switchChange" class='switch_' color='#ff3366' data-isDefault='{{isDefault}}' checked='{{isDefault}}' />
+  </view>
+
+
+</view>
+
+<view class='btn_operation'>
+  <view class='save_address_btn' bindtap='handleSave'>保存</view>
+  <view class='delete_address_btn' bindtap='handleDelete' wx:if='{{isShowDelete}}'>删除地址</view>
+</view>
+
+<c-choose_address condition='{{condition}}' bindclose='handleClose' value='{{value}}' wx:if='{{isShowAddr}}' />
+<i-message id="message" />
+<i-toast id="toast" />
+<i-modal i-add-class='deleteTip' title="提示" visible="{{ visible}}" actions="{{ actions}}"  bind:click='handleDelete'>
+  <view class='deleteTipTitle'>删除后不可恢复，是否确定？</view>
+
+</i-modal>

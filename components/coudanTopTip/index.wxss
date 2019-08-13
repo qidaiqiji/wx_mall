@@ -1,0 +1,64 @@
+/* components/coudanTip/index.wxss */
+.coudanTip{
+  width: 100%;
+  height: 70rpx;
+  background: #ffeb7a;
+ margin-bottom: 10rpx; 
+ display: flex;
+ justify-content: space-between;
+ align-items: center;
+ font-size: 24rpx;
+}
+.left{
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  margin-left: 20rpx;
+}
+.left_tag{
+  width: 52rpx;
+  height: 28rpx;
+  line-height: 28rpx;
+  text-align: center;
+  background: #ff3366;
+  color: #e0e5e7;
+  font-size: 20rpx;
+  margin-right: 10rpx;
+  border-radius: 4rpx;
+
+}
+.left_title text{
+  color: #ff3366;
+
+}
+.right{
+  color: #ff3366;
+  margin-right: 30rpx;
+}
+
+.youhui_tip{
+  width: 100%;
+  height: 88rpx;
+  background: #FFE2E9;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  font-size: 24rpx;
+  color: #2f3a40;
+}
+.tip_title{
+  margin-left: 25rpx;
+}
+.tip_title_two{
+  padding: 0rpx 20rpx;
+  width: 100%;
+  height: 78rpx;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.tip_title_three{
+  width: 620rpx;
+  height: 78rpx;
+  line-height: 78rpx;
+}

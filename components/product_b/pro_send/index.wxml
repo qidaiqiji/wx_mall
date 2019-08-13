@@ -1,0 +1,84 @@
+<view class="pro_send_wrap">
+  <!-- 1 -->
+  <view class="pro_send_wrap1" bindtap="handleShowAddr" wx:if='{{provinceName&&shippingInfo}}'>
+    <view class="pro_send_left">
+      <view class="pro_send_left1">
+        <text class="pro_text">送至</text>
+        <image class="pro_send_right_img" src="/images/icon_site.png"></image>
+        <text class="pro_text_two">{{provinceName}}</text>
+      </view>
+      <view class="pro_send_left2">
+        <view>
+          <text class="pro_text">邮费</text>
+          <text class="pro_text_two">{{shippingInfo}}</text>
+        </view>
+      </view>
+    </view>
+    <view class="pro_send_right">
+      <image class="pro_send_right_img" src="/images/icon_return.png"></image>
+    </view>
+  </view>
+  <!-- 2 -->
+
+  <view class='toBuy pro_send_wrap2' data-goodsId='{{goodsId}}' catchtap='handleToBuy' data-goodsList="{{addCartList}}"
+    wx:if='{{skuSizeList.length>0}}'>
+    <view class="pro_send_left pro_send_left3">
+      <view class="pro_text_gui">规格</view>
+      <view class="skuSizeList0">
+        <block wx:for="{{skuSizeList}}" wx:for-item="skuSizeList" wx:key="{{index}}">
+          <text class="sklist">{{skuSizeList}} ; </text>
+        </block>
+      </view>
+    </view>
+    <view class="pro_send_right">
+      <image class="pro_send_right_img" src="/images/icon_return.png"></image>
+    </view>
+  </view>
+
+  <shopbc kind='canshu' attributes="{{attributes}}">
+    <view class="pro_send_wrap1" slot='canshu' wx:if="{{mystatus==2?false:true}}">
+      <view class="pro_send_left1">
+        <view class="pro_send_right_img_two">
+          <image class="pro_send_right_img" src="/images/icon_arguments.png"></image>
+          <text class="pro__sendtext_four">{{attributes.brandName}}</text>
+        </view>
+        <view class="pro_send_left1">
+          <view>
+            <text class="pro_text_one">参数</text>
+            <text class="pro_text_two" wx:if="{{expireDate}}">效期: {{expireDate}} </text>
+            <text class="pro_text_two">条形码:{{attributes.goodsSn}}</text>
+          </view>
+        </view>
+      </view>
+      <view class="pro_send_right">
+        <image class="pro_send_right_img" src="/images/icon_return.png"></image>
+      </view>
+    </view>
+  </shopbc>
+  <view class='zhenghuo'>
+    <shopbc kind='hanghuo'>
+      <view class="pro_send_wrap_hanghuo" slot='hanghuo'>
+        <view class="pro_send_left pro_send_wrap5">
+          <view wx:for="{{hm}}" wx:for-item="ha" wx:for-index="hb" wx:key="{{hb}}">
+            <block>
+              <image class="pro_send_right_img" src="/images/icon_ok.png"></image>
+              <text class="pro_send_text_three">{{ha}}</text>
+            </block>
+          </view>
+
+        </view>
+        <view class="pro_send_right">
+          <image class="pro_send_right_img" src="/images/icon_return.png"></image>
+        </view>
+      </view>
+    </shopbc>
+  </view>
+</view>
+<c-choose_address condition='{{condition}}' wx:if='{{isShowAddr}}' onlyProvince='{{onlyProvince}}'
+  bindclose='handleClose' value='{{value}}' />
+<c-shopba kind='addCart' shbpbaWrapHeight='999' shbpbaListHeight='444' wx:if='{{isPopCart}}' goodsId='{{goodsId}}'
+  catchtouchmove='true' addCartList='{{goodslist}}' id="addCart" bindhideCart="onhideCart" vip='{{dibu==1?true:false}}'>
+  <view class="pro_bottom_two" slot='shopba'>
+    <!-- <image class='addCart_img' mode="widthFix" src='image/car.png' /> -->
+  </view>
+</c-shopba>

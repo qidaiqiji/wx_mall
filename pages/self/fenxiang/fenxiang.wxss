@@ -1,0 +1,85 @@
+/* pages/self/fenxiang/fenxiang.wxss */
+
+/* 手机号外框 */
+
+page {
+  background: rgb(255, 204, 93);
+}
+
+.login_from {
+  width: 662rpx;
+  height: 1029rpx;
+  position: relative;
+  left: 0rpx;
+  top: 0rpx;
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+}
+
+.login_from_wrap {
+  width: 750rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.form_wrap {
+  height: 300rpx;
+  position: absolute;
+  left: 170rpx;
+  bottom: 122rpx;
+  z-index: 10;
+  margin-left: 10rpx;
+  text-align: center;
+}
+
+.zhece_wrap {
+  margin-top: 77rpx;
+  display: flex;
+  justify-content: center;
+}
+
+.guize {
+  font-size: 28rpx;
+  font-family: PingFang-SC-Medium;
+  font-weight: 500;
+  color: rgba(163, 99, 8, 1);
+  margin-top: 17rpx;
+  margin-right: 45rpx;
+  display: flex;
+  justify-content: flex-end;
+  position: relative;
+  left: 0rpx;
+  top: 0rpx;
+  z-index: 6;
+}
+
+.a2 {
+  width: 268rpx;
+  height: 82rpx;
+  background: rgba(255, 232, 62, 1);
+  border-radius: 41rpx;
+  font-size: 40rpx;
+  font-family: PingFang-SC-Regular;
+  font-weight: bold;
+  color: rgba(226, 0, 27, 1);
+  line-height: 82rpx;
+  text-align: center;
+  margin-top: 41rpx;
+  margin-left: 41rpx;
+}
+
+.friend {
+  font-size: 32rpx;
+  font-family: PingFang-SC-Regular;
+  font-weight: 400;
+  color: rgba(255, 225, 225, 1);
+}
+
+.red_nvelope {
+  margin-top: 31rpx;
+  font-size: 28rpx;
+  font-family: NotoSansHans-Light;
+  font-weight: 300;
+  color: rgba(255, 134, 92, 1);
+}

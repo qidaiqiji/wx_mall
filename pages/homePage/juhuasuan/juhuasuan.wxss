@@ -1,0 +1,95 @@
+/* pages/juhuasuan/juhuasuan.wxss */
+
+page {
+  background: #ffefe2;
+}
+
+image {
+  vertical-align: top;
+}
+
+.juhuasuan_img1 {
+  width: 702rpx;
+  height: 336rpx;
+  border-radius: 20rpx;
+  margin-left: 24rpx;
+}
+
+.juhuasuan_swiper {
+  background-size: 100%;
+  background-repeat: no-repeat;
+  margin-top: 4rpx;
+}
+
+.juhuasuan_swiper_ {
+  padding-top: 14rpx;
+  width: 750rpx;
+  height: 364rpx
+}
+
+.juhuasuan_img2 {
+  width: 28rpx;
+  height: 10rpx;
+}
+
+.juhuasuan_img2_wrap {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 44rpx 0rpx 30rpx 0rpx;
+}
+
+.juhuasuan_img2_wrap_t {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 48rpx 0rpx 22rpx 0rpx;
+}
+
+.juhuasuan_txt {
+  font-size: 32rpx;
+  font-family: PingFangSC-Medium;
+  font-weight: 500;
+  color: rgba(47, 58, 64, 1);
+  margin: 0rpx 16rpx 0rpx 16rpx;
+}
+
+/*  */
+
+.juhuasuan_wrapT {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.juhuasuan_img3 {
+  width: 352rpx;
+  height: 164rpx;
+  border-radius: 10rpx;
+}
+
+.juhuasuan_img3_wrap {
+  width: 352rpx;
+  height: 164rpx;
+  margin-left: 16rpx;
+  margin-bottom: 16rpx;
+}
+
+.goodsItem_row {
+  background: white;
+}
+
+.juhuasuang_bottom {
+  width: 750rpx;
+  height: 226rpx;
+}
+.navigation_button{
+  position: fixed;
+  top: 50%;
+  right: 0;
+  transform: translateY(-50%);
+  z-index: 30;
+}
+.navigation_button>image{
+  width: 66rpx;
+  height: 186rpx;
+}

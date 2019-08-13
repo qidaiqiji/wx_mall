@@ -1,0 +1,63 @@
+<!-- components/groupShoppingCart/index.wxml -->
+<view class="Mask " catchtap='onConfirm' catchtouchmove='move' wx:if="{{groupCartShow}}"></view>
+<view class="groupCart " catchtouchmove='move' wx:if="{{groupCartShow}}">
+    <view class="groupCartTop">
+        <image class="groupCartThumb" src="{{checkoutList.goodsThumb}}"></image>
+        <view class="groupCartTopConter">
+            <view class="checkoutListName">{{checkoutList.goodsName}}</view>
+            <view class="checkoutStart">起批量≥{{checkoutList.start}}{{checkoutList.unit}}</view>
+            <view class="checkoutNum">库存: {{checkoutList.goodsNum}}</view>
+            <image class="groupCartTagImg " src="/images/product_anxiang.png" wx:if="{{checkoutList.isBuyByBox}}" />
+        </view>
+        <image class="groupCartHide" src="/images/icon_close.png" catchtap='onConfirm'></image>
+    </view>
+    <view class="groupCarTypeNum">
+        <view>选择类型</view>
+        <view>采购数量</view>
+    </view>
+    <view class="groupCarListWrap">
+        <view class="groupCarList">
+            <image class="groupCarListImg" src="{{checkoutList.goodsThumb}}"></image>
+            <view class="groupCarListName">
+                <!-- 海水 -->
+                <view class="shopbaConBoCon_zero">
+                    <view class="groupCarListName_">{{checkoutList.goodsName}}</view>
+                    <view class="groupCarListActPrice">￥{{checkoutList.actPrice}}</view>
+                </view>
+                <!-- 条形码 -->
+                <view class="checkouGoodsSnNum">
+                    <view>条形码:{{checkoutList.goodsSn}}</view>
+                    <view>库存:{{checkoutList.goodsNum}}</view>
+                </view>
+            </view>
+            <view>
+                <!-- 判断列表右侧现实的样式 -->
+                <view wx:if="{{checkoutList.goodsNum>checkoutList.start}}">
+                    <view class="checkouaubtractAdd">
+                        <view class="checkouaubtractImg" data-actPrice="{{checkoutList.actPrice}}" data-value="{{value}}" data-goodsNum="{{checkoutList.goodsNum}}" data-numberPerBox="{{checkoutList.numberPerBox}}" data-start="{{checkoutList.start}}" data-isBuyByBox="{{checkoutList.isBuyByBox}}" bindtap='reduce'>
+                            <image src="{{value>checkoutList.start?'/images/icon_stepper_minus_big_black.png':'/images/icon_stepper_minus_big_disabled.png'}}" style="width: 30rpx;height: 30rpx;"></image>
+                        </view>
+                        <view class="checkouInput">
+                            <input value="{{value}}" data-actPrice="{{checkoutList.actPrice}}" data-value="{{value}}" data-goodsNum="{{checkoutList.goodsNum}}" data-numberPerBox="{{checkoutList.numberPerBox}}" data-start="{{checkoutList.start}}" data-isBuyByBox="{{checkoutList.isBuyByBox}}" bindblur='changenum' />
+                        </view>
+                        <!-- 加号 -->
+                        <view class="checkouaubtractImg" data-actPrice="{{checkoutList.actPrice}}" data-value="{{value}}" data-goodsNum="{{checkoutList.maxNum}}" data-numberPerBox="{{checkoutList.numberPerBox}}" data-start="{{checkoutList.start}}" data-isBuyByBox="{{checkoutList.isBuyByBox}}" bindtap='addnum'>
+                            <image src="{{value>=checkoutList.goodsNum?'/images/icon_stepper_add_big_disabled.png':'/images/icon_stepper_add_big_black.png'}}" style="width: 30rpx;height: 30rpx;"></image>
+                        </view>
+                    </view>
+                </view>
+                <view class='typeBtn' wx:else>已售罄</view>
+            </view>
+        </view>
+    </view>
+    <view class="groupCarResults">
+        <view class="shopba_bottom_bb_one">共{{value}}件</view>
+        <view>￥{{totalprice}}</view>
+    </view>
+    <view class='addCarShop ' bindtap="goshop">立即购买</view>
+</view>
+ <view class="content_bottom" wx:if="{{contentBOn}}">
+    <view class="content_bottom_two">
+      <view class="content_bottom_txt">{{content}}</view>
+    </view>
+  </view>

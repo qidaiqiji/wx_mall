@@ -1,0 +1,35 @@
+<!--components/colllistSwiper/index.wxml-->
+<view class="colllistSwiper_wrap0">
+    <view class="colllistSwiper_wrap">
+        <swiper style="width: 100%;height: 344rpx;" autoplay='true' indicator-dots='true'
+            indicator-color='rgba(rgba(215,184,191,0.6)' indicator-active-color='rgba(255,255,255,0.6)' circular='true'>
+            <block wx:for="{{topCollList}}" wx:for-item="collList" wx:for-index="collListI" wx:key="collListI">
+                <swiper-item>
+                    <view class="colllistSwiper_img1wrap" data-goodsCount="{{collList.goodsCount}}"
+                        data-collId="{{collList.collId}}" bindtap="topurlList">
+                        <image class="colllistSwiper_img1" src="{{collList.banner}}"
+                            style="width: 717rpx;height: 344rpx;" />
+                        <view class='colllistSwiper_txt_bottom'></view>
+                        <view class="colllistSwiper_txt0">
+                            <view class="colllistSwiper_txt1">{{collList.title}}</view>
+                            <view class="colllistSwiper_txt3">
+                                <view>共{{collList.goodsCount}}款商品</view>
+                                <view>
+                                    <image class="icon_eye_white" src="/images/icon_eye_white.png"
+                                        style="width: 30rpx;height: 30rpx;;margin-right: 16rpx"></image>
+                                    <text>{{collList.readCount}}</text>
+                                </view>
+                            </view>
+                        </view>
+                    </view>
+                </swiper-item>
+            </block>
+        </swiper>
+
+    </view>
+    <view class="colllistSwiper_wrapT">
+        <block wx:for="{{ads}}" wx:for-item="ads" wx:for-index="adsI" wx:key="adsI">
+            <image class="colllistSwiper_img2" src="{{ads.img}}" catchtap='goAdvertising' data-item='{{ads}}' />
+        </block>
+    </view>
+</view>

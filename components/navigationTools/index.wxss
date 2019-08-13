@@ -1,0 +1,58 @@
+
+.navigationTools_wrap {
+  position: fixed;
+  z-index: 6;
+  bottom: 20rpx;
+  left: 0rpx;
+  display: flex;
+  justify-content: flex-start;
+  margin-left: 24rpx;
+  border-radius: 4rpx;
+  overflow: hidden;
+}
+
+.container_right_item {
+  width: 84rpx;
+  height: 84rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: rgba(0, 0, 0, 0.5);
+}
+
+.navigation_car_wrap {
+  position: relative;
+  left: 0;
+  top: 0;
+}
+
+.navigationTools_img {
+  width: 84rpx;
+  height: 84rpx;
+  vertical-align: top;
+}
+
+button::after {
+  border: none;
+}
+
+.container_right_item_border {
+  border-left: 1rpx solid white;
+  height: 43rpx;
+}
+
+.navigation_car_yuan {
+  width: 50rpx;
+  height: 34rpx;
+  padding: 0rpx 4rpx;
+  background: #f36;
+  line-height: 39rpx;
+  font-size: 22rpx;
+  text-align: center;
+  color: #fff;
+  position: absolute;
+  left: 42rpx;
+  top: 3rpx;
+  z-index: 21;
+  border-radius: 30rpx;
+}

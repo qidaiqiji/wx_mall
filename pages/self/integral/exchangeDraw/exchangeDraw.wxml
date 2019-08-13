@@ -1,0 +1,33 @@
+<!--pages/integral/exchangeDraw/exchangeDraw.wxml-->
+<view class="wrap">
+  <view class="top_bananer">
+    <block wx:for="{{banner}}" wx:for-item='banner' wx:for-index='bannerIndex' wx:key="bannerIndex">
+      <image class="top_bananer_image" src="{{banner.img}}" />
+    </block>
+  </view>
+  <view class="border_wrap" style="background-image: url({{choujiang_bg}});">
+    <view class="luckyDraw_wrap_zero">
+      <view class="luckyDraw_wrap">
+        <block wx:for="{{prizeList}}" wx:for-item='list' wx:for-index='listIndex' wx:key="listIndex">
+          <view class="luckyDraw"
+            style="background-image: url({{whatIndex==listIndex+1?choujiang_selected:choujiang}});">
+            <image class="luckyDraw_img"
+              style="width:{{listIndex == 4?'204':''}}rpx;height:{{listIndex == 4?'174':''}}rpx"
+              data-listIndex="{{listIndex+1}}" src="{{list.pic}}" catchtap='choujiang' />
+          </view>
+        </block>
+      </view>
+    </view>
+  </view>
+  <view class="bottom_wrap">
+    <view class="bottom">
+      <view class="bottom_txt" catchtap='guize'>活动规则</view>
+      <view class="bottom_txt" catchtap='jilu'>中奖记录</view>
+    </view>
+  </view>
+  <!-- 弹窗 -->
+  <view>
+    <remind kind='{{isKind}}' msg="{{msg}}" name="{{name}}" type="{{type}}" ruleText="{{ruleText}}"
+      recordList="{{recordList}}" bindmyshow='isShow'></remind>
+  </view>
+</view>

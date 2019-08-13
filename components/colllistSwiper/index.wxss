@@ -1,0 +1,103 @@
+/* components/colllistSwiper/index.wxss */
+
+.colllistSwiper_wrap0 {
+  width: 750rpx;
+  background: #f3f3f3;
+}
+
+.colllistSwiper_wrap {
+  margin-left: 16rpx;
+}
+
+.colllistSwiper_img1 {
+  border-radius: 16rpx;
+}
+
+.colllistSwiper_img1wrap {
+  width: 717rpx;
+  height: 344rpx;
+  position: relative;
+  left: 0;
+  right: 0;
+  border-radius: 16rpx;
+  overflow: hidden;
+}
+
+.colllistSwiper_txt_bottom {
+  width: 717rpx;
+  height: 160rpx;
+  background: linear-gradient(0deg, rgba(0, 0, 0, 0.8) 0%, rgba(0, 0, 0, 0) 100%);
+  opacity: 0.5;
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  z-index: 2;
+}
+
+.colllistSwiper_txt0 {
+  width: 717rpx;
+  height: 160rpx;
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  z-index: 3;
+}
+
+.colllistSwiper_txt1 {
+  width: 716rpx;
+  height: 52rpx;
+  line-height: 52rpx;
+  font-size: 39rpx;
+  font-family: PingFangSC-Medium;
+  font-weight: 500;
+  color: rgb(255, 255, 255);
+  padding-left: 28rpx;
+ overflow: hidden;
+ margin-top: 30rpx;
+}
+
+.colllistSwiper_txt2 {
+  width: 490rpx;
+  position: absolute;
+  top: 96rpx;
+  left: 28rpx;
+  font-size: 23rpx;
+  font-family: PingFang-SC-Medium;
+  font-weight: 500;
+  color: rgb(255, 255, 255);
+  line-height: 34rpx;
+  z-index: 10;
+}
+
+.colllistSwiper_txt3 {
+  font-size: 24rpx;
+  font-family: PingFang-SC-regular;
+  font-weight: 400;
+  color: rgba(255, 255, 255, 1);
+  line-height: 42rpx;
+  display: flex;
+  padding-left: 28rpx;
+  padding-right: 14rpx;
+  justify-content: space-between;
+}
+
+.icon_eye_white {
+  position: relative;
+  left: 0;
+  top: 6rpx;
+}
+
+.colllistSwiper_wrapT {
+  margin: 20rpx 16rpx 0rpx 16rpx;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.colllistSwiper_img2 {
+  width: 352rpx;
+  height: 164rpx;
+  margin-bottom: 16rpx;
+  border-radius: 10rpx;
+  vertical-align: top;
+}

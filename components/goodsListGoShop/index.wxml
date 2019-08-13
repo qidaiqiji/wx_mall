@@ -1,0 +1,18 @@
+<!--components/goodsListGoShop/index.wxml-->
+<view class="c_seconds_col_wrap" data-goodid="{{goodsList.goodsId}}" catchtap='cGoShop'>
+        <view class="c_seconds_col_wrap_top">
+            <view class="goodsListGoShop_thum">
+                <image class="c_Seconds_img_thrie" src='{{goodsList.img}}' />
+            </view>
+            <view class="c_Seconds_img_tag">限时秒杀</view>
+        </view>
+        <view class="c_seconds_col_title">{{goodsList.goodsName}}</view>
+        <view class="c_seconds_col_made">{{goodsList.desc}}</view>
+        <view class="c_col_bottom_wrap">
+            <view class="c_price_col_wrap">
+                <view class="c_price_max">{{goodsList.goodsPrice}}</view>
+                <view class="c_price_min">{{goodsList.marketPrice}}</view>
+            </view>
+            <view class="c_seconds">秒</view>
+        </view>
+    </view>

@@ -1,0 +1,21 @@
+/* components/routineActivity/index.wxss */
+.swipertop{
+width: 750rpx;
+height: 360rpx;
+}
+.topImg {
+    width: 100%;
+    height: 360rpx;
+}
+
+.routineActivity_conter {
+    width: 748rpx;
+    background: rgba(243, 243, 243, 1);
+    text-align: center;
+}
+
+.routineActivity_C_I {
+    width: 255rpx;
+    height: 22rpx;
+    margin: 28rpx 0;
+}

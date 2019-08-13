@@ -1,0 +1,16 @@
+{
+  "navigationBarTitleText": "520表白季",
+  "enablePullDownRefresh": true,
+  "backgroundColor": "#FFF3F0",
+  "usingComponents": {
+    "c-times": "/components/times/index",
+    "c-goodsItemThree_col": "/components/goodsItemThree_col/index",
+    "remind_right": "/components/remind_right/index",
+    "c-goodsListGoShop": "/components/goodsListGoShop/index",
+    "c-navigationTools": "/components/navigationTools/index",
+    "c-navigationToolsTwo": "/components/navigationToolsTwo/index",
+    "c-shopba": "/components/product_b/shopba/index",
+    "i-toast": "/dist/toast/index"
+  }
+
+}

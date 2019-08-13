@@ -1,0 +1,14 @@
+<!--pages/blackCard/blackCard.wxml-->
+<import src="/utils/wxParse/wxParse.wxml" />
+<view class="wrap">
+    <image class="banner_img" src='{{bgRules}}' mode='widthFix' />
+    <image class="card_img" src='{{card}}' mode='widthFix' />
+</view>
+<view class="rules">
+    <view class="is_wxParse">
+        <template is="wxParse" data="{{wxParseData:article.nodes}}" />
+    </view>
+    <view class="main_venue" catchtap="goMainVenue">
+        返回主会场>
+    </view>
+</view>

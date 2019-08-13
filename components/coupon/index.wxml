@@ -1,0 +1,54 @@
+<block wx:for='{{couponList}}' wx:for-item='item' wx:key='index'>
+  <view class='quan_item'>
+    <view class='quan_item_left'  style='background:{{item.color?item.color:item.bgcolor}}'>
+      <view class='quan_item_left_price'>{{item.cut}}</view>
+      <view class='quan_item_left_info'>{{item.ruleName?item.ruleName:item.rule}}</view>
+    </view>
+    <view class='quan_item_right' style='background-image:url({{coupon_rightBg}})'>
+        <view class='semicircle fixedTop {{semicircleBg?"semicircleBgF":""}}'></view>
+        <view class='semicircle fixedBottom {{semicircleBg?"semicircleBgF":""}}'></view>
+      <view class='quan_top'>
+        <!-- 卡片 -->
+        <view class='quan_tag' style='background:{{item.color?item.color:item.bgcolor}}'>{{item.subType}}</view>
+        <view class='quan_title'>{{item.eventName?item.eventName:item.title}}</view>
+      </view>
+      <view class='quan_narrate'>{{item.eventDesc}}</view>
+      <view class='quan_narrate_'></view>
+      <view class='quan_bottom'>
+        <view class='quan_Data_desc'>
+        <view class='quan_Data_text' wx:if='{{!item.willExpire}}'>有效期：</view>
+        <view class='quan_Data_' style='color:{{item.willExpire?"#ff3366":""}}'>{{item.expireDate}}</view>
+        </view>
+        <view wx:if="{{win!=='isno'}}">
+          <view class='quan_Data_click' bindtap='toUseCoupon' data-eventId='{{item.eventId}}' wx:if='{{item.eventId&&item.status !=1&&item.status!=2}}'
+            style='color:{{item.color}};border:1rpx solid {{item.color}}'>立即使用</view>
+          <!-- 优惠券领取 -->
+          <view wx:if='{{item.ruleId}}'>
+            <view wx:if='{{item.canTake}}'>
+              <view class='quan_Data_click' bindtap='getCoupon' data-ruleId='{{item.ruleId}}' wx:if='{{item.canTakeNums>0}}'
+                style='color:{{item.color}};border:1rpx solid {{item.color}}'>
+                <text wx:if='{{item.takenCount>0}}'>继续领取</text>
+                <text wx:else>立即领取</text>
+              </view>
+              <view class='quan_Data_click' style='color:#D4D4D4;border:1px solid #D4D4D4' wx:if='{{item.canTakeNums<=0}}'>
+                <view>已抢完</view>
+              </view>
+            </view>
+            <view wx:else>
+              <view class='quan_Data_click' style='color:#D4D4D4;border:1px solid #D4D4D4' bindtap='haveToReceive'>
+                <view>已领取</view>
+              </view>
+            </view>
+          </view>
+        </view>
+        <view class='confirm_check' wx:else>
+          <view class="coupon_gardenImg" wx:if="{{currentTab==0}}" bindtap='handleChecked' data-id="{{item.couponId}}"
+            data-price="{{item.cut}}">
+            <image src="{{item.couponId==checkedCouponId?'/images/secleted.png':'/images/unsecletd.png'}}" class="check_img" />
+          </view>
+        </view>
+        <image class='used' src='/images/img_used.png' wx:if='{{item.status == 1}}'></image>
+      </view>
+    </view>
+  </view>
+</block>

@@ -1,0 +1,166 @@
+/* components/shopTagUp/index.wxss */
+@import "/utils/wxParse/wxParse.wxss";
+
+/* 阴影 */
+
+.Mask {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.7);
+  z-index: 12;
+}
+
+/* 弹窗顶部边框 */
+
+.shopTagUp_title {
+  width: 100%;
+  height: 120rpx;
+  background: rgba(255, 255, 255, 1);
+  font-size: 32rpx;
+  font-family: PingFang-SC-Bold;
+  font-weight: bold;
+  color: rgba(47, 58, 64, 1);
+  line-height: 120rpx;
+  text-align: center;
+}
+
+.shopTagUp_tag {
+  width: 100%;
+  font-size: 28rpx;
+  font-family: PingFang-SC-Medium;
+  font-weight: 500;
+  color: rgba(47, 58, 64, 1);
+  line-height: 32rpx;
+  padding-left: 24rpx;
+  margin-top: 40rpx;
+  margin-bottom: 52rpx;
+  display: flex;
+  align-items: center;
+}
+
+.shopTagUp_conter {
+  width: 100%;
+  height: 742rpx;
+}
+
+/* 确定 */
+
+.shopTagUp_bottom {
+  width: 750rpx;
+  height: 98rpx;
+  background: rgba(255, 51, 102, 1);
+  font-size: 32rpx;
+  font-family: PingFang-SC-Medium;
+  font-weight: 500;
+  color: rgba(255, 255, 255, 1);
+  line-height: 98rpx;
+  text-align: center;
+  position: absolute;
+  left: 0rpx;
+  bottom: 0rpx;
+}
+
+.shopTagUp_wuliao_ {
+  line-height: 32rpx;
+  border-radius: 4rpx;
+  margin-right: 17rpx;
+  font-size: 22rpx;
+  font-family: PingFang-SC-Medium;
+  font-weight: 500;
+  color: rgba(255, 255, 255, 1);
+  padding: 2rpx 6rpx;
+}
+
+.shopTagUp_content {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  z-index: 13;
+  width: 100%;
+  height: 0rpx;
+  background: rgba(255, 255, 255, 1);
+}
+
+.shopTagUpShowTwo {
+  height: 1000rpx;
+  transition: all 0.4s ease-out;
+}
+
+.shopTagUp_tag_name {
+  display: flex;
+  align-items: center;
+  font-size: 24rpx;
+  font-family: PingFang-SC-Medium;
+  font-weight: 500;
+  color: rgba(103, 113, 114, 1);
+  line-height: 28rpx;
+  width: 441rpx;
+  overflow: hidden;
+  margin-left: 11rpx;
+}
+
+.taocan_left_img {
+  padding-right: 2rpx;
+  width: 98rpx;
+  height: 83rpx;
+}
+
+.shopTagUp_right {
+  font-size: 30rpx;
+  font-family: PingFang-SC-Medium;
+  font-weight: 500;
+  color: rgba(47, 58, 64, 1);
+  line-height: 28rpx;
+}
+
+.shopTagUpSwiper {
+  width: 100%;
+  height: 100rpx;
+  padding: 0rpx 24rpx;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 50rpx;
+}
+
+.rich_ext {
+  width: 100%;
+  font-size: 24rpx;
+  font-family: PingFang-SC-Medium;
+  font-weight: 500;
+  color: rgba(136, 150, 150, 1);
+  line-height: 42rpx;
+  padding: 0rpx 45rpx;
+}
+.shopTagUpScroll{
+  padding: 0rpx 24rpx;
+}
+.taocan_left {
+  display: flex;
+  justify-content: flex-start;
+}
+.shopTagUp_tip {
+  width: 100%;
+  height: 54rpx;
+  line-height: 54rpx;
+  color: #889696;
+  font-size: 24rpx;
+  text-align: center;
+}
+.shopTagUp_tag_img {
+  width: 48rpx;
+  height: 28rpx;
+  margin-right: 8rpx;
+}
+.shopTagUp_tag_txt{
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+  width: 624rpx;
+  padding-left: 18rpx;
+}

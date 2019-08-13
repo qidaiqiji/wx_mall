@@ -1,0 +1,13 @@
+<!--components/eventPopups/indedx.wxml-->
+<import src="/utils/wxParse/wxParse.wxml" />
+<view class="Mask" catchtap='showConfirm' catchtouchmove='move'></view>
+<view class="c_amous_brand" catchtouchmove='move'>
+    <image class="c_icon_diamond" src="/images/icon_diamond_2.png"></image>
+    <view class="c_title_wrap">
+        <view class="c_title">名品采购告知书</view>
+        <scroll-view class="remind_scroll_view" scroll-y style="width: 100%">
+            <template is="wxParse" data="{{wxParseData:article.nodes}}" />
+        </scroll-view>
+    </view>
+    <view class="event_popups_bottom" catchtap='showConfirm'>我已了解</view>
+</view>

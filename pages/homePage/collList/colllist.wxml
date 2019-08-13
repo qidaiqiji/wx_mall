@@ -1,0 +1,58 @@
+<!--pages/homePage/colllist.wxml-->
+<view class="wrap">
+    <view class="collist_top"></view>
+    <colllistSwiper topCollList="{{topCollList}}" ads="{{ads}}"></colllistSwiper>
+    <view class="collist__conter_wrap" wx:if='{{collList.length>0}}'>
+        <view class="collist__conter"></view>
+        <view class="collist__conterr">专辑推荐</view>
+        <view class="collist__conter"></view>
+    </view>
+    <view class="colllist_wrap">
+        <block wx:for="{{collList}}" wx:for-item="collList" wx:for-index="collListIndex" wx:key="{{collListIndex}}">
+            <view class="clooList_wrap" wx:if="{{collList.goodsCount}}">
+                <view data-collId="{{collList.collId}}" catchtap="collListurl" class="collListWrap_one"
+                    style="background:{{collList.color}};">
+                    <view class="collListWrap_txt1">{{collList.title}}</view>
+                    <view class="collListWrap_txt2">
+                        <view>更多</view>
+                        <image class="icon_return" src="/images/icon_more_white.png"
+                            style="width: 30rpx;height: 30rpx;" />
+                    </view>
+                </view>
+                <view class="collListWrap_two">
+                    <view class="collListWrap_two1">
+                        <block wx:for="{{collList.goodsList}}" wx:for-item="goodsList" wx:for-index="goodsListIndex"
+                            wx:key="{{goodsListIndex}}">
+                            <view class="goodsList" catchtap="showListdetails" data-goodsId="{{goodsList.goodsId}}">
+                                <view class="icon_return">
+                                    <image src="{{goodsList.thumb}}" style="width: 197rpx;height: 197rpx;" />
+                                    <image src="/images/play.png" mode='widthFix' class='play_top_img'
+                                        data-echo="./image/icon_vip.png" wx:if="{{goodsList.isVideoTag}}">
+                                    </image>
+                                </view>
+                                <view class="goodsListTxt">
+                                    <text>￥{{goodsList.price}}</text>
+                                </view>
+                            </view>
+                        </block>
+                    </view>
+                    <view class="collListWrap_two2">
+                        <view class="collListWrap_two5">
+                            <block wx:for="{{collList.keywords}}" wx:for-item="keyWords" wx:for-index="keyWordsIndex"
+                                wx:key="{{keyWordsIndex}}">
+                                <text class="collListWrap_two3">{{keyWords}}</text>
+                            </block>
+                        </view>
+                        <view class="collListWrap_two4">共{{collList.goodsCount}}款</view>
+                    </view>
+
+                </view>
+            </view>
+        </block>
+    </view>
+    <view class="collListWrap_bottom">
+        <reachTheBottom wx:if='{{isShowBottom}}'></reachTheBottom>
+    </view>
+</view>
+<c-navigationTools />
+<c-navigationToolsTwo toTheTop="{{toTheTop}}" catchtoUpImgs="ontoUpImgs" />

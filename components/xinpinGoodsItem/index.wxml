@@ -1,0 +1,33 @@
+<!--components/xinpinGoodsItem/index.wxml-->
+<view class='xinpin_goods' bindtap='jumpToDetail' data-goodsId='{{item.goodsId}}'>
+  <view class='goods_img'>
+    <image mode='widthFix' src='{{item.thumb}}' />
+    <image src="/images/play.png" mode='widthFix' class='play_top_img' data-echo="./image/icon_vip.png" wx:if="{{item.isVideoTag}}">
+    </image>
+  </view>
+  <view class='goods_msg'>
+    <view>{{item.goodsName}}</view>
+    <view>{{item.goodsBrief}}</view>
+    <view>
+      <view wx:if='{{item.sellingPoint}}'>{{item.sellingPoint}}</view>
+    </view>
+    <view class='msg_important'>
+      <view class='msg_price'>
+        <view class='goods_price'>
+          <view wx:if='{{item.price_int}}'>{{item.price_int}}</view>
+          <view wx:if='{{item.price_float}}'>.{{item.price_float}}</view>
+        </view>
+        <view wx:if='{{item.discount}}'>{{item.discount}}折</view>
+      </view>
+      <view class='goods_handle' wx:if="{{xinpinGoodsItem}}">立即查看</view>
+      <view wx:else>
+        <view class='goods_handle_wo' data-goodsId='{{item.goodsId}}' catchtap="myWantTo"
+          wx:if="{{reminder == 2}}">我想要</view>
+        <view class='goods_handle_to' data-goodsId='{{item.goodsId}}' catchtap="wantTo" wx:if="{{reminder ==1}}">
+          已想要</view>
+      </view>
+    </view>
+  </view>
+
+
+</view>

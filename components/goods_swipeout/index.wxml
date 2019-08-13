@@ -1,0 +1,61 @@
+<block wx:for='{{goodsList}}' wx:for-item='goodsItem' wx:key='index'>
+  <i-swipeout i-class='swipeoutWrap' i-item-class='itemClass' i-button-right-item-class='buttonRightItemClass' actions="{{actions}}"
+    toggle="{{toggle}}" unclosable="{{true}}" bindchange="cancelGoods" data-goodsId='{{goodsItem.goodsInfo.goodsId}}'>
+    <view slot="content">
+      <view class='container' goodsId='{{goodsItem.goodsInfo.goodsId}}'>
+        <view class='left' bindtap='jumpToGoodsDetail' data-goodsId='{{goodsItem.goodsInfo.goodsId}}'>
+          <image mode='widthFix' class='left_themeIcon' src='{{goodsItem.goodsInfo.themeIcon}}' wx:if='{{goodsItem.goodsInfo.themeIcon}}'></image>
+          <image class='left_img' src='{{goodsItem.goodsInfo.thumb}}' />
+          <view wx:if='{{goodsItem.goodsInfo.stock>0}}'>
+            <view class='left_tag' wx:if='{{goodsItem.goodsInfo.stockStatus == 3}}'>大货到仓</view>
+            <view class='left_tag' wx:if='{{goodsItem.goodsInfo.stockStatus == 1}}'>货源紧张</view>
+          </view>
+          <view class='left_tag' wx:if='{{goodsItem.goodsInfo.stock<=0}}'>售罄</view>
+        </view>
+        <view class='right'>
+          <view>
+
+            <view class='right_top'>
+              <view class='right_top_active'>
+                <block wx:for='{{goodsItem.tagList}}' wx:for-item='tagItem' wx:key='index'>
+                  <view class='top_active_tags'>
+                    <image class="goodsItem_col_tag" src="{{imgHead+ ''+version}}"></image>
+                  </view>
+                </block>
+              </view>
+            </view>
+            <view class='right_title' bindtap='jumpToGoodsDetail' data-goodsId='{{goodsItem.goodsInfo.goodsId}}'>{{goodsItem.goodsInfo.goodsName}}</view>
+            <view class='right_msg' bindtap='jumpToGoodsDetail' data-goodsId='{{goodsItem.goodsInfo.goodsId}}'>
+              <text>利润率 {{goodsItem.goodsInfo.rateRange}}</text>
+              <text class="goodList_msg_txt_two">销量 {{goodsItem.goodsInfo.salesCount}}</text>
+            </view>
+          </view>
+          <view class='right_bottom'>
+            <view class="goodlist_roa_price_wrap">
+              <view class='right_price' wx:if='{{!noLook}}'>
+                <text class='right_price_'>{{goodsItem.goodsInfo.intPrice}}.</text>
+                <text class='right_price_two'>{{goodsItem.goodsInfo.flootPrice}}</text>
+              </view>
+              <view class='noLook' wx:if='{{noLook}}'>审核完成查看价格</view>
+              <view class='right_bottom_tag'>
+                <view class='bottom_tag_discount' wx:if='{{goodsItem.goodsInfo.discount&&goodsItem.goodsInfo.discount<10}}'>{{goodsItem.goodsInfo.discount}}折</view>
+                <view class='bottom_tag_savePrice' wx:if='{{-goodsItem.goodsInfo.savePrice<0}}'>
+                  {{goodsItem.goodsInfo.savePrice}}
+                </view>
+
+              </view>
+            </view>
+            <view class='toBuy' data-isFlashSale='{{goodsItem.isFlashSale}}' data-goodsId='{{goodsItem.goodsInfo.goodsId}}'
+              catchtap='handleToBuy' data-goodsList="{{goodsItem}}">
+              <image class='addCart_img' mode="widthFix" src='/images/car.png' />
+            </view>
+
+          </view>
+        </view>
+
+      </view>
+    </view>
+  </i-swipeout>
+
+
+</block>

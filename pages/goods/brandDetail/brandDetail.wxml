@@ -1,0 +1,120 @@
+<import src="../../../utils/wxParse/wxParse.wxml" />
+<view wx:if='{{isShowRichText}}' style='width:100%;background:rgba(0,0,0,0.6);position:fixed;z-index:9990' bindtap='onshowRichText'>
+  <scroll-view scroll-y='{{true}}' style='height:100vh'>
+    <template is="wxParse" data="{{wxParseData:article.nodes}}" />
+  </scroll-view>
+</view>
+<view class='container'>
+  <view class='brandHeader'>
+    <scroll-view scroll-x="true" class="tabTitle">
+      <block wx:for="{{statusType}}" wx:for-item="item" wx:key="index">
+        <view class="tabTitle_item" wx:if="{{item != '品牌知识'}}">
+          <view class=" {{currentTab==(index) ? 'on' : ''}}" bindtap="switchTab" data-current="{{index}}">{{item}}
+          </view>
+        </view>
+      </block>
+    </scroll-view>
+  </view>
+  <view class='goodsHeader' wx:if='{{currentTab ==1}}'>
+    <c-sizerLine bindpushSizer='onpushSizer' />
+  </view>
+  <view class='main'>
+    <view wx:if='{{currentTab ==0}}'>
+      <view class='brand_sign'>
+        <view class='brand_img'>
+          <image src='{{brandInfo.brandBanner}}'></image>
+        </view>
+        <view class='brand_name'>
+          <view class='brand_name_left'>
+            <view class='brand_name_logo'>
+              <image src='{{brandInfo.brandLogo}}' mode='widthFix'></image>
+            </view>
+            <view class='brand_name_txt'>
+              <view class='name_txt_title'>{{brandInfo.brandName}}</view>
+              <view class='name_txt_desc'>{{brandInfo.brandDesc}}</view>
+            </view>
+          </view>
+          <view class='brand_name_right'>
+            <view bindtap='seeBrand'>查看品牌</view>
+          </view>
+        </view>
+      </view>
+      <view class='brand_notice' bindtap='showActive'>
+        <view class='brand_notice_left'>
+          <view class='notice_left_tag'>
+            <image src='/images/icon_play@2x.png'></image>
+          </view>
+          <view class='notice_left_vertical'></view>
+          <view class='notice_left_title'>
+            该品牌正在参与{{pkgList.goodsList.length>0?'套餐活动;':''}}{{title}}{{shippingInfo.shippingName}}
+          </view>
+        </view>
+        <view class='brand_notice_right'>
+          <i-icon type="enter" i-class='enter' />
+        </view>
+      </view>
+      <view class='GoodsList'>
+        <view class='goodsItem' wx:if='{{starList.length>0}}'>
+          <view class='goodsItem_title'>明星单品</view>
+          <c-goodsItem_row bindevokeAddCart='onevokeAddCart' goodsList='{{starList}}' />
+        </view>
+        <view class='goodsItem' wx:if='{{notStarList.length>0}}'>
+          <view class='goodsItem_title'>全部商品</view>
+          <c-goodsItem_row bindevokeAddCart='onevokeAddCart' goodsList='{{notStarList}}' />
+          <c-reachTheBottom wx:if='{{notStarList.length>0}}' />
+        </view>
+      </view>
+    </view>
+    <view wx:if='{{currentTab ==1}}' class='allGoodsList'>
+      <view class="loadingMain" wx:if='{{isLoading==2}}'>
+        <c-loading />
+      </view>
+      <view class='goodsItems' wx:if='{{isLoading==1}}'>
+        <c-goodsItem_row bindevokeAddCart='onevokeAddCart' goodsList='{{goodsList}}' bindmycoudan="pageEventListener1" />
+        <view style='display:flex;justify-content:center;'>
+          <image wx:if='{{isLoadings}}' style='width:100rpx;height:100rpx;margin:0 auto;' src='/images/bottomLoading.gif' />
+        </view>
+        <c-reachTheBottom wx:if='{{reachTheBottom}}' />
+      </view>
+      <view wx:elif='{{isLoading==0}}' class='noGoodsItem'>
+        <image src='/images/img_search.png' class='noGoodsItem_img' lazy-load='{{true}}'></image>
+        <view class='noGoodsItem_txt'>搜索不到相关商品噢</view>
+      </view>
+    </view>
+    <view wx:if='{{currentTab ==2}}'>
+      <swiper indicator-dots="{{licenseSrc.length > 1?true:false}}" autoplay="{{true}}" interval="5000" class='imgShow' duration="300">
+        <block wx:for="{{licenseSrc}}" wx:for-item='licenseSrcItem' wx:key='index'>
+          <swiper-item>
+            <image src="{{licenseSrcItem}}" bindtap="imgYu" data-list="{{licenseSrc}}" data-src="{{licenseSrcItem}}" class="slide-image" mode='widthFix' />
+          </swiper-item>
+        </block>
+      </swiper>
+
+      <view class='notMsg_' wx:if='{{licenseSrc.length ==0}}'>
+        <image src='{{notMsg_img}}'></image>
+        <view>相关内容开发中</view>
+      </view>
+    </view>
+
+    <!-- </scroll-view>
+      </swiper-item> -->
+    <!-- <swiper-item class="swiper_item" data-index='{{index}}'>
+        <scroll-view scroll-y style='height:{{windowHeight-98}}rpx;' wx:if='{{currentTab ==3}}'> -->
+    <!-- <view>暂时未开发</view> -->
+    <!-- </scroll-view>
+      </swiper-item>
+    </swiper> -->
+  </view>
+</view>
+<c-shopba kind='addCart' wx:if='{{isPopCart}}' shbpbaWrapHeight='999' shbpbaListHeight='444' goodsId='{{addGoodsId}}' catchtouchmove='true' goodsList='{{addGoodslist}}' id="addCart" bindhideCart="onhideCart" bindgetTotle='ongetTotle'>
+  <view class="pro_bottom_two" slot='shopba'>
+  </view>
+</c-shopba>
+<c-bottomModal kind='seeBrand' wx:if='{{isseeBrand}}' brandPop='{{brandPop}}' bindshowRichText='onshowRichText' bindhideBrandMsg='onhideBrandMsg' id="brandMsg" isarticle="{{isarticle}}">
+</c-bottomModal>
+<c-bottomModal kind='BrandMsg' pkgList='{{pkgList}}' couponList='{{couponList}}' shippingInfo='{{shippingInfo}}' id="brandActive" bindhideBrandActive='onhideBrandActive' wx:if='{{isShowActive}}'>
+</c-bottomModal>
+<i-toast id="toast" />
+<c-navigationTools totalCount='{{totalCounts}}' />
+<c-navigationToolsTwo backTop='false' toTheTop="{{toTheTop}}" catchtoUpImgs="ontoUpImgs" />
+<c-filtrateDrawer id='filtrateDrawer' bindfilterClick='onFilterClick' category='{{category}}' countries='{{countries}}' tags='{{tags}}' isShow='{{isFiltrate}}' clearItemCheck='{{clearItemCheck}}' />

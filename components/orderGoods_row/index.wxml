@@ -1,0 +1,66 @@
+<scroll-view scroll-x="{{true}}" style="width:750rpx;" wx:if="{{kind =='orderList'}}">
+  <view class='allGoods'>
+    <block wx:for='{{orderGoodsList}}' wx:for-item='lotItem' wx:key='index'>
+      <view class='scroll_item' style='border:1px solid {{lotItem.isVip||lotItme.isGift||lotItme.isGift||lotItem.isWuliao ?"#ff5c85" :"#e9f3f5"}} '>
+        <view class='item_img'>
+          <image src='{{lotItem.thumb}}' />
+        </view>
+        <view class='tags' wx:if='{{lotItem.isVip||lotItme.isGift||lotItme.isGift||lotItem.isWuliao}}'> {{lotItem.isVip?'贵宾':lotItme.isGift?'赠品': lotItem.isWuliao?'物料':''}}
+        </view>
+      </view>
+    </block>
+  </view>
+</scroll-view>
+
+
+<!-- 订单确认页 -->
+<scroll-view scroll-x="{{true}}" style="width:750rpx;overflow:hidden" wx:if="{{kind =='confirmOrder_com'}}">
+  <view class='allGoods_confirmOrder'>
+
+    <block wx:for='{{showGoodsList}}' wx:for-item='goodsItem' wx:key='index'>
+      <view class='scroll_item_confirmOrder'>
+        <view class='item_img_confirmOrder'>
+          <image src='{{goodsItem.thumb}}' />
+        </view>
+        <view class='tags_confirmOrder' style='background:{{goodsItem.bgColor}}'>{{goodsItem.showOutTag?goodsItem.tag:''}}x{{goodsItem.cartNum}}</view>
+      </view>
+    </block>
+
+  </view>
+</scroll-view>
+<!-- 确认订单 拼团商品 -->
+<view wx:if="{{kind=='confirmOrder_buyConfirm'}}" class='groupBuying'>
+  <view class='goods_main'>
+    <view class='goodsThumb'>
+      <image src='{{goodsListConfirm[0].thumb}}'></image>
+    </view>
+    <view class='goodsMsg'>
+      <view class='msg_title'>{{goodsListConfirm[0].goodsName}}</view>
+      <view class='msg_tags'>
+        <view class='tag'>拼团</view>
+      </view>
+    </view>
+  </view>
+  <view class='goodsDesc'>
+    <view class='desc_price'>￥{{goodsListConfirm[0].price}}</view>
+    <view class='desc_num'>x{{goodsListConfirm[0].cartNum}}</view>
+  </view>
+</view>
+<!-- 订单详情 -->
+<view wx:if="{{kind=='confirmOrder_buying'}}" class='groupBuying'>
+  <view class='goods_main'>
+    <view class='goodsThumb'>
+      <image src='{{orderGoodsList[0].thumb}}'></image>
+    </view>
+    <view class='goodsMsg'>
+      <view class='msg_title'>{{orderGoodsList[0].goodsName}}</view>
+      <view class='msg_tags'>
+        <view class='tag' wx:if="{{orderGoodsList[0].isGroupShopping}}">拼团</view>
+      </view>
+    </view>
+  </view>
+  <view class='goodsDesc'>
+    <view class='desc_price'>￥{{orderGoodsList[0].goodsPrice}}</view>
+    <view class='desc_num'>x{{orderGoodsList[0].num}}</view>
+  </view>
+</view>

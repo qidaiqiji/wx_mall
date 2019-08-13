@@ -1,0 +1,29 @@
+<view class="navigationTools_wrap" style="bottom: {{isBottom}}rpx;">
+
+  <view>
+    <navigator url="/pages/index/index" open-type="switchTab" hover-class="none">
+      <view class='container_right_item' bindtap='onIsShow'>
+        <image class="navigationTools_img" style="opacity: 1" src='./image/home.png'></image>
+      </view>
+    </navigator>
+  </view>
+  <view class="">
+    <navigator url="/pages/cart/cart" open-type="switchTab" hover-class="none">
+      <view class='navigation_car_wrap ' bindtap='onIsShow'>
+        <view class="container_right_item">
+          <view class="container_right_item_border"></view>
+          <image class="navigationTools_img" style="opacity: 1" src='./image/car.png'></image>
+          <view class="container_right_item_border"></view>
+        </view>
+        <view class="navigation_car_yuan" style="opacity: 1;" wx:if="{{totalCount==0?false:true}}">{{totalCount}}</view>
+      </view>
+    </navigator>
+  </view>
+  <view>
+    <navigator url="/pages/my/my" open-type="switchTab" hover-class="none">
+      <view class='container_right_item' bindtap='onIsShow'>
+        <image class="navigationTools_img" style="opacity: 1" src='./image/my.png'></image>
+      </view>
+    </navigator>
+  </view>
+</view>

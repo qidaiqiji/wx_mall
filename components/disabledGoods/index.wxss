@@ -1,0 +1,181 @@
+/* components/disabledGoods/index.wxss */
+
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  padding-bottom: 20rpx;
+  background: #fff;
+}
+
+.container .main {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  height: 204rpx;
+}
+
+.container .main .left {
+  width: 40rpx;
+  height: 40rpx;
+  padding: 0rpx 20rpx;
+  margin-right: 34rpx;
+}
+
+.container .main .left checkbox {
+  border-radius: 50%;
+}
+
+.container .main .middle {
+  width: 144rpx;
+  height: 154rpx;
+}
+
+.container .main .middle image {
+  width: 144rpx;
+}
+
+.container .main .middle view {
+  width: 144rpx;
+  font-size: 20rpx;
+  transform: translate(0rpx, -38rpx);
+  background: rgb(103, 113, 114);
+  text-align: center;
+  color: #fff;
+}
+
+.container .main .right {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  margin: 0rpx 20rpx;
+}
+
+.container .main .right .title {
+  font-size: 24rpx;
+  color: rgb(47, 58, 64);
+  width: 460rpx;
+}
+
+.container .main .right .desc {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.container .main .right .desc .price {
+  width: 240rpx;
+  height: 74rpx;
+  position: relative;
+}
+
+.container .main .right .desc .price text {
+  display: inline-block;
+  width: 52rpx;
+  height: 28rpx;
+  background: red;
+  border-radius: 4px;
+  font-size: 20rpx;
+  color: #fff;
+  text-align: center;
+  margin-top: 10rpx;
+}
+
+.container .main .right .desc .price .money {
+  color: red;
+  margin-top: 10rpx;
+  font-weight: bold;
+  text-indent: 20rpx;
+  font-size: 32rpx;
+  position: absolute;
+  bottom: -14rpx;
+}
+
+.disableds {
+  color: #2f3a40;
+  margin-top: 10rpx;
+  font-size: 24rpx;
+  position: absolute;
+  bottom: 0rpx;
+  border: 1px solid #889696;
+  border-radius: 16rpx;
+  padding: 0 6rpx;
+}
+
+.container .main .right .desc .price .money::before {
+  content: '￥';
+  position: absolute;
+  top: 8rpx;
+  left: -20rpx;
+  font-size: 24rpx;
+  font-weight: normal;
+}
+
+.container .main .right .desc .counter {
+  padding-top: 18rpx;
+  width: 180rpx;
+  height: 48rpx;
+  box-sizing: border-box;
+}
+
+.container .main .right .desc .counter .changeNum {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 180rpx;
+  height: 48rpx;
+  border: 1px solid #ccc;
+  border-radius: 8rpx;
+}
+
+.container .main .right .desc .counter .changeNum text {
+  width: 48rpx;
+  height: 44rpx;
+  line-height: 44rpx;
+  text-align: center;
+  font-size: 24px;
+  font-weight: bold;
+  color: #bbb;
+}
+
+.container .main .right .desc .counter .changeNum text.reduce {
+  border-right: 1px solid #ccc;
+}
+
+.container .main .right .desc .counter .changeNum text.add {
+  border-left: 1px solid #ccc;
+}
+
+.container .main .right .desc .counter .changeNum input {
+  width: 80rpx;
+  font-size: 28rpx;
+  text-align: center;
+  box-sizing: border-box;
+}
+
+.container .main .right .desc .counter .changeNum text.disabled {
+  background: #ccc;
+}
+
+.container .main .right .desc .counter .changeNum text.normal {
+  background: #fff;
+}
+
+.tags {
+  width: 52rpx;
+  height: 28rpx;
+  line-height: 28rpx;
+  font-size: 20rpx;
+  padding: 0;
+}
+
+.mz {
+  background: #f36;
+}
+
+.wl {
+  background: #3a93ff;
+}

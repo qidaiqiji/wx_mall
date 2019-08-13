@@ -1,0 +1,18 @@
+<view class='category_goods'>
+  <block wx:for='{{goodsList}}' wx:for-item='goodsItem' wx:key='index'>
+    <view class='goodsItem'>
+      <view class='goodsItem_img' catchtap='jumpToGoodsDetail' data-goodsId='{{goodsItem.goodsInfo.goodsId}}'>
+        <image src='/images/icon_no{{index+1}}.png' class='goodsItem_tag' wx:if='{{kind=="ranking"}}'></image>
+        <image src='{{goodsItem.goodsInfo.thumb}}' class='goodsItem_img_'></image>
+      </view>
+      <view class=' {{kind=="ranking"?"goodsItem_titles":"goodsItem_title"}}'>{{goodsItem.goodsInfo.goodsName}}</view>
+      <view class='goodsItem_numb' wx:if='{{kind!=="ranking"}}'>销量：{{goodsItem.goodsInfo.salesCount}}</view>
+      <view class='goodsItem_bottom'>
+        <view class='goodsItem_price'>￥{{goodsItem.goodsInfo.goodsPrice}}</view>
+        <view class='toBuy' data-goodsId='{{goodsItem.goodsInfo.goodsId}}' catchtap='handleToBuy' data-goodsList="{{goodsItem}}">
+          <image src='/images/car_3.png' class='goodsItem_cart'></image>
+        </view>
+      </view>
+    </view>
+  </block>
+</view>

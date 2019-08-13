@@ -1,0 +1,126 @@
+/* components/foundParameter/index.wxss */
+image {
+    vertical-align: top;
+}
+
+.Mask {
+    transition: all 0.2s linear;
+    position: fixed;
+    top: 0rpx;
+    left: 0rpx;
+    right: 0rpx;
+    bottom: 0rpx;
+    background: rgb(0, 0, 0);
+    opacity: 0;
+    z-index: 90;
+}
+.parameter_wrap {
+    transition: all 0.2s linear;
+    position: fixed;
+    bottom: -1rpx;
+    left: 0rpx;
+    width: 100%;
+    background: rgba(255, 255, 255, 1);
+    z-index: 96;
+    opacity: 0.6;
+    padding-bottom: 20rpx;
+    height: 0rpx;
+}
+
+.show {
+    height: 901rpx;
+    opacity: 1;
+}
+
+.showZero {
+    opacity: 0.5;
+}
+
+.parameter_cart {
+    width: 60rpx;
+    height: 60rpx;
+}
+
+.parameter_top {
+    width: 750rpx;
+    height: 120rpx;
+    background: rgba(255, 255, 255, 1);
+    text-align: center;
+    line-height: 120rpx;
+    font-size: 32rpx;
+    font-family: PingFang-SC-Bold;
+    font-weight: bold;
+    color: rgba(47, 58, 64, 1);
+}
+
+.parameter_num {
+    height: 782rpx;
+
+}
+
+.parameter_bottom {
+    width: 702rpx;
+    height: 216rpx;
+    background: rgba(243, 243, 243, 1);
+    border-radius: 16rpx;
+    margin-bottom: 20rpx;
+    margin-left: 24rpx;
+    padding-right: 32rpx;
+    display: flex;
+    justify-content: space-between;
+}
+
+.parameter_img {
+    margin-top: 21rpx;
+    margin-left: 21rpx;
+    width: 180rpx;
+    height: 180rpx;
+    border-radius: 16rpx;
+    background: #FFFFFF;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.parameter_img_ {
+    width: 173rpx;
+    height: 172rpx;
+    border-radius: 16rpx;
+}
+
+.parameter_txt {
+    margin-top: 28rpx;
+    margin-left: 27rpx;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.parameter_price {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-bottom: 23rpx;
+}
+
+.parameter_title {
+    width: 428rpx;
+    font-size: 28rpx;
+    font-family: PingFangSC-Regular;
+    font-weight: 400;
+    color: rgba(47, 58, 64, 1);
+    line-height: 32rpx;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+}
+
+.parameter_price_ {
+    font-size: 28rpx;
+    font-family: PingFangSC-Regular;
+    font-weight: 400;
+    color: rgba(255, 51, 102, 1);
+    line-height: 28rpx;
+}

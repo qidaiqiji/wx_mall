@@ -1,0 +1,9 @@
+{
+    "navigationBarTitleText": "订单详情",
+    "backgroundColor":"#f3f3f3",
+    "usingComponents": {
+        "c-orderGoodsItem_row": "/components/orderGoodsItem_row/index",
+        "c-modal":"/components/modal/index",
+        "c-times":"/components/times/index"
+      }
+}

@@ -1,0 +1,10 @@
+{
+  "navigationBarTitleText": "小美头条",
+  "backgroundColor": "#f3f3f3",
+  "usingComponents": {
+        "c-reachTheBottom": "/components/reachTheBottom/index",
+        "c-navigationTools": "/components/navigationTools/index",
+        "c-navigationToolsTwo": "/components/navigationToolsTwo/index",
+        "i-toast": "../../../dist/toast/index"
+  }
+}

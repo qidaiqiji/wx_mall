@@ -1,0 +1,147 @@
+/* components/swiper_conter/index.wxss */
+
+.showListWrap_zero {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: rgba(243, 243, 243, 1);
+}
+
+.showListWrap {
+  box-shadow: 0rpx 9rpx 38rpx 0rpx rgba(188, 185, 185, 0.14);
+  margin-bottom: 25rpx;
+}
+
+.showListTop {
+  width: 702rpx;
+  height: 88rpx;
+  background: rgba(255, 255, 255, 1);
+  border-radius: 16rpx 16rpx 0rpx 0rpx;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 24rpx;
+}
+
+.showListleft {
+  font-size: 32rpx;
+  font-family: PingFang-SC-Bold;
+  font-weight: bold;
+  color: rgba(47, 58, 64, 1);
+}
+
+.showListright {
+  font-size: 24rpx;
+  font-family: PingFang-SC-Medium;
+  font-weight: 500;
+  color: rgba(136, 150, 150, 1);
+}
+
+.showListbottom {
+  width: 702rpx;
+  background: rgba(255, 255, 255, 1);
+  border-radius: 0rpx 0rpx 16rpx 16rpx;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.showListbottom_flex {
+  padding-bottom: 14rpx;
+  margin-left: 14rpx;
+}
+
+.showListbottom_flex_one {
+  width: 216rpx;
+  height: 216rpx;
+  background: rgba(255, 255, 255, 1);
+  border: 1rpx solid rgba(212, 212, 212, 1);
+  border-radius: 4rpx;
+  margin-top: 14rpx;
+  position: relative;
+  top: 0;
+  left: 0;
+}
+
+.goodsListthumb {
+  width: 216rpx;
+  height: 216rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.goodsListthumb image {
+  width: 208rpx;
+  height: 208rpx;
+  border-radius: 4rpx;
+}
+
+.showListTxtOne {
+  margin-top: 6rpx;
+  width: 216rpx;
+  font-size: 24rpx;
+  font-family: PingFang-SC-Medium;
+  font-weight: 500;
+  color: rgba(47, 58, 64, 1);
+  /* 显示一行超出截断 */
+  text-overflow: -o-ellipsis-lastline;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+}
+
+.showListTxtTwo_zero {
+  width: 216rpx;
+  height: 48rpx;
+  text-overflow: -o-ellipsis-lastline;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+}
+
+.showListTxtTwo {
+  background: rgba(255, 226, 233, 1);
+  border-radius: 4rpx;
+  text-align: center;
+  font-size: 20rpx;
+  font-family: PingFang-SC-Medium;
+  font-weight: 500;
+  color: rgba(255, 51, 102, 1);
+  line-height: 48rpx;
+  padding: 0 10rpx;
+}
+
+.showListTxtThree {
+  font-size: 20rpx;
+  font-family: PingFang-SC-Medium;
+  font-weight: 500;
+  color: rgba(255, 51, 102, 1);
+  line-height: 48rpx;
+}
+
+.showListTxtFour {
+  font-size: 20rpx;
+  font-family: PingFang-SC-Medium;
+  font-weight: 500;
+  text-decoration: line-through;
+  color: rgba(136, 150, 150, 1);
+  line-height: 48rpx;
+  padding-left: 9rpx;
+}
+
+.icon_return {
+  position: relative;
+  left: 0;
+  top: 6rpx;
+}
+
+.goodsListIcon {
+  position: absolute;
+  left: 0rpx;
+  top: 0rpx;
+  z-index: 99;
+}

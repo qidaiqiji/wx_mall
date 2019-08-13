@@ -1,0 +1,74 @@
+<!--pages/hotGoods/hotGoods.wxml-->
+<!-- 热销 -->
+<view class="wrap">
+    <view class="background_image" style="background-image: url({{hot_goods}})">
+        <view class="wrap_top">
+            <block wx:for='{{topListZero}}' wx:for-item='goodsItem' wx:key='index'>
+                <view class='goodsItem'>
+                    <image src='/images/icon_no{{index+1}}_mask.png' class='goodsItem_tag'></image>
+                    <view class="getGoodsItemBorder getGoodsItemBorder{{index+1}}">
+                        <view>
+                            <view class='goodsItem_img goodsItem_img{{index+1}}' catchtap='jumpToGoodsDetail'
+                                data-goodsId='{{goodsItem.goodsInfo.goodsId}}'>
+                                <image src='{{goodsItem.goodsInfo.thumb}}' class='goodsItem_img_'></image>
+                            </view>
+                            <view class="goodsItem_title">{{goodsItem.goodsInfo.goodsName}}</view>
+                            <view class='goodsItem_bottom'>
+                                <view class='goodsItem_price'>￥{{goodsItem.goodsInfo.goodsPrice}}</view>
+                                <view class='toBuy' data-goodsId='{{goodsItem.goodsInfo.goodsId}}'
+                                    catchtap='handleToBuy' data-goodsList="{{goodsItem}}">
+                                    <image src='/images/icon_shopping.png' class='goodsItem_cart'></image>
+                                </view>
+                            </view>
+                        </view>
+                    </view>
+                </view>
+            </block>
+        </view>
+    </view>
+
+    <!--  -->
+    <view class="wrap_bottom">
+        <block wx:for='{{goodsList}}' wx:for-item='goodsItem' wx:key='index'>
+            <view class='goodsList_wrap' catchtap='jumpToGoodsDetail' data-goodsId='{{goodsItem.goodsInfo.goodsId}}'>
+                <image src='{{goodsItem.goodsInfo.thumb}}' class='list_thum'></image>
+                <view class="list_right_wrap">
+                    <view class="list_goodsName">{{goodsItem.goodsInfo.goodsName}}</view>
+                    <view class="list_right_bottom">
+                        <view class="list_price_wrap">
+                            <view class="list_price">
+                                <text class="list_numInt">{{goodsItem.goodsInfo.numInt}}</text>
+                                <text class="list_decimal">.{{goodsItem.goodsInfo.decimal}}</text>
+                            </view>
+                            <view class=""
+                                wx:if="{{ goodsItem.tagList[0].text =='新品'||goodsItem.tagList[0].text =='明星'?false:true}}">
+                                <block wx:for="{{arr}}" wx:for-item="arr" wx:for-index="arr_in" wx:key="{{arr_in}}">
+                                    <image class="goodsItem_col_tag_two"
+                                        style="width:{{arr.width}}rpx;height: {{arr.height}}rpx;" src="{{arr.url}}"
+                                        wx:if='{{goodsItem.tagList[0].text == arr.name}}' />
+                                </block>
+                            </view>
+                        </view>
+                        <view class="car_img_wrap" data-goodsId='{{goodsItem.goodsInfo.goodsId}}' catchtap='handleToBuy'
+                            data-goodsList="{{goodsItem}}">
+                            <image src='/images/car.png' class='car_img'></image>
+                        </view>
+                    </view>
+                </view>
+            </view>
+        </block>
+    </view>
+    <view class="showListWrap_T_three_wrap_zero" wx:if="{{reachTheBottom}}">
+        <view class="showListWrap_T_three_wrap ">
+            <view class="showListWrap__border"></view>
+            <view class="showListWrap_t">已经到底了</view>
+            <view class="showListWrap__border"></view>
+        </view>
+    </view>
+</view>
+<c-shopba kind='addCart' wx:if='{{isPopCart}}' shbpbaWrapHeight='999' shbpbaListHeight='444' goodsId='{{addGoodsId}}'
+    catchtouchmove='true' goodsList='{{addGoodslist}}' id="addCart" bindhideCart="onhideCart" bindgetTotle='ongetTotle'>
+</c-shopba>
+<c-navigationTools totalCount='{{totalCounts}}' />
+<c-navigationToolsTwo toTheTop="{{toTheTop}}" bottomToTheTop="20" catchtoUpImgs="ontoUpImgs" />
+<i-toast id="toast" />

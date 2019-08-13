@@ -1,0 +1,163 @@
+/* pages/homePage/colllist.wxss */
+.collist__conter_wrap {
+    width: 750rpx;
+    height: 98rpx;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgb(243, 243, 243);
+}
+.collist_top{
+   width: 750rpx;
+   height: 24rpx;
+   background: rgb(243, 243, 243);
+}
+.collist__conter {
+    width: 32rpx;
+    height: 1rpx;
+    background: rgba(47, 58, 64, 1);
+}
+
+.collist__conterr {
+    margin: 0 23rpx;
+    font-size: 28rpx;
+    font-family: PingFang-SC-Bold;
+    font-weight: bold;
+    color: rgba(47, 58, 64, 1);
+    line-height: 48rpx;
+}
+.play_top_img {
+    width: 60rpx;
+    height: 60rpx;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    z-index: 5;
+    transform: translate(-50%, -50%);
+  }
+/* 循环 */
+.colllist_wrap {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: rgb(243, 243, 243);
+}
+.clooList_wrap{
+    width: 718rpx;
+    margin-top: 20rpx;
+    border-radius: 20rpx;
+    overflow: hidden;
+    box-shadow:0rpx 9rpx 38rpx 0rpx rgba(188,185,185,0.14);
+}
+.collListWrap_one {
+    width: 718rpx;
+    height: 78rpx;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 27rpx;
+}
+
+.collListWrap_txt1 {
+    font-size: 28rpx;
+    font-family: PingFang-SC-Bold;
+    font-weight: bold;
+    color: rgba(255, 255, 255, 1);
+}
+
+.collListWrap_txt2 {
+    font-size: 22rpx;
+    font-family: PingFang-SC-Medium;
+    font-weight: 500;
+    color: rgba(255, 255, 255, 1);
+    display: flex;
+    align-items: center;
+}
+.collListWrap_txt2 >view{
+  height: 30rpx;
+  line-height: 30rpx;
+}
+.icon_return {
+    position: relative;
+    left: 0;
+    top: 0rpx;
+}
+
+/* 下边 */
+.collListWrap_two {
+    width: 718rpx;
+    height: 372rpx;
+    background: rgba(255, 255, 255, 1);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+}
+
+.collListWrap_two1 {
+    margin-top: 20rpx;
+    display: flex;
+
+}
+
+/* 循环列表 */
+.goodsList {
+    width: 216rpx;
+    height: 216rpx;
+    background: rgba(255, 255, 255, 1);
+    border: 1rpx solid rgba(220, 228, 230, 1);
+    border-radius: 4rpx;
+    text-align: center;
+    margin-left: 19rpx;
+}
+
+/* 价格 */
+.goodsListTxt {
+    font-size: 26rpx;
+    font-family: PingFang-SC-medium;
+    font-weight: 500;
+    color: rgba(255, 51, 102, 1);
+    line-height: 48rpx;
+    margin-top: 16rpx;
+}
+
+.collListWrap_bottom {
+    width: 750rpx;
+    height: 40rpx;
+    background: rgb(243, 243, 243)
+}
+
+.collListWrap_two2 {
+    display: flex;
+    justify-content: space-between;
+    padding: 0 0rpx;
+}
+
+.collListWrap_two3 {
+    border: 1rpx solid rgba(178, 178, 178, 1);
+    border-radius: 4rpx;
+    overflow: hidden;
+    font-size: 24rpx;
+    font-family: PingFang-SC-Regular;
+    font-weight: 400;
+    color: rgba(178, 178, 178, 1);
+    line-height: 48rpx;
+    margin-left: 20rpx;
+    padding: 0 10rpx;
+}
+
+.collListWrap_two4 {
+    font-size: 24rpx;
+    font-family: PingFang-SC-Medium;
+    font-weight: 500;
+    color: #b2b2b2;
+    margin-right: 20rpx;
+}
+
+.collListWrap_two5 {
+    margin-bottom: 33rpx;
+}
+
+.wrap {
+    background: rgb(243, 243, 243);
+}

@@ -1,0 +1,13 @@
+{
+  "navigationBarTitleText": "超级品牌日",
+  "usingComponents": {
+    "goodlsListTwo_col": "/components/goodsItemTwo_col/index",
+    "reachTheBottom": "/components/reachTheBottom/index",
+    "c-shopba": "/components/product_b/shopba/index",
+    "c-navigationTools": "/components/navigationTools/index",
+    "c-popupWindow": "/components/popupWindow/index",
+    "c-navigationToolsTwo":"/components/navigationToolsTwo/index",
+    "c-receiveSecurities": "/components/receiveSecurities/index",
+    "i-toast": "../../../../dist/toast/index"
+  }
+}

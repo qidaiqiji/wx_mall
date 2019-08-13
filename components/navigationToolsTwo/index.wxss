@@ -1,0 +1,48 @@
+/* components/navigationToolsTwo/index.wxss */
+.navigationToolsTwo_wrap {
+    width: 84rpx;
+    border-radius: 10rpx;
+    position: fixed;
+    right: 24rpx;
+    bottom: 20rpx;
+    z-index: 6;
+}
+image{
+  vertical-align: top;
+}
+.kefu_img_wrap {
+    color: white;
+    background: white;
+    width: 84rpx;
+    height: 84rpx;
+    border-radius: 50%;
+    box-shadow: 0rpx 9rpx 38rpx 0rpx rgba(188, 185, 185, 0.14);
+
+}
+
+.kefu_img {
+    width: 84rpx;
+    height: 84rpx;
+    position: relative;
+    left: -28rpx;
+    top: 0rpx;
+}
+.to_up_img_{
+    width: 84rpx;
+    height: 84rpx;
+}
+.to_up_img {
+    width: 84rpx;
+    height: 0rpx;
+    border-radius: 50%;
+    box-shadow: 0rpx 9rpx 38rpx 0rpx rgba(188, 185, 185, 0.14);
+    transition: all 0.4s ease-in;
+    margin-top: 0rpx;
+}
+
+.to_up_img_height {
+    width: 84rpx;
+    height: 84rpx;
+    transition: all 0.4s ease-in;
+    margin-top: 8rpx;
+}

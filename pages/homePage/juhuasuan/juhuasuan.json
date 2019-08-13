@@ -1,0 +1,13 @@
+{
+  "navigationBarTitleText": "巨划算",
+  "backgroundColor": "#ffefe2",
+  "usingComponents": {
+    "c-shopba": "/components/product_b/shopba/index",
+    "c-goodsItem_row": "/components/goodsItem_row/index",
+    "i-toast": "../../dist/toast/index",
+    "reachTheBottom": "/components/reachTheBottom/index",
+    "c-remind_right": "/components/remind_right/index",
+    "c-navigationToolsTwo": "/components/navigationToolsTwo/index",
+    "c-navigationTools": "/components/navigationTools/index"
+  }
+}

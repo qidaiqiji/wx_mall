@@ -1,0 +1,133 @@
+<!--pages/superBrand/superBrand.wxml-->
+<view class="banner_color" style="background: {{bgColor}}">
+    <view class="top_swiper_wrap" style="background-image: url({{img_bg}})">
+        <image class="top_left_img" src="{{super_brand}}" />
+        <view class="top_swiper">
+            <swiper class="top_swiper_" autoplay="{{true}}" circular='{{true}}' interval='5000' duration='500'
+                bindchange="swiperChange">
+                <block wx:for="{{bannerInfo}}" wx:for-item="carouselItem" wx:for-index="carouselIndex"
+                    wx:key="carouselIndex">
+                    <swiper-item class="swiper-item">
+                        <view class="top_swiper" style="background-image: url({{carouselItem.img}})"
+                            data-item="{{carouselItem}}" catchtap="goJumpUrl">
+                            <view class="carousel_icon_wrap" wx:if="{{carouselItem.videoLength > 0}}">
+                                <image class="carouselItem_icon_play" src="{{icon_play}}" />
+                                <view class="icon_play_solid"></view>
+                                <view class="video_length">{{carouselItem.newVideoLength}}</view>
+                            </view>
+                        </view>
+                    </swiper-item>
+                </block>
+            </swiper>
+            <view class="by_point_wrap">
+                <block wx:for="{{bannerInfo}}" wx:for-index="pointIndex" wx:key="pointIndex">
+                    <view class="{{current ==pointIndex?'by_point_':'by_point'}}"></view>
+                </block>
+            </view>
+        </view>
+        <view class="securities_wrap">
+            <view class="securities_top" catchtap="superBrandPopup">
+                <view class="securities_left">
+                    <image class="securities_horn_img" src="/images/icon_play@2x.png" />
+                    <text class="">{{articleTitle}}</text>
+                </view>
+                <image class="securities_return_img" src="/images/icon_return.png" />
+            </view>
+            <view class="securities_bottom">
+                <c-receiveSecurities couponList="{{couponList}}"></c-receiveSecurities>
+            </view>
+        </view>
+    </view>
+</view>
+<view class="wrap_bottom" style="background: {{contentColor}}">
+    <view class="goods_card_list_wrap">
+        <block wx:for="{{goodsCardList}}" wx:for-item="cardList" wx:for-index="cardListIndex"
+            wx:key="{{cardListIndex}}">
+            <view class="goods_card_list">
+                <view class="goods_card_img_wrap">
+                    <image class="goods_card_img" src="{{cardList.img}}" data-item="{{cardList}}"
+                        catchtap="goJumpUrl" />
+                    <image class="playbtn" src="/images/play.png" data-item="{{cardList}}" catchtap="goJumpUrl"
+                        wx:if="{{cardList.video}}"></image>
+                </view>
+                <view class="goods_card_list_bottom">
+                    <view class="goods_card_txt" data-goodid="{{cardList.goodsInfo.goodsId}}" catchtap="goProduct">
+                        <view>{{cardList.goodsName}}</view>
+                        <view>{{cardList.desc}}</view>
+                    </view>
+                    <view class="goods_card_shop">
+                        <image class="goods_card_thumb" src="{{cardList.goodsInfo.thumb}}"
+                            data-goodid="{{cardList.goodsInfo.goodsId}}" catchtap="goProduct" />
+                        <view class="goods_card_shop_bottom">
+                            <view class="card_list_price">
+                                <view>
+                                    <view class="card_list_price_intPrice">{{cardList.goodsInfo.intPrice}}</view>
+                                    <view class="card_list_price_flootPrice">.{{cardList.goodsInfo.flootPrice}}</view>
+                                </view>
+                                <view>{{cardList.marketPrice}}</view>
+                            </view>
+                            <image class="icon_shop" src="/images/icon_shop@2x.png" data-goodslist="{{cardList}}"
+                                data-goodsid="{{cardList.goodsInfo.goodsId}}" catchtap="goShop" />
+                        </view>
+                    </view>
+                </view>
+            </view>
+        </block>
+    </view>
+    <block wx:for="{{foundArticle}}" wx:for-item="foundItem" wx:for-index="foundIndex" wx:key="{{foundIndex}}">
+        <view class="found_article" style="background-image: url({{found_background}})" wx:if="{{foundIndex ==0}}">
+            <view class="found_article_title">
+                <image class="" src="{{foundItem.authorImg}}" />
+                <view class="">{{foundItem.authorName}} </view>
+            </view>
+            <view class="found_article_conter" data-articleId="{{foundItem.articleId}}" catchtap='jumpToDetail'>{{foundItem.title}}</view>
+            <view class="found_article_img">
+                <view class="goods_card_list_img">
+                    <block wx:for="{{foundItem.imgs}}" wx:for-item="imgList" wx:for-index="imgIndex"
+                        wx:key="{{imgIndex}}">
+                        <image class="foundArticle_imgs" mode="aspectFill" src="{{imgList}}" data-articleId="{{foundItem.articleId}}"
+                            catchtap='jumpToDetail' wx:if="{{imgIndex < 3?true:false}}" />
+                    </block>
+                </view>
+            </view>
+        </view>
+    </block>
+
+    <view class="selection_hot_wrap">
+        <view class="selection_hot" wx:if="{{goodsList.length > 0}}">精选热卖</view>
+        <view class="selection_hot_list">
+            <block wx:for="{{goodsList}}" wx:for-item='goodsListItem' wx:for-index='listIndex' wx:key="{{listIndex}}">
+                <goodlsListTwo_col class="youhui_list" goodsList="{{goodsListItem}}" bindevokeAddCart='onevokeAddCart'>
+                </goodlsListTwo_col>
+            </block>
+        </view>
+        <view>
+            <view style='display:flex;justify-content:center;margin-top:-20rpx;' wx:if='{{isLoading}}'>
+                <image style='width:100rpx;height:100rpx;margin:0 auto;' src='/images/bottomLoading.gif' />
+            </view>
+            <view class="whether_the_wrap" style="background: {{contentColor}}" wx:if='{{!isLoading}}'>
+                <view class="whether_the"></view>
+                <view class="whether_the_txt">已经到底了</view>
+                <view class="whether_the"></view>
+            </view>
+        </view>
+    </view>
+</view>
+<c-shopba kind='addCart' bigbrand="bigbrand" wx:if='{{isPopCart}}' goodsId='{{addGoodsId}}' catchtouchmove='true'
+    goodsList='{{addGoodslist}}' id="addCart" bindisBigBrand="onIsBigBrand" bindhideCart="onhideCart"
+    bindgetTotle='ongetTotle'>
+</c-shopba>
+<c-navigationTools totalCount='{{totalCounts}}' />
+<c-navigationToolsTwo toTheTop="{{toTheTop}}" catchtoUpImgs="ontoUpImgs" />
+<c-eventPopups catcheventPopups="onEventPopups" purchaseTips="{{purchaseTips.content}}" wx:if="{{isEventPopupsHide}}" />
+<i-toast id="toast" />
+<c-popupWindow bindmyshow="onMyshow" ruleText="{{articleContent}}" kind="superBrand" wx:if="{{hidePopupWindow}}">
+</c-popupWindow>
+<!-- 视频播放 -->
+<view class="videoHide" wx:if="{{shouVideo}}" catchtouchmove='move' catchtap="hideVideo">
+</view>
+<view class='showVideo' catchtouchmove='move' wx:if="{{shouVideo}}">
+    <video src="{{shouVideo}}" style="width: {{changeWidth}}rpx;height:{{changeHeight}}rpx;"
+        bindfullscreenchange='xuanzhuang' autoplay='{{true}}' objectFit='fill' controls show-mute-btn
+        initial-time='{{0}}' custom-cache="{{false}}" bindended="videoEnd" wx:if="{{shouVideo}}"></video>
+</view>

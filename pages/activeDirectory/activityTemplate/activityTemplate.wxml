@@ -1,0 +1,36 @@
+<!-- pages/activeDirectory/activityTemplate/activityTemplate.wxml -->
+<view class="wrap" style="background:{{viewColor}}">
+    <image class="bannerImg" src="{{banner}}" />
+    <view class="guideText" catchtap='handleGuideText' wx:if="{{guideText}}">{{guideText}} ></view>
+    <view class="conter">
+        <block wx:for="{{goodsAdList}}" wx:key="{{index}}">
+            <view>
+                <view class="titleImg" wx:if="{{item.titleImg.length !=0}}">
+                    <image class="" src="{{item.titleImg}}" mode="widthFix" />
+                </view>
+                <view class="titleTxtWrap" wx:if="{{item.titleImg.length ==0&&item.isShowTitle==1}}">
+                    <view class="title">{{item.title}}</view>
+                    <view class="subTitle">{{item.subTitle}}</view>
+                </view>
+                <view wx:if="{{item.type==1}}" class="youhui_list">
+                    <block wx:for="{{item.goodsList}}" wx:for-item='goodsList' wx:for-index='listIndex' wx:key="{{listIndex}}">
+                        <goodlsListTwo_col class="list" goodsList="{{goodsList}}" bindevokeAddCart='onevokeAddCart'></goodlsListTwo_col>
+                    </block>
+                </view>
+                <view wx:if="{{item.type==2}}">
+                    <view class="advertising">
+                        <block wx:for="{{item.adList}}" wx:for-item="adListItem" wx:for-index="adListIndex" wx:key="{{adListIndex}}">
+                            <image class="advertisingImg" src="{{adListItem.adUrl}}" data-adLink='{{adListItem.adLink}}' bindtap='handleJump' style="width: {{adListItem.adWidth}}" mode="widthFix" />
+                        </block>
+                    </view>
+                </view>
+            </view>
+        </block>
+    </view>
+    <view class="activityBottom">已经到底了</view>
+</view>
+<popupWindow kind='acticityGuize' titleText="{{guideText}}" ruleText="{{articleContent}}" wx:if="{{isRemindShow}}"  bindmyshow='onMyshow'></popupWindow>
+<c-navigationTools totalCount='{{totalCounts}}' />
+<c-navigationToolsTwo toTheTop="{{toTheTop}}" catchtoUpImgs="ontoUpImgs" />
+<c-shopba kind='addCart' wx:if='{{isPopCart}}' shbpbaWrapHeight='999' shbpbaListHeight='444' goodsId='{{addGoodsId}}' catchtouchmove='true' goodsList='{{addGoodslist}}' id="addCart" bindhideCart="onhideCart"></c-shopba>
+<i-toast id="toast" />

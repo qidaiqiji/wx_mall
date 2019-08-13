@@ -1,0 +1,10 @@
+<!--pages/self/issueFeedback/issueFeedback.wxml-->
+<view class="section">
+  <form bindsubmit="bindFormSubmit" >
+  <view class='textBg'>
+    <textarea bindinput='changeInput' placeholder="请输入反馈意见内容" name="textarea" auto-focus  auto-height maxlength='-1'/>
+    </view>
+    <button form-type="submit" class='{{isContent?"awaitText":""}}' hover-class="none">提交</button>
+  </form>
+</view>
+<i-toast id="toast" />

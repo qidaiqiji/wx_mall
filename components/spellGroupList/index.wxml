@@ -1,0 +1,53 @@
+<!-- components/spellGroupList/index.wxml -->
+<view class="cSpellWrapBorder_ cSpellWrapBorder" wx:if="{{kind =='productSpell'}}">
+    <block wx:for="{{groupList}}" wx:for-item="itemSpell" wx:for-index="spellIndex" wx:key="{{spellIndex}}">
+        <view class="cSpellWrap" wx:if="{{spellIndex < 2}}">
+            <view class="cSpellLeft">
+                <image class="" src="/images/icon_colonel.png" />
+                <view class="">{{itemSpell.mobiles}}</view>
+            </view>
+            <view class="cSpellRight">
+                <view class="">
+                    <view class="cPeopleSplee">
+                        还差
+                        <text>{{itemSpell.needNum}}人</text>
+                        拼成
+                    </view>
+                    <view class="cSpellTime">
+                        <view>剩余</view>
+                        <times mytimes="{{itemSpell.endTime}}" kind='componentsSpell'></times>
+                    </view>
+                </view>
+                <view class="cGoSpell" data-groupId="{{itemSpell.groupId}}" data-isSpell="spell" data-goodsId='{{goodsId}}' data-goodsList="{{addCartList}}" catchtap="goOrder">
+                    去拼团
+                </view>
+            </view>
+        </view>
+    </block>
+</view>
+<view class="cSpellWrapBorder" wx:if="{{kind=='details'}}">
+    <block wx:for="{{groupList}}" wx:for-item="detailsSpell" wx:for-index='detailsIndex' wx:key="{{detailsIndex}}">
+        <view class="cSpellWrap" >
+            <view class="cSpellLeft">
+                <image class="" src="/images/icon_colonel.png" />
+                <view class="">{{detailsSpell.mobiles}}</view>
+            </view>
+            <view class="cSpellRight">
+                <view class="">
+                    <view class="cPeopleSplee">
+                        还差
+                        <text>{{detailsSpell.needNum}}人</text>
+                        拼成
+                    </view>
+                    <view class="cSpellTime">
+                        <view>剩余</view>
+                        <times mytimes="{{detailsSpell.endTime}}" kind='componentsSpell'></times>
+                    </view>
+                </view>
+                <view class="cGoSpell cGoSpell_" data-groupId="{{detailsSpell.groupId}}" data-isSpell="spell" data-goodsId='{{goodsId}}' data-goodsList="{{addCartList}}" catchtap="goOrder">
+                    去拼团
+                </view>
+            </view>
+        </view>
+    </block>
+</view>

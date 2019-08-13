@@ -1,0 +1,185 @@
+/* pages/homePage/active/active.wxss */
+
+page {
+  background: #f7f5e0;
+}
+
+.active>view {
+  margin-top: 40rpx;
+}
+
+.active .act_banner {
+  margin-top: 0rpx;
+}
+
+.act_banner {
+  width: 750rpx;
+  height: 496rpx;
+}
+
+.act_banner >image {
+  width: 750rpx;
+  height: 496rpx;
+}
+
+.act_coupon {
+  width: 710rpx;
+  height: 242rpx;
+  margin: 0 auto;
+  background-size: 100%;
+  display: flex;
+  align-items: flex-end;
+}
+
+.coupons {
+  width: 100%;
+  height: 102rpx;
+  margin: 0 34rpx 34rpx;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.coupons>view {
+  width: 295rpx;
+  height: 102rpx;
+  background-size: 100%;
+}
+
+.act_ad {
+  width: 710rpx;
+  margin: 0 auto;
+  height: 322rpx;
+}
+
+.act_ad>image {
+  width: 710rpx;
+  height: 322rpx;
+}
+
+.act_temai {
+  width: 710rpx;
+  margin: 0 auto;
+  height: 776rpx;
+  background: #268de9;
+}
+
+.temai_title {
+  width: 710rpx;
+  margin: 0 auto;
+  height: 80rpx;
+  display: flex;
+  align-items: center;
+}
+
+.temai_title>image {
+  width: 293rpx;
+  margin: 0 auto;
+  height: 29rpx;
+}
+
+.temai_goods {
+  width: 100%;
+  padding: 0 6rpx;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.temai_goods>view {
+  width: 230rpx;
+  height: 342rpx;
+  margin-bottom: 6rpx;
+  border-radius: 10rpx;
+  overflow: hidden;
+}
+
+.temai_goodsItem>image {
+  width: 230rpx;
+  height: 342rpx;
+}
+
+.act_goodsAd {
+  width: 710rpx;
+  margin: 0 auto;
+}
+
+.act_goodsAd>view:nth-child(1) {
+  margin-bottom: 38rpx;
+}
+
+.act_goodsAd>view:nth-child(2) {
+  margin-bottom: 40rpx;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.goodsAds {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.goodsAds>view:nth-child(1) {
+  width: 710rpx;
+  height: 202rpx;
+}
+
+.goodsAds>view:nth-child(1)>image {
+  width: 710rpx;
+  height: 202rpx;
+}
+
+.goodsAds>view:nth-child(2)>image {
+  width: 234rpx;
+  height: 158rpx;
+}
+
+.act_fixedFormat {
+  width: 710rpx;
+  margin: 0 auto;
+}
+
+.act_fixedFormatItem {
+  margin-bottom: 40rpx;
+}
+
+.title_ {
+  width: 379rpx;
+  margin: 0 auto;
+  height: 55rpx;
+}
+
+.title_>image {
+  width: 379rpx;
+  margin: 0 auto;
+  height: 55rpx;
+}
+
+.more {
+  width: 154rpx;
+  margin: 0 auto;
+  height: 56rpx;
+  padding: 10rpx;
+}
+
+.more>image {
+  width: 134rpx;
+  margin: 0 auto;
+  height: 36rpx;
+}
+
+.goodsItems {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-content: center;
+  flex-wrap: wrap;
+}
+
+.goodsItems>view {
+  width: 344rpx;
+  height: 436rpx;
+  margin-top: 20rpx;
+}

@@ -1,0 +1,7 @@
+{
+  "navigationBarTitleText": "邀请好友",
+  "usingComponents": {
+    "i-toast": "../../dist/toast/index",
+    "remind": "../../../components/remind/remind"
+  }
+}

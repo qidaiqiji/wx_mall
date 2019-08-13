@@ -1,0 +1,36 @@
+<!-- components/goodlsListTwo_col/index.wxml -->
+<view class="two_col_wrap">
+  <view class="two_col_thum_wrap" data-goodsId="{{goodsList.goodsInfo.goodsId}}" catchtap="goGoodsId">
+    <image class="two_col_thum" src="{{goodsList.goodsInfo.thumb}}" />
+    <image src="/images/play.png" mode='widthFix' class='play_top_img' data-echo="./image/icon_vip.png" wx:if="{{goodsList.isVideoTag}}"></image>
+    <view>
+      <view wx:if="{{goodsItem.goodsInfo.stock >= goodsItem.goodsInfo.startNum}}">
+        <view class='left_tag' wx:if='{{goodsItem.goodsInfo.stockStatus == 1}}'>货源紧张</view>
+      </view>
+      <view class="sell_out" wx:if='{{goodsItem.goodsInfo.stock < goodsItem.goodsInfo.startNum}}'>
+        <view class='list_col_sold_out_' wx:if="{{goodsItem.expectedArrivalTimeText=='即将到货'}}">
+          即将到货
+        </view>
+        <view class='list_col_sold_out' wx:else>售罄 {{goodsItem.expectedArrivalTimeText}}</view>
+      </view>
+    </view>
+  </view>
+  <view class="two_col_conter">
+    <view class="two_col_title">{{goodsList.goodsInfo.goodsName}}</view>
+    <view class="two_col_icon_wrap">
+      <block wx:for='{{goodsList.tagList}}' wx:for-item='tagItem' wx:key='index'>
+        <image class="two_col_icon_" src="{{tagItem.text=='物料'?'/images/tag_wuliao@2x.png':tagItem.text=='贵宾价'?'/images/tag_vip@2x.png':tagItem.text=='套餐'?'/images/tag_taocan@2x.png':tagItem.text=='满赠'?'/images/tag_manzeng@2x.png':tagItem.text=='满减'?'/images/tag_manjian@2x.png':tagItem.text=='巨划算'?'/images/tag_huasuan@2x.png':tagItem.text=='直降'?'/images/zhijiang1.png':tagItem.text=='秒杀'?'/images/miaosha1.png':tagItem.text == '优惠券'?'/images/tag_youhui.png':''}}" style="width: {{tagItem.text.length == 3 ?65:tagItem.text.length == 2?48: 0}}rpx;" wx:if="{{tagItem.text =='直发'|| tagItem.text =='新品'||tagItem.text =='明星'?false:true}}"></image>
+      </block>
+    </view>
+  </view>
+  <view class="two_col_bottom">
+    <view>
+      <view class="two_col_proce_wrap">
+        <view class="two_col_procie_int">{{goodsList.goodsInfo.intPrice}}</view>
+        <view class="two_col_procie_floor">. {{goodsList.goodsInfo.flootPrice}}</view>
+      </view>
+      <view class="two_col_thum_zhe">{{goodsList.goodsInfo.discount}}折</view>
+    </view>
+    <image class="two_col_car" src="/images/icon_shop_white@2x.png" catchtap="preferentialShop" />
+  </view>
+</view>

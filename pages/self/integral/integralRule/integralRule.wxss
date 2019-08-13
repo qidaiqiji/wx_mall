@@ -1,0 +1,25 @@
+/* pages/self/integral/integralRule/integralRule.wxss */
+page {
+  background: #fff;
+}
+
+.rule_title {
+  width: 100%;
+  padding-left: 24rpx;
+  font-size: 28rpx;
+  font-family: PingFang-SC-Bold;
+  font-weight: bold;
+  color: rgba(47, 58, 64, 1);
+  margin-top: 42rpx;
+
+}
+
+.rule_desc {
+  margin-bottom: 18rpx;
+  font-size: 24rpx;
+  font-family: PingFang-SC-Regular;
+  font-weight: 400;
+  color: rgba(136, 150, 150, 1);
+  line-height: 36rpx;
+  margin:21rpx 29rpx 55rpx 79rpx;
+}

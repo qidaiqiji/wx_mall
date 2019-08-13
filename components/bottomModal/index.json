@@ -1,0 +1,7 @@
+{
+  "component": true,
+  "usingComponents": {
+    "c-billOfGoods": "/components/billOfGoods/index",
+          "c-coupon": "/components/coupon/index"
+  }
+}

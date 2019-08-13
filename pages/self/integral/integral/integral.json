@@ -1,0 +1,13 @@
+{
+  "navigationBarTitleText": "积分商城",
+  "backgroundColor":"#f3f3f3",
+  "usingComponents": {
+    "remind": "/components/remind/remind",
+    "c-remind_right": "/components/remind_right/index",
+    "c-navigationTools": "/components/navigationTools/index",
+    "c-navigationToolsTwo":"/components/navigationToolsTwo/index",
+    "reachTheBottom":"/components/reachTheBottom/index",
+    "Integralshopping": "/components/Integralshopping/index",
+    "i-toast": "/dist/toast/index"
+  }
+}

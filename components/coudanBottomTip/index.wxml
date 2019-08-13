@@ -1,0 +1,36 @@
+<view class='cdBottom' wx:if="{{kind==='zhifaCd'}}">
+  <view class='cdBottom_left'>
+    <view class='cdBottom_left_addr'>
+      <view>
+        送至
+      </view>
+      <view class='cdBottom_left_picker' bindtap="handleShowAddr">
+        <text>{{provinceName}}</text>
+        <image class="cdBottom_left_below" src='/images/icon_more_pink@2x.png' />
+      </view>
+    </view>
+    <view class='cdBottom_left_price'>
+      <view wx:if="{{shippingFreeNeedsMoreAmount>0}}">
+        <text>满 </text><text style='color:#ff3366'>{{shippingAmountAbove}}</text><text>元包邮，还差</text>
+        <text style='color:#ff3366'>{{shippingFreeNeedsMoreAmount}}</text><text>元</text>
+      </view>
+      <view wx:else>
+        <text>满 </text><text style='color:#ff3366'>{{shippingAmountAbove}}</text><text>元包邮，已享受包邮</text>
+      </view>
+    </view>
+  </view>
+  <view class='cdBottom_right' data-discount="{{discount}}" data-hasZhifa="{{hasZhifa}}"
+    data-provinceId="{{provinceId}}" catchtap='queRenBottom'>
+    去凑单>
+  </view>
+</view>
+<!-- //确认订单页底部 -->
+<view class='confirmOrder' wx:if="{{kind==='confirmOrder'}}">
+  <view class='confirmOrder_left'>享受优惠后，还差<text>{{shippingFreeNeedsMoreAmount}}</text>元可免运费</view>
+  <view class='confirmOrder_right' data-discount="{{discount}}" data-hasZhifa="{{hasZhifa}}"
+    data-provinceId="{{provinceId}}" catchtap='queRenBottom'>
+    去凑单>
+  </view>
+</view>
+<c-choose_address condition='{{condition}}' wx:if='{{isShowAddr}}' onlyProvince='{{onlyProvince}}'
+  bindclose='handleClose' value='{{value}}' />

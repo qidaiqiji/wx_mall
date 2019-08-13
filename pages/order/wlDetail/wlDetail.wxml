@@ -1,0 +1,137 @@
+<view class='accordion'>
+  <block wx:for='{{deliveryList}}' wx:for-item='deliveryItem' wx:key='index'>
+    <view class='accordionItem'>
+      <view bindtap='handleIsShow' data-index='{{index}}' class='wlItem_title'
+        data-deliveryId='{{deliveryItem.deliveryId}}'>
+        <view> 单号：{{deliveryItem.invoiceNo}}</view>
+        <view>
+          <view class="logistics_tracking_txt">物流跟踪</view>
+          <view class="">
+            <image class="logistics_tracking_img" src="{{isShowIndex == index?'/images/down.png':'/images/up.png'}}" />
+          </view>
+        </view>
+      </view>
+      <view class='wlItem {{isShowIndex == index ?"show":"hide"}}'>
+        <view class='wl_msg'>
+          <view>
+            <text>物流状态</text>
+            <view>{{status}}</view>
+          </view>
+          <view>
+            <text>物流公司</text>
+            <view>{{shippingName}}</view>
+          </view>
+          <view>
+            <text>物流单号</text>
+            <view>{{shippingSn}}</view>
+          </view>
+          <view>
+
+            <scroll-view scroll-x="{{true}}" style="width:750rpx;overflow:hidden">
+              <view class='allGoods_confirmOrder'>
+                <block wx:for='{{goodsList}}' wx:for-item='goodsItem' wx:key='index'>
+                  <view class='scroll_item_confirmOrder'>
+                    <view class='item_img_confirmOrder'>
+                      <image src='{{goodsItem.thumb}}' />
+                    </view>
+                    <view class='tags_confirmOrder'>{{goodsItem.number}}件</view>
+                  </view>
+                </block>
+
+              </view>
+            </scroll-view>
+
+
+          </view>
+        </view>
+
+        <view class='wu_Desc'>
+          <view class='wl_desc_title'>物流跟踪</view>
+
+          <!-- //时间轴开始 -->
+          <!-- 物流时间轴 -->
+          <view class='expressRecord'>
+            <!-- 顶部收货地址 -->
+
+
+            <view class='expressRecord-getAddress' wx:if='{{end}}'>
+              <view class='expressRecord-top'>
+                <view class='expressRecord-single-noReach-online-top-close'>
+                  <!-- 正在进行的时间轴上半个时间线 -->
+                  <view class='online-top-closing hide'></view>
+                  <!-- 正在进行的时间轴点 -->
+                  <view class='dot-closing'>
+                    <view class='dot-closing_into'></view>
+                  </view>
+                  <!-- 正在进行的时间轴下半个时间线 -->
+                  <view class='online-bottom'></view>
+                </view>
+                <view class='expressRecord-text'>
+                  <view class='expressRecord-status' style="color: #FF3366">{{end.info}}
+                  </view>
+                  <view class='expressRecord-status-address'>
+                    <text>{{end.time}}</text>
+                  </view>
+                </view>
+              </view>
+            </view>
+            <!-- 顶部收货地址半个时间轴线 -->
+            <block wx:for='{{shippingInfoList}}' wx:for-item='shippingInfoItem' wx:key='index'
+              wx:if='{{shippingInfoList.length>0}}'>
+              <view class='expressRecord-single-close'>
+                <view class='expressRecord-single-noReach-online-top-close'>
+                  <view class='online-top-close'></view>
+                  <view class='dot-close'></view>
+                  <view class='online-bottom'></view>
+                </view>
+                <view class='expressRecord-text'>
+                  <view class='expressRecord-status'>{{shippingInfoItem.info}}0
+                  </view>
+                  <view class='expressRecord-status-address'>
+                    <text>{{shippingInfoItem.time}}</text>
+                  </view>
+                </view>
+              </view>
+
+            </block>
+
+            <view class='expressRecord-single-close' wx:if='{{start}}'>
+              <view class='expressRecord-single-noReach-online-top-close' wx:if='{{end}}'>
+                <view class='online-top-close'></view>
+                <view class='dot-close'></view>
+                <!-- 起始位置，下半个时间轴线不用 -->
+                <view class='online-bottom-start'></view>
+              </view>
+              <view class='expressRecord-single-noReach-online-top-close' wx:else>
+
+                <view class='online-top-closing hide'></view>
+
+                <view class='dot-closing'>
+                  <view class='dot-closing_into'></view>
+                </view>
+
+                <view class='online-top-closing hide'></view>
+              </view>
+
+
+              <view class='expressRecord-text'>
+                <view class='expressRecord-status'>{{start.info}}</view>
+                <view class='expressRecord-status-address'>
+                  <text>{{start.time}}</text> </view>
+              </view>
+
+
+
+            </view>
+
+            <!-- 时间轴结束 -->
+
+          </view>
+
+        </view>
+
+      </view>
+
+    </view>
+  </block>
+</view>

@@ -1,0 +1,111 @@
+<!--pages/classify/classify.wxml-->
+<view class="classify_wrap">
+  <!-- 搜索 -->
+  <view class="wrap_one" id="wrap_one">
+    <c-headSearch iscolor='iscolor'></c-headSearch>
+  </view>
+  <!-- 列表 -->
+  <view class="wrap_two">
+    <!-- left -->
+    <view style="height: {{heights}}rpx;">
+      <scroll-view style="height: {{heights}}rpx;" upper-threshold="50rpx" scroll-with-animation="true" scroll-y>
+        <view class="left">
+          <block block wx:for="{{classifylist}}" wx:for-item="List" wx:for-index="classifylist_I"
+            wx:key="classifylist_I">
+            <view class=" {{classifylist_title=='a-'+classifylist_I ? 'txt_index' : 'list'}}" data-url="{{List.url}}"
+              data-title="{{List.title}}" data-index="{{classifylist_I}}" catchtap="tapMove">
+              {{List.title}}
+            </view>
+          </block>
+
+        </view>
+      </scroll-view>
+    </view>
+    <!-- right -->
+    <view class="right" style="height: {{heights}}rpx;">
+      <!-- 品牌列表 -->
+
+      <view wx:if="{{classifylist_title == 'a-0'}}">
+        <scroll-view style="height: {{heights}}rpx;" upper-threshold="50rpx" scroll-with-animation="true" scroll-y
+          scroll-into-view="{{toView}}" bindscroll="scroll">
+          <view wx:if="{{hotBrandList.length > 0}}">
+            <view class="list_txt_one_">热门品牌</view>
+            <view class="list_wrap">
+              <block wx:for="{{hotBrandList}}" wx:for-item="List" wx:for-index="classifylist_I" wx:key="classifylist_I">
+                <view class="lisr_wrap_one_">
+                  <view class="list_wrap_two" data-brandId="{{List.brandId}}" catchtap="brandDetails">
+                    <image class="list_img" mode='widthFix' src="{{List.img}}" />
+                  </view>
+                </view>
+              </block>
+            </view>
+            <view class="list_txt_one_" wx:if="{{newBrandList.length > 0}}">最新入驻</view>
+            <view class="list_wrap">
+              <block wx:for="{{newBrandList}}" wx:for-item="List" wx:for-index="classifylist_I" wx:key="classifylist_I">
+                <view class="lisr_wrap_one_">
+                  <view class="list_wrap_two" data-brandId="{{List.brandId}}" catchtap="brandDetails">
+                    <image class="list_img" mode='widthFix' src="{{List.img}}" />
+                  </view>
+                </view>
+              </block>
+            </view>
+          </view>
+          <view>
+            <view class="list_txt_one list_txt_one_bottom">全部品牌</view>
+            <view class="Detailslist ">
+              <view class="shopname zhifatop">
+                <block wx:for="{{ Detailslist }}" wx:for-item="item" wx:for-index="index" wx:key="{{index}}"
+                  name="{{index}}">
+                  <view id="my-{{index=='#'?'aa':index}}">
+                    <view  class=" indexName {{idnex == 'A#'? 'end':''}}">{{index}}</view>
+                    <view wx:for="{{item}}" wx:for-item="it" wx:for-index="in" wx:key="{{in}}">
+                      <view class="itwrap" data-brandId="{{it.brandId}}" catchtap="brandDetails">
+                        <image class="itimg" mode='widthFix' src="{{it.img}}" />
+                        <text class="itTxt"> {{it.title}}</text>
+                      </view>
+                    </view>
+                  </view>
+                </block>
+              </view>
+            </view>
+          </view>
+          <view class="list_txt_bottom" wx:if="{{Detailslist.length > 0}}"></view>
+        </scroll-view>
+        <view class="letter" wx:if="{{ishide}}">
+          <block wx:for="{{ Detailslist }}" wx:for-item="item" wx:for-index="index" wx:key="{{index}}">
+            <view class="{{classifyLetter == index?'classify_letter_one':'classify_letter_two'}}"
+              data-index="{{index=='#'?'aa':index}}"  bindtap="tap">{{index}}</view>
+          </block>
+        </view>
+      </view>
+
+      <!-- 分类列表 -->
+      <view wx:else style="height: {{heights}}rpx;">
+        <scroll-view class="scroll-view" style="height: {{heights}}rpx;" upper-threshold="50rpx"
+          scroll-with-animation="true" scroll-y scroll-into-view="{{allToView}}" bindscroll='allScroll'>
+          <block wx:for="{{allgroupList}}" wx:for-item="list" wx:for-index="listindex" wx:key="{{listindex}}">
+            <view id="a-{{listindex+1}}" class="classification_list_bottom">
+              <block wx:for="{{list.catList}}" wx:for-item="oneCatList" wx:for-index="ineIndex" wx:key="{{ineIndex}}">
+                <view class="list_txt_one">{{oneCatList.title}}</view>
+                <view class="list_wrap classification_every">
+                  <block wx:for="{{oneCatList.catList}}" wx:for-item="twoCatList" wx:for-index="twoIndex"
+                    wx:key="{{twoIndex}}">
+                    <view class="classification">
+                      <view class="details_list_wrap" data-catId="{{twoCatList.catId}}" catchtap="classifyDetails">
+                        <image class="list_img" mode='widthFix' src="{{twoCatList.img}}" />
+                      </view>
+                      <view class="details_list_txt">{{twoCatList.title}}</view>
+                    </view>
+                  </block>
+                </view>
+              </block>
+            </view>
+          </block>
+        </scroll-view>
+      </view>
+    </view>
+  </view>
+</view>
+<!-- 弹窗 -->
+<remind kind="year" id="premind"></remind>
+<c-navigationToolsTwo toTheTop="{{toTheTop}}" RbottomToTheTopight='76' catchtoUpImgs="ontoUpImgs" />

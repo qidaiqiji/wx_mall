@@ -1,0 +1,26 @@
+<!--pages/homePage/colldetail/colldetail.wxml-->
+<view>
+  <view class="colldetailTap" style="background-image: url({{detail.banner}})">
+  <view class="colldetailTap_bottom"></view>
+    <view class="colldetailTap1" wx:if='{{detail.banner}}'>
+
+      <view class="colldetailTap_txt1">{{detail.title}}</view>
+      <view class="colldetailTap_txt3">
+        <view>共{{detail.goodsCount}}款商品</view>
+        <view>
+          <image class="icon_eye_white" src="/images/icon_eye_white.png" style="width: 30rpx;height: 30rpx;margin-right: 16rpx;"></image>
+          <text>{{detail.readCount}}</text>
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <c-goodsItem_row bindevokeAddCart='onevokeAddCart' goodsList="{{goodsList}}"></c-goodsItem_row>
+  <reachTheBottom wx:if="{{goodsList.length > 0}}"></reachTheBottom>
+</view>
+
+<c-shopba kind='addCart' wx:if='{{isPopCart}}' shbpbaWrapHeight='999' shbpbaListHeight='444' goodsId='{{addGoodsId}}' catchtouchmove='true' goodsList='{{addGoodslist}}' id="addCart" bindhideCart="onhideCart" bindgetTotle='ongetTotle'>
+</c-shopba>
+<i-toast id="toast" />
+<c-navigationTools totalCount='{{totalCounts}}' />
+<c-navigationToolsTwo toTheTop="{{toTheTop}}" catchtoUpImgs="ontoUpImgs" />

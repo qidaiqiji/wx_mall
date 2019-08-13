@@ -1,0 +1,9 @@
+/* pages/goods/isSpellGroup/isSpellGroup.wxss */
+page{
+    background: #f3f3f3;
+}
+.wrap{
+    width: 100%;
+    background: #ffff;
+    margin-top: 20rpx;
+}

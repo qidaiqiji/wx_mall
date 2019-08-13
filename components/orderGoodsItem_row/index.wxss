@@ -1,0 +1,130 @@
+.orderGoodsItem_row {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  font-size: 24rpx;
+}
+
+.row_left {
+  width: 130rpx;
+  height: 130rpx;
+  margin-left: 30rpx;
+  margin-right: 20rpx;
+  box-sizing: border-box;
+  border: 1rpx solid #E9F3F5;
+}
+
+.row_left_img {
+  width: 120rpx;
+  height: 120rpx;
+}
+
+.row_center {
+  padding-top: 10rpx;
+  box-sizing: border-box;
+  flex: 1;
+}
+
+.row_right {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-right: 28rpx;
+  margin-left: 18rpx;
+  text-align: end;
+  padding-top: 10rpx;
+  box-sizing: border-box;
+}
+
+.row_right text {
+  text-align: end;
+}
+
+.row_right_price::before {
+  content: '￥';
+}
+
+.row_right_number::before {
+  content: 'x';
+}
+
+/* 详情 */
+
+.orderGoodsItem_row_border {
+  width: 710rpx;
+  height: 170rpx;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 24rpx;
+  margin: 0 auto;
+  border-bottom: 1rpx solid #e5e5e5;
+}
+
+.orderGoodsItem_row_border .row_left {
+  width: 124rpx;
+  height: 124rpx;
+  margin-left: 0rpx;
+  margin-right: 20rpx;
+  box-sizing: border-box;
+  border: 1rpx solid #dce4e6;
+}
+
+.orderGoodsItem_row_border .row_right {
+  width: 120rpx;
+  height: 106rpx;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  margin-right: 0rpx;
+  margin-left: 18rpx;
+  text-align: end;
+  padding-top: 10rpx;
+  box-sizing: border-box;
+}
+
+.orderGoodsItem_row_center {
+  padding-top: 10rpx;
+  box-sizing: border-box;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 106rpx;
+  font-size: 28rpx;
+  color: #333;
+}
+
+.row_center_title {
+  width: 420rpx;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.row_center_desc {
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.row_center_desc_price::before {
+  content: '￥';
+}
+
+.row_center_desc_numb {
+  font-size: 24rpx;
+  color: #999;
+  margin-left: 20rpx;
+}
+
+.row_center_desc_numb::before {
+  content: 'x';
+}
+
+.row_right .row_right_type {
+  padding: 0 2rpx;
+  text-align: center;
+  border-radius: 6rpx;
+}

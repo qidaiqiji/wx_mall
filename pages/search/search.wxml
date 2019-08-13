@@ -1,0 +1,44 @@
+<view class='searchPage'>
+  <view class='searchPage_edit'>
+    <view class='searchPage_edit_search'>
+      <image src='/images/icon_search.png' class='icon_search'></image>
+      <input class='searchPage_edit_search_input' placeholder='{{baseOfColor?baseOfColor:"搜索商品、品牌"}}' focus='{{true}}'
+        bindinput='onSearchtxt' value='{{value}}' bindconfirm='onConfirm' bindblur='removeBlur' confirm-type='search'
+        placeholder-style="color:rgba(178,178,178,1)"></input>
+      <view class='search_delete' wx:if='{{baseOfColor ||value}}' bindtap='handleIconSearchDelete'>
+        <image src='/images/icon_search_delete.png' class='icon_search_delete'></image>
+      </view>
+    </view>
+    <view class='searchPage_edit_cancel' bindtap='onConfirm'>搜索</view>
+  </view>
+  <view>
+    <view class='searchPage_history' wx:if='{{historyKeywords.length>0}}'>
+      <view class='searchPage_history_title'>
+        <text>历史搜索</text>
+        <image src='/images/icon_delete.png' bindtap='handleDelete_history'></image>
+      </view>
+      <view class='searchPage_history_allType'>
+        <block wx:for='{{historyKeywords}}' wx:for-item='historyKeywordsItem' wx:for-index='historyKeywordsIndex'
+          wx:key="{{historyKeywordsIndex}}">
+          <view class='searchPage_history_item' data-indxex='{{historyKeywordsIndex}}' bindtap='handleKeywords'
+            data-keywords='{{historyKeywordsItem}}'>
+            {{historyKeywordsItem}}
+          </view>
+        </block>
+      </view>
+    </view>
+    <view class='searchPage_hot' wx:if='{{hotKeywords.length>0}}'>
+      <view class='searchPage_hot_title'>热门搜索</view>
+      <view class='searchPage_hot_allType'>
+        <block wx:for='{{hotKeywords}}' wx:for-item='hotKeywordsItem' wx:for-index='hotKeywordsIndex'
+          wx:key="{{hotKeywordsIndex}}">
+          <view class='searchPage_hot_item' data-index='{{hotKeywordsIndex}}' bindtap='handleKeywords'
+            data-keywords='{{hotKeywordsItem}}'>
+            <image wx:if="{{hotKeywordsIndex <= 2}}" class='search_tag_img' src="/images/hotNum@2x.png" />
+            <text>{{hotKeywordsItem}}</text>
+          </view>
+        </block>
+      </view>
+    </view>
+  </view>
+</view>

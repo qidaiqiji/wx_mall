@@ -1,0 +1,120 @@
+<!--pages/homePage/active/active.wxml-->
+<view class='active'>
+  <view class='act_banner'>
+    <image src='{{banner_img}}' />
+  </view>
+  <view class='act_coupon' style='background-image:url({{coupon_title}})' wx:if='{{couponIds.length>0}}'>
+    <view class='coupons'>
+      <block wx:for='{{couponIds}}' wx:key='1-{{index}}'>
+        <view bindtap='getCoupon' data-id="{{item}}" style='background-image:url({{index==0?quan_120:quan_280}})'>
+        </view>
+      </block>
+
+    </view>
+  </view>
+  <view class='act_ad' wx:if='{{actPageList.length>0}}'>
+    <image src='{{banner[0].img}}' bindtap='jumpToUrl' data-url='{{banner[0].url}}'></image>
+  </view>
+  <view class='act_temai' wx:if='{{actPageList.length>0}}'>
+    <view class='temai_title'>
+      <image src='{{temai_title}}' />
+    </view>
+    <view class='temai_goods'>
+      <block wx:for='{{actPageList}}' wx:key='2-{{index}}'>
+        <view class='temai_goodsItem' bindtap='jumpToUrl' data-url='{{item.url}}'>
+          <image src='{{item.img}}'></image>
+        </view>
+      </block>
+
+    </view>
+  </view>
+
+  <view class='act_goodsAd' wx:if='{{midAds.length>0&&!!midAd[0].img}}'>
+    <view class='title_'>
+      <image src='{{maisong_title}}'></image>
+    </view>
+    <view class='goodsAds'>
+      <view bindtap='jumpToUrl' data-url='{{midAd[0].url}}'>
+        <image src='{{midAd[0].img}}'></image>
+      </view>
+      <view>
+        <block wx:for='{{midAds}}' wx:key='3-{{index}}'>
+          <image src='{{item.img}}' bindtap='jumpToUrl' data-url='{{item.url}}'></image>
+        </block>
+      </view>
+    </view>
+  </view>
+
+  <view class='act_fixedFormat'>
+    <!-- 秒杀 -->
+    <view class='act_fixedFormatItem' wx:if='{{flashSaleList.length>0}}'>
+      <view class='fixedFormat_title'>
+        <view class='title_'>
+          <image src='{{miaosha_title}}'></image>
+        </view>
+        <view class='more' bindtap='jumpToUrl' data-url='/pages/homePage/miaosha/miaosha'>
+          <image src='{{more}}'></image>
+        </view>
+
+      </view>
+      <view class='goodsItems'>
+        <block wx:for='{{flashSaleList}}' wx:key='4-{{index}}'>
+          <view>
+            <c-activeGoodsItem goodsItem='{{item}}' />
+          </view>
+        </block>
+      </view>
+    </view>
+
+    <!-- 多买 -->
+    <view class='act_fixedFormatItem' wx:if='{{fullGiftList.length>0}}'>
+      <view class='fixedFormat_title'>
+        <view class='title_'>
+          <image src='{{duomai_title}}'></image>
+        </view>
+        <view class='more' bindtap='jumpToUrl' data-url='/pages/homePage/colldetail/colldetail?collId=74'>
+          <image src='{{more}}'></image>
+        </view>
+
+      </view>
+      <view class='goodsItems'>
+        <block wx:for='{{fullGiftList}}' wx:key='5-{{index}}'>
+          <view>
+            <c-activeGoodsItem goodsItem='{{item}}' />
+          </view>
+        </block>
+
+      </view>
+
+    </view>
+
+    <!-- 套餐 -->
+    <view class='act_fixedFormatItem' wx:if='{{pkgList.length>0}}'>
+      <view>
+        <view class='title_'>
+          <image src='{{taocan_title}}'></image>
+        </view>
+        <view class='more' bindtap='jumpToUrl' data-url='/pages/homePage/colldetail/colldetail?collId=73'>
+          <image src='{{more}}'></image>
+        </view>
+
+      </view>
+      <view class='goodsItems'>
+        <block wx:for='{{pkgList}}' wx:key='6-{{index}}'>
+          <view>
+            <c-activeGoodsItem goodsItem='{{item}}' />
+          </view>
+        </block>
+
+      </view>
+
+    </view>
+
+  </view>
+
+
+
+</view>
+<i-toast id="toast" />
+<c-navigationTools totalCount='{{totalCounts}}' wx:if='{{isShow}}' />
+<c-navigationToolsTwo backTop='{{true}}' toTheTop="{{toTheTop}}" catchtoUpImgs="ontoUpImgs" wx:if='{{isShow}}' />

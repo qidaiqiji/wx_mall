@@ -1,0 +1,39 @@
+<!--pages/activityCenter/activityCenter.wxml-->
+<view class='wrap'>
+  <!-- 轮播 -->
+  <!-- <scroll-view scroll-x scroll-into-view="{{toView}}"> -->
+  <view class="swiper_top">
+    <view class="swiper_top_flex">
+      <block wx:for="{{itemsText}}" wx:for-item="itemText" wx:for-index="itemIndex" wx:key="itemIndex">
+        <view class=" {{currentTab==(itemIndex) ? 'swipertoptxt' : ''}}" data-itemIndex="{{itemIndex}}" bindtap="itemtext">{{itemText}}</view>
+      </block>
+    </view>
+  </view>
+  <view class="swiper_conter">
+    <swiper current="{{currentTab}}" autoplay="true" circular="true" bindchange="switchSwiper" style="width: 750rpx;height:{{windowHeight}}rpx;"  interval="5000" duration="500">
+      <block wx:for="{{itemsText}}" wx:for-item="itemText" wx:for-index="itemIndex" wx:key="itemIndex">
+      <swiper-item>
+        <!-- 常规活动 -->
+        <view class="allListStyle" wx:if="{{currentTab==0}}">
+          <regularactivity windowHeight="{{windowHeight}}" activityCenter="{{activityCenter}}"></regularactivity>
+        </view>
+        <view class="allListStyle" wx:else>
+          <regularactivityT bindevokeAddCart='onevokeAddCart' date="{{date}}" goodsList="{{currentTab == itemIndex?goodsList:[]}}" currentTab='{{currentTab}}' windowHeight="{{windowHeight}}"  fullCutTitle="{{fullCutTitle}}" startTime="{{startTime}}"></regularactivityT>
+        </view>
+      </swiper-item>
+    </block>
+    </swiper>
+  </view>
+</view>
+<c-shopba kind='addCart' wx:if='{{isPopCart}}' goodsId='{{addGoodsId}}' catchtouchmove='true' goodsList='{{addGoodslist}}' id="addCart"
+  bindhideCart="onhideCart"  bindgetTotle='ongetTotle'>
+  <view class="routineActivity_T_right_six" slot='shopba'>
+    立即抢
+  </view>
+</c-shopba>
+
+<i-toast id="toast" />
+<c-navigationTools  totalCount='{{totalCounts}}' />
+<c-navigationToolsTwo toTheTop="{{toTheTop}}" catchtoUpImgs="ontoUpImgs" />
+
+

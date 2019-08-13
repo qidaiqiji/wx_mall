@@ -1,0 +1,71 @@
+<!-- pages/goldenEggs/goldenEggs.wxml -->
+<view class="wrap" style="height: 100%;background-image: url({{img_bg}})">
+    <view class="left">
+        <image class="icon_guize" src="{{icon_guize}}" catchtap="onIconguiZe" />
+        <image class="icon_jilu" src="{{icon_jilu}}" catchtap="onIconJilu" />
+    </view>
+    <view class="img_duihua" style="background-image: url({{img_duihua}})" wx:if="{{lastRecordRist.count&& lastRecordRist.count>14 &&lastRecordRist.list.length}}">
+        <swiper duration='1000' interval='3000' circular vertical autoplay class='headlineNew_swiper'>
+            <block wx:for='{{lastRecordRist.list}}' wx:key='{{index}}'>
+                <swiper-item class='headlineNew_swiperItem'>
+                    <view class='img_duihua_txt'>{{item}}</view>
+                </swiper-item>
+            </block>
+        </swiper>
+    </view>
+    <view class="myIntegral" style="background-image: url({{img_jifen}})">
+        {{balance?balance:'0'}}
+    </view>
+    <view class="conter">
+        <view class="img_egg" style="background-image: url({{img_egg}})" catchtap='onSmashingEgg' wx:if="{{eggWho}}"></view>
+        <image class="img_liehen" src="{{smashingEgg?'':img_liehen}}" />
+        <view class="icon_hammer_wrap" wx:if="{{isHammerTwo}}" catchtap='onSmashingEgg'>
+            <image class="icon_hammer {{isHammer?'icon_hammer_one':'icon_hammer_two'}} " src="{{icon_hammer}}" />
+            <view class="txtNumber">
+                <view>{{shopList.integral}}积分/次</view>
+            </view>
+        </view>
+        <view class="img_qianbg" style="background-image: url({{img_qianbg}})">
+            <view>
+                <view class="eggs_title">{{shopList.name}}</view>
+                <view class="eggs_times">活动时间：{{myStart}}-{{mrEnd}}</view>
+            </view>
+        </view>
+    </view>
+    <view class="bottom" style="background-image: url({{img_jiangchi}})">
+        <image class="img_benqi" src="{{img_benqi}}" />
+        <view class="a">
+            <swiper class="card-swiper {{DotStyle?'square-dot':'round-dot'}}" circular="true" autoplay="true" interval="5000" duration="500">
+                <swiper-item wx:for="{{shopList.prizeList}}" wx:key>
+                    <view class="swiper-item" style="background-image: url({{choujiang}})">
+                        <image class="" src="{{item.pic}}"></image>
+                    </view>
+                </swiper-item>
+            </swiper>
+        </view>
+    </view>
+    <view class="egg_mark" wx:if="{{!eggWho}}">
+        <view class="scale_narrow {{isScale?'':'scale_amplification'}}">
+            <view class="img_egg_" style="background-image: url({{img_egg_open}})">
+                <view class="egg_txt_wrap">
+                    <view class="egg_txt_one">恭喜您砸中啦</view>
+                    <view class="egg_txt_two">
+                        获得
+                        <text>{{prizeInformation.name}}</text>
+                    </view>
+                </view>
+                <view class="egg_annotation_wrap" wx:if="{{prizeInformation.type == 3}}">
+                    <view class="egg_annotation">注：奖品将随下次直发订单一起寄出</view>
+                    <view class="egg_to_view" catchtap='dingdan'>查看我的奖品>></view>
+                </view>
+            </view>
+            <view class="cancel_wrap">
+                <view class="cancel" catchtap="onCancel">取消</view>
+                <view class="once_again" catchtap="onOnceAgain">再砸一次</view>
+            </view>
+        </view>
+    </view>
+</view>
+<!-- ruleText:富文本 -->
+<c-popupWindow bindmyshow="onMyshow" recordList='{{recordList}}' ruleText="{{shopList.ruleText}}" kind="{{childKind}}" wx:if="{{hidePopupWindow}}"></c-popupWindow>
+<i-toast id="toast" />

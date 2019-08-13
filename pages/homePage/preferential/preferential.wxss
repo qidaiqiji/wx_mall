@@ -1,0 +1,256 @@
+/* pages/preferential/preferential.wxss */
+
+page {
+  background: #f3f3f3;
+}
+
+image {
+  vertical-align: top;
+}
+
+.top {
+  width: 750rpx;
+  height: 374rpx;
+  padding-left: 24rpx;
+  background-repeat: no-repeat;
+  background-size: 750rpx 374rpx;
+  position: relative;
+  left: 0rpx;
+  top: 0rpx;
+  z-index: 1;
+}
+
+.topLinear {
+  width: 702rpx;
+  height: 64rpx;
+  background: linear-gradient(0deg, rgba(255, 255, 255, 1) 0%, rgba(255, 255, 255, 0) 100%);
+  position: absolute;
+  left: 0rpx;
+  bottom: -2rpx;
+  z-index: 2;
+}
+
+.topLinearText>view:nth-child(1) {
+  height: 24rpx;
+  font-size: 24rpx;
+  font-family: PingFang-SC-Medium;
+  font-weight: 500;
+  color: rgba(47, 58, 64, 1);
+  line-height: 24rpx;
+}
+
+.topLinearText {
+  width: 702rpx;
+  position: absolute;
+  left: 0rpx;
+  bottom: -32rpx;
+  z-index: 3;
+  padding-left: 22rpx;
+}
+
+.topLinearText_> view:nth-child(2) {
+  /* height: 48rpx !important; */
+}
+
+.topLinearText_ {
+  box-shadow: 0rpx 8rpx 20rpx 0rpx rgba(188, 185, 185, 0.2);
+  bottom: -52rpx !important;
+  border-radius: 0rpx 20rpx;
+}
+
+.topLinearText>view:nth-child(2) {
+  height: 24rpx;
+  font-size: 24rpx;
+  font-family: PingFang-SC-Medium;
+  font-weight: 500;
+  color: rgba(255, 51, 102, 1);
+  line-height: 24rpx;
+  margin-top: 8rpx;
+  text-overflow: -o-ellipsis-lastline;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+  padding-bottom: 20rpx;
+}
+
+.topBottom {
+  width: 750rpx;
+  height: 374rpx;
+  background: #fff;
+  position: absolute;
+  left: 0rpx;
+  top: 0rpx;
+  z-index: -1;
+}
+
+.conter {
+  display: flex;
+  justify-content: space-between;
+  padding: 0rpx 24rpx;
+  padding-bottom: 36rpx;
+  padding-top: 14rpx;
+  background: #fff;
+  box-shadow: 0rpx 36rpx 36rpx 0rpx rgba(255, 255, 255, 1);
+}
+
+.conter_img {
+  width: 344rpx;
+  height: 160rpx;
+  border-radius: 5rpx;
+}
+
+.conter_img:nth-child(1) {
+  margin-right: 14rpx;
+}
+
+.bottom_top {
+  display: flex;
+  align-items: baseline;
+  padding-left: 24rpx;
+  padding-bottom: 12rpx;
+  /* background: #fff; */
+  margin-bottom: 8rpx;
+}
+
+.bottom_top_left {
+  font-size: 48rpx;
+  font-family: PingFangSC-Medium;
+  font-weight: 500;
+  color: rgba(47, 58, 64, 1);
+}
+
+.bottom_top_right {
+  font-size: 24rpx;
+  font-family: PingFangSC-Regular;
+  font-weight: 400;
+  color: rgba(136, 150, 150, 1);
+  margin-left: 16rpx;
+}
+
+.bottom_list {
+  display: flex;
+  flex-wrap: wrap;
+  padding-left: 24rpx;
+}
+
+.youhui_list {
+  padding-right: 14rpx;
+  padding-bottom: 14rpx;
+}
+
+.flex_right {
+  width: 66rpx;
+  height: 186rpx;
+  background: rgba(222, 14, 14, 1);
+  border: 2rpx solid rgba(255, 227, 57, 1);
+  border-radius: 30rpx 0rpx 0rpx 30rpx;
+  position: fixed;
+  right: 0rpx;
+  bottom: 50%;
+  z-index: 20;
+  font-size: 28rpx;
+  font-family: PingFang-SC-Medium;
+  font-weight: 500;
+  color: rgba(255, 255, 255, 1);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  Writing-mode: tb-rl;
+}
+
+.flex_right_img {
+  width: 22rpx;
+  height: 22rpx;
+  margin-top: 9rpx;
+}
+
+.top_data_wrap {
+  display: flex;
+  justify-content: space-between;
+  padding-top: 18rpx;
+  padding-bottom: 24rpx;
+}
+
+.top_left {
+  display: flex;
+  align-items: flex-end;
+  height: 36rpx;
+}
+
+.top_right_img {
+  width: 30rpx;
+  height: 30rpx;
+  margin-right: 4rpx;
+}
+
+.top_day {
+  font-size: 24rpx;
+  font-family: PingFang-SC-Regular;
+  font-weight: 400;
+  color: rgba(255, 255, 255, 1);
+  margin-right: 11rpx;
+}
+
+.top_data {
+  font-size: 24rpx;
+  font-family: PingFang-SC-Bold;
+  font-weight: bold;
+  color: rgba(255, 255, 255, 1);
+}
+
+.top_right {
+  width: 167rpx;
+  height: 48rpx;
+  background: #f97097;
+  border-radius: 24rpx 0rpx 0rpx 24rpx;
+  font-size: 24rpx;
+  font-family: PingFang-SC-Regular;
+  font-weight: 400;
+  color: rgba(255, 255, 255, 1);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.top_pageInfo {
+  position: relative;
+  left: 0rpx;
+  top: 0rpx;
+}
+
+.top_thum_min_img {
+  width: 68rpx;
+  height: 68rpx;
+  position: absolute;
+  left: 53rpx;
+  top: 0rpx;
+  z-index: 5;
+}
+
+.top_thum_wrap {
+  width: 702rpx;
+  height: 304rpx;
+  overflow: hidden;
+}
+
+.top_thum_max_img {
+  width: 702rpx;
+  height: 282rpx;
+  border-radius: 20rpx;
+}
+
+.couponWrap {
+  background: rgba(255, 255, 255, 1);
+  padding-top: 84rpx;
+  padding-left: 24rpx;
+}
+
+.couponBottom {
+  width: 702rpx;
+  background: rgba(255, 255, 255, 1);
+  box-shadow: 0px 8px 20px 0px rgba(188, 185, 185, 0.2);
+  border-radius: 20rpx;
+  padding-bottom: 24rpx;
+}

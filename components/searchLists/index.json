@@ -1,0 +1,11 @@
+{
+  "component": true,
+  "usingComponents": {
+    "c-goodsItem_row": "/components/goodsItem_row/index",
+    "c-reachTheBottom": "/components/reachTheBottom/index",
+    "c-shopba": "/components/product_b/shopba/index",
+    "c-navigationToolsTwo":"/components/navigationToolsTwo/index",
+    "i-spin": "../../dist/spin/index",
+    "c-filtrateDrawer": "/components/filtrateDrawer/index"
+  }
+}

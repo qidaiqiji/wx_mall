@@ -1,0 +1,41 @@
+<i-drawer mode="right" visible='{{isShow}}' mask-closable="{{true}}"bindclose="onClickMask">
+  <view class="filter-container">
+    <view class='container_title'>筛选</view>
+    <view class='container_main'>
+    <view class='container_main_item'>
+      <view class='container_main_title'>推荐</view>
+      <view class='container_main_content'>
+      <block wx:for='{{tags}}' wx:for-item='tagsItem'  wx:key='index'>
+        <view class='main_content_item         {{tagsIndex === tagsItem.id ? "main_content_itemClick" : ""}}'
+
+         bindtap='onFilterChecked' data-index='{{tagsItem.id}}' data-type='tags'  >{{tagsItem.name}}</view>
+         </block>
+      </view>
+    </view>
+    <view class='container_main_item'>
+      <view class='container_main_title'>品类</view>
+      <view class='container_main_content'>
+      <block wx:for='{{category}}' wx:for-item='categoryItem'  wx:key='index'>
+        <view class='main_content_item   {{categoryIndex === categoryItem.catId ? "main_content_itemClick" : ""}}'
+         bindtap='onFilterChecked' data-index='{{categoryItem.catId}}' data-type='category'  >{{categoryItem.catName}}</view>
+         </block>
+
+      </view>
+    </view>
+    <view class='container_main_item'>
+      <view class='container_main_title'>品牌产地</view>
+      <view class='container_main_content'>
+      <block wx:for='{{countries}}' wx:for-item='countriesItem'  wx:key='index'>
+        <view class='main_content_item   {{countriesIndex === countriesItem ? "main_content_itemClick" : ""}}'
+         bindtap='onFilterChecked' data-index='{{countriesItem}}' data-type='countries'  >{{countriesItem}}</view>
+         </block>
+
+      </view>
+    </view>
+    </view>
+    <view class='container_btn'>
+      <view class='container_btn_cancel' bindtap='cancelDrawer'>重置</view>
+      <view class='container_btn_confirm' bindtap='confirmDrawer'>确定</view>
+    </view>
+  </view>
+</i-drawer>

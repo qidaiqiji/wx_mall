@@ -1,0 +1,6 @@
+{
+  "component": true,
+  "usingComponents": {
+    "c-coupon":"/components/coupon/index"
+  }
+}

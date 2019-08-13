@@ -1,0 +1,195 @@
+/* /page/rankingDetail/rankingDetail */
+.top {
+  width: 750rpx;
+  height: 633rpx;
+}
+
+.topTxtWrap {
+  position: relative;
+  left: 32rpx;
+  top: 32rpx;
+ display: inline-block;
+}
+
+.rankingDetailTag {
+  width: 210rpx;
+  height: 276rpx;
+  position: absolute;
+  right: 32rpx;
+  top: -20rpx;
+  z-index: 3;
+}
+
+.topTitle {
+  height: 56rpx;
+  font-size: 58rpx;
+  font-family: PingFangSC-Medium;
+  font-weight: 500;
+  color: rgba(47, 58, 64, 1);
+
+}
+
+.topTitleBottom {
+  width: 100%;
+  height: 16rpx;
+  background: rgba(78, 162, 255, 1);
+  border-radius: 8rpx;
+}
+
+.topDesc {
+  width: 650rpx;
+  height: 269rpx;
+  font-size: 28rpx;
+  font-family: PingFangSC-Light;
+  font-weight: 300;
+  color: rgba(47, 58, 64, 1);
+  line-height: 48rpx;
+  position: absolute;
+  left: 44rpx;
+  top: 232rpx;
+}
+
+.itemImg {
+  width: 280rpx;
+  height: 280rpx;
+  background: rgba(255, 255, 255, 1);
+  border-radius: 8rpx;
+  position: relative;
+  left: 0rpx;
+  top: 0rpx;
+}
+
+.itemMsgTag {
+  width: 64rpx;
+  height: 64rpx;
+  position: absolute;
+  left: 0rpx;
+  top: 22rpx;
+  z-index: 2;
+}
+
+.itemMsgImg {
+  width: 100%;
+  height: 100%;
+}
+
+.rankGoodsItem {
+  width: 702rpx;
+  background: rgba(255, 255, 255, 1);
+  box-shadow: 0rpx 5rpx 25rpx 11rpx rgba(167, 171, 175, 0.13);
+  border-radius: 20rpx;
+  padding-left: 20rpx;
+  margin-bottom: 20rpx;
+  padding-bottom: 24rpx;
+}
+
+.rankGoodsTop {
+  display: flex
+}
+
+.topTitle_ {
+  height: 280rpx;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding-top: 26rpx;
+}
+
+.topTitleTxt {
+  width: 355rpx;
+  height: 56rpx;
+  font-size: 28rpx;
+  font-family: PingFangSC-Regular;
+  font-weight: 400;
+  color: rgba(47, 58, 64, 1);
+  line-height: 28rpx;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+}
+
+.topTitlePrice {
+  font-size: 40rpx;
+  font-family: PingFangSC-Regular;
+  font-weight: 400;
+  color: rgba(255, 51, 102, 1);
+  line-height: 40rpx;
+}
+
+.topTitlePrice::before {
+  content: '￥';
+  font-size: 24rpx;
+  font-family: PingFangSC-Regular;
+  font-weight: 400;
+  color: rgba(255, 51, 102, 1);
+  line-height: 40rpx;
+}
+
+.topTitleGO {
+  width: 96rpx;
+  height: 56rpx;
+  background: linear-gradient(270deg, rgba(255, 51, 102, 1) 0%, rgba(254, 132, 163, 1) 100%);
+  border-radius: 8rpx;
+  font-size: 32rpx;
+  font-family: PingFangSC-Medium;
+  font-weight: 500;
+  color: rgba(255, 255, 255, 1);
+  line-height: 56rpx;
+  text-align: center;
+}
+
+.topTitlePriceWrap {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.topDescList {
+  width: 662rpx;
+  background: rgba(247, 247, 247, 1);
+  border-radius: 8rpx;
+  font-size: 28rpx;
+  font-family: PingFangSC-Light;
+  font-weight: 300;
+  color: rgba(47, 58, 64, 1);
+  line-height: 46rpx;
+  padding: 20rpx 30rpx 30rpx 20rpx;
+  margin-top: 20rpx;
+}
+
+.list {
+  width: 750rpx;
+  display: flex;
+  flex-wrap: wrap;
+  padding-left: 20rpx;
+}
+
+.goodsIndexWrap {
+  width: 44rpx;
+  height: 44rpx;
+  background: rgba(176, 187, 199, 1);
+  border-radius: 50%;
+  font-size: 32rpx;
+  font-family: PingFangSC-Medium;
+  font-weight: 500;
+  color: rgba(255, 255, 255, 1);
+  line-height: 44rpx;
+  text-align: center;
+  position: absolute;
+  left: 0rpx;
+  top: 16rpx;
+  z-index: 2;
+}
+
+.iconShopping {
+  width: 60rpx;
+  height: 60rpx;
+  background: rgba(255, 51, 102, 1);
+  border-radius: 50%;
+  position: relative;
+  left: 0rpx;
+  top: 0rpx;
+  border: 1rpx solid red;
+}

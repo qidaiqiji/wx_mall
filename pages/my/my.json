@@ -1,0 +1,10 @@
+{
+  "navigationBarTitleText": "我的",
+  "usingComponents": {
+    "c-autoPopup": "/components/cartPopup/autoPopup/index",
+    "c-navigationToolsTwo": "/components/navigationToolsTwo/index",
+    "i-toast": "../../../dist/toast/index",
+    "c-modal":"/components/modal/index",
+    "i-badge": "../../../dist/badge/index"
+  }
+}

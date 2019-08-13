@@ -1,0 +1,90 @@
+/* pages/ordercoupon/ordercoupon.wxss */
+
+page {
+  background: #f3f5f7;
+}
+
+.container {
+  width: 100%;
+}
+
+.main {
+  width: 100%;
+  padding: 0;
+  background: #f3f5f7;
+  flex: 1;
+  padding-top: 20rpx;
+}
+
+.bottom_msg {
+  width: 100%;
+  height: 188rpx;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  background: #f3f3f3;
+}
+
+.bottom_tip {
+  width: 100%;
+  height: 90rpx;
+  line-height: 90rpx;
+  text-align: center;
+  font-size: 24rpx;
+  font-family: PingFang-SC-Medium;
+  font-weight: 500;
+  color: rgba(103, 113, 114, 1);
+}
+
+.bottom_wrap {
+  position: fixed;
+  left: 0rpx;
+  bottom: 0rpx;
+  z-index: 50;
+}
+
+.my_coupon {
+  width: 100%;
+  height: 98rpx;
+  line-height: 98rpx;
+  text-align: center;
+  font-size: 32rpx;
+  display: flex;
+}
+
+.noOrderList_text {
+  width: 100%;
+  height: 98rpx;
+  font-family: PingFang-SC-Medium;
+  font-weight: 500;
+  color: rgba(255, 255, 255, 1);
+  background: #f36;
+}
+
+
+.not_data {
+  width: 314rpx;
+  height: 300rpx;
+  position: fixed;
+  left: 50%;
+  top: 40%;
+  transform: translate(-50%, -50%);
+}
+
+.not_data image {
+  width: 314rpx;
+  height: 180rpx;
+}
+
+.not_data view {
+  height: 80rpx;
+  line-height: 80rpx;
+  text-align: center;
+  font-size: 26rpx;
+  color: #b2b2b2;
+}
+
+.my_coupon_list_bottom {
+  width: 750rpx;
+  height: 188rpx;
+}

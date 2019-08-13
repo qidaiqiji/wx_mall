@@ -1,0 +1,4 @@
+
+<view class="pop_main {{showToast?'shows':'hides'}}" >
+<view class='pop_content'>{{warning}}{{content}}</view>
+</view>

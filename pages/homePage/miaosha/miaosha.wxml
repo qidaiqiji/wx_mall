@@ -1,0 +1,60 @@
+<!-- pages/miaosha/miaosha.wxml -->
+<view class='containers'>
+  <view class='banner_ad'>
+    <view class="banner_swiper_wrap">
+      <swiper class="banner_swiper" indicator-dots='true' indicator-color='#EDEDED' indicator-active-color='#DCDCDC' autoplay='true' circular='true'>
+        <block wx:for='{{hotGoods}}' wx:for-item='goods' wx:key='index'>
+          <swiper-item>
+            <view class="">
+              <c-miaoshaAd hotGoods='{{goods}}' />
+            </view>
+          </swiper-item>
+        </block>
+      </swiper>
+    </view>
+    <view class="{{isDistance?'':'banner_bottom_flexd'}} banner_bottom_wrap" id="banner_bottom_wrap">
+      <view class="classification">
+        <block wx:for='{{arrText}}' wx:for-item="text" wx:key='index'>
+          <view class="">
+            <view class="{{textIndex== index?'classification_two':''}}" data-tapindex="{{index}}" catchtap='ontextIndex'>
+              {{text}}
+            </view>
+          </view>
+        </block>
+      </view>
+      <view class="banner_time_wrap">
+        <view class="">{{istxt}}：</view>
+        <view class="">{{day}}天</view>
+        <view class="">{{timsD}}:{{timeH}}:{{times}}</view>
+      </view>
+    </view>
+  </view>
+  <view>
+    <view class='goods_title' wx:if="{{textIndex ==1?notStartGoodsList.length>0?true:false:startGoodsList.length>0?true:false}}">
+      <image src='{{istxt =="距结束"?"/images/icon_star.png":"/images/nao_zhong.png"}}   ' />
+      <view>{{textList}}</view>
+    </view>
+    <view style="height: {{appHeight}}rpx;">
+      <block wx:for='{{textIndex ==1?notStartGoodsList:startGoodsList}}' wx:key='index'>
+        <c-qiangGou bindevokeAddCart='onevokeAddCart' date='{{flashSaleList.date}}' aboutToBegin='{{aboutToBegin}}' goodsItem='{{item}}' />
+      </block>
+      <c-reachTheBottom wx:if='{{textIndex ==1&&notStartGoodsList.length>0?true:textIndex ==0&&startGoodsList.length>0?true:false}}' />
+      <view class="allNoGoods" wx:if="{{ textIndex==1?notStartGoodsList.length>0?false:true:startGoodsList.length>0?false:true}}">
+        <image class="" src="{{img_no}}" />
+        <view>暂无商品信息</view>
+      </view>
+    </view>
+  </view>
+  </view>
+  <view class="navigation_button" catchtap="handleShowNavigation" wx:if='{{isActTime}}'>
+    <image src="/images/navigation_tag.png" />
+</view>
+  <c-remind_right id="remind_right" isPageId="{{isPageId}}" menus="{{menus}}" autoJump='{{false}}'
+    bindallPreferential='onallPreferential' bindupMenus='handleMenus' wx:if="{{isShowNavigation}}" title='膜法保湿节会场直达'>
+  </c-remind_right>
+  <c-shopba kind='addCart' wx:if='{{isPopCart}}' shbpbaWrapHeight='999' shbpbaListHeight='444' goodsId='{{addGoodsId}}'
+    catchtouchmove='true' goodsList='{{addGoodslist}}' id="addCart" bindhideCart="onhideCart" bindgetTotle='ongetTotle'>
+  </c-shopba>
+  <c-navigationTools totalCount='{{totalCounts}}' />
+  <c-navigationToolsTwo backTop='{{true}}' toTheTop="{{toTheTop}}" catchtoUpImgs="ontoUpImgs" />
+  <i-toast id="toast" />

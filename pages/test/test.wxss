@@ -1,0 +1,74 @@
+/* pages/activeDirectory/ledPassword/ledPassword.wxss */
+page {
+    background: #F2E1DC;
+
+}
+
+image {
+    vertical-align: top;
+}
+
+.wrap {
+    width: 750rpx;
+}
+
+.bannerImg {
+    width: 750rpx;
+    height: 620rpx;
+}
+
+.titleWrap {
+    width: 750rpx;
+margin-bottom: 16rpx;
+}
+
+.title {
+    height: 36rpx;
+    font-size: 36rpx;
+    font-family: PingFang-SC-Heavy;
+    font-weight: 800;
+    color: rgba(255, 255, 255, 1);
+    line-height: 36rpx;
+    margin-top: 36rpx;
+}
+
+.subTitle {
+    height: 16rpx;
+    font-size: 16rpx;
+    font-family: PingFang-SC-Bold;
+    font-weight: bold;
+    color: rgba(255, 255, 255, 1);
+    line-height: 16rpx;
+    margin-top: 10rpx;
+}
+
+.titleTxtWrap {
+    width: 726rpx;
+    height: 116rpx;
+    text-align: center;
+    border: 1rpx solid red;
+}
+
+.advertisingWrap {
+    padding-left: 12rpx;
+}
+
+.advertising {
+    width: 726rpx;
+    border: 1rpx solid red;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.advertisingImg {
+    width: 720rpx;
+    height: 130rpx;
+    background: rgba(255, 255, 255, 1);
+    margin-bottom: 16rpx;
+}
+
+.titleImg >image{
+    width: 720rpx;
+    height: 130rpx;
+    border: 1rpx solid red;
+}

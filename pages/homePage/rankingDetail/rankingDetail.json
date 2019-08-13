@@ -1,0 +1,11 @@
+{
+  "navigationBarTitleText": "榜单详情",
+  "usingComponents": {
+    "c-navigationTools": "/components/navigationTools/index",
+    "c-navigationToolsTwo": "/components/navigationToolsTwo/index",
+    "c-goodsItem_row": "/components/goodsItem_row/index",
+    "c-shopba": "/components/product_b/shopba/index",
+    "reachTheBottom": "/components/reachTheBottom/index",
+    "i-toast": "../../../dist/toast/index"
+  }
+}

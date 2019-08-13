@@ -1,0 +1,10 @@
+<view class='search_top' style="background: {{iscolor?'rgba(243,243,243,1)':'rgba(243,243,243,1)'}};width:{{index == 'index'?'626':'702'}}rpx" bindtap='handleJumpToSearch'>
+    <view class='top_img'>
+        <image class='top_img_' src='/images/search.png' />
+    </view>
+    <view class='top_title'>
+        <scroll-view scroll-x class="searchTopScroll" style=" white-space: nowrap; display: flex;width:{{index == 'index'?'626':'608'}}rpx">
+            <view class='top_title_'>{{keywords?keywords:'采购商品、品牌'}}</view>
+        </scroll-view>
+    </view>
+</view>

@@ -1,0 +1,174 @@
+/* components/product_b/pro_brand/index.wxss */
+
+.pro_brand_wrap {
+  width: 750rpx;
+}
+
+.prod_brand_onea {
+  width: 750rpx;
+  height: 148rpx;
+  background: rgba(255, 255, 255, 1);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 24rpx;
+}
+
+.prod_brand_onea_heights {
+  width: 100rpx;
+  height: 100rpx;
+  background: rgba(255, 255, 255, 1);
+  border: 1rpx solid #e5e5e5;
+  border-radius: 4px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.prod_brand_onea_heighs {
+  height: 100rpx;
+  border: 1rpx solid #e5e5e5;
+  border-radius: 4rpx;
+}
+.prod_brand_onea_height_middle{
+  height: 100rpx;
+  flex: 1;
+  margin-left: 24rpx;
+}
+.prod_brand_onea_height {
+  height: 100rpx;
+  display: flex;
+  align-items: center;
+}
+
+.prod_brand_onea_height_logio {
+  width: 98rpx;
+  max-height: 98rpx;
+}
+
+.prod_brand_onea_hone {
+  width: 262rpx;
+  font-size: 28rpx;
+  font-family: PingFang-SC-medium;
+  font-weight: bold;
+  color: rgba(47, 58, 64, 1);
+  margin-top: 8rpx;
+  margin-bottom: 10rpx;
+  text-overflow: -o-ellipsis-lastline;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+}
+
+.prod_brand_onea_htwo {
+  width: 95rpx;
+  height: 22rpx;
+  font-size: 22rpx;
+  font-family: PingFang-SC-regular;
+  font-weight: 500;
+  color: rgba(255, 51, 102, 1);
+  margin-right: 40rpx;
+}
+
+.prod_brand_onea_hthree {
+  width: 263rpx;
+  height: 21rpx;
+  font-size: 22rpx;
+  font-family: PingFang-SC-regular;
+  font-weight: 500;
+  color: rgba(136, 150, 150, 1);
+}
+
+/* 相关搭配 */
+
+.template_one {
+  width: 750rpx;
+  height: 88rpx;
+  background: rgba(255, 255, 255, 1);
+  display: flex;
+  align-items: center;
+  border-bottom: 1rpx solid #dce4e6;
+}
+
+.template_two {
+  height: 27rpx;
+  font-size: 28rpx;
+  font-family: PingFang-SC-Bold;
+  font-weight: bold;
+  color: rgba(47, 58, 64, 1);
+  margin-left: 25rpx;
+}
+
+/* 3图 */
+
+.uploadWrap {
+  height: 313rpx;
+  width: 100%;
+  display: flex;
+  display: -webkit-box;
+  flex-direction: column;
+}
+
+.uploadWrap_wrap {
+  background: #fff;
+  margin-bottom: 20rpx;
+}
+
+.uploadWrap_two {
+  margin-left: 16rpx;
+  width: 230rpx;
+  height: 338rpx;
+  display: inline-block;
+}
+
+.upload_Item_img {
+  width: 230rpx;
+  height: 230rpx;
+  margin-bottom: 25rpx;
+  margin-top: 23rpx;
+}
+
+.upload_Item_text {
+  text-align: center;
+  font-size: 26rpx;
+  font-family: PingFang-SC-medium;
+  font-weight: bold;
+  color: rgba(255, 51, 102, 1);
+}
+
+/* 1 */
+
+.prod_brand_onea_img {
+  width: 131rpx;
+  height: 48rpx;
+}
+
+.pro_brand_detail_img {
+  width: 750rpx;
+  vertical-align: top;
+}
+
+.pro_brand_img {
+  width: 750rpx;
+  background: white;
+}
+
+.txtt_spacing {
+  width: 750rpx;
+  height: 20rpx;
+  background: rgb(243, 243, 243);
+}
+
+.pro_brand_advertising {
+  text-align: center;
+  padding-bottom: 20rpx;
+}
+
+.pro_brand_advertising>image {
+  width: 704rpx;
+  height: 129rpx;
+  border-radius: 20rpx;
+  overflow: hidden;
+}

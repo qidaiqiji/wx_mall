@@ -1,0 +1,128 @@
+/* components/remind_right/index.wxss */
+
+m
+
+
+
+.mark {
+    position: fixed;
+    top: 0rpx;
+    right: 0rpx;
+    bottom: 0rpx;
+    left: 0rpx;
+    background: rgba(0, 0, 0, 1);
+    opacity: 0.5;
+    z-index: 30;
+}
+
+.remind_two_wrap {
+    position: fixed;
+    top: 0rpx;
+    right: 0rpx;
+    bottom: 0rpx;
+    left: 0rpx;
+    z-index: 40;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+}
+.remind_right_scroll_view{
+    height: 658rpx;
+}
+.remind_two_left {
+    width: 53rpx;
+    height: 60rpx;
+   
+    border-radius: 10rpx 0rpx 0rpx 10rpx;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.remind_two_img {
+       width: 53rpx;
+    height: 60rpx;
+}
+
+.remind_two_right {
+
+    width: 497rpx;
+    height: 800rpx;
+    background: rgba(48, 48, 48, 1);
+    border-radius: 20px 0px 0px 20px;
+}
+
+.remind_two_center_wrap {
+    width: 0rpx;
+    display: flex;
+    align-items: center;
+}
+
+
+.remind_two_title {
+    font-size: 32rpx;
+    font-family: PingFangSC-Regular;
+    font-weight: 400;
+    color: rgba(255, 255, 255, 1);
+    margin-left: 45rpx;
+    margin-top: 38rpx;
+    margin-bottom: 40rpx;
+}
+.remind_two_list{
+    overflow: hidden;
+}
+.remind_two_list_wrap {
+    width: 404rpx;
+    height: 98rpx;
+    background: rgba(63, 63, 63, 1);
+    border-radius: 10rpx;
+    margin-bottom: 12rpx;
+    margin-left: 45rpx;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.remind_two_list_tetle {
+    font-size: 24rpx;
+    font-family: PingFangSC-Regular;
+    font-weight: 400;
+    color: rgba(255, 255, 255, 1);
+    margin-left: 24rpx;
+    margin-bottom: 13rpx;
+    width: 350rpx;
+    overflow: hidden;
+    text-overflow: clip;
+    display: -webkit-box;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
+}
+
+.remind_two_list_txt {
+    font-size: 24rpx;
+    font-family: PingFangSC-Regular;
+    font-weight: 400;
+    color: rgba(136, 150, 150, 1);
+    margin-left: 24rpx;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.remind_two_list_red {
+    width: 404rpx;
+    height: 98rpx;
+    background: rgba(222, 14, 14, 1);
+    border-radius: 10px;
+    border-radius: 10rpx;
+    margin-bottom: 12rpx;
+    margin-left: 45rpx;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.whatShow {
+    width: 558rpx;
+    transition: all 0.2s;
+}

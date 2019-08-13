@@ -1,0 +1,61 @@
+<block wx:for='{{goodsList}}' wx:for-item='goodsItem' wx:key="index">
+  <view class='container'>
+    <i-swipeout i-class='swipeoutWrap' i-item-class='itemClass' i-contentChange='contentChangeClass'
+      i-button-right-item-class='buttonRightItemClass' actions="{{actions}}" toggle="{{toggle}}" unclosable="{{true}}"
+      bindchange="cancelGoods" data-index="{{goodsItem.recId}}">
+      <view slot="content">
+        <view class='main'>
+          <view class='left' bindtap='handleChecked' data-index="{{goodsItem.recId}}" data-isSelect='{{goodsItem.isSelect}}'
+            data-brandid="{{brandId}}">
+            <image src="{{ !!goodsItem.isSelect?'/images/secleted.png':'/images/unsecletd.png' }}" class="check_img" />
+
+          </view>
+          <view class='middle'>
+            <image src='{{goodsItem.thumb}}' mode='widthFix' bindtap='handleToDetail' data-isVip='{{goodsItem.isVip}}'
+              data-goodsid='{{goodsItem.goodsId}}'></image>
+            <view wx:if='{{goodsItem.stockStatus == 1}}'>货源紧张</view>
+            <!-- <view wx:if='{{goodsItem.stockStatus == 2}}'>货源充足</view>
+        <view wx:if='{{goodsItem.stockStatus == 3}}'>大货到仓</view> -->
+          </view>
+          <view class='right'>
+            <view class='title' bindtap='handleToDetail' data-isVip='{{goodsItem.isVip}}' data-goodsid='{{goodsItem.goodsId}}'>{{goodsItem.goodsName}}</view>
+            <view class='desc'>
+              <view class='price'>
+                <view class='tagList'>
+                  <block wx:for='{{goodsItem.tagList}}' wx:for-item='tagItem' wx:key='index'>
+                    <view class='top_active_tags' style="background:{{tagItem.bgColor}};color:{{tagItem.textColor}};">
+                      <image src='{{tagItem.icon}}' wx:if='{{tagItem.icon}}'></image>
+                      <text>{{tagItem.text}}</text>
+                    </view>
+                  </block>
+                </view>
+                <view class='money'>{{goodsItem.goodsPrice}}</view>
+              </view>
+              <view class='counter' wx:if='{{!isAllEdit}}'>
+                <view class='warning' wx:if='{{goodsItem.changed}}'>
+                  <image src='/images/tips.png' />
+                </view>
+                <view class='changeNum'>
+                  <text class="reduce " bindtap='buyNumReduce' data-index="{{goodsItem.recId}}" data-brandid="{{brandId}}"
+                    data-boxnum="{{goodsItem.boxNum}}" data-startnum="{{goodsItem.startNum}}" data-cartnum="{{goodsItem.cartNum}}">-</text>
+                  <input value="{{goodsItem.cartNum}}" bindchange='buyNumChange' type='number' data-goodsid="{{goodsItem.goodsId}}"
+                    data-index="{{goodsItem.recId}}" data-brandid="{{brandId}}" data-boxnum="{{goodsItem.boxNum}}"
+                    data-maxnum="{{goodsItem.stock}}" data-startnum="{{goodsItem.startNum}}" />
+                  <text class="add " bindtap='buyNumAdd' data-index="{{goodsItem.recId}}" data-brandid="{{brandId}}"
+                    data-boxnum="{{goodsItem.boxNum}}" data-maxnum="{{goodsItem.stock}}" data-cartnum="{{goodsItem.cartNum}}">+</text>
+                </view>
+              </view>
+            </view>
+          </view>
+        </view>
+      </view>
+    </i-swipeout>
+    <view>
+      <block wx:for="{{goodsItem.eventList}}" wx:for-item="activeItem" wx:for-index="index" wx:key="index">
+        <c-goodsShow_active desc="{{activeItem.desc}}" goodsList="{{activeItem.goodsList}}">
+          <text class="my-class tags" slot="tag" style='background: {{activeItem.bgColor}}; color:{{activeItem.color}}'>{{activeItem.tag}}</text>
+        </c-goodsShow_active>
+      </block>
+    </view>
+  </view>
+</block>

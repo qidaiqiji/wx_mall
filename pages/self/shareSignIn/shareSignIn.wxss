@@ -1,0 +1,166 @@
+/* pages/self/shareSignIn/shareSignIn.wxss */
+/* 手机号外框 */
+page {
+  background: rgb(255, 204, 93)
+}
+.login_from_wrap {
+  width: 750rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.login_from {
+  width: 662rpx;
+  height: 1029rpx;
+  position: relative;
+  left: 0rpx;
+  top: 0rpx;
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+ 
+}
+
+.form_wrap {
+  height: 300rpx;
+  position: absolute;
+  left: 65rpx;
+  bottom: 122rpx;
+  z-index: 10;
+  margin-left: 10rpx;
+}
+
+.guize {
+  font-size: 28rpx;
+  font-family: PingFang-SC-Medium;
+  font-weight: 500;
+  color: rgba(163, 99, 8, 1);
+  margin-top: 17rpx;
+  padding: 0rpx 45rpx;
+  display: flex;
+  justify-content: space-between;
+}
+
+.login_number {
+  width: 550rpx;
+  height: 88rpx;
+  background: rgba(184, 6, 28, 1);
+  border-radius: 4rpx;
+  display: flex;
+  align-items: center;
+}
+
+.login_numberN {
+  width: 600rpx;
+  height: 88rpx;
+  padding-left: 25rpx;
+  color: #fff;
+}
+.login_numbers {
+  padding-left: 25rpx;
+  color: #fff;
+}
+.login_code {
+  margin-top: 24rpx;
+}
+
+.content {
+  width: 550rpx;
+  height: 88rpx;
+  background: rgba(184, 6, 28, 1);
+  border-radius: 4px;
+  border: 1rpx solid rgba(184, 6, 28, 1);
+  position: relative;
+  left: 0;
+  top: 0;
+}
+
+.swiper_image {
+  width: 98rpx;
+  height: 88rpx;
+}
+
+.rightswiper {
+  margin-top: 31rpx;
+  margin-left: 198rpx;
+  width: 115rpx;
+  height: 26rpx;
+  line-height: 18rpx;
+}
+
+.rightswiper2 {
+  font-size: 28rpx;
+  font-family: PingFang-SC-Medium;
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.swiper_b {
+  display: flex;
+}
+
+.swiper_ss {
+  width: 452rpx;
+  height: 88rpx;
+  background: rgba(255, 51, 102, 1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: rgba(255, 255, 255, 1);
+}
+
+.sswiper_image {
+  width: 98rpx;
+  height: 88rpx;
+}
+
+.code {
+  display: flex;
+}
+
+.code1 {
+  display: flex;
+  align-items: center;
+  width: 324rpx;
+  height: 88rpx;
+  background: rgba(184, 6, 28, 1);
+  border-radius: 4rpx;
+}
+
+.code2 {
+  width: 202rpx;
+  height: 88rpx;
+  background: rgba(255, 174, 194, 1);
+  border-radius: 4px;
+  margin-left: 24rpx;
+  line-height: 88rpx;
+  text-align: center;
+  font-size: 24rpx;
+  font-family: PingFang-SC-Medium;
+  font-weight: 500;
+  color: rgba(255, 255, 255, 1);
+}
+
+.code1_img {
+  width: 44rpx;
+  height: 44rpx;
+  margin-left: 10rpx;
+}
+
+.zhece_wrap {
+  margin-top: 38rpx;
+  display: flex;
+  justify-content: center;
+}
+
+.a2 {
+  width: 268rpx;
+  height: 82rpx;
+  background: rgba(255, 232, 62, 1);
+  border-radius: 41rpx;
+  font-size: 40rpx;
+  font-family: PingFang-SC-Regular;
+  font-weight: bold;
+  color: rgba(226, 0, 27, 1);
+  line-height: 82rpx;
+  text-align: center;
+}

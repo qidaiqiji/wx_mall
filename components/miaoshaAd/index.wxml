@@ -1,0 +1,29 @@
+<!--components/miaoshaAd/index.wxml-->
+
+<view class='ad_item' bindtap="jumpToPage" data-goodsId='{{kind== "index"?"":hotGoods.goodsId}}'>
+  <view class='ad_item_left'>
+    <view class='left_tag'
+      style='background:url({{img_tag_miaosha}});background-size:100%;background-repeat: no-repeat;'>必抢</view>
+    <image src='{{hotGoods.thumb}}'></image>
+  </view>
+  <view class='ad_item_right'>
+    <view class='ad_titleMsg'>
+      <view>{{hotGoods.goodsName}}</view>
+      <view wx:if='{{!noLook}}'>{{hotGoods.desc}}</view>
+    </view>
+    <view class='ad_dataMsg'>
+      <view wx:if='{{!noLook}}'>
+        <view class='ad_data_price'>
+          <view class='ad_price_int'>{{hotGoods.intGoodsPrice}}.</view>
+          <view class='ad_decimals'>{{hotGoods.decimalsGoodsPrice}}</view>
+        </view>
+        <view class='delete_price'>¥{{hotGoods.marketPrice}}</view>
+      </view>
+      <view class='noLook' wx:if='{{noLook}}'>认证看价</view>
+      <view class='ad_hotNum'>
+        <image src='/images/hotNum@2x.png' />
+        <view>已抢{{hotGoods.salesCount}}件</view>
+      </view>
+    </view>
+  </view>
+</view>

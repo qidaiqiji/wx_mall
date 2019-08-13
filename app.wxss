@@ -1,0 +1,64 @@
+/**app.wxss**/
+
+/* @import "icon.wxss"; */
+
+/* @import "colorui.wxss"; */
+
+/* @import '/components/cartPopup/global/index'; */
+
+button, form, image, input, label, navigator, scroll-view, swiper, text,
+textarea, view {
+  box-sizing: border-box;
+}
+
+page {
+  font-family: "PingFang-SC-Regular", "Microsoft Yahei";
+  /* -webkit-overflow-scrolling: touch; */
+  font-size: 24rpx;
+  /* line-height: 1; */
+}
+image{
+  vertical-align: top;
+}
+.container {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  /* padding: 200rpx 0;
+  box-sizing: border-box; */
+  font-family: "PingFang-SC-Regular", "Microsoft Yahei";
+}
+
+::-webkit-scrollbar-track-piece {
+  /* //滚动条凹槽的颜色，还可以设置边框属性 */
+  background-color: #f8f8f8;
+}
+
+::-webkit-scrollbar {
+  /* //滚动条的宽度 */
+  width: 4rpx;
+  /* height:20rpx; */
+}
+
+::-webkit-scrollbar-thumb {
+  /* //滚动条的设置 */
+  background-color: #ddd;
+  background-clip: padding-box;
+  min-height: 28rpx;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background-color: #bbb;
+}
+
+::-webkit-scrollbar {
+  width: 0;
+  height: 0;
+  color: transparent;
+}
+
+button::after {
+  border: none;
+}

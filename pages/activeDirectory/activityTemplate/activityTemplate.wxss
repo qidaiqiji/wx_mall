@@ -1,0 +1,108 @@
+/* pages/activeDirectory/activityTemplate/activityTemplate.wxss */
+image {
+    vertical-align: top;
+}
+
+.wrap {
+    width: 750rpx;
+}
+
+.bannerImg {
+    width: 750rpx;
+    height: 620rpx;
+}
+
+.conter {
+    width: 750rpx;
+
+    padding-bottom: 102rpx;
+}
+
+.titleImg {
+    width: 750rpx;
+    text-align: center;
+    padding-bottom: 6rpx;
+    padding-top: 36rpx;
+}
+
+.titleImg>image {
+    width: 720rpx;
+    height: 130rpx;
+}
+
+.titleTxtWrap {
+    width: 750rpx;
+    text-align: center;
+}
+
+.guideText {
+   
+    background: rgba(255, 255, 255, 1);
+    border-radius: 20rpx;
+    position: absolute;
+    top: 20rpx;
+    right: 28rpx;
+    font-size: 24rpx;
+    font-family: PingFang-SC-Medium;
+    font-weight: 500;
+    color: rgba(47, 58, 64, 1);
+    line-height: 24rpx;
+    text-align: center;
+    padding: 8rpx 26rpx;
+}
+
+.title {
+    height: 36rpx;
+    font-size: 36rpx;
+    font-family: PingFang-SC-Heavy;
+    font-weight: 800;
+    line-height: 36rpx;
+    color: #ffffff !important;
+}
+
+.subTitle {
+    height: 40rpx;
+    font-size: 24rpx;
+    font-family: PingFang-SC-Bold;
+    font-weight: bold;
+    line-height: 24rpx;
+    margin-top: 10rpx;
+    padding-bottom: 16rpx;
+    color: #ffffff !important;
+}
+
+.youhui_list {
+    width: 750rpx;
+    display: flex;
+    flex-wrap: wrap;
+    padding-left: 12rpx;
+}
+
+.list {
+    margin-left: 14rpx;
+    margin-bottom: 14rpx;
+}
+
+.advertisingImg {
+    width: 720rpx;
+    height: 130rpx;
+    margin-bottom: 16rpx;
+}
+
+.advertising {
+    width: 750rpx;
+    padding-left: 12rpx;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.activityBottom {
+    width: 100%;
+    text-align: center;
+    font-size: 22rpx;
+    font-family: PingFang-SC-Medium;
+    font-weight: 500;
+    color: rgba(212, 212, 212, 1);
+    padding-top: 76rpx;
+    padding-bottom: 104rpx;
+}

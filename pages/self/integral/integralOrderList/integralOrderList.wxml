@@ -1,0 +1,42 @@
+<!--pages/self/integral/integralOrderList/integralOrderList.wxml-->
+<view wx:if="{{integralGoodsList.length > 0}}">
+  <view class='fixedBottom'>温馨提示：您抽中的商品，将随下次直发订单一起发货。</view>
+  <view class='container'>
+
+    <block wx:for='{{integralGoodsList}}' wx:for-item='goodsItem' wx:key='index'>
+      <view class='integralOrderItem'>
+        <view class='integralOrderItem_date'>
+          时间
+          <text class='orderItem_date'>{{goodsItem.createTime}}</text>
+        </view>
+        <view class='item_desc'>
+          <view class='desc_img'>
+            <image src='{{goodsItem.thumb}}' mode='widthFix'></image>
+          </view>
+          <view class='desc_msg'>
+            <view class='desc_msg_title'>{{goodsItem.goodsName}}</view>
+            <view class='desc_msg_show'>
+              <view class='msg_show_price'>零售价：￥{{goodsItem.marketPrice}}</view>
+              <view class='msg_show_bottom'>
+                <view>总价值：￥{{goodsItem.amount}}</view>
+                <view>数量：{{goodsItem.num}}</view>
+              </view>
+            </view>
+
+          </view>
+        </view>
+        <view class='item_status item_status_end' wx:if='{{goodsItem.groupSn.length>0}}'>（订单号：{{goodsItem.groupSn}}）随单发货
+        </view>
+        <view class='item_status item_status_await' wx:if='{{!goodsItem.groupSn}}'>待发货</view>
+        <view></view>
+      </view>
+
+    </block>
+  </view>
+</view>
+<view class="remindlist_bottom_B" wx:else>
+  <image class="remindlist_bottom_img" src="/images/img_search.png" />
+  <view class="remindlist_bottom_txt">暂无数据</view>
+</view>
+<c-navigationTools />
+<c-navigationToolsTwo toTheTop="{{toTheTop}}" catchtoUpImgs="ontoUpImgs" />

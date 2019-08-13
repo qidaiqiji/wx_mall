@@ -1,0 +1,41 @@
+<!--components/product_b/swiper/index.wxml-->
+<view class="pro_swipe">
+    <view class="pro_swipe_top {{swipertop?'pro_swipe_top_two':''}} ">
+        <view class="pro_swipe_img_wrap ">
+            <image style="width: 36rpx;height: 36rpx;margin-left: 13rpx;margin-top: 6.5rpx;"
+                src="/images/img_portrait.png"></image>
+            <text class="pro_swipe_top_txt">{{swiper_num}}</text>
+        </view>
+    </view>
+
+    <view>
+        <swiper class="pro_swiper" bindchange="swiperChange" circular='{{true}}' autoplay="{{true}}" interval='5000' duration='500' wx:if='{{isVideo}}'>
+            <block wx:for="{{gallery.src}}" wx:for-item="swiper_img" wx:for-index="swiper_index" wx:key="swiper_index">
+                <swiper-item wx:key="swiper_index">
+                    <view class="images_wrap">
+                        <image class="swiper_sw" data-img="{{swiper_img}}" data-listSrc="{{gallery.src}}"
+                            catchtap='isMaxShow' src="{{swiper_img}}" />
+                        <image class="video_img" catchtap='isTapVideo' src="/images/play.png"
+                            wx:if="{{swiper_index == 0&&video}}" />
+                    </view>
+                </swiper-item>
+
+            </block>
+        </swiper>
+        <view wx:else>
+            <video class="swiper_video" id="swiper_video" src="{{video}}" controls='true' show-center-play-btn="{{false}}" autoplay='true'
+                bindended="isVideoEnd" ></video>
+            <image class="is_no_video" catchtap='isNoVideo' src="/images/icon_vedio_close@2x.png" />
+        </view>
+        <view class="shop_swiper_bottom" wx:if='{{isVideo}}'>
+
+            <block wx:for="{{gallery.src}}" wx:for-item="swiper_img" wx:for-index="swiper_index" wx:key="swiper_index">
+                <image class="shop_swiper_img_" data-img="{{swiper_img}}" data-listSrc="{{gallery.src}}"
+                    catchtap='isMaxShow'
+                    src="{{current == 0 ?'/images/icon_carousel_play.png':'/images/icon_carousel_play_none.png'}}"
+                    wx:if='{{video&&swiper_index==0}}' />
+                <view wx:else class="shop_swiper {{current == swiper_index?'shop_swiper_gray':'shop_swiper_white'}}" />
+            </block>
+        </view>
+    </view>
+</view>

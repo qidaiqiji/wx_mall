@@ -1,0 +1,50 @@
+/* components/choose_integral/index.wxss */ 
+.Mask { 
+    position: fixed; 
+    top: 0; 
+    left: 0; 
+    right: 0; 
+    bottom: 0; 
+    background: rgba(0, 0, 0, 0.5); 
+    z-index: 40; 
+} 
+ 
+.choose_integral_wrap { 
+    text-align: center; 
+    position: fixed; 
+    left: 0rpx; 
+    bottom: 0rpx; 
+    z-index: 99; 
+    background: rgba(243, 243, 243, 1); 
+} 
+ 
+.cityheader { 
+    display: flex; 
+    justify-content: space-between; 
+    align-items: center; 
+    height: 120rpx; 
+    background: rgba(243, 243, 243, 1); 
+} 
+ 
+.city-cancel { 
+    width: 100rpx; 
+    font-size: 32rpx; 
+    font-family: PingFangSC-Regular; 
+    font-weight: 400; 
+    color: rgba(136, 150, 150, 1); 
+    text-align: center; 
+} 
+ 
+.city-true { 
+    font-size: 32rpx; 
+    font-family: PingFangSC-Regular; 
+    font-weight: 400; 
+    color: rgba(255, 51, 102, 1); 
+    width: 100rpx; 
+    text-align: center; 
+} 
+ 
+.picker-view { 
+    width: 750rpx; 
+    height: 474rpx; 
+}

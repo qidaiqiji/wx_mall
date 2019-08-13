@@ -1,0 +1,33 @@
+<view class='address_container'>
+
+  <block wx:for='{{addressList}}' wx:for-item='addressItem' wx:key='index'>
+
+    <view class='addr_item'>
+
+      <view class='addr_item_left' bindtap='handleConfirmAddr' data-addressId='{{addressItem.addressId}}'>
+        <view class='item_left_top'>
+          <view>{{addressItem.consignee}}</view>
+          <view>{{addressItem.mobile}}</view>
+          <view class='isDefault' wx:if='{{addressItem.isDefault}}'>默认</view>
+        </view>
+        <view class='item_left_bottom'>
+          {{addressItem.provinceName}}{{addressItem.cityName}}{{addressItem.districtName}}{{addressItem.address}}
+        </view>
+      </view>
+      <view class='addr_item_right' bindtap='onEditAddr' data-addressItem='{{addressItem}}' data-addressId='{{addressItem.addressId}}'>
+        编辑
+      </view>
+
+    </view>
+  </block>
+</view>
+<!-- //底部 -->
+<view class='fixed_bottom'>
+  <view class='fixed_tip'>温馨提示：修改省份地址，当前包邮政策将会重新计算</view>
+  <view class='fixed_addAddr' bindtap='handleAddAddress'>
+    <image src='{{icom_add}}'></image>
+    <view>新增收货地址</view>
+  </view>
+</view>
+<i-toast id="toast" />
+<c-navigationToolsTwo toTheTop="{{toTheTop}}" bottomToTheTop='172' catchtoUpImgs="ontoUpImgs" />

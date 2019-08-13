@@ -1,0 +1,36 @@
+/* pages/self/oftenBuyList/oftenBuyList.wxss */
+page {
+  background: #f3f3f3;
+}
+.goodsItem,.noGoodsItem {
+  width: 100%;
+}
+.noGoodsItem_img {
+  width: 314rpx;
+  height: 180rpx;
+  margin: 0 auto;
+  margin-top: 340rpx;
+  margin-left: 50%;
+  transform: translateX(-50%);
+}
+.noGoodsItem_txt {
+  width: 232px;
+  font-size: 26rpx;
+  font-family: PingFang-SC-Medium;
+  font-weight: 500;
+  color: rgba(212, 212, 212, 1);
+  margin: 0 auto;
+  text-align: center;
+}
+.main{
+  background: #fff;
+  margin-top: 20rpx;
+}
+.loadingIcon{
+  width: 100rpx;
+  height: 100rpx;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+}

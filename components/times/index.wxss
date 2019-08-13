@@ -1,0 +1,204 @@
+/* components/times/index.wxss */
+
+.temes_txt2 {
+  display: flex;
+  text-align: center;
+}
+
+.times_txt1 {
+  padding: 0 4rpx;
+  min-width: 40rpx;
+  min-height: 36rpx;
+  line-height: 40rpx;
+  background: rgba(47, 58, 64, 1);
+  border-radius: 4rpx;
+  font-size: 24rpx;
+  font-family: PingFang-SC-Medium;
+  font-weight: 500;
+  color: rgba(255, 255, 255, 1);
+  text-align: center;
+}
+
+.times_colon {
+  font-size: 24rpx;
+  font-family: MicrosoftYaHei;
+  font-weight: 400;
+  color: rgba(47, 58, 64, 1);
+  padding: 0rpx 7rpx;
+}
+
+.times_big {
+  display: flex;
+  align-items: flex-end;
+}
+
+.times_big_txt1 {
+  width: 44rpx;
+  height: 44rpx;
+  line-height: 44rpx;
+  background: rgba(0, 0, 0, 0.3);
+  border-radius: 4rpx;
+  font-size: 40rpx;
+  font-family: "DINCondensed-Bold" !important;
+  font-weight: bold;
+  color: rgba(255, 255, 255, 1);
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  letter-spacing: -2rpx;
+  margin-right: 4rpx;
+  margin-left: 4rpx;
+  overflow: hidden;
+}
+
+.times_big_txt_ios {
+  position: relative;
+  left: 0rpx;
+  top: 8rpx;
+}
+
+.times_big_colon {
+  font-size: 20rpx;
+  font-family: PingFangSC-Regular;
+  font-weight: 400;
+  color: rgba(255, 255, 255, 1);
+}
+
+.times_tehui view {
+  display: flex;
+  align-items: flex-end;
+}
+
+.times_tehui_txt1 {
+  font-size: 32rpx;
+  font-family: PingFangSC-Medium;
+  font-weight: 500;
+  color: rgba(255, 51, 102, 1);
+  position: relative;
+  left: 0rpx;
+  top: 4rpx;
+  margin-right: 5rpx;
+  padding-left: 2rpx;
+}
+
+.times_tehui_colon {
+  font-size: 22rpx;
+  font-family: PingFangSC-Regular;
+  font-weight: normal;
+  color: rgba(47, 58, 64, 1);
+}
+
+.tehui_day_number {
+  width: 48rpx;
+  height: 36rpx;
+  background: rgba(255, 222, 36, 1);
+  border-radius: 4px;
+  line-height: 36rpx;
+  text-align: center;
+  font-size: 32rpx;
+  font-family: PingFangSC-Medium;
+  font-weight: 500;
+  color: rgba(255, 51, 102, 1);
+  margin-right: 6rpx;
+  padding: 0rpx 6rpx;
+}
+
+.tehui_day_txt {
+  font-size: 24rpx;
+  font-family: PingFangSC-Regular;
+  font-weight: 400;
+  color: rgba(255, 227, 57, 1);
+  margin-right: 10rpx;
+}
+
+.activity_wrap {
+  height: 40rpx;
+  display: flex;
+  align-items: center;
+}
+
+.activity_number {
+  height: 40rpx;
+  background: rgba(51, 51, 51, 1);
+  text-align: center;
+  line-height: 40rpx;
+  font-size: 28rpx;
+  font-family: MicrosoftYaHei;
+  font-weight: 400;
+  color: rgba(255, 255, 255, 1);
+  padding: 0rpx 6rpx;
+}
+
+.activity_txt {
+  width: 30rpx;
+  height: 40rpx;
+  text-align: center;
+  line-height: 40rpx;
+  font-size: 18rpx;
+  font-family: MicrosoftYaHei;
+  font-weight: 400;
+  color: rgba(47, 58, 64, 1);
+}
+
+.love_times {
+  width: 40rpx;
+  height: 40rpx;
+}
+
+.groupBuyTimes {
+  display: flex;
+  align-items: center;
+  height: 24rpx;
+  font-size: 24rpx;
+  font-family: PingFangSC-Regular;
+  font-weight: 400;
+  color: #f36;
+  line-height: 24rpx;
+}
+
+.common_wrap {
+  height: 36rpx;
+  display: flex;
+  align-items: center;
+}
+
+.common_number {
+  width: 36rpx;
+  height: 36rpx;
+  background: rgba(47, 58, 64, 1);
+  border-radius: 4rpx;
+  text-align: center;
+  font-size: 24rpx;
+  font-family: PingFangSC-Regular;
+  font-weight: 400;
+  color: rgba(255, 255, 255, 1);
+  line-height: 36rpx;
+}
+
+.common_txt {
+  height: 36rpx;
+  font-size: 20rpx;
+  font-family: PingFangSC-Regular;
+  font-weight: 400;
+  color: rgba(47, 58, 64, 1);
+  line-height: 36rpx;
+  margin-left: 2rpx;
+  margin-right: 4rpx;
+}
+
+
+.componentsSpell {
+  display: flex;
+}
+
+.timeesWhen,
+.timeesPoints,
+.timeesSeconds {
+  font-size: 20rpx;
+  font-family: PingFangSC-Regular;
+  font-weight: 400;
+  color: rgba(47, 58, 64, 1);
+  line-height: 42rpx;
+  padding: 0rpx 2rpx;
+}

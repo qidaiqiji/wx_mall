@@ -1,0 +1,29 @@
+<view class='fixedHeader'>
+  <c-headSearch keywords='{{keywords}}' />
+  <c-sizerLine bindpushSizer='onpushSizer' />
+</view>
+<view class='main'>
+  <view class="container" wx:if='{{isLoading==2}}'>
+    <c-loading />
+  </view>
+
+  <view class='goodsItem' wx:elif='{{isLoading==1}}'>
+    <c-goodsItem_row bindevokeAddCart='onevokeAddCart' goodsList='{{goodsList}}' bindmycoudan="pageEventListener1" />
+    <view style='display:flex;justify-content:center;'>
+      <image wx:if='{{isLoadings}}' style='width:100rpx;height:100rpx;margin:0 auto;' src='/images/bottomLoading.gif' />
+    </view>
+    <c-reachTheBottom wx:if='{{reachTheBottom}}' isBgWhite='{{true}}' />
+  </view>
+  <view wx:elif='{{isLoading==0}}' class='noGoodsItem'>
+    <image src='/images/img_search.png' class='noGoodsItem_img' lazy-load='{{true}}'></image>
+    <view class='noGoodsItem_txt'>搜索不到相关商品噢</view>
+  </view>
+</view>
+<c-navigationTools totalCount='{{totalCounts}}' />
+<c-navigationToolsTwo toTheTop="{{toTheTop}}" catchtoUpImgs="ontoUpImgs" />
+<c-shopba kind='addCart' wx:if='{{isPopCart}}' goodsId='{{addGoodsId}}' catchtouchmove='true'
+  goodsList='{{addGoodslist}}' id="addCart" bindhideCart="onhideCart" bindgetTotle='ongetTotle'>
+</c-shopba>
+<i-toast id="toast" />
+<c-filtrateDrawer id='filtrateDrawer' bindfilterClick='onFilterClick' category='{{category}}' countries='{{countries}}'
+  tags='{{tags}}' isShow='{{isFiltrate}}' clearItemCheck='{{clearItemCheck}}' />

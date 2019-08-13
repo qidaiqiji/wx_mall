@@ -1,0 +1,148 @@
+<view class='serach {{isSearch?"fixedBg":""}}'>
+  <c-headSearch keywords='{{keywords}}'  hezi="1" />
+</view>
+<view class="wrap">
+  <!-- 轮播 -->
+  <view id="red">
+    <view class="swipertop">
+      <swiper style="width: 100%;height:360rpx" autoplay='true' indicator-dots='true'
+        indicator-color='rgba(191,191,191,1)' indicator-active-color='rgba(255,255,255,1)' circular='true'>
+        <block wx:for="{{bannerList}}" wx:for-item="topAdList" wx:for-index="topIndex" wx:key="{{topIndex}}">
+          <swiper-item>
+            <image class="topImg" src="{{topAdList.img}}" catchtap='goAdvertising' data-item='{{topAdList}}'/>
+          </swiper-item>
+        </block>
+      </swiper>
+    </view>
+    <view class="top_twp_wrap">
+      <view>
+        <image class="top_twp_img" src="/images/icon_shop.png" />
+        <text class="top_twp_txt">品质保障</text>
+      </view>
+      <view>
+        <image class="top_twp_img" src="/images/icon_you.png" />
+        <text class="top_twp_txt">现货速发</text>
+      </view>
+      <view>
+        <image class="top_twp_img" src="/images/icon_shui.png" />
+        <text class="top_twp_txt">一支起批</text>
+      </view>
+    </view>
+  </view>
+
+  <!-- 4个广告图 -->
+  <view class="conter_wrap_onw">
+    <block wx:for="{{midAds}}" wx:for-item="topAdList" wx:for-index="topIndex" wx:key="{{topIndex}}">
+      <image class="conter_img" src="{{topAdList.img}}" catchtap='goAdvertising' data-item='{{topAdList}}'/>
+    </block>
+  </view>
+  <!-- 好货推荐 -->
+  <view class="conter_txt_wrap">
+    <view class="conter_txt_two" wx:if="{{adviceList.length>0}}">
+      <image class="conter_img_two" src="/images/img_haohuo.png" />
+    </view>
+    <view class="conter_txt_three">
+      <categoryGoodsList bindevokeAddCart='onevokeAddCart' goodsList="{{adviceList}}"></categoryGoodsList>
+    </view>
+  </view>
+  <view>
+    <!-- 纵向轮播 -->
+    <view class="swiper">
+      <swiper style="height: 128rpx;" autoplay="true" interval='2500' circular='true'>
+        <block wx:for="{{botAds}}" wx:for-item='botAdslist' wx:key='index'>
+          <swiper-item>
+            <image class="conter_img_three" src="{{botAdslist.img}}"  catchtap='goAdvertising' data-item='{{botAdslist}}'/>
+          </swiper-item>
+        </block>
+      </swiper>
+    </view>
+    <!-- 品牌 -->
+    <view>
+      <block wx:for="{{brandList}}" wx:for-item='list' wx:key='index'>
+        <view class="conter_wrap_zero" data-brandId="{{list.brandId}}" catchtap='brand'>
+          <view class="zero_conter_top">
+            <view class="zero_conter_left">
+              <view>
+                <image class="zero_logo_img" mode="widthFix" src="{{list.icon}}" />
+              </view>
+              <view class="zero_conter_conter">
+                <view class="zero_conter_txt_one">
+                  <view> {{list.brandName}}</view>
+                  <view class="tagList_wrap0">
+                    <block wx:for="{{list.tagList}}" wx:for-item='tagList' wx:key='index'>
+                      <image class="zhifa_tag" src='/images/img_jian.png' wx:if="{{tagList.name=='manJian'}}">
+                      </image>
+                      <image class="zhifa_tag" src="/images/img_zeng.png" wx:if="{{tagList.name=='manZeng'}}" />
+
+                    </block>
+                  </view>
+                </view>
+                <view class="zero_conter_txt_two">{{list.shortDesc}}</view>
+              </view>
+            </view>
+            <view>
+              <text class="zero_conter_rightt">{{list.goodsCount}}商品</text>
+            </view>
+          </view>
+          <view class="zero_conter_bottom">
+            <block wx:for="{{list.goodsList}}" wx:for-item="bottomList" wx:for-index="topIndex" wx:key="{{topIndex}}">
+              <view class="zero_conter">
+                <image class="zero_conter_img" src="{{bottomList.thumb}}" />
+                <view class="zero_conter_txt">￥{{bottomList.price}}</view>
+              </view>
+            </block>
+          </view>
+        </view>
+      </block>
+    </view>
+  </view>
+  <!-- 全部好货 -->
+  <view id="green">
+    <view class="conter_wrap_two">
+      <view class="conter_solid"></view>
+      <view class="conter_wrap_four">全部好货</view>
+      <view class="conter_solid"></view>
+    </view>
+    <view class="conter_three_wrap">
+      <c_goodsItem_col bindevokeAddCart='onevokeAddCart' goodsList='{{goodsList}}'></c_goodsItem_col>
+      <view style='display:flex;justify-content:center;'>
+        <image wx:if='{{isLoadings}}' style='width:100rpx;height:100rpx;margin:0 auto;'
+          src='/images/bottomLoading.gif' />
+      </view>
+    </view>
+    <view class="pinpai_bottom"></view>
+  </view>
+  <!-- 底部 -->
+  <view class="bottom">
+    <view class="bottom_two">
+      <view class="bottom_two_wrap" bindtap='tap'>
+        <image class="bottom_img" src="/images/home_2.png"></image>
+        <view class="bottom_txt_one bottom_txt_two">首页</view>
+      </view>
+      <view class="bottom_two_wrap" bindtap='taps'>
+        <image class="bottom_img" src="/images/tab_icon_all.png"></image>
+        <view class="bottom_txt_one bottom_txt_two">全部商品</view>
+      </view>
+      <view class="bottom_two_wrap" catchtap="cart">
+        <view class="zhifa_car_wrap">
+          <image class="bottom_img" src="/images/car_2.png"></image>
+          <view class="zhifa_car_yuan" wx:if="{{totalCount=='0'?false:true}}">{{totalCount}}</view>
+        </view>
+        <view class="bottom_txt_one ">采购车</view>
+      </view>
+      <view class="bottom_two_wrap" catchtap="my">
+        <image class="bottom_img" src="/images/my_2.png"></image>
+        <view class="bottom_txt_one ">我的</view>
+      </view>
+    </view>
+  </view>
+</view>
+
+<c-shopba kind='addCart' wx:if='{{isPopCart}}' goodsId='{{addGoodsId}}' catchtouchmove='true'
+  goodsList='{{addGoodslist}}' id="addCart" bindhideCart="onhideCart">
+  <view class="pro_bottom_two" slot='shopba'>
+  </view>
+</c-shopba>
+
+<i-toast id="toast" />
+<c-navigationToolsTwo toTheTop="{{toTheTop}}" bottomToTheTop='118' catchtoUpImgs="ontoUpImgs" />

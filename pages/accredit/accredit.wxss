@@ -1,0 +1,22 @@
+.content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+    margin-top: 100rpx;
+}
+
+.img_photo{
+    width: 448rpx;
+  height: 553rpx;
+}
+.content text {
+  display: block;
+  color: #9d9d9d;
+  margin-top: 40rpx;
+}
+
+.bottom {
+  border-radius: 80rpx;
+  margin: 107rpx 167rpx;
+  font-size: 35rpx;
+}

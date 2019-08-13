@@ -1,0 +1,163 @@
+page {
+  background: #f3f3f3;
+}
+
+.save_address {
+  width: 100%;
+  border-top: 1rpx solid #DCE4E6;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  padding-left: 30rpx;
+  background: #fff;
+}
+
+.selectArea_img {
+  width: 33rpx;
+  height: 39rpx;
+  margin-right: 14rpx;
+}
+
+.item_area_choose_wrap {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.save_address .item {
+  width: 100%;
+  height: 88rpx;
+  line-height: 88rpx;
+  border-bottom: 1rpx solid #DCE4E6;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.item_title {
+  width: 150rpx;
+  font-size: 24rpx;
+  font-family: PingFang-SC-regular;
+  font-weight: 400;
+  color: rgba(136, 150, 150, 1);
+}
+
+.item_area_choose {
+  flex: 1;
+  min-height: 80rpx;
+}
+
+.placeholderClass {
+  font-size: 26rpx;
+  font-family: PingFang-SC-regular;
+  font-weight: 400;
+  color: rgba(212, 212, 212, 1);
+}
+
+.picker {
+  height: 60rpx;
+  flex: 1;
+}
+
+.save_address .save_address_defailt {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.save_address_defailt image {
+  width: 80rpx;
+  height: 42rpx;
+}
+
+.redSelect {
+  font-size: 26rpx;
+  font-family: PingFang-SC-regular;
+  font-weight: 400;
+  color: #D4D4D4;
+}
+
+input {
+  flex: 1;
+  height: 88rpx;
+  line-height: 88rpx;
+  font-size: 28rpx;
+  color: #2F3A40;
+  font-family: PingFang-SC-regular;
+  font-weight: 400;
+}
+
+.cancelView {
+  width: 60rpx;
+  height: 60rpx;
+  line-height: 60rpx;
+  text-align: center;
+}
+
+.cancelIcon {
+  width: 26rpx;
+  height: 26rpx;
+}
+
+.selectArea {
+  display: flex;
+  align-items: center;
+  min-height: 80rpx;
+  padding-left: 24rpx;
+  color: #ff3366;
+  font-size: 26rpx;
+}
+
+.selectArea>view {
+  margin-right: 21rpx;
+  font-size: 28rpx;
+}
+
+.switch_ {
+  color: #f36;
+}
+
+.btn_operation {
+  width: 100%;
+  padding: 0 44rpx;
+}
+
+.btn_operation view {
+  margin-top: 24rpx;
+  width: 100%;
+  height: 88rpx;
+  line-height: 88rpx;
+  text-align: center;
+  font-size: 32rpx;
+  font-family: PingFangSC-Regular;
+  font-weight: 400;
+  border-radius: 4rpx;
+}
+
+.save_address_btn {
+  background: #f36;
+  color: rgba(255, 255, 255, 1);
+}
+
+.delete_address_btn {
+  color: #FF3366;
+  border: 1rpx solid rgba(255, 51, 102, 1);
+}
+
+.deleteTip {
+  font-size: 32rpx !important;
+  font-family: PingFangSC-Regular !important;
+  font-weight: 400 !important;
+  color: #677172 !important;
+}
+
+.deleteTipTitle {
+  height: 160rpx;
+  line-height: 160rpx;
+  font-size: 28rpx;
+  font-family: PingFangSC-Regular;
+  font-weight: 400;
+  color: rgba(47, 58, 64, 1);
+}

@@ -1,0 +1,29 @@
+<!--components/routineActivity/index.wxml-->
+<view class="routineZeroWRAP">
+    <scroll-view scroll-y style='height:{{windowHeight}}rpx;'>
+        <!-- top -->
+        <view class="swipertop">
+            <swiper style="width: 100%;height:360rpx" autoplay='true' indicator-dots='true'
+                indicator-color='rgba(191,191,191,1)' interval="5000" duration="500"
+                indicator-active-color='rgba(255,255,255,1)' circular='true'>
+                <block wx:for="{{activityCenter.topAdList}}" wx:for-item="topAdList" wx:for-index="topIndex"
+                    wx:key="{{topIndex}}">
+                    <swiper-item>
+                        <navigator url='{{topAdList.url}}' hover-class="none">
+                            <image class="topImg" src="{{topAdList.img}}" />
+                        </navigator>
+                    </swiper-item>
+                </block>
+            </swiper>
+        </view>
+        <!-- conter -->
+        <view class="routineActivity_conter">
+            <image class="routineActivity_C_I" src="/images/img_changxiao.png" mode="widthFix"></image>
+        </view>
+        <!-- bottom -->
+        <view class="swiper">
+            <myswiper showList="{{activityCenter.showList}}"></myswiper>
+        </view>
+        <reachTheBottom wx:if="{{activityCenter.topAdList.length > 0}}"></reachTheBottom>
+    </scroll-view>
+</view>

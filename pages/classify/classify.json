@@ -1,0 +1,9 @@
+{
+  "navigationBarTitleText": "商品分类",
+  "usingComponents": {
+    "c-headSearch": "/components/headSearch/index",
+    "c-navigationToolsTwo":"/components/navigationToolsTwo/index",
+    "remind": "../../components/remind/remind"
+  }
+
+}

@@ -1,0 +1,57 @@
+<!--pages/juhuasuan/juhuasuan.wxml-->
+<view class="juhuasuan_wrap">
+  <view class="juhuasuan_swiper" style="background-image: url({{imgBanner}})">
+    <swiper class="juhuasuan_swiper_" autoplay='true' indicator-dots='true' indicator-color='rgba(191,191,191,1)'
+      indicator-active-color='rgba(250,250,250,0.6)' circular='true'>
+      <block wx:for="{{topAdList}}" wx:for-item="topAdList" wx:for-index="topIndex" wx:key="{{topIndex}}">
+        <swiper-item>
+          <image class="juhuasuan_img1" src="{{topAdList.img}}" catchtap='goAdvertising' data-item='{{topAdList}}' />
+        </swiper-item>
+      </block>
+    </swiper>
+  </view>
+  <view class="juhuasuan_wrapC">
+    <view wx:if="{{ads}}">
+      <view class="juhuasuan_img2_wrap">
+        <image class="juhuasuan_img2" mode='aspectFit' src="/images/icon_left.png" />
+        <view class="juhuasuan_txt">门店名品聚</view>
+        <image class="juhuasuan_img2" mode='aspectFit' src="/images/icon_right.png" />
+      </view>
+      <view class="juhuasuan_wrapT">
+        <block wx:for="{{ads}}" wx:for-item="ads" wx:for-index="adsI" wx:key="adsI">
+          <view class="juhuasuan_img3_wrap">
+            <image class="juhuasuan_img3" src="{{ads.img}}" catchtap='goAdvertising' data-item='{{ads}}' />
+          </view>
+        </block>
+      </view>
+    </view>
+    <view wx:if="{{goodsList}}">
+      <!-- 弹出的提示 开始-->
+      <c-navigationTools totalCount='{{totalCounts}}' />
+      <view class="juhuasuan_img2_wrap_t" wx:if="{{goodsList.length > 0}}">
+        <image class="juhuasuan_img2" mode='aspectFit' src="/images/icon_left.png" />
+        <view class="juhuasuan_txt">精品非常惠</view>
+        <image class="juhuasuan_img2" mode='aspectFit' src="/images/icon_right.png" />
+      </view>
+      <view class="goodsItem_row">
+        <c-goodsItem_row bindevokeAddCart='onevokeAddCart' goodsList="{{goodsList}}"></c-goodsItem_row>
+      </view>
+
+    </view>
+  </view>
+  <view class="juhuasuang_bottom"></view>
+</view>
+<view class='navigation_button' bindtap='handleShowNavigation' wx:if='{{isActTime}}'>
+  <image src='/images/navigation_button.png'></image>
+</view>
+<c-remind_right id="remind_right" isPageId="{{isPageId}}" menus="{{menus}}" autoJump='{{false}}'
+  bindallPreferential='onallPreferential' bindupMenus='handleMenus' wx:if="{{isShowNavigation}}" title='膜法保湿节会场直达'>
+</c-remind_right>
+
+
+<c-shopba kind='addCart' wx:if='{{isPopCart}}' shbpbaWrapHeight='999' shbpbaListHeight='444' goodsId='{{addGoodsId}}'
+  catchtouchmove='true' goodsList='{{addGoodslist}}' id="addCart" bindhideCart="onhideCart" bindgetTotle='ongetTotle'>
+ 
+</c-shopba>
+<i-toast id="toast" />
+<c-navigationToolsTwo toTheTop="{{toTheTop}}" catchtoUpImgs="ontoUpImgs" />

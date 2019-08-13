@@ -1,0 +1,150 @@
+/* pages/self/myInformation/myInformation.wxss */
+
+page {
+  background: #f3f3f3;
+}
+
+.container {
+  border-top: 1rpx solid #dce4e6;
+}
+
+.bg {
+  padding: 0 24rpx;
+  background: #fff;
+}
+
+.row {
+  width: 100%;
+  height: 88rpx;
+  line-height: 88rpx;
+  border-bottom: 1rpx solid #dce4e6;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.row text {
+  width: 110rpx;
+  margin-right: 30rpx;
+  font-size: 24rpx;
+  color: rgba(136, 150, 150, 1);
+}
+
+.row>view {
+  font-size: 28rpx;
+  font-family: PingFangSC-Regular;
+  font-weight: 400;
+  color: rgba(47, 58, 64, 1);
+}
+
+.qualificationPicture {
+  width: 100%;
+  font-size: 24rpx;
+  font-family: PingFang-SC-Medium;
+  font-weight: 500;
+  color: rgba(136, 150, 150, 1);
+}
+
+.picture_title {
+  height: 88rpx;
+  line-height: 88rpx;
+}
+
+.pictures {
+  width: 100%;
+  height: 240rpx;
+  display: flex;
+  justify-content: space-between;
+  align-content: center;
+  flex-wrap: wrap;
+  padding: 0rpx 16rpx;
+}
+
+.pictures image {
+  width: 310rpx;
+  height: 205rpx;
+  margin: 32rpx 0;
+}
+
+input {
+  width: 500rpx;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+.input_box {
+  flex: 1;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-right: 28rpx;
+}
+
+.delete_icon {
+  width: 40rpx;
+  height: 40rpx;
+  line-height: 40rpx;
+  text-align: center;
+}
+
+.delete_icon image {
+  width: 26rpx;
+  height: 26rpx;
+}
+
+.pickerView {
+  width: 100%;
+  height: 120rpx;
+  padding: 0 26rpx;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 32rpx;
+  background: rgba(243, 243, 243, 1);
+}
+
+.cancel {
+  color: #889696;
+}
+
+.confirm {
+  color: #f36;
+}
+
+.mask {
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 9990;
+}
+
+.choose {
+  width: 100%;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  background: #fff;
+  z-index: 9992;
+}
+
+.inputClick {
+  min-width: 300rpx;
+}
+
+.saveBtn {
+  width: 662rpx;
+  margin: 0 auto;
+  height: 88rpx;
+  line-height: 88rpx;
+  background: #f36;
+  border-radius: 4rpx;
+  font-size: 32rpx;
+  color: #fff;
+  text-align: center;
+  margin-top: 130rpx;
+  margin-bottom: 32rpx;
+}

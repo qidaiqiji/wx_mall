@@ -1,0 +1,6 @@
+{
+  "component": true,
+  "usingComponents": {
+    "times": "/components/times/index"
+  }
+}

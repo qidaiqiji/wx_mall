@@ -1,0 +1,52 @@
+<!--components/qiangGouGoods/index.wxml-->
+<view class='qianggou_item' bindtap='jumpToDetail'>
+
+  <view class='item_left'>
+    <image src='{{goodsItem.goodsInfo.thumb}}'></image>
+    <view wx:if="{{goodsItem.goodsInfo.stock>0}}">
+      <view class='left_tag' wx:if='{{goodsItem.goodsInfo.stockStatus == 3}}'>大货到仓</view>
+      <view class='left_tag' wx:if='{{goodsItem.goodsInfo.stockStatus == 1}}'>货源紧张</view>
+    </view>
+    <view class='left_tag' wx:if='{{goodsItem.goodsInfo.stock<=0}}'>售罄</view>
+
+  </view>
+  <view class='item_right'>
+    <view class='item_titleMsg'>
+      <view class='item_title'>{{goodsItem.goodsInfo.goodsName}}</view>
+      <view class='item_explain'>{{goodsItem.desc}}</view>
+    </view>
+    <view class='item_dataMsg'>
+      <view class='item_data_left'>
+        <view class='data_left_top'>
+          <view class='data_price' wx:if="{{aboutToBegin}}">
+            <view class='price_int'>{{goodsItem.price.intGoodsPrice}}</view>
+            <view class='decimals'>.{{
+      goodsItem.price.decimalsGoodsPrice}}</view>
+          </view>
+          <view class='data_price' wx:else>
+            <view class='price_int'>???</view>
+          </view>
+          <view class='discount' wx:if="{{aboutToBegin}}">
+            <image src='/images/left_tag.png' />
+            <view>{{goodsItem.price.discount}}折</view>
+          </view>
+        </view>
+        <view class='data_left_bottom'>¥{{goodsItem.price.marketPrice}}</view>
+      </view>
+
+
+      <view class='item_data_right'>
+        <view data-goodsId='{{goodsItem.goodsInfo.goodsId}}' catchtap='handleToBuy' data-goodsList="{{goodsItem}}"
+          wx:if="{{aboutToBegin}}">
+          {{goodsItem.goodsInfo.stock > 0 && goodsItem.goodsInfo.stock - goodsItem.goodsInfo.startNum >=0 ?'马上抢':'已抢完'}}
+        </view>
+        <view style="background: #009E76" catchtap='jumpToDetail' wx:else>
+          即将开始
+        </view>
+        <!-- <view class="immediately_grab"></view> -->
+        <view>已抢{{goodsItem.goodsInfo.salesCount}}件</view>
+      </view>
+    </view>
+  </view>
+
+</view>

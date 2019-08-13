@@ -1,0 +1,6 @@
+{
+  "navigationBarTitleText": "帮助中心",
+  "usingComponents": {
+    "c-navigationToolsTwo": "/components/navigationToolsTwo/index"
+  }
+}

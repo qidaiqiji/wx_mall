@@ -1,0 +1,38 @@
+.pro_blem_wrap {
+  width: 750rpx;
+  background: rgba(255, 255, 255, 1);
+}
+
+.pro_blem_title {
+  width: 100%;
+  font-size: 28rpx;
+  font-family: PingFang-SC-Bold;
+  font-weight: bold;
+  color: rgba(47, 58, 64, 1);
+  height: 88rpx;
+  line-height: 88rpx;
+  border-bottom: 1rpx solid #DCE4E6;
+  padding-left: 25rpx;
+}
+
+.pro_blem_one {
+  margin-top: 19rpx;
+  margin-left: 27rpx;
+  font-size: 26rpx;
+  font-family: PingFang-SC-regular;
+  font-weight: 400;
+  color: #2f3a40;
+  line-height: 42rpx;
+}
+
+.pro_blem_two {
+  margin-top: 4rpx;
+  margin-left: 27rpx;
+  margin-right: 27rpx;
+  font-size: 26rpx;
+  font-family: PingFang-SC-regular;
+  font-weight: 400;
+  color: #889696;
+  line-height: 42rpx;
+  padding-bottom: 28rpx;
+}

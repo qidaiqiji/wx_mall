@@ -1,0 +1,94 @@
+/* components/modal/index.wxss */
+.Mask {
+    transition: all 0.2s linear;
+    position: fixed;
+    top: 0rpx;
+    left: 0rpx;
+    right: 0rpx;
+    bottom: 0rpx;
+    background: rgba(0, 0, 0, 0.7);
+    z-index: 100;
+}
+
+.modal_position {
+    position: fixed;
+    left: 0rpx;
+    top: 0rpx;
+    right: 0rpx;
+    bottom: 0rpx;
+    z-index: 102;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.modal_wrap {
+    width: 600rpx;
+    background: rgba(255, 255, 255, 1);
+    border-radius: 20rpx;
+    overflow: hidden;
+}
+
+.modal_top {
+    width: 600rpx;
+    height: 100rpx;
+    background: rgba(255, 255, 255, 1);
+    text-align: center;
+    font-size: 32rpx;
+    font-family: PingFangSC-Regular;
+    font-weight: 400;
+    color: rgba(103, 113, 114, 1);
+    line-height: 100rpx;
+}
+
+.modal_conter {
+    width: 600rpx;
+    height: 190rpx;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 28rpx;
+    font-family: PingFangSC-Regular;
+    font-weight: 400;
+    color: rgba(47, 58, 64, 1);
+    line-height: 28rpx;
+    text-align: center;
+}
+
+.modal_bottom {
+    width: 600rpx;
+    height: 88rpx;
+    display: flex;
+    border-top: 1rpx solid #f3f3f3;
+}
+
+.modal_bottom_left,
+.modal_bottom_right {
+    width: 300rpx;
+    height: 88rpx;
+    font-size: 32rpx;
+    font-family: PingFangSC-Regular;
+    font-weight: 400;
+    color: rgba(136, 150, 150, 1);
+    text-align: center;
+    line-height: 88rpx;
+}
+
+.modal_bottom_right {
+    color: #FF3366;
+}
+
+.modal_bottom_confirm {
+    width: 600rpx;
+    height: 88rpx;
+    text-align: center;
+    line-height: 88rpx;
+    font-size: 32rpx;
+    font-family: PingFangSC-Regular;
+    font-weight: 400;
+    color: rgba(255, 51, 102, 1);
+}
+.addPadding{
+  padding: 0 50rpx;
+  line-height: 48rpx;
+}

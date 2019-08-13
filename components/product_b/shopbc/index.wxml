@@ -1,0 +1,54 @@
+<!-- 参数 -->
+<view bindtap='showModal' data-modal="bottomModal">
+  <slot name='canshu' class="nav-title" wx:if="{{kind==='canshu'}}"></slot>
+</view>
+
+<view bindtap='showModal' data-modal="bottomModal">
+  <slot name='hanghuo' class="nav-title" wx:if="{{kind==='hanghuo'}}"></slot>
+</view>
+<!-- 底部 -->
+<view class='Mask' wx:if="{{modalName !== null}}" bindtap='onConfirm' catchtouchmove='move'></view>
+
+
+<view class="shopbcc_content {{modalName !== null?'shopccShowTwo':''}}">
+  <view wx:if="{{modalName ==='hanghuo'}}"  catchtouchmove='move'>
+    <view class='shopbc_title'>服务政策</view>
+    <!-- 行货 -->
+    <view class="shopcc_scroll_wrap">
+      <scroll-view scroll-y="true" class='shopbc_scroll'>
+        <block wx:for="{{items}}" wx:for-item="ha" wx:for-index="hb" wx:key="{{hb}}">
+          <view class="shopbc_content_text_one">
+            <image class="shopbc_icon_ok" src="/images/icon_ok.png"></image>
+            <text class="">{{ha.tie}}</text>
+          </view>
+          <view class="shopbc_content_text_two">{{ha.value}}</view>
+        </block>
+      </scroll-view>
+    </view>
+    <view class='shopbc_bottom' bindtap='onConfirm'>确定</view>
+  </view>
+  <!-- 参数 -->
+  <view  wx:if="{{modalName ==='canshu'}}"  catchtouchmove='move'>
+      <view class='shopbc_title'>参数详情</view>
+      <view class="shopcc_scroll_wrap">
+        <scroll-view scroll-y class='shopbc_scroll'>
+          <view class="shopbc_title_wrap_sex">
+            <!-- 左 -->
+            <view>
+              <block wx:for="{{attributes.detail}}" wx:for-item="habb" wx:for-index="hbbb" wx:key="{{hbbb}}">
+                <view class="shopbc_titlefour" wx:if="{{habb.value}}">{{habb.title}}</view>
+              </block>
+            </view>
+            <!-- 右 -->
+            <view class="shopbc_titlethree">
+              <block wx:for="{{attributes.detail}}" wx:for-item="habb" wx:for-index="hbbb" wx:key="{{hbbb}}">
+                <view class="shopbc_titlefive" wx:if="{{habb.value}}">{{habb.value}}</view>
+  
+              </block>
+            </view>
+          </view>
+        </scroll-view>
+      </view>
+      <view class='shopbc_bottom' bindtap='onConfirm'>确定</view>
+    </view>
+</view>

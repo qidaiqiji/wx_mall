@@ -1,0 +1,13 @@
+{
+  "navigationBarTitleText": "限时秒杀",
+  "usingComponents": {
+    "c-miaoshaAd": "/components/miaoshaAd/index",
+    "c-qiangGou": "/components/qiangGouGoods/index",
+    "c-shopba": "/components/product_b/shopba/index",
+    "c-remind_right": "/components/remind_right/index",
+    "c-reachTheBottom": "/components/reachTheBottom/index",
+    "c-navigationTools": "/components/navigationTools/index",
+    "c-navigationToolsTwo": "/components/navigationToolsTwo/index",
+    "i-toast": "../../../dist/toast/index"
+  }
+}

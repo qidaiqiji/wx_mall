@@ -1,0 +1,6 @@
+{
+  "navigationBarTitleText": "积分抽奖",
+  "usingComponents": {
+    "remind": "../../../components/remind/remind"
+  }
+}

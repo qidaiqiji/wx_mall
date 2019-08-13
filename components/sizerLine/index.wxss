@@ -1,0 +1,49 @@
+/* components/sizerLine/index.wxss */
+.goodsList {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  font-family: PingFang-SC-regular;
+  font-weight: 400;
+  flex: 1;
+}
+
+.goodsList_condition {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  height: 98rpx;
+  text-align: center;
+  border-bottom: 1rpx solid #e5e5e5;
+}
+
+.goodsList_allGoods {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.one {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: PingFangSC-Regular;
+  font-weight: 400;
+  height: 98rpx;
+  padding: 0 20rpx;
+}
+
+.one_img {
+  width: 18rpx;
+  height: 22rpx;
+  margin-left: 15rpx;
+}
+
+.one text {
+  margin-right: 6rpx;
+}
+
+.nav_active {
+  color: #f36;
+}

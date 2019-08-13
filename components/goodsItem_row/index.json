@@ -1,0 +1,8 @@
+{
+  "component": true,
+  "usingComponents": {
+    "i-toast": "../../dist/toast/index",
+    "c-shopba": "/components/product_b/shopba/index",
+    "c-autoPopup": "../../cartPopup/autoPopup/index"
+  }
+}

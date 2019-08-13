@@ -1,0 +1,123 @@
+<!-- components/remind/remind.wxml -->
+<import src="/utils/wxParse/wxParse.wxml" />
+<!-- 圆形弹窗 -->
+<view class="yuan_wrap_txt" wx:if="{{kind=='year'&&contenGarden}}">{{contentGarden}}</view>
+<view wx:if="{{kind=='rectangle'}}" class="remind_wrap">
+  <view wx:if="{{contentBOn}}" class="remind_conter">{{content}}</view>
+</view>
+<!-- 中奖纪录 -->
+<view class="remind_guize_bottom" catchtouchmove='move' bindtap='determine' wx:if="{{kind=='jilu'}}">
+  <view class="remind_guize_flex" style="height: {{windowHeight}}rpx;">
+    <view class="remind_guize_wrap">
+      <view class="guize_title">中奖纪录</view>
+      <view class="remind_guize_border">
+        <scroll-view scroll-y="true" style="height: 190px">
+          <view style="height: 190px">
+            <block wx:for="{{recordList}}" wx:for-item='recordList' wx:key="{{index}}">
+              <view class="guize_txt">{{recordList}}</view>
+            </block>
+          </view>
+        </scroll-view>
+      </view>
+      <view class="determine" bindtap='determine'>确定</view>
+    </view>
+  </view>
+</view>
+<!-- 活动规则/ -->
+<view class="remind_guize_bottom" wx:if="{{kind=='guize'}}" catchtouchmove='move' >
+  <view class="remind_guize_position">
+    <view class="remind_guize_flex" style="height: {{windowHeight}}rpx;">
+      <view class="remind_guize_wrap">
+        <view class="guize_title">活动规则</view>
+        <view class="remind_guize_border" wx:if="{{kind=='guize'}}">
+          <scroll-view class="remind_scroll_view" scroll-y style="width: 100%">
+            <template is="wxParse" data="{{wxParseData:article.nodes}}" />
+          </scroll-view>
+        </view>
+        <view class="determine" catchtap='determineC'>确定</view>
+      </view>
+    </view>
+  </view>
+</view>
+<view class="remind_guize_bottom" catchtouchmove='move' wx:if="{{kind=='zhuCeGuiZe'}}">
+  <view class="remind_guize_wrap fixedCenter">
+    <view class="guize_title">活动规则</view>
+    <scroll-view scroll-y style="height: 586rpx;">
+      <view class="remind_guize_border">
+        <view>
+          <block wx:for="{{zhuceguize}}" wx:for-item="zhuceguize" wx:key="{{index}}">
+            <view class="remind_guize_content">
+              <view class="remind_guize_title">{{zhuceguize.title}}</view>
+              <view class="remind_guize_desc" wx:for="{{zhuceguize.desc}}" wx:for-item="desc" wx:for-index='descIndex' wx:key="{{descIndex}}">
+                {{desc}}
+              </view>
+            </view>
+          </block>
+        </view>
+      </view>
+    </scroll-view>
+    <view class="determine" catchtap='determineC'>确定</view>
+  </view>
+</view>
+<!-- 中奖弹窗 -->
+<view class="remind_guize_bottom" catchtouchmove='move' wx:if="{{kind=='choujiang'}}">
+  <view class="remind_winning_flex">
+    <view class="remind_winning_wrap">
+      <view class="remind_winning_top">
+        <image class="remind_winning_img" src="/images/img_weizhongjiang.png" />
+        <view class="remind_winning_txt_wrap">
+          <view class="remind_winning_txt">恭喜您中奖啦</view>
+        </view>
+      </view>
+      <view class="remind_winning_conter">
+        <view class="remind_conter_title_wrap">
+          <view class="remind_conter_title">恭喜你</view>
+          <view class="remind_conter_title_flex">
+            <text class="remind_conter_title">获得</text>
+            <text class="remind_conter_title2">{{name}}</text>
+          </view>
+        </view>
+        <!-- 福袋/获得积分 -->
+        <view class="remind_conter_title3_wrap" wx:if="{{type == 1 || type == 0}}"></view>
+        <view class="remind_conter_title3_wrap" wx:if="{{type == 2}}">
+          <view class="remind_conter_title4" catchtap='youhuijuan'>查看我的优惠券>></view>
+        </view>
+        <view class="remind_conter_title3_wrap" wx:if="{{type == 3}}">
+          <view class="remind_conter_title3">注：奖品将随下次采购直发订单一起寄出</view>
+          <view class="remind_conter_title4" bindtap='jiangpin'>查看我的奖品>></view>
+        </view>
+      </view>
+      <view class="remind_winning_bottom">
+        <view class="remind_cancel" bindtap='determine'>取消</view>
+        <view class="remind_playing" bindtap='nextTime'>再玩一次</view>
+      </view>
+    </view>
+  </view>
+</view>
+<!-- 抽奖错误提示 -->
+<view class="remind_guize_bottom" catchtouchmove='move' wx:if="{{kind=='choujiangtag'}}">
+  <view class="remind_tag_flex">
+    <view class="remind_guize_wrap">
+      <view class="guize_title">提示</view>
+      <view class="remind_guize_border">
+        <view class="remind_tag">{{msg}}</view>
+      </view>
+      <view class="determine" bindtap='determine'>确定</view>
+    </view>
+  </view>
+</view>
+<!-- 口令 -->
+<view class="remind_guize_bottom" catchtouchmove='move' wx:if="{{kind=='isPassword'}}">
+  <view class="remind_tag_flex">
+    <view class="remind_guize_wrap">
+      <view class="guize_title">提示</view>
+      <view class="remind_guize_border">
+        <view class="remind_tag">恭喜您获得优惠券！快去采购商品吧</view>
+      </view>
+      <view class="isPasswordBottom">
+        <view bindtap='determine'>知道了</view>
+        <view bindtap='nextGet'>去使用</view>
+      </view>
+    </view>
+  </view>
+</view>

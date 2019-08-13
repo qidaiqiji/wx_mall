@@ -1,0 +1,10 @@
+{
+  "component": true,
+  "enablePullDownRefresh": true,
+  "usingComponents": {
+    "shopba": "../product_b/shopba",
+    "c-reachTheBottom":"../reachTheBottom/index",
+    "reachTheBottom": "/components/reachTheBottom/index",
+    "times": "../times/index"
+  }
+}

@@ -1,0 +1,7 @@
+<!--pages/shareRecommended/shareRecommended.wxml-->
+
+<view class="wrap">
+    <image src='{{relayImg}}' mode="widthFix" class='img_tag'></image>
+    <view class="button_bottom" catchtap='save'>保存图片分享</view>
+</view>
+<i-toast id="toast" />

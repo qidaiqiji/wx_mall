@@ -1,0 +1,107 @@
+<view class="orderDetail_container">
+  <view class="orderDetail_container_goodsSn">
+    <view class="orderDetail_container_goodsSn_left">
+      <text class="goodsSn_left_txt">总单号：</text>
+      <text class="goodsSn_left_msg">{{groupSn}}</text>
+    </view>
+    <view class="orderDetail_container_goodsSn_type" style="color:#ff3366">{{status}}</view>
+  </view>
+  <view class="orderDetail_container_addr">
+    <view class="orderDetail_container_addr_top">
+      <image class="container_addr_top_img" src="/images/add.png" />
+      <view class="container_addr_top_name">{{addressInfo.consignee}}</view>
+      <view class="container_addr_top_phone">{{addressInfo.mobile}}</view>
+    </view>
+    <view class="orderDetail_container_addr_bottom">
+      {{addressInfo.provinceName}}{{addressInfo.cityName}}{{addressInfo.districtName}} {{addressInfo.address}}
+    </view>
+  </view>
+  <!-- 拼团信息开始 -->
+  <view class='groupBuyingMsg' wx:if='{{groupShoppingInfo.groupId}}'>
+    <view class='msg_title'>
+      <view class='msg_title_left'>拼团信息</view>
+      <view class='msg_title_right' wx:if='{{groupShoppingInfo.needNum>0}}'>
+        还差{{groupShoppingInfo.needNum}}人，剩余
+        <c-times kind='groupBuy' mytimes="{{groupShoppingInfo.endTime}}" wx:if="{{isTimeGroup}}"/>
+      </view>
+      <view class="msg_title_right" wx:if='{{groupShoppingInfo.needNum==0 &&status=="待收货"}}'>
+        拼团成功
+      </view>
+    </view>
+    <view class='msg_desc'>
+      <view>
+        <view class='member_num'>
+          <image src='/images/icon_colonel.png' />
+        </view>
+        <block wx:for="{{groupShoppingInfo.fullNum -groupShoppingInfo.needNum -1}}" wx:key='index'>
+          <view class="member_num">
+            <image src='/images/icon_member.png'></image>
+          </view>
+        </block>
+        <block wx:for="{{groupShoppingInfo.needNum}}" wx:key='index'>
+          <view class="member_num">
+            <image src='/images/icon_empty.png'></image>
+          </view>
+        </block>
+      </view>
+      <view>
+        <button class='groupBuyingInvite' open-type='share' data-userId="{{userId}}" wx:if="{{groupShoppingInfo.needNum >0}}">
+          <text>邀请好友</text>
+        </button>
+      </view>
+    </view>
+  </view>
+  <!-- 拼团信息结束 -->
+  <view class="orderDetail_container_money">
+    <view class="container_money_item">
+      <view class="container_money_item_title">采购总额</view>
+      <view class="container_money_item_price">{{goodsAmountTwo ||feeInfo.goodsAmount}}</view>
+    </view>
+    <view class="container_money_item" wx:if="{{feeInfo.integralDiscount > 0}}">
+      <view class="container_money_item_title">积分抵扣</view>
+      <view class="container_money_item_price reduce">{{feeInfo.integralDiscount}}</view>
+    </view>
+    <view class="container_money_item">
+      <view class="container_money_item_title">满减立减</view>
+      <view class="container_money_item_price reduce">{{feeInfo.fullCutDiscount}}</view>
+    </view>
+    <view class="container_money_item">
+      <view class="container_money_item_title">优惠券</view>
+      <view class="container_money_item_price reduce">{{feeInfo.couponDiscount}}</view>
+    </view>
+    <view class="container_money_item" wx:if="{{feeInfo.membersDiscount > 0}}">
+      <view class="container_money_item_title">会员日</view>
+      <view class="container_money_item_price reduce">{{feeInfo.membersDiscount}}</view>
+    </view>
+    <view class="container_money_item">
+      <view class="container_money_item_title">直发运费</view>
+      <view class="">{{feeInfo.zhifaShippingInfo}}</view>
+    </view>
+    <view class="container_money_item">
+      <view class="container_money_item_title">{{statusRmb}}</view>
+      <view class="container_money_item_price amount">{{feeInfo.payAmount}}</view>
+    </view>
+  </view>
+  <view class="orderDetail_container_subsn" style='margin-bottom:{{hasDelivery||hasDelivery?"132rpx":"0rpx"}}'>
+    <block wx:for='{{subOrderList}}' wx:for-item="subOrderItem" wx:key="index">
+      <view class="orderDetail_container_subsn_item">
+        <view class="orderDetail_container_subsn_msg">分单号：{{subOrderItem.orderSn}}</view>
+        <view class="orderDetail_container_subsn_goods">
+          <c-orderGoodsItem_row kind='orderGoodsSn_item' orderGoodsList='{{subOrderItem.orderGoodsList}}' />
+        </view>
+        <view class="orderDetail_container_subsn_total">
+          <view>共{{subOrderItem.totalCount}}件商品</view>
+          <view>
+            小计：
+            <text class="subSn_taotalAmount">{{subOrderItem.subTotal}}</text>
+          </view>
+        </view>
+      </view>
+    </block>
+  </view>
+</view>
+<view class="orderFixed" wx:if='{{needPay}}'>
+  <button class='cancelOrder' bindtap='handleCancelOrder' data-groupSn='{{groupSn}}'>取消订单</button>
+  <button class="nowPay" bindtap='handlePay' data-groupSn='{{groupSn}}'>立即付款</button>
+</view>
+<c-modal wx:if="{{pagesModal}}" desc="{{desc}}" confirm='{{confirm}}' catchpagesModal="pagesModals"></c-modal>

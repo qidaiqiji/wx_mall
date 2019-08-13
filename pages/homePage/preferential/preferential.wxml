@@ -1,0 +1,68 @@
+<!--pages/preferential/preferential.wxml-->
+<view class='wrap'>
+    <view class='top' style='background-image:url({{topBg}})'>
+        <view class="top_data_wrap">
+            <view class="top_left">
+                <image class="top_right_img" src="/images/icon_remind@2x.png" />
+                <view class="top_day">仅剩</view>
+                <view class="top_data">
+                    <times mytimes="{{pageInfo.endTime}}" kind='preferentialTop'></times>
+                </view>
+            </view>
+            <view class="top_right" catchtap='allPreferential'>
+                <view class="top_right_all">全部特惠</view>
+                <image class="top_right_img" src="/images/icon_return@2x.png" />
+            </view>
+        </view>
+        <view class="top_pageInfo">
+            <view class="top_thum_wrap">
+                <image class="top_thum_min_img" src="{{pageInfo.icon}}" />
+                <image class="top_thum_max_img" mode='widthFix' src="{{pageInfo.img}}" />
+            </view>
+            <view class="topLinear">
+                <view class="topLinearText {{pageInfo.couponList.length == 0?'topLinearText_':''}}">
+                    <view>{{pageInfo.name}}</view>
+                    <view >{{pageInfo.sellingPoint}}</view>
+                </view>
+            </view>
+        </view>
+    </view>
+    <view class="topBottom"></view>
+    <!-- 领劵 -->
+    <view class="couponWrap">
+        <view class="couponBottom" wx:if="{{pageInfo.couponList.length > 0}}">
+            <c-receiveSecurities couponList="{{pageInfo.couponList}}"></c-receiveSecurities>
+        </view>
+    </view>
+    <view class='conter'>
+        <block wx:for="{{ads}}" wx:for-item='ads' wx:key="{{index}}">
+            <image class="conter_img" style="width: 100%;" src="{{ads.img}}" catchtap='goAdvertising'
+                data-item='{{ads}}' />
+        </block>
+    </view>
+    <view class='bottom'>
+        <view class="bottom_top">
+            <view class="bottom_top_left">为你推荐</view>
+            <view class="bottom_top_right">| 低价 必备 首选</view>
+        </view>
+        <view class="bottom_list">
+            <block wx:for="{{goodsList}}" wx:for-item='goodsList' wx:for-index='listIndex' wx:key="{{listIndex}}">
+                <goodlsListTwo_col class="youhui_list" goodsList="{{goodsList}}" bindevokeAddCart='onevokeAddCart'>
+                </goodlsListTwo_col>
+            </block>
+        </view>
+    </view>
+    <reachTheBottom wx:if="{{goodsList.length > 0}}" reachTheBottom="{{reachTheBottom}}"></reachTheBottom>
+</view>
+<view class="flex_right" catchtap="allremind" wx:if="{{toTheTop}}">
+    <text>全部特惠</text>
+    <image class="flex_right_img" src="/images/icon_return@2x.png" />
+</view>
+<remind_right id="remind_right" isPageId="{{isPageId}}" menus="{{menus}}" bindallPreferential='onallPreferential'
+    bindupMenus='onUpMenus' wx:if="{{ishide}}" title='特惠专场直达'></remind_right>
+<c-navigationTools />
+<c-navigationToolsTwo toTheTop="{{toTheTop}}" catchtoUpImgs="ontoUpImgs" />
+<c-shopba kind='addCart' wx:if='{{isPopCart}}' shbpbaWrapHeight='999' shbpbaListHeight='444' goodsId='{{addGoodsId}}'
+    catchtouchmove='true' goodsList='{{addGoodslist}}' id="addCart" bindhideCart="onhideCart">
+</c-shopba>
+<i-toast id="toast" />

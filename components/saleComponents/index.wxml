@@ -1,0 +1,28 @@
+<!-- components/saleComponents/index.wxml -->
+<view class='discounts_goods  {{isActTime?"active_bg":""}}'>
+    <block wx:for="{{actPageList}}" wx:for-item='actPageItem' wx:key='index'>
+        <view class='discounts_goodsItem' data-pageId="{{actPageItem.id}}" catchtap='goDiscounts'>
+            <view class="discounts_top" style="background-image: url({{actPageItem.wxBanner}})">
+                <image class="discountsIcon" src="{{actPageItem.icon}}" />
+                <view class="discounts_txt">
+                    <view class="discounts_txt_name">{{actPageItem.name}}</view>
+                </view>
+            </view>
+            <view class="discounts_bottom">
+                <view class="sellingPointWrap">
+                    <view class="discounts_knock">{{actPageItem.sellingPoint}}</view>
+                    <view class="discounts_time_wrap">
+                        <view class="discounts_time_txt1">仅剩 :</view>
+                        <view class="componentRestTime" wx:if="{{actPageItem.restTime}}">
+                            <view>{{actPageItem.restTime.count}}</view>
+                            <view>{{actPageItem.restTime.unit}}</view>
+                        </view>
+                        <view wx:if="{{actPageItem.restTime}}">
+                            <c-times id="actPageTimes{{index}}" mytimes="{{actPage.endTime}}" kind='tehui' wx:if="{{actPageTimesTwo}}"></c-times>
+                        </view>
+                    </view>
+                </view>
+            </view>
+        </view>
+    </block>
+</view>

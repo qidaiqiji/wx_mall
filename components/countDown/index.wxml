@@ -1,0 +1,13 @@
+<!-- components/countDown/index.wxml -->
+<view class="countDownOne" wx:if="{{kind=='moisturizeFlashSale'}}">
+    <view class="flashSaleTime">{{day}}</view>
+    <view class="flashSaleTxt">天</view>
+    <view class="flashSaleTime">{{hours}}</view>
+    <view class="flashSaleTxt">时</view>
+    <view class="flashSaleTime">{{minutes}}</view>
+    <view class="flashSaleTxt">分</view>
+    <view class="flashSaleTime">{{seconds}}</view>
+    <view class="flashSaleTxt">秒</view>
+    <image class="flashSaleImg" src="/images/countdow.gif" />
+      
+</view>

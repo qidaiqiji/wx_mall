@@ -1,0 +1,75 @@
+<!-- components/popupWindow/popupWindow.wxml -->
+<import src="/utils/wxParse/wxParse.wxml" />
+<view class="mark" catchtap="confirm" catchtouchmove='move'></view>
+<view class="popupWindow_wrap" wx:if="{{kind=='record'}}">
+    <view class="window_title_img" style="background-image: url({{img_weizhongjiang}})">中奖记录</view>
+    <view class="window_conter">
+        <scroll-view scroll-y style="height: 500rpx;">
+            <block wx:for="{{recordList}}" wx:for-index='prizeIndex' wx:key="{{prizeIndex}}">
+                <view>{{item}}</view>
+            </block>
+        </scroll-view>
+    </view>
+    <view class="window_confirm" catchtap="confirm">确定</view>
+</view>
+<view class="popupWindow_wrap" wx:if="{{kind=='guize'}}">
+    <view class="window_title_img" style="background-image: url({{img_weizhongjiang}})">活动规则</view>
+    <view class="window_conter">
+        <scroll-view scroll-y style="height: 500rpx;">
+            <template is="wxParse" data="{{wxParseData:article.nodes}}" />
+        </scroll-view>
+    </view>
+    <view class="window_confirm" catchtap="confirm">确定</view>
+</view>
+<!-- 确认订单页 -->
+<view class="integral_rules_wrap {{modalName !== null?'showTwo':''}}" wx:if="{{kind=='integralRules'}}">
+    <view class="integral_rules_title">积分规则</view>
+    <view class="integral_rules_conter">
+        <scroll-view scroll-y style="height: 784rpx;">
+            <template is="wxParse" data="{{wxParseData:article.nodes}}" />
+        </scroll-view>
+    </view>
+    <view class="integral_rules_confirm" catchtap="confirm">确定</view>
+</view>
+<!-- 超级品牌弹窗 -->
+<view class="integral_rules_wrap {{modalName !== null?'showTwo':''}}" wx:if="{{kind=='superBrand'}}">
+    <view class="integral_rules_title">活动看板</view>
+    <view class="integral_rules_conter">
+        <scroll-view scroll-y style="height: 784rpx;">
+            <template is="wxParse" data="{{wxParseData:article.nodes}}" />
+        </scroll-view>
+    </view>
+    <view class="integral_rules_confirm" catchtap="confirm">确定</view>
+</view>
+<!-- 商品详情拼团 -->
+<view class="integral_rules_wrap {{modalName !== null?'showTwo':''}}" wx:if="{{kind=='spell'}}" catchtouchmove='move'>
+    <view class="integral_rules_title">活动规则</view>
+    <view class="integral_rules_conter">
+        <scroll-view scroll-y style="height: 784rpx;">
+            <template is="wxParse" data="{{wxParseData:article.nodes}}" />
+        </scroll-view>
+    </view>
+    <view class="integral_rules_confirm" catchtap="confirm">确定</view>
+</view>
+<!-- 商品详情更多拼团 -->
+<view class="childSpellMoreWrap" catchtouchmove='move' wx:if="{{kind=='spellMore'}}">
+    <view class="childSpellMoretitle">更多拼团</view>
+    <view class="childSpellMoreConter">
+        <scroll-view scroll-y style="height: 560rpx;">
+            <c-spellGroupList groupList='{{groupList}}' addCartList="{{addCartList}}" goodsId='{{goodsId}}' bindevokeAddCart='onevokeAddCart' kind='details'></c-spellGroupList>
+        </scroll-view>
+    </view>
+    <view class="childSpellMoreConfirm" catchtap="confirmSpell">关闭</view>
+</view>
+<view class="moraSpellgoShop" wx:if='{{isPopCart}}'>
+    <c-shopba kind='addCart' isSpell="{{isSpell}}" goodsId='{{addGoodsId}}' catchtouchmove='true' addCartList='{{addGoodslist}}' shbpbaWrapHeight='999' shbpbaListHeight='444' id="addCart" bindhideCart="onhideCart"></c-shopba>
+</view>
+<!-- 规则 -->
+<view class="popupWindow_wrap_" catchtouchmove='move' wx:if="{{kind=='acticityGuize'}}">
+    <view class="window_conter">
+        <scroll-view scroll-y style="height: 500rpx;">
+            <template is="wxParse" data="{{wxParseData:article.nodes}}" />
+        </scroll-view>
+    </view>
+    <view class="window_confirm" catchtap="confirm">确定</view>
+</view>

@@ -1,0 +1,356 @@
+/* components/remind/remind.wxss */
+@import "/utils/wxParse/wxParse.wxss";
+
+.remind_wrap {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  z-index: 97;
+  transform: translate(-50%, -50%);
+  display: flex;
+  justify-content: center;
+}
+
+.remind_scroll_view {
+  height: 530rpx;
+}
+
+.remind_conter {
+  font-size: 28rpx;
+  font-family: PingFang-SC-Medium;
+  font-weight: 500;
+  color: rgba(255, 255, 255, 1);
+  line-height: 42rpx;
+  padding: 8rpx 20rpx;
+  background: rgba(0, 0, 0, 1);
+  opacity: 0.7;
+  border-radius: 4rpx;
+}
+
+.yuan_wrap {
+  width: 140rpx;
+  height: 140rpx;
+  border-radius: 50%;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  margin-top: -100rpx;
+  margin-left: -60rpx;
+  z-index: 9999;
+}
+
+.yuan_wrap_txt {
+  width: 140rpx;
+  height: 140rpx;
+  border-radius: 50%;
+  font-size: 48rpx;
+  font-family: PingFang-SC-Medium;
+  font-weight: 500;
+  color: rgba(255, 255, 255, 1);
+  background: rgba(0, 0, 0, 0.5);
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 9999;
+  text-align: center;
+  line-height: 140rpx;
+}
+
+.remind_guize_wrap {
+  width: 600rpx;
+  border-radius: 20rpx;
+  background: rgba(255, 255, 255, 1);
+}
+
+.guize_title {
+  width: 600rpx;
+  height: 100rpx;
+  background: rgba(255, 255, 255, 1);
+  border-radius: 20rpx 20rpx 0rpx 0rpx;
+  font-size: 32rpx;
+  font-family: PingFang-SC-Bold;
+  font-weight: bold;
+  color: rgba(103, 113, 114, 1);
+  line-height: 100rpx;
+  text-align: center;
+}
+
+.remind_guize_border {
+  margin-top: 41rpx;
+  padding-left: 41rpx;
+  padding-right: 43rpx;
+  width: 600rpx;
+  background: rgba(255, 255, 255, 1);
+}
+
+.remind_guize_position {
+  position: absolute;
+  top: 0rpx;
+  left: 0rpx;
+  z-index: 200;
+}
+
+.guize_two {
+  font-size: 28rpx;
+  font-family: PingFang-SC-Bold;
+  font-weight: bold;
+  color: rgba(103, 113, 114, 1);
+}
+
+.guize_txt {
+  font-size: 28rpx;
+  font-family: PingFang-SC-Medium;
+  font-weight: bold;
+  color: #889696;
+}
+
+.determine {
+  width: 600rpx;
+  height: 88rpx;
+  background: rgba(255, 51, 102, 1);
+  font-size: 32rpx;
+  font-family: PingFang-SC-Medium;
+  font-weight: 500;
+  color: rgba(255, 255, 255, 1);
+  line-height: 88rpx;
+  border-radius: 0 0 20rpx 20rpx;
+  text-align: center;
+}
+
+.remind_guize_bottom {
+  position: fixed;
+  left: 0rpx;
+  top: 0rpx;
+  bottom: 0rpx;
+  right: 0rpx;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 999;
+}
+
+.remind_guize_flex {
+  width: 750rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.remind_winning_flex {
+  margin-top: 242rpx;
+  width: 750rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.remind_winning {
+  width: 705rpx;
+  background: white;
+}
+
+.remind_winning_top {
+  width: 705rpx;
+  height: 147rpx;
+  position: relative;
+  left: 0rpx;
+  top: 0rpx;
+}
+
+.remind_winning_conter {
+  width: 620rpx;
+  background: rgba(255, 255, 255, 1);
+  padding-bottom: 36rpx;
+  margin-left: 42.5rpx;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 81rpx;
+}
+
+.remind_winning_bottom {
+  margin-left: 42.5rpx;
+  width: 620rpx;
+  height: 150rpx;
+  background: rgba(255, 255, 255, 1);
+  border-radius: 0px 0px 20px 20px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.remind_winning_img {
+  width: 705rpx;
+  height: 147rpx;
+  vertical-align: top;
+}
+
+.remind_winning_txt_wrap {
+  margin-left: 42.5rpx;
+  width: 620rpx;
+  height: 147rpx;
+  position: absolute;
+  left: 0rpx;
+  top: 0rpx;
+  background: white;
+  border-radius: 10rpx 10rpx 0rpx 0rpx;
+}
+
+.remind_winning_txt {
+  width: 620rpx;
+  height: 132rpx;
+  font-size: 46rpx;
+  font-family: PingFang-SC-Regular;
+  font-weight: bold;
+  color: rgba(255, 255, 255, 1);
+  background: red;
+  text-align: center;
+  line-height: 132rpx;
+  border-radius: 10rpx;
+}
+
+.remind_cancel {
+  width: 268rpx;
+  height: 82rpx;
+  background: rgba(255, 197, 19, 1);
+  border-radius: 41rpx;
+  font-size: 30rpx;
+  font-family: PingFang-SC-Regular;
+  font-weight: bold;
+  color: rgba(255, 255, 255, 1);
+  text-align: center;
+  line-height: 82rpx;
+}
+
+.remind_playing {
+  width: 268rpx;
+  height: 82rpx;
+  background: rgba(230, 0, 18, 1);
+  border-radius: 41rpx;
+  font-size: 30rpx;
+  font-family: PingFang-SC-Regular;
+  font-weight: bold;
+  color: rgba(255, 255, 255, 1);
+  text-align: center;
+  line-height: 82rpx;
+}
+
+.remind_conter_title_wrap {
+  width: 429rpx;
+}
+
+.remind_conter_title {
+  font-size: 32rpx;
+  font-family: PingFang-SC-Regular;
+  font-weight: bold;
+  color: rgba(47, 58, 64, 1);
+  line-height: 32rpx;
+  text-align: center;
+}
+
+.remind_conter_title2 {
+  text-align: center;
+  font-size: 32rpx;
+  font-family: PingFang-SC-Medium;
+  font-weight: bold;
+  color: #ff4330;
+  line-height: 46rpx;
+}
+
+.remind_conter_title3 {
+  text-align: center;
+  font-size: 22rpx;
+  font-family: PingFang-SC-Regular;
+  font-weight: bold;
+  color: rgba(47, 58, 64, 1);
+  line-height: 22rpx;
+}
+
+.remind_conter_title3_wrap {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  height: 104rpx;
+}
+
+.remind_conter_title4 {
+  text-align: center;
+  margin-top: 21rpx;
+  font-size: 22rpx;
+  font-family: PingFang-SC-Regular;
+  font-weight: bold;
+  color: rgba(255, 67, 48, 1);
+  line-height: 22rpx;
+}
+
+.remind_tag_flex {
+  margin-top: 377rpx;
+  width: 750rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.remind_conter_title_flex {
+  text-align: center;
+  height: 92rpx;
+  margin-top: 16rpx;
+}
+
+.remind_tag {
+  padding-top: 5rpx;
+  padding-bottom: 117rpx;
+  font-size: 28rpx;
+  font-family: PingFang-SC-Medium;
+  font-weight: 500;
+  color: rgba(47, 58, 64, 1);
+  text-align: center;
+}
+
+.remind_guize_title {
+  font-size: 28rpx;
+  font-family: PingFang-SC-Bold;
+  font-weight: Bold;
+  color: #2f3a40;
+  line-height: 42rpx;
+  margin-top: 41rpx;
+}
+
+.remind_guize_desc {
+  font-size: 28rpx;
+  font-family: PingFang-SC-Medium;
+  font-weight: Medium;
+  color: #889696;
+  line-height: 42rpx;
+}
+
+.determine_c {
+  margin-top: 84rpx;
+}
+
+.fixedCenter {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.isPasswordBottom {
+  display: flex;
+}
+
+.isPasswordBottom>view {
+  width: 300rpx;
+  height: 88rpx;
+  background: rgba(255, 255, 255, 1);
+  border-radius: 0rpx 0rpx 20rpx 20rpx;
+  font-size: 32rpx;
+  line-height: 88rpx;
+  font-family: PingFangSC-Regular;
+  font-weight: 400;
+  color: rgba(136, 150, 150, 1);
+  text-align: center;
+}
+.isPasswordBottom>view:nth-child(2){
+  color: #FF3366;
+}

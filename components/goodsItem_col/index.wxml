@@ -1,0 +1,93 @@
+<view class="content_goods" wx:if='{{!kind}}'>
+  <block wx:for='{{goodsList}}' wx:for-item='goodsItem' wx:key='index'>
+    <view class='col_main' bindtap='jumpToGoodsDetail' data-goodsId='{{goodsItem.goodsInfo.goodsId}}'>
+      <view class='col_top'>
+        <image src="{{goodsItem.goodsInfo.thumb}}" mode='widthFix' class='col_top_img' data-echo="./image/icon_vip.png">
+        </image>
+        <image class="goodsItem_col_tag_position" src="/images/img_new.png" wx:if="{{goodsItem.arr.length ==2}}">
+        </image>
+        <image class="goodsItem_col_tag_position"
+          src="{{goodsItem.arr[0].text=='新品'?'/images/img_new.png':goodsItem.arr[0].text=='明星'?'/images/img_hot.png':''}}"
+          wx:if="{{goodsItem.arr.length ==1}}">
+        </image>
+        <image src="/images/play.png" mode='widthFix' class='play_top_img' data-echo="./image/icon_vip.png"
+          wx:if="{{goodsItem.isVideoTag}}">
+        </image>
+        <image src="{{goodsItem.goodsInfo.themeIcon}}" mode='widthFix' class='goodsItem_col_left_themeIcon'
+          wx:if="{{goodsItem.goodsInfo.themeIcon.length > 0}}">
+        </image>
+        <view>
+          <view wx:if="{{goodsItem.goodsInfo.stock >= goodsItem.goodsInfo.startNum}}">
+            <view class='left_tag' wx:if='{{goodsItem.goodsInfo.stockStatus == 1}}'>货源紧张</view>
+          </view>
+          <view class="sell_out" wx:if='{{goodsItem.goodsInfo.stock < goodsItem.goodsInfo.startNum}}'>
+            <view class='list_col_sold_out_' wx:if="{{goodsItem.expectedArrivalTimeText=='即将到货'}}">即将到货</view>
+            <view class='list_col_sold_out' wx:else>售罄 {{goodsItem.expectedArrivalTimeText}}</view>
+          </view>
+
+        </view>
+      </view>
+      <view class="{{homeage=='homeage'?'col_middle_tag_':'col_middle_tag'}}" >
+        <block wx:for='{{goodsItem.tagList}}' wx:for-item='tagItem' wx:key='index'>
+
+          <image class="{{homeage=='homeage'?'goodsItem_col_tag_two_':'goodsItem_col_tag_two'}}"
+            src="{{tagItem.text=='物料'?'/images/tag_wuliao@2x.png':tagItem.text=='贵宾价'?'/images/tag_vip@2x.png':tagItem.text=='套餐'?'/images/tag_taocan@2x.png':tagItem.text=='满赠'?'/images/tag_manzeng@2x.png':tagItem.text=='满减'?'/images/tag_manjian@2x.png':tagItem.text=='巨划算'?'/images/tag_huasuan@2x.png':tagItem.text=='直降'?'/images/zhijiang1.png':tagItem.text=='秒杀'?'/images/miaosha1.png':tagItem.text == '优惠券'?'/images/tag_youhui.png':''}}"
+            style="width: {{tagItem.text.length == 3 ?65:tagItem.text.length == 2?47: 0}}rpx;"
+            wx:if="{{tagItem.text =='直发'|| tagItem.text =='新品'||tagItem.text =='明星'?false:true}}"></image>
+
+        </block>
+      </view>
+      <view class='col_middle_title'>
+        <text>{{goodsItem.goodsInfo.goodsName}}</text>
+      </view>
+      <view class='col_bottom'>
+        <view class='col_bottom_price' wx:if='{{!noLook}}'>
+          <view class="addSymbol_wrap">
+            <view class='addSymbol'>{{goodsItem.goodsInfo.objectPrice.numInt}}.</view>
+            <view class='addSymbol_floor'>{{goodsItem.goodsInfo.objectPrice.decimal}}</view>
+          </view>
+          <view class="goodsItem_col_tag_wrap">
+            <view class='discount' wx:if='{{goodsItem.goodsInfo.discount}}'>{{goodsItem.goodsInfo.discount}}折
+            </view>
+            <view class='discount' wx:if='{{goodsItem.goodsInfo.savePrice > 0}}'>省¥{{goodsItem.goodsInfo.savePrice}}
+            </view>
+          </view>
+        </view>
+        <view class='noLook' wx:if='{{noLook}}'>认证看价</view>
+        <view class='col_bottom_toBuy' data-goodsId='{{goodsItem.goodsInfo.goodsId}}' catchtap='handleToBuy'
+          data-goodsList="{{goodsItem}}">
+          <image src="/images/car.png" mode='widthFix' class='col_bottom_toBuy_cartimg'></image>
+        </view>
+      </view>
+    </view>
+  </block>
+  <c-shopba kind='addCart' wx:if='{{isPopCart}}' goodsList='{{goodslist}}' goodsId='{{goodsId}}' id="addCart"
+    bindhideCart="onhideCart" bindfixedPage='onfixedPage'>
+    <view class="pro_bottom_two" slot='shopba'>
+    </view>
+  </c-shopba>
+</view>
+<!-- vip 商品 -->
+<view class="content_goods_vip" wx:if='{{kind =="vip"}}'>
+
+  <block wx:for='{{goodsList}}' wx:for-item='goodsItem' wx:key='index'>
+    <view class='col_main_vip'>
+      <view class='col_top_vip' bindtap='jumpToGoodsDetail' data-goodsId='{{goodsItem.goodsInfo.goodsId}}'>
+        <image src="{{goodsItem.goodsInfo.thumb}}" mode='widthFix' class='col_top_img_vip'></image>
+      </view>
+      <view class='col_middle_title_vip'>{{goodsItem.goodsInfo.goodsName}}</view>
+      <view class='col_amount_saved_vip'>立省{{goodsItem.goodsInfo.savePrice}}元</view>
+      <view class='col_bottom_vip'>
+        <view class='col_bottom_price_tag'>
+          <text class='addSymbol_vip'>{{goodsItem.goodsInfo.goodsPrice}}</text>
+          <image src="/images/icon_vip.png"></image>
+        </view>
+        <view class='col_bottom_toBuy_vip' catchtap='handleToBuy' data-goodsList="{{goodsItem}}"
+          data-goodsId='{{goodsItem.goodsInfo.goodsId}}'>
+          <image src="/images/icon_shopping.png" mode='widthFix' class='col_bottom_toBuy_img'></image>
+        </view>
+      </view>
+    </view>
+  </block>
+</view>
+<c-autoPopup showToast='{{showToast}}' content="{{content}}"></c-autoPopup>

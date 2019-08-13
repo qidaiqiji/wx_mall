@@ -1,0 +1,20 @@
+<view class='cartNGoods'>
+  <view class='cartNGoods_top'>
+    <view class='top_img'><image class='top_img_' src='./image/empty-car.png' /></view>
+    <view class='top_title'>您的购物车空空如也，快去采购吧</view>
+    <view  class='top_toGoBuy' bindtap='handleToPurchase'>去采购</view>
+  </view>
+  <view class='cartNGoods_content' wx:if='{{goodsList.length>0}}'>
+  <view class='tuijian_content'>
+    <view class='content_title'>为您推荐</view>
+ 
+
+        <c-goodsItem_col goodsList='{{goodsList}}' />
+
+  
+       
+
+    </view>
+
+  </view>
+</view>

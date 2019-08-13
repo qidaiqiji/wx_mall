@@ -1,0 +1,24 @@
+<!--components/sizerLine/index.wxml-->
+    <view class='goodsList'>
+      <view class='goodsList_condition'>
+        <view class='one' bindtap='onCondition' data-index="zonghe">
+          <text class='{{condition === "zonghe"?"nav_active":""}}'>综合</text>
+        </view>
+        <view class='one' bindtap='onCondition' data-index="sale">
+          <text class='{{condition === "sale"?"nav_active":""}}'>销量</text>
+          <image class='one_img' src="{{condition !== 'sale' ?'/images/icon-normal.png' : sale}}" />
+        </view>
+        <view class='one' bindtap='onCondition' data-index="price">
+          <text class='{{condition === "price"?"nav_active":""}}'>价格</text>
+          <image class='one_img' src="{{condition !== 'price' ?'/images/icon-normal.png' : price}}" />
+        </view>
+        <view class='one' bindtap='onCondition' data-index="discount">
+          <text class='{{condition === "discount" ?"nav_active":""}}'>折扣</text>
+          <image class='one_img' src="{{condition !== 'discount'?'/images/icon-normal.png' : discount}}" />
+        </view>
+        <view class='one' bindtap='onCondition' data-index="filtrate" wx:if='{{isShowFilter}}'>
+          <text class='{{condition === "filtrate" ?"nav_active":""}}'>筛选</text>
+          <image class='one_img' src="{{condition !== 'filtrate' ? '/images/filtrate.png':'/images/filtrate.png' }}" />
+        </view>
+      </view>
+    </view>

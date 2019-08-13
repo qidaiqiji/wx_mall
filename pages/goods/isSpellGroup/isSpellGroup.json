@@ -1,0 +1,10 @@
+{
+  "navigationBarTitleText": "正在拼团",
+  "backgroundColor":"#f3f3f3",
+  "usingComponents": {
+    "c-spellGroupList": "/components/spellGroupList/index",
+    "c-navigationToolsTwo": "/components/navigationToolsTwo/index",
+    "c-navigationTools": "/components/navigationTools/index",
+    "reachTheBottom": "/components/reachTheBottom/index"
+  }
+}

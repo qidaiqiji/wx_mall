@@ -1,0 +1,220 @@
+/* components/miaoshaAd/index.wxss */
+.ad_item {
+  width: 702rpx;
+  height: 334rpx;
+  background: rgba(255, 255, 255, 1);
+  border-radius: 16rpx;
+  padding: 12rpx 0 10rpx 14rpx;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 0 auto;
+}
+
+.ad_item_left {
+  width: 282rpx;
+  height: 282rpx;
+  position: relative;
+  margin-right: 10rpx;
+}
+
+.ad_item_left>image {
+  width: 282rpx;
+  height: 282rpx;
+}
+
+.left_tag {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 78rpx;
+  height: 50rpx;
+  line-height: 44rpx;
+  text-align: center;
+  background-size: 100%;
+  background-repeat: no-repeat;
+  font-size: 26rpx;
+  font-family: PingFangSC-Regular;
+  font-weight: 400;
+  color: rgba(255, 255, 255, 1);
+
+}
+
+.ad_item_right {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  flex: 1;
+  height: 282rpx;
+}
+
+.ad_titleMsg {
+  margin-top: 40rpx;
+}
+
+.ad_titleMsg>view {
+  font-size: 26rpx;
+  font-family: PingFangSC-Medium;
+  font-weight: 500;
+  color: rgba(47, 58, 64, 1);
+  line-height: 36rpx;
+}
+
+.ad_titleMsg>view:nth-child(1) {
+  width: 370rpx;
+  height: 72rpx;
+  font-size: 24rpx;
+  font-family: PingFangSC-Regular;
+  font-weight: 400;
+  color: rgba(136, 150, 150, 1);
+  line-height: 36rpx;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.ad_data_price {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #de0e0e;
+}
+
+.ad_price_int {
+  height: 36rpx;
+  line-height: 36rpx;
+  font-size: 48rpx;
+  font-family: PingFangSC-Medium;
+  font-weight: 500;
+}
+
+.ad_price_int::before {
+  content: '￥';
+  font-size: 24rpx;
+  font-family: PingFangSC-Medium;
+  font-weight: bold;
+}
+
+.ad_decimals {
+  font-size: 24rpx;
+  padding-top: 18rpx;
+  margin-left: 4rpx;
+}
+
+.delete_price {
+  font-size: 22rpx;
+  font-family: PingFangSC-Regular;
+  font-weight: 400;
+  text-decoration: line-through;
+  color: rgba(178, 178, 178, 1);
+  padding-left: 6rpx;
+}
+
+.ad_dataMsg {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 24rpx;
+}
+
+.ad_hotNum {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-bottom: 20rpx;
+  margin-right: 15rpx;
+}
+
+.ad_hotNum>image {
+  width: 30rpx;
+  height: 30rpx;
+}
+
+.ad_hotNum>view {
+  font-size: 22rpx;
+  font-family: PingFangSC-Medium;
+  font-weight: 500;
+  color: rgba(222, 14, 14, 1);
+}
+
+.noLook {
+  width: 50%;
+  background: #f3f3f3;
+  color: #ccc;
+  font-size: 28rpx;
+  text-align: center;
+  height: 60rpx;
+  line-height: 60rpx;
+
+}
+
+
+/* 活动样式 */
+.miaosha_goods {
+  width: 702rpx;
+  height: 324rpx;
+  border-radius: 16rpx;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+.image {
+  vertical-align: top;
+}
+
+.miaosh_ad {
+  width: 226rpx;
+  background: #ffffff;
+  border-radius: 4rpx;
+}
+
+.miaosh_ad_top {
+  position: relative;
+  left: 0rpx;
+  top: 0rpx;
+  display: flex;
+  justify-content: center;
+}
+
+.miaosh_ad_top>image:nth-child(1) {
+  width: 216rpx;
+  height: 216rpx;
+  border-radius: 4rpx 4rpx 0rpx 0rpx;
+}
+
+.miaosh_ad_top>view {
+  width: 78rpx;
+  height: 50rpx;
+  position: absolute;
+  top: 6rpx;
+  left: 6rpx;
+  z-index: 1;
+}
+
+.miaosh_produce {
+  font-size:22rpx;
+  font-family:PingFangSC-Regular;
+  font-weight:400;
+  color:rgba(47,58,64,1);
+  padding-top: 10rpx;
+  text-align: center;
+  line-height: 22rpx;
+  padding-bottom: 14rpx;
+}
+
+.miaosh_province {
+  height: 32rpx;
+  font-size:20rpx;
+  font-family:PingFangSC-Light;
+  font-weight:300;
+  color:rgba(255,51,102,1);
+  padding-top: 10rpx;
+  text-align: center;
+  line-height: 22rpx;
+  text-overflow: -o-ellipsis-lastline;
+  overflow: hidden;
+  text-overflow: clip;
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+}

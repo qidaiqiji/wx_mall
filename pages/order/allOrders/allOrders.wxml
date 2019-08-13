@@ -1,0 +1,91 @@
+<view>
+  <scroll-view scroll-x="true" class="scroll-view-x">
+    <block wx:for="{{statusType}}" wx:for-item="item" wx:key="index">
+      <view class="scroll-view-item">
+        <view class=" {{currentTab==(index) ? 'on' : ''}}" hover-class='none' bindtap="switchTab" data-current="{{index}}">
+          {{item.name}}
+        </view>
+      </view>
+    </block>
+  </scroll-view>
+  <view class='changes'>
+    <view class="container" wx:if='{{isLoading==2}}'>
+      <c-loading />
+    </view>
+    <scroll-view scroll-y style='height:{{windowHeight-70}}rpx' wx:if='{{isLoading==1}}' bindscrolltolower="pullUpLoad">
+      <block wx:for='{{groupList}}' wx:for-item='itemOrder' wx:key='index'>
+        <view class='item_orders'>
+          <view class='orderSn'>
+            <view class='orderSn_num'>订单编号：{{itemOrder.groupSn}}</view>
+            <view class='orderSn_date'>{{itemOrder.createTime}}</view>
+          </view>
+          <view class='orderContent'>
+            <block wx:for='{{itemOrder.orderList}}' wx:for-item='orderListItem' wx:key='index'>
+              <view class='itemOrder'>
+                <view class='subSn'>
+                  <text class="subSn_num">分单号:{{orderListItem.orderSn}}</text>
+                  <text class="subSn_type">{{orderListItem.csStatus}}</text>
+                </view>
+                <view class='sub_goods'>
+                  <view class='sub_goods_' wx:if="{{orderListItem.orderGoodsList.length>1}}">
+                    <navigator class="" url="/pages/order/orderDetail/orderDetail?groupSn={{itemOrder.groupSn}}&currentTab={{currentTab}}" hover-class="none">
+                      <c-orderGoods_row kind='orderList' orderGoodsList='{{orderListItem.orderGoodsList}}' />
+                    </navigator>
+                  </view>
+                  <view class='sub_goods_' wx:if='{{orderListItem.orderGoodsList.length==1&&orderListItem.orderGoodsList[0].isGroupShopping}}'>
+                    <navigator class="" url="/pages/order/orderDetail/orderDetail?groupSn={{itemOrder.groupSn}}&currentTab={{currentTab}}" hover-class="none">
+                      <c-orderGoods_row kind='confirmOrder_buying' orderGoodsList='{{orderListItem.orderGoodsList}}' />
+                    </navigator>
+                  </view>
+                  <view class='sub_goods_' wx:if="{{orderListItem.orderGoodsList.length==1&&!orderListItem.orderGoodsList[0].isGroupShopping}}">
+                    <block wx:for='{{orderListItem.orderGoodsList}}' wx:for-item='everyGoods' wx:key='index'>
+                      <navigator class="" url="/pages/order/orderDetail/orderDetail?groupSn={{itemOrder.groupSn}}&currentTab={{currentTab}}" style="width: 100%" hover-class="none">
+                        <c-orderGoodsItem_row goodsName='{{everyGoods.goodsName}}' num='{{everyGoods.num}}' price='{{everyGoods.goodsPrice}}' thumb='{{everyGoods.thumb}}' kind='orderGoodsList_item' />
+                      </navigator>
+                    </block>
+                  </view>
+                </view>
+              </view>
+            </block>
+          </view>
+          <view class='order_Amount'>
+            <view class='totalAmount '>
+              总额:
+              <text class='price '>{{itemOrder.totalFee}}</text>
+            </view>
+            <view class='toGoBuy '>
+              <view class='countDown' wx:if="{{itemOrder.needPay &&itemOrder.orderList[0].extensionCode=='group_shopping'}}">
+                倒计时：
+                <c-times kind='groupBuy' mytimes="{{itemOrder.expiredCnTime}}" />
+              </view>
+              <button class='toGoBuy_btn pay' wx:if="{{itemOrder.needPay}}" bindtap='handlePay' data-groupSn='{{itemOrder.groupSn}}'>
+                立即付款
+              </button>
+              <button class="toGoBuy_btn wuliuDesc" wx:if="{{itemOrder.hasDelivery}}" bindtap='jumpToWLDetail' data-groupSn='{{itemOrder.groupSn}}'>
+                物流详情
+              </button>
+              <button class="toGoBuy_btn confirm" bindtap='confirmReceipt' data-groupSn='{{itemOrder.groupSn}}' wx:if="{{itemOrder.orderList[0].csStatus == '已发货'}}">
+                确认收货
+              </button>
+              <button class="toGoBuy_btn confirm" open-type='share' data-img="{{itemOrder.img}}" data-shareText="{{itemOrder.shareText}}" data-gsGroupId="{{itemOrder.gsGroupId}}"  wx:if="{{itemOrder.orderList[0].csStatus == '待成团'}}">
+                立即邀请
+              </button>
+            </view>
+          </view>
+        </view>
+      </block>
+      <view style='display:flex;justify-content:center;margin-top:-20rpx;'>
+        <image wx:if='{{isLoadings}}' style='width:100rpx;height:100rpx;margin:0 auto;' src='/images/bottomLoading.gif' />
+      </view>
+      <c-reachTheBottom wx:if='{{reachTheBottom}}' />
+    </scroll-view>
+    <view class='noOrderList' wx:if='{{isLoading==0}}'>
+      <image class='noOrderList_img' src='/images/empty-order.png'></image>
+      <text class='noOrderList_text'>您还没有相关订单</text>
+    </view>
+  </view>
+</view>
+<c-navigationTools />
+<c-navigationToolsTwo toTheTop="{{toTheTop}}" catchtoUpImgs="ontoUpImgs" />
+<c-modal wx:if="{{pagesModal}}" desc="{{desc}}" confirm='{{confirm}}' catchpagesModal="pagesModals"></c-modal>
+<i-toast id="toast" />

@@ -1,0 +1,9 @@
+<!--components/navigationToolsTwo/index.wxml-->
+<view class="navigationToolsTwo_wrap" style="bottom: {{bottomToTheTop}}rpx;right: {{RbottomToTheTopight}}rpx;">
+  <button style="background:transparent" class="kefu_img_wrap" open-type="contact" session-from="weapp" bindcontact="handleContact">
+    <image class="kefu_img" src="/images/icon_kefu@2x.png" />
+  </button>
+  <view wx:if="{{backTop}}" class="{{toTheTop?'to_up_img_height':'to_up_img'}}">
+  <image  class="{{toTheTop?'to_up_img_height':'to_up_img'}}" src="/images/icon_top@2x.png" catchtap="toUpImg" />
+  </view>
+</view>

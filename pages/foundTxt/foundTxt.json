@@ -1,0 +1,12 @@
+{
+  "navigationBarTitleText": "动态详情",
+  "usingComponents": {
+    "reachTheBottom":"/components/reachTheBottom/index",
+    "c-foundParameter": "/components/foundParameter/index",
+    "c-shopba": "/components/product_b/shopba/index",
+    "c-navigationTools": "/components/navigationTools/index",
+    "c-navigationToolsTwo":"/components/navigationToolsTwo/index",
+    "remind": "../../components/remind/remind",
+    "i-toast": "../../../dist/toast/index"
+  }
+}

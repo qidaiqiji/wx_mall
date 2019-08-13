@@ -1,0 +1,140 @@
+<!-- pages/homePage/xinpin/xinpin.wxml -->
+<view class='xinpin'>
+  <!-- 头部主要不改变的 -->
+  <view class='xp_banner'>
+    <view class='banner_swiper' bindtap='jumpToGoodsDetail' data-goodsId='{{bannerDesc.goodsId}}'>
+      <view class='banner_msg'>
+        <view>{{year}}年{{month}}月</view>
+        <view>本月新品</view>
+        <view>{{bannerDesc.goodsName}}</view>
+        <view>
+          <view class='price_int'>{{bannerDesc.price_int}}</view>
+          <view class='price_float'>.{{bannerDesc.price_float}}</view>
+        </view>
+        <view>{{bannerDesc.sellingPoint}}</view>
+      </view>
+      <view class='banner_effect' style='background-image:url({{img_boxbg}});  background-size: 100%;'>
+        <view class='effect_swiper'>
+          <swiper autoplay="{{true}}" interval='5000' circular="{{true}}" duration='500' class='banSwiper' bindchange='onswiperChange'>
+            <block wx:for="{{banners}}" wx:key='1-{{index}}'>
+              <swiper-item>
+                <view class='swiper_item'>
+                  <image src='{{item.thumb}}'></image>
+                </view>
+              </swiper-item>
+            </block>
+          </swiper>
+        </view>
+        <view class="dots">
+          <block wx:for="{{dots}}" wx:key='2-{{index}}'>
+            <view class="dot{{index == dotIndex ? ' active' : ''}}"></view>
+          </block>
+        </view>
+      </view>
+    </view>
+    <view class='banner_brand'>
+      <view class='brand_left'>
+        <image src='{{img_new}}' />
+      </view>
+      <view class='brand_right'>
+        <block wx:for='{{bannerBrandList}}' wx:key='3-{{index}}'>
+          <view bindtap='jumpToBrand' data-brandId='{{item.brandId}}'>
+            <image mode='widthFix' src='{{item.brandLogo}}' />
+          </view>
+        </block>
+      </view>
+    </view>
+  </view>
+  <!-- tab切换 -->
+  <view class='xp_main'>
+    <view class='main_tabs_'>
+      <view class='main_tabs {{fixedNav?"fixedNav":""}}'>
+        <block wx:for='{{tapText}}' wx:key='index'>
+          <view bindtap='handleTabs' data-index='{{index}}'>
+            <view>
+              <view class='{{tabIndex ==index?"tabIndex":""}} {{fixedNav&&tabIndex ==index?"xuanz":fixedNav?"notxuanz":""}}'>
+                {{item}}
+              </view>
+              <view></view>
+            </view>
+            <view class='tab_line {{fixedNav&&tabIndex ==index?"fixedLine":""}}' wx:if='{{tabIndex ==index}}'></view>
+          </view>
+        </block>
+      </view>
+    </view>
+    <view class='main_goods'>
+      <!-- 商品 -->
+      <view class='goodsList' hidden='{{tabIndex !=1}}'>
+        <block wx:for='{{goodsList}}' wx:key='index'>
+          <c-xinpinGoodsItem item='{{item}}' />
+          <view class='faxian_goods' wx:if='{{index==7}}'>
+            <view class='fx_goodsMain'>
+              <view>小美发现</view>
+              <view class=' fx_title {{foundArticle&&foundArticle.isShow?"":"hideText"}}'>
+                {{foundArticle.title}}
+              </view>
+              <view class='isShowText' bindtap='isShowText' wx:if="{{foundArticle.title.length > 68}}">
+                {{foundArticle&&foundArticle.isShow?"收起":"全文"}}
+              </view>
+              <view class='fx_imgs'>
+                <swiper autoplay="{{true}}" interval='5000' circular="{{true}}" class='fx_swiper'>
+                  <block wx:for='{{newImgs}}' wx:key='11-{{index}}'>
+                    <swiper-item class='fx_swiperItem'>
+                      <block wx:for='{{item}}' wx:key='12-{{index}}'>
+                        <view>
+                          <image mode="aspectFill" src="{{item}}" data-imgs="{{foundArticle.imgs}}" data-img="{{item}}" catchtap='isMaxShow' />
+                        </view>
+                      </block>
+                    </swiper-item>
+                  </block>
+                </swiper>
+              </view>
+            </view>
+            <view class='fx_goodsBrand'>
+              <view>{{foundArticle.authorName}}</view>
+            </view>
+          </view>
+        </block>
+        <view style='display:flex;justify-content:center;margin-top:-20rpx;'>
+          <image wx:if='{{isLoadings}}' style='width:100rpx;height:100rpx;margin:0 auto;' src='/images/bottomLoading.gif' />
+        </view>
+        <c-reachTheBottom wx:if='{{reachTheBottom}}' />
+      </view>
+      <!-- 品牌 -->
+      <view class='brandList' hidden='{{tabIndex !=0}}'>
+        <block wx:for='{{brandList}}' wx:key='4-{{index}}'>
+          <view class='brandItem' style='background-image:url({{item.brandBanner}});' bindtap='jumpToBrand' data-brandId='{{item.brandId}}'>
+            <view class='brandItem_left'>
+              <view>
+                <image mode='widthFix' src='{{item.brandLogo}}' />
+              </view>
+              <view>{{item.brandName}}</view>
+              <view>{{item.sellingPoint}}</view>
+              <view class='brand_goods'>
+                <block wx:for='{{item.goodsList}}' wx:for-item='brandgoodsItem' wx:key='5-{{index}}'>
+                  <view>
+                    <image mode='widthFix' src='{{brandgoodsItem.thumb}}' />
+                  </view>
+                </block>
+              </view>
+            </view>
+          </view>
+        </block>
+        <c-reachTheBottom wx:if="{{brandList.length > 0}}" />
+      </view>
+      <!-- 即将上新 -->
+      <view hidden='{{tabIndex !=2}}'>
+        <block wx:for='{{goodsList}}' wx:key='index'>
+          <c-xinpinGoodsItem item='{{item}}' xinpinGoodsItem="{{xinpinGoodsItem}}" catchnewPrompt="onNewPrompt" />
+        </block>
+        <view style='display:flex;justify-content:center;margin-top:-20rpx;'>
+          <image wx:if='{{isLoadings}}' style='width:100rpx;height:100rpx;margin:0 auto;' src='/images/bottomLoading.gif' />
+        </view>
+        <c-reachTheBottom wx:if='{{reachTheBottom}}' />
+      </view>
+    </view>
+  </view>
+</view>
+<i-toast id="toast" />
+<c-navigationTools totalCount='{{totalCounts}}' />
+<c-navigationToolsTwo backTop='{{true}}' toTheTop="{{toTheTop}}" catchtoUpImgs="ontoUpImgs" />

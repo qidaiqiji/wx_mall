@@ -1,0 +1,45 @@
+<view class='coudanTip' wx:if="{{typess === 'manjian'}}">
+  <view class='left'>
+    <view class='left_tag'>满减</view>
+    <!-- 不满足最大满减条件 -->
+    <view wx:if="{{subtotal.status==1}}">
+      <view class='left_title'>
+        <text>采购满</text><text>{{subtotal.higherAmount}}</text>
+        <text>元，可减</text><text>{{subtotal.higherCut}}</text>
+        <text>元，还差</text><text>{{subtotal.fullCutNeedsMoreAmount}}</text><text>元</text>
+      </view>
+    </view>
+    <!-- 满足最大满减条件 -->
+    <view wx:if="{{subtotal.status==2}}">
+      <view class='left_title'>
+        <text>采购满</text><text>{{subtotal.alreadyAmount}}</text>
+        <text>元，可减</text><text>{{subtotal.alreadyCut}}</text>
+        <text>，已享受满减</text>
+      </view>
+    </view>
+  </view>
+  <view class='right'>
+    <navigator url="/pages/aboutCart/coudanList/coudanList?title=满减凑单&typess={{typess}}&eventId={{eventId}}"  hover-class="none">
+      去凑单>
+    </navigator>
+  </view>
+</view>
+
+<view wx:if="{{eventDesc}}" class='youhui_tip'>
+    <view class="tip_title_two">
+      <view class="tip_title_three">
+       {{eventDesc}}
+      </view>
+     
+    </view>
+  </view>
+<view wx:if="{{hasZhifa}}" class='youhui_tip'>
+  <view class="tip_title_two">
+    <view>
+      根据您所在地区，可享满{{zhifaAmount}}包邮
+    </view>
+    <view bindtap='handleShowBottomModal'>详情>
+    </view>
+  </view>
+</view>
+<c-bottomModal kind='{{hasZhifa?"zhifayoufei":"daifayoufei"}}' wx:if='{{isShowBottomModal}}' bindhideMask='onhideMask' id='showBottomModal'></c-bottomModal>

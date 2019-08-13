@@ -1,0 +1,143 @@
+<!--pages/activeDirectory/midYearActivities/midYearActivities.wxml-->
+<view class='banner' bindtap='handleJump' data-item='{{banner[0]}}'>
+  <image src='{{banner[0].img}}' />
+</view>
+<view class='blackCard' wx:if='{{blackAd.length>0}}'>
+  <view class='blackCard_' bindtap='handleJump' data-item='{{blackAd[0]}}'>
+    <image src='{{blackAd[0].img}}' />
+  </view>
+</view>
+<view class='huofan' wx:if='{{fullBackAd.length>0}}'>
+  <view class='huofan_' style='background:url({{huofan_bg}});'>
+  <view class='huofan_s'>
+  <block wx:for='{{fullBackAd}}' wx:key='{{item.id}}'>
+  <view class='huofan_item' bindtap='handleJump' data-item='{{item}}'>
+      <image src='{{item.img}}' />
+  </view>
+
+  </block>
+   </view>
+  </view>
+</view>
+<view class='ads' wx:if='{{zhifaAndCouponAd.length>0}}'>
+  <block wx:for='{{zhifaAndCouponAd}}' wx:key='{item.id}'>
+    <view class='adItem' bindtap='handleJump' data-item='{{item}}'>
+      <image src='{{item.img}}' />
+    </view>
+  </block>
+</view>
+<view class='specialEnt' wx:if='{{eggAd.length>0||integralAd.length>0}}'>
+  <view bindtap='handleJump' data-item='{{eggAd[0]}}'><image src='{{eggAd[0].img}}'/></view>
+  <view bindtap='handleJump' data-item='{{integralAd[0]}}'><image src='{{integralAd[0].img}}'/></view>
+</view>
+<view class='invitation' wx:if='{{friendAd.length>0}}'>
+  <view class='invitation_' bindtap='handleJump' data-item='{{friendAd[0]}}'>
+    <image src='{{friendAd[0].img}}'/>
+  </view>
+</view>
+<view class="timeLimitModule">
+  <view class="timeLimit_header">
+    <view class="header_title">
+      <image class="header_title_left" src='{{seconds_kill}}' />
+      <image class="header_title_right" src="/images/more_and_more.png"
+       catchtap='jumpToPage' data-page='miaosha'/>
+    </view>
+    <view class="header_desc">
+      <view>本场距离结束还剩</view>
+      <c-times id="love_times" mytimes="{{flashSaleEndTime}}" kind='activity'></c-times>
+    </view>
+  </view>
+  <view class="timeLimit_goods_row" data-goodid="{{flashSaleListOne.goodsId}}" catchtap='jumpToDetail'wx:if='{{flashSaleListOne.goodsId}}' >
+    <view class="">
+      <view class="goodsRow_left">
+        <image class="goodsRow_left_img" src='{{flashSaleListOne.img}}' />
+      </view>
+      <view class="goodsRow_left_tag">限时秒杀</view>
+    </view>
+    <view class="">
+      <view class="goodsRow_right_title">{{flashSaleListOne.goodsName}}</view>
+      <view class="goodsRow_right_desc">{{flashSaleListOne.desc}}</view>
+      <view class="goodsRow_right_price">
+        <view class="">
+          <view class="goodsRow_price_max">{{flashSaleListOne.goodsPrice}}</view>
+          <view class="goodsRow_price_min">{{flashSaleListOne.marketPrice}}</view>
+        </view>
+        <view class="goodsRow_right_seconds">秒</view>
+      </view>
+    </view>
+  </view>
+  <!-- 秒杀col -->
+  <view class="goodsCols">
+    <block wx:for='{{flashSaleList}}' wx:key='{{item.goodsId}}'>
+      <c-goodsListGoShop class="goodsItem_col" goodsList="{{item}}"></c-goodsListGoShop>
+    </block>
+  </view>
+</view>
+<view class='temai' wx:if='{{actPageAd.length>0}}'>
+  <view class='temai_title'>
+    <image src='{{temai}}' />
+  </view>
+  <view class='brands'>
+    <block wx:for='{{actPageAd}}' wx:key='{{item.id}}'>
+      <view class='brandItem' bindtap='handleJump' data-item='{{item}}'>
+        <image src='{{item.img}}'/>
+      </view>
+    </block>
+  </view>
+</view>
+<view class='common_module'>
+  <view class='juhuasuan item_module' wx:if='{{juhuasuanList.length>0}}'>
+    <view class='common_title' bindtap='jumpToPage' data-page='juhuasuan'>
+      <image src='{{juhuasuan}}' />
+    </view>
+    <view class='goodsList'>
+      <block wx:for='{{juhuasuanList}}' wx:key='{{index}}'>
+                    <c-goodsItemThree_col  goodsList="{{item}}" bindevokeAddCart='onevokeAddCart'></c-goodsItemThree_col>
+      </block>
+    </view>
+  </view>
+  <view class='manzeng item_module' wx:if='{{fullGiftList.length>0}}'>
+    <view class='common_title' bindtap='jumpToPage' data-page='manzeng'>
+      <image src='{{manzeng}}' />
+    </view>
+    <view class='goodsList'>
+      <block wx:for='{{fullGiftList}}' wx:key='{{index}}'>
+                    <c-goodsItemThree_col goodsList="{{item}}" bindevokeAddCart='onevokeAddCart'></c-goodsItemThree_col>
+      </block>
+    </view>
+  </view>
+
+  <view class='taocan item_module' wx:if='{{pkgList.length>0}}'>
+    <view class='common_title' bindtap='jumpToPage' data-page='taocan'>
+      <image src='{{taocan}}' />
+    </view>
+    <view class='goodsList'>
+      <block wx:for='{{pkgList}}' wx:key='{{index}}'>
+                    <c-goodsItemThree_col goodsList="{{item}}" bindevokeAddCart='onevokeAddCart'></c-goodsItemThree_col>
+      </block>
+    </view>
+  </view>
+</view>
+<view class='xingguang' wx:if='{{categoryAd.length>0}}'>
+  <view class='xingguang_title'><image src='{{xingGG}}'/></view>
+  <view class='xingguang_goods'>
+    <block wx:for='{{categoryAd}}' wx:key='{{itme.id}}'>
+      <view class='xingguang_goodsItem' bindtap='handleJump' data-item='{{item}}'><image src='{{item.img}}'/></view>
+    </block>
+  </view>
+</view>
+
+<view class='backTop' ><image src='/images/backTop_mid.png' bindtap='goToTop'/></view>
+
+
+<view class="navigation_button" catchtap="allremind" wx:if='{{isActTime}}'>
+    <image src="/images/navigation_button.png" />
+</view>
+<c-remind_right id="remind_right" isPageId="{{isPageId}}" menus="{{menus}}" autoJump='{{false}}' bindallPreferential='onallPreferential' bindupMenus='handleMenus' wx:if="{{isShowNavigation}}" title='膜法保湿节会场直达'></c-remind_right>
+
+<c-navigationTools totalCount='{{totalCounts}}' />
+<c-navigationToolsTwo toTheTop="{{toTheTop}}" catchtoUpImgs="ontoUpImgs" />
+<c-shopba kind='addCart' wx:if='{{isPopCart}}' shbpbaWrapHeight='999' shbpbaListHeight='444' goodsId='{{addGoodsId}}'
+    catchtouchmove='true' goodsList='{{addGoodslist}}' id="addCart" bindhideCart="onhideCart" bindgetTotle='ongetTotle'>
+</c-shopba>
+<i-toast id="toast" />

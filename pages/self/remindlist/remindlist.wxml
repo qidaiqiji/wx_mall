@@ -1,0 +1,38 @@
+<!--pages/remindlist/remindlist.wxml-->
+<view class="remindlist_wrap">
+    <view class="remindlist_tap">
+        <view class="remindlist_tap2">
+            <block wx:for="{{lists}}" wx:for-item="item" wx:key="index">
+                <view class="tabs {{currentTab==(index) ? 'on' : ''}}" bindtap="switchTab" data-current="{{index}}">
+                    <view>{{item.name}}</view>
+                    <view class="{{currentTab==(index) ? 'tabBottom' : ''}}"></view>
+                </view>
+            </block>
+        </view>
+    </view>
+    <view class="remindlist_wrap2">
+        <view wx:if="{{currentTab=='0'}}">
+            <!-- 有 -->
+            <c-goodsSwipeout_row  bindevokeAddCart='onevokeAddCart' id="goodsrow" goodsList="{{arrival}}" bindaction="anotherEventListener" wx:if="{{arrival.length>0}}"></c-goodsSwipeout_row>
+            <view class="remindlist_bottom_B" wx:else>
+                <image class="remindlist_bottom_img" src="/images/img_search.png" />
+                <view class="remindlist_bottom_txt">暂无数据</view>
+            </view>
+        </view>
+        <view wx:if="{{currentTab=='1'}}">
+            <c-goodsItem_row  bindevokeAddCart='onevokeAddCart' id="goodsrow" goodsList="{{notArrival}}" bindaction="anotherEventListener" wx:if="{{notArrival.length>0}}"></c-goodsItem_row>
+            <!-- 没有 -->
+            <view class="remindlist_bottom_B" wx:else>
+                <image class="remindlist_bottom_img" src="/images/img_search.png" />
+                <view class="remindlist_bottom_txt">暂无数据</view>
+            </view>
+        </view>
+    </view>
+</view>
+<c-shopba kind='addCart' wx:if='{{isPopCart}}' shbpbaWrapHeight='999' shbpbaListHeight='444' goodsId='{{addGoodsId}}' catchtouchmove='true' goodsList='{{addGoodslist}}' id="addCart"
+  bindhideCart="onhideCart"  bindgetTotle='ongetTotle'>
+</c-shopba>
+
+<i-toast id="toast" />
+<c-navigationToolsTwo backTop='false' toTheTop="{{toTheTop}}" catchtoUpImgs="ontoUpImgs" />
+

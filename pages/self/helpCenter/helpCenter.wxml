@@ -1,0 +1,103 @@
+<!-- pages/self/helpCenter/helpCenter.wxml -->
+<view class='container'>
+  <view class='commonIssue'>
+    <view class='IssueHeader'>
+      <view></view>
+      <text>常见问题</text>
+    </view>
+    <view class='commonIssueInto'>
+      <view class='commomIssueIconView' bindtap='handleJumpWebView' data-text='关于平台' data-id="179">
+        <image src='{{icon_xiaomei}}'></image>
+        <view>关于平台</view>
+      </view>
+      <view class='commomIssueIconView' bindtap='handleJumpWebView' data-text='关于商品' data-id="180">
+        <image src='{{icon_commodity}}'></image>
+        <view>关于商品</view>
+      </view>
+      <view class='commomIssueIconView' bindtap='handleJumpWebView' data-text='关于采购' data-id="181">
+        <image src='{{icon_purchase}}'></image>
+        <view>关于采购</view>
+      </view>
+      <view class='commomIssueIconView' bindtap='handleJumpWebView' data-text='关于配送' data-id="182">
+        <image src='{{icon_pay}}'></image>
+        <view>关于配送</view>
+      </view>
+    </view>
+  </view>
+  <view class='moreIssue'>
+    <view class='IssueHeader'>
+      <view></view>
+      <text>更多问题</text>
+    </view>
+    <view class='moreIssueItem'>
+      <view class='itemLeft'>
+        <image src='{{icon_companion}}'></image>
+        <view>采购指南</view>
+      </view>
+      <view class='itemRight'>
+        <block wx:for="{{guide}}" wx:key="{{index}}">
+          <view class='left_border' bindtap='handleJumpWebView' data-text='{{item.title}}' data-id="{{item.id}}">
+            {{item.title}}
+          </view>
+        </block>
+      </view>
+    </view>
+    <view class='moreIssueItem'>
+      <view class='itemLeft'>
+        <image src='{{icon_safeguard}}'></image>
+        <view>服务保障</view>
+      </view>
+      <view class='itemRight'>
+        <block wx:for="{{security}}" wx:key="{{index}}">
+          <view class='left_border' bindtap='handleJumpWebView' data-text='{{item.title}}' data-id="{{item.id}}">
+            {{item.title}}
+          </view>
+        </block>
+      </view>
+    </view>
+    <view class='moreIssueItem'>
+      <view class='itemLeft'>
+        <image src='{{icon_delivery}}'></image>
+        <view>支付配送</view>
+      </view>
+      <view class='itemRight'>
+        <block wx:for="{{distribution}}" wx:key="{{index}}">
+          <view class='left_border' bindtap='handleJumpWebView' data-text='{{item.title}}' data-id="{{item.id}}">
+            {{item.title}}
+          </view>
+        </block>
+      </view>
+    </view>
+    <view class='moreIssueItem'>
+      <view class='itemLeft'>
+        <image src='{{icon_brand}}'></image>
+        <view>品牌入驻</view>
+      </view>
+      <view class='itemRight'>
+        <block wx:for="{{brands}}" wx:key="{{index}}">
+          <view class='left_border' bindtap='handleJumpWebView' data-text='{{item.title}}' data-id="{{item.id}}">
+            {{item.title}}
+          </view>
+        </block>
+      </view>
+    </view>
+    <view class='moreIssueItem'>
+      <view class='itemLeft'>
+        <image src='{{icon_aboutus}}'></image>
+        <view>关于我们</view>
+      </view>
+      <view class='itemRight'>
+        <block wx:for="{{about}}" wx:key="{{index}}">
+          <view class='left_border' bindtap='handleJumpWebView' data-text='{{item.title}}' data-id="{{item.id}}">
+            {{item.title}}
+          </view>
+        </block>
+      </view>
+    </view>
+  </view>
+  <view class='fixedBtn' bindtap='handleJumpIssue'>
+    <image src='{{icon_feedback}}'></image>
+    <view>问题反馈</view>
+  </view>
+</view>
+<c-navigationToolsTwo toTheTop="{{toTheTop}}" bottomToTheTop='118' catchtoUpImgs="ontoUpImgs" />

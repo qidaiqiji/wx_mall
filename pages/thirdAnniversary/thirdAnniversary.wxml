@@ -1,0 +1,142 @@
+<!--pages/thirdAnniversary/thirdAnniversary.wxml-->
+<view class='anniverSary_banner'>
+  <image src='{{banner}}' />
+</view>
+<view class='anniverSary_topAd' wx:if='{{topAds.length>0}}'>
+  <block wx:for='{{topAds}}' wx:key='index'>
+    <view bindtap='jumpToUrl' data-url="{{item.url}}">
+      <image src='{{item.img}}' />
+    </view>
+  </block>
+</view>
+<!-- //待后端给字段 -->
+<view class='anniverSary_coupon blockDesign' wx:if='{{couponAds.length>0}}'>
+  <view>
+    <image src='{{ganen_liquan}}'></image>
+  </view>
+  <view class='coupons'>
+    <block wx:for='{{couponAds}}' wx:key='index'>
+      <view bindtap='handleGetCoupon' data-ruleId="{{item.url}}">
+        <image src='{{item.img}}' />
+      </view>
+    </block>
+  </view>
+</view>
+<view class='anniverSary_giveGifts blockDesign' wx:if='{{fullGiftAds.length>0}}'>
+  <view>
+    <image src='{{quanchang_manzeng}}'></image>
+  </view>
+  <view class='giveGifts'>
+    <block wx:for='{{fullGiftAds}}' wx:key='index'>
+      <view bindtap='jumpToUrl' data-url="{{item.url}}">
+        <image src='{{item.img}}' />
+      </view>
+    </block>
+  </view>
+</view>
+<!-- //待后端给字段 -->
+<view class='anniverSary_chouj blockDesign' wx:if='{{drawAd.length>0}}'>
+  <view>
+    <image src='{{choujiang_title}}'></image>
+  </view>
+  <view class='choujiangInto'>
+    <block wx:for='{{drawAd}}' wx:key='index'>
+      <image src='{{item.img}}' bindtap='jumpToUrl' data-url="{{item.url}}"></image>
+    </block>
+
+  </view>
+</view>
+<view class='anniverSary_miaos blockDesignTheme' wx:if='{{flashSaleList.length>0}}'>
+  <view bindtap='jumpToPage' data-page='miaosha'>
+    <image src='{{xianshi_miaosha}}'></image>
+  </view>
+  <view class='miaosha'>
+    <block wx:for='{{flashSaleList}}' wx:key='index'>
+               <c-goodsItemThree_col goodsList="{{item}}" bindevokeAddCart='onevokeAddCart'></c-goodsItemThree_col>
+    </block>
+  </view>
+</view>
+<view class='anniverSary_tem blockDesignTheme' wx:if='{{actPageAds.length>0}}'>
+  <view>
+    <image src='{{temai_zhuanchang}}'></image>
+  </view>
+  <view class='temai'>
+    <block wx:for='{{actPageAds}}' wx:key='index'>
+      <view bindtap='jumpToUrl' data-url="{{item.url}}">
+        <image src='{{item.img}}' />
+      </view>
+    </block>
+  </view>
+</view>
+<view class='anniverSary_juhs blockDesignTheme' wx:if='{{groupBuyList.length>0}}'>
+  <view bindtap='jumpToPage' data-page='juhuasuan'>
+    <image src='{{juhuasuan}}'></image>
+  </view>
+  <view class='juhuasuan'>
+    <block wx:for='{{groupBuyList}}' wx:key='index'>
+      <!-- <view class='conmonGoods' bindtap='jumpToGoodsDetail' data-goodsId='{{item.goodsId}}'> -->
+               <c-goodsItemThree_col goodsList="{{item}}" bindevokeAddCart='onevokeAddCart'></c-goodsItemThree_col>
+      <!-- </view> -->
+    </block>
+  </view>
+</view>
+<view class='anniverSary_manz blockDesignTheme' wx:if='{{fullGiftList.length>0}}'>
+  <view bindtap='jumpToPage' data-page='manzeng'>
+    <image src='{{chaozhi_manzeng}}'></image>
+  </view>
+  <view>
+    <block wx:for='{{fullGiftList}}' wx:key='index'>
+               <c-goodsItemThree_col goodsList="{{item}}" bindevokeAddCart='onevokeAddCart'></c-goodsItemThree_col>
+    </block>
+  </view>
+</view>
+<view class='anniverSary_taoc blockDesignTheme' wx:if='{{superPkgList.length>0}}'>
+  <view bindtap='jumpToPage' data-page='taocan'>
+    <image src='{{jingxuan_taocan}}'></image>
+  </view>
+  <view>
+    <block wx:for='{{superPkgList}}' wx:key='index'>
+               <c-goodsItemThree_col goodsList="{{item}}"bindevokeAddCart='onevokeAddCart'></c-goodsItemThree_col>
+    </block>
+  </view>
+</view>
+<view class='anniverSary_pinp blockDesignTheme' wx:if='{{brandAds.length>0}}'>
+  <view>
+    <image src='{{pinpai_baoyou}}'></image>
+  </view>
+  <view class='pinpai'>
+    <block wx:for='{{brandAds}}' wx:key='index'>
+      <view bindtap='jumpToUrl' data-url="{{item.url}}">
+        <image src='{{item.img}}' />
+      </view>
+    </block>
+  </view>
+</view>
+<view class='anniverSary_xinggg blockDesignTheme' wx:if='{{categoryAds.length>0}}'>
+  <view>
+    <image src='{{guoji_xinggg}}'></image>
+  </view>
+  <view class='xingguangguan'>
+    <block wx:for='{{categoryAds}}' wx:key='index'>
+      <view bindtap='jumpToUrl' data-url="{{item.url}}">
+        <image src='{{item.img}}' />
+      </view>
+    </block>
+  </view>
+</view>
+<view class='jumpToTop' bindtap='jumpToTop' wx:if='{{flashSaleList.length>0}}'>
+  <image src='{{backTop}}'></image>
+</view>
+<view class="jumpToTopBottom"></view>
+<view class='navigation_button' bindtap='handleShowNavigation'>
+  <image src='/images/navigation_button.png'></image>
+</view>
+
+<c-remind_right id="remind_right" isPageId="{{isPageId}}" menus="{{menus}}" autoJump='{{false}}' bindallPreferential='onallPreferential' bindupMenus='handleMenus' wx:if="{{isShowNavigation}}" title='3周年庆会场直达'></c-remind_right>
+
+<c-navigationTools  totalCount='{{totalCounts}}' />
+<c-navigationToolsTwo toTheTop="{{toTheTop}}" catchtoUpImgs="ontoUpImgs" />
+<c-shopba kind='addCart' wx:if='{{isPopCart}}' shbpbaWrapHeight='999' shbpbaListHeight='444' goodsId='{{addGoodsId}}'
+    catchtouchmove='true' goodsList='{{addGoodslist}}' id="addCart" bindhideCart="onhideCart"bindgetTotle='ongetTotle'>
+</c-shopba>
+<i-toast id="toast" />

@@ -1,0 +1,11 @@
+<!--pages/self/integral/integralRule/integralRule.wxml-->
+<view>
+  <view wx:for="{{text}}" wx:for-item="text" wx:for-index="titleIndex" wx:key="titleIndex">
+    <view class='rule_title'>{{text.title}}</view>
+    <view class='rule_desc'>
+      <view wx:for="{{text.desc}}" wx:for-item="desc" wx:for-index="txtIndex" wx:key="txtIndex">
+        {{desc}}
+      </view>
+    </view>
+  </view>
+</view>

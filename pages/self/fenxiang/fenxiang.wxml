@@ -1,0 +1,24 @@
+<!--pages/self/fenxiang/fenxiang.wxml-->
+<view class="guize">
+  <text bindtap='handleJumpToRule'>规则></text>
+</view>
+<view class="login_from_wrap" style="height: {{windowHeight}}rpx;">
+  <view class='login_from' style="background-image: url({{inviteAd[0].img}});">
+    <view class="form_wrap">
+      <view class="friend">您已成功邀请：{{inviteNum}}位好友</view>
+      <view class="  red_nvelope" catchtap='hongbao'>
+        <text> 查看红包></text>
+      </view>
+      <view class='lop'>
+        <button class='a2' open-type='share' data-userId="{{userId}}">
+          <text>立即邀请</text>
+        </button>
+      </view>
+    </view>
+  </view>
+
+</view>
+<view wx:if="{{iskind}}">
+  <remind kind="zhuCeGuiZe" id="premind" class="c_remind" bindmyshow='isShow'></remind>
+</view>
+<c-navigationToolsTwo toTheTop="{{toTheTop}}" catchtoUpImgs="ontoUpImgs" />

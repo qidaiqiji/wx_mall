@@ -1,0 +1,54 @@
+<view class='container'>
+
+<view class="flexed">
+  <scroll-view scroll-x="true" class="tabTitle">
+    <view class="tabTitle_item_wrap">
+      <block wx:for="{{statusType}}" wx:for-item="item" wx:key="index">
+        <view class="tabTitle_item">
+          <view class=" {{currentTab==(index) ? 'on' : ''}}" bindtap="switchTab" data-current="{{index}}">{{item}}
+          </view>
+          <view class="{{currentTab==(index) ?'silder':''}}">
+          </view>
+        </view>
+      </block>
+    </view>
+
+  </scroll-view>
+</view>
+ <view class="tabTitle"></view>
+
+  <view class='main'>
+
+    <swiper current="{{currentTab}}" duration="500" style="height:{{windowHeight}}rpx;" bindchange="switchSwiper">
+      <block wx:for='{{statusType}}' wx:key='index'>
+        <swiper-item class="swiper_item" data-index='{{index}}'>
+          <scroll-view scroll-y style='height:{{windowHeight}}rpx;' wx:if='{{couponList.length>0}}'>
+          <view class='own_coupon_coupon'></view>
+              <c-coupon  couponList='{{currentTab == index?couponList:[]}}' currentTab='{{currentTab}}' />
+              <view class="coupon_bottom"></view>
+          </scroll-view>
+          <view wx:else class='not_data'>
+            <image src='{{not_coupon}}'></image>
+            <view>暂无优惠券</view>
+          </view>
+        </swiper-item>
+
+      </block>
+    </swiper>
+
+  </view>
+  <view style='width:100%'>
+
+    <view class='bottom_msg'>
+      <view class='bottom_tip'>
+        秒杀、巨划算、满减、套餐、直降等活动商品不能与优惠券同享
+      </view>
+      <view class='my_coupon' bindtap='jumpToCoupon'>
+        <text class='noOrderList_text'>去领券中心</text>
+      </view>
+    </view>
+
+  </view>
+</view>
+<!-- <c-navigationTools /> -->
+<c-navigationToolsTwo toTheTop="{{toTheTop}}" catchtoUpImgs="ontoUpImgs" bottomToTheTop='172' />

@@ -1,0 +1,241 @@
+/* pages/groupBiPinList/groupBiPinList.wxss */
+page{
+  background: #f3f3f3;
+}
+.control_change{
+  width: 100%;
+  position: fixed;
+  top: 0;
+  z-index: 8;
+}
+.bipin_tabs {
+  width: 100%;
+  height: 98rpx;
+  background: rgba(255, 255, 255, 1);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 60rpx;
+  position: relative;
+}
+.gotoGroupBuying_{
+  background: #02BD98 !important;
+}
+.bipin_tab {
+  width: 240rpx;
+  height: 98rpx;
+  line-height: 98rpx;
+  text-align: center;
+  font-size: 28rpx;
+  font-family: PingFangSC-Regular;
+  font-weight: 400;
+  color: rgba(47, 58, 64, 1);
+}
+
+.bipin_tab_tag {
+  position: absolute;
+  bottom: 0;
+  left: 146rpx;
+  width: 46rpx;
+  height: 4rpx;
+  background: rgba(255, 51, 102, 1);
+  border-radius: 2rpx;
+  transition: all 0.2s ease-in-out;
+}
+
+.bipin_countDown {
+  width: 100%;
+  height: 54rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: rgba(255, 255, 255, 1);
+  background-size: 100%;
+  background-repeat: no-repeat;
+}
+.bipin_countDown>view:nth-child(1){
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.clickTabs {
+  font-size: 32rpx;
+  font-family: PingFangSC-Medium;
+  font-weight: 500;
+  color: rgba(255, 51, 102, 1);
+}
+
+.clickTabs_left {
+  left: 146rpx;
+
+}
+.clickTabs_right{
+    left: 558rpx;
+
+}
+.goodsList{
+  margin-top: 172rpx;
+}
+/* 必拼商品样式 */
+
+.goodsItem {
+  width: 100%;
+  height: 304rpx;
+  background: rgba(255, 255, 255, 1);
+  padding: 32rpx 24rpx;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-top: 1rpx solid #e5e5e5;
+}
+
+.itemThumb {
+  width: 240rpx;
+  height: 240rpx;
+  border-radius: 4rpx;
+  overflow: hidden;
+  background: #f3f3f3;
+}
+
+.itemThumb>image {
+  width: 240rpx;
+  height: 240rpx;
+}
+
+.itemMsg {
+  flex: 1;
+  height: 240rpx;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  margin-left: 20rpx;
+}
+
+.msgTop {
+  margin-top: 6rpx;
+}
+
+.msgTop>view:nth-child(1) {
+  width: 430rpx;
+  height: 70rpx;
+  font-size: 28rpx;
+  font-family: PingFangSC-Regular;
+  font-weight: 400;
+  color: rgba(47, 58, 64, 1);
+  line-height: 35rpx;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  overflow: hidden;
+}
+
+.msgTop_desc {
+  margin-top: 10rpx;
+  height: 30rpx;
+  background: linear-gradient(270deg, rgba(252, 76, 76, 1), rgba(255, 122, 122, 1));
+  border-radius: 15rpx;
+  padding: 0 10rpx;
+  display: inline-flex;
+  justify-content: space-between;
+  align-items: center;
+  width: auto;
+  /* display:inline-block !important; display:inline; */
+}
+
+.msgTop_desc>image {
+  width: 30rpx;
+  height: 30rpx;
+}
+
+.msgTop_desc>view {
+  height: 30rpx;
+  font-size: 22rpx;
+  font-family: PingFangSC-Light;
+  font-weight: 300;
+  color: rgba(255, 255, 255, 1);
+  line-height: 32rpx;
+  margin-left: 8rpx;
+}
+
+.msgBottom {
+  height: 84rpx;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  margin-bottom: 10rpx;
+}
+
+.msgBtm_discounts {
+  display: flex;
+  align-items: flex-end;
+}
+
+.msgBtm_discounts_memb {
+  height: 22rpx;
+  font-size: 22rpx;
+  font-family: PingFangSC-Regular;
+  font-weight: 400;
+  color: rgba(222, 14, 14, 1);
+  line-height: 22rpx;
+  margin-right: 12rpx;
+}
+
+.msgBtm_discounts_price {
+  display: flex;
+  align-items: flex-end;
+}
+
+.msgBtm_discounts_price>view:nth-child(1)::before {
+  content: '￥';
+  height: 18rpx;
+  font-size: 24rpx;
+  font-family: PingFangSC-Medium;
+  font-weight: 500;
+  color: rgba(222, 14, 14, 1);
+}
+
+.msgBtm_discounts_price>view:nth-child(1) {
+  height: 36rpx;
+  font-size: 48rpx;
+  font-family: PingFangSC-Medium;
+  font-weight: 500;
+  color: rgba(222, 14, 14, 1);
+  line-height: 36rpx;
+}
+
+.msgBtm_discounts_price>view:nth-child(2) {
+  font-size: 24rpx;
+  font-family: PingFangSC-Medium;
+  font-weight: 500;
+  color: rgba(222, 14, 14, 1);
+  margin-left: -4rpx;
+}
+
+.msgBtm_price {
+  margin-top: 14rpx;
+  height: 22rpx;
+  font-size: 22rpx;
+  font-family: PingFangSC-Regular;
+  font-weight: 400;
+  color: rgba(178, 178, 178, 1);
+}
+
+.gotoGroupBuying {
+  width: 112rpx;
+  height: 44rpx;
+  background: rgba(222, 14, 14, 1);
+  border-radius: 4rpx;
+  line-height: 44rpx;
+  font-size: 22rpx;
+  font-family: PingFangSC-Regular;
+  font-weight: 400;
+  color: rgba(255, 255, 255, 1);
+  text-align: center;
+}
+.countDown_bgEnd{
+  background: #B30000 !important;
+}
+.countDown_bgStart{
+  background: #019B7D !important;
+}

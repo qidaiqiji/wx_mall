@@ -1,0 +1,12 @@
+{
+    "navigationBarTitleText": "大牌名品",
+    "backgroundColor":"#f3f3f3",
+    "usingComponents": {
+        "c-navigationTools": "/components/navigationTools/index",
+        "c-navigationToolsTwo":"/components/navigationToolsTwo/index",
+        "c-eventPopups":"/components/eventPopups/indedx",
+        "c-shopba": "/components/product_b/shopba/index",
+        "reachTheBottom": "/components/reachTheBottom/index",
+        "i-toast": "../../../dist/toast/index"
+    }
+}

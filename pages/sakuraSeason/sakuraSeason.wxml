@@ -1,0 +1,19 @@
+<!--pages/sakuraSeason/sakuraSeason.wxml-->
+<!-- 樱花季 -->
+<view class='bannerImg'>
+  <image src='{{sakuraBanner}}'></image>
+</view>
+<view class='adImg'>
+  <block wx:for='{{topAds}}' wx:key='1-{{index}}'>
+    <view bindtap='jumpToUrl' data-url="{{item.url}}">
+      <image src='{{item.img}}'></image>
+    </view>
+  </block>
+</view>
+<view class='goodsMain'>
+  <block wx:for='{{botAds}}' wx:key='2-{{index}}'>
+        <view bindtap='jumpToUrl' data-url="{{item.url}}">
+      <image src='{{item.img}}'></image>
+    </view>
+  </block>
+</view>

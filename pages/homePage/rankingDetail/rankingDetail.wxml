@@ -1,0 +1,59 @@
+ <!-- /page/rankingDetail/rankingDetail -->
+ <view class="container" wx:if='{{isLoading==2}}'>
+  <c-loading />
+</view>
+<view wx:else>
+  <view class="top" style="background: {{backgroundLinear}};">
+    <view class="topTxtWrap" wx:if="{{title}}">
+      <view class="topTitle" >{{title}}榜单详情</view>
+      <view class="topTitleBottom" style="background：{{color}}"></view>
+    </view>
+    <image class="rankingDetailTag" src="{{rankingDetailTag}}" mode="widthFix" wx:if="{{isHide}}" />
+    <view class="topDesc">{{desc}}</view>
+  </view>
+  <view class="list">
+    <block wx:for='{{topList}}' wx:for-item='topItem' wx:key='index'>
+      <view class='rankGoodsItem'>
+        <view class="rankGoodsTop">
+          <view class="itemImg">
+            <image class="itemMsgImg" src="{{topItem.img}}" />
+            <image class="itemMsgTag" src="{{index+1==1?iconNo1:index+1==2?iconNo2:index+1==3?iconNo3:''}}" />
+          </view>
+          <view class="topTitle_">
+            <view class="topTitleTxt">{{topItem.title}}</view>
+            <view class="topTitlePriceWrap">
+              <view class="topTitlePrice">{{topItem.goodsInfo.goodsPrice}}</view>
+              <view class="topTitleGO" data-goodsId='{{topItem.goodsInfo.goodsId}}' catchtap="goPrice">
+                GO
+              </view>
+            </view>
+          </view>
+        </view>
+        <view class="topDescList">{{topItem.desc}}</view>
+      </view>
+    </block>
+    <!--  -->
+    <block wx:for='{{goodsList}}' wx:for-item='goodsListItem' wx:for-index="goodsIndex" wx:key='goodsIndex'>
+      <view class='rankGoodsItem' data-goodsId='{{goodsListItem.goodsInfo.goodsId}}' catchtap="goPrice">
+        <view class="rankGoodsTop">
+          <view class="itemImg">
+            <view class="goodsIndexWrap" wx:if="{{goodsIndex+4 <11}}">{{goodsIndex+4}}</view>
+            <image class="itemMsgImg" src="{{goodsListItem.goodsInfo.thumb}}" />
+          </view>
+          <view class="topTitle_">
+            <view class="topTitleTxt">{{goodsListItem.goodsInfo.goodsName}}</view>
+            <view class="topTitlePriceWrap">
+              <view class="topTitlePrice">{{goodsListItem.goodsInfo.goodsPrice}}</view>
+              <image class="iconShopping" src="/images/icon_shopping.png" data-goodsId='{{goodsListItem.goodsInfo.goodsId}}' catchtap='handleToBuy' data-goodsList="{{goodsListItem}}" />
+            </view>
+          </view>
+        </view>
+      </view>
+    </block>
+  </view>
+  <reachTheBottom wx:if="{{goodsList.length > 0}}"></reachTheBottom>
+</view>
+<c-shopba kind='addCart' wx:if='{{isPopCart}}' shbpbaWrapHeight='999' shbpbaListHeight='444' goodsId='{{addGoodsId}}' catchtouchmove='true' goodsList='{{addGoodslist}}' id="addCart" bindhideCart="onhideCart" bindgetTotle='ongetTotle'></c-shopba>
+<i-toast id="toast" />
+<c-navigationTools totalCount='{{totalCounts}}' />
+<c-navigationToolsTwo toTheTop="{{toTheTop}}" catchtoUpImgs="ontoUpImgs" />

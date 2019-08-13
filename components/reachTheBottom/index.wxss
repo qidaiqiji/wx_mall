@@ -1,0 +1,28 @@
+/* components/reachTheBottom/index.wxss */
+.showListWrap_T_three_wrap_zero{
+    width: 100%;
+}
+.showListWrap_T_three_wrap {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 40rpx 0 162rpx 0;
+    background: rgba(243, 243, 243, 1);
+}
+.showWhite{
+  background: #fff
+}
+.showListWrap__border {
+    width: 263rpx;
+    height: 1rpx;
+    background: #d4d4d4;
+
+}
+
+.showListWrap_t {
+    margin: 0 35rpx;
+    font-size: 26rpx;
+    font-family: PingFang-SC-regular;
+    font-weight: 400;
+    color: rgba(212, 212, 212, 1);
+}

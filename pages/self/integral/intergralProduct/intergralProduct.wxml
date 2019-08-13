@@ -1,0 +1,60 @@
+<!--pages/integral/intergralProduct/intergralProduct.wxml-->
+<view class="product">
+    <!-- 轮播 -->
+    <view>
+      <pro_swiper gallery="{{gallery}}" lastOrderInfo="{{lastOrderInfo}}"></pro_swiper>
+    </view>
+    <!-- 直发 -->
+    <view id="zhifatop_wrap">
+      <view class="{{isabsolute?isabsolute:isRelitive}}">
+        <view class="product_zhi">
+          <view class="{{unnum==1?'product_straight_one0':'product_details_one'}}" bindtap="tapMove" wx:if="{{isZhifa==true?true:false}}">
+            <view class="text_tap">直发</view>
+            <view class="border_border" wx:if="{{unnum==1?true:false}}"></view>
+          </view>
+          <view class="{{unnum==1?'daifa':'product_details_one'}}" bindtap="tapMove" wx:if="{{isZhifa==false?true:false}}">
+            <view class="text_tap">代发</view>
+            <view class="border_border" wx:if="{{unnum==1?true:false}}"></view>
+          </view>
+          <view class="{{unnum==2?'product_straight_one0':'product_details_one'}}" bindtap="tap">
+            <view class="text_tap">详情</view>
+            <view class="border_border" wx:if="{{unnum==2?true:false}}"></view>
+          </view>
+        </view>
+      </view>
+    </view>
+
+    <!-- 积分兑换 -->
+    <view class="title_w">
+      <view class="title_wrap">
+        <image class="pro_jia_img" src="/images/img_jifen.png"></image>
+        <text class="title_txt">{{goodsName}}</text>
+      </view>
+      <view class="title_txt_bottom">
+        <view class="title_number">{{price}}积分</view>
+        <view class="title_price">市场价￥{{marketPrice}}</view>
+      </view>
+    </view>
+    <!-- 参数 -->
+    <view>
+      <pro_send attributes="{{attributes}}"></pro_send>
+    </view>
+    <!-- 图文详情 -->
+    <view class="detailsTxt">图文详情</view>
+    <view  id="detailsTxt" wx:if="{{goodsDesc}}">
+      <block wx:for="{{goodsDesc}}" wx:for-item="pro_brand_img" wx:for-index="pro_brand_imgi" wx:key="{{pro_brand_imgi}}"
+        wx:if="{{goodsDesc}}">
+        <image class="detailsImg" src="{{pro_brand_img}}" mode="widthFix"></image>
+      </block>
+    </view>
+    <reachTheBottom></reachTheBottom>
+    <!-- 底部 -->
+    <view id="bottom"></view>
+    <view class="bottom" catchtap='shopadd'>
+      立即兑换
+    </view>
+  
+</view>
+<Integralshopping class="Integralshopping" balance="{{balance}}" addCartList="{{addCartList}}" marketPrice="{{marketPrice}}"></Integralshopping>
+<c-navigationTools isBottom='118' />
+<c-navigationToolsTwo toTheTop="{{toTheTop}}" bottomToTheTop='118' catchtoUpImgs="ontoUpImgs" />

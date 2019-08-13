@@ -1,0 +1,9 @@
+{
+  "navigationBarTitleText": "活动中心",
+  "usingComponents": {
+        "c-activeGoodsItem": "/components/activeGoodsItem/index",
+        "c-navigationTools": "/components/navigationTools/index",
+        "c-navigationToolsTwo": "/components/navigationToolsTwo/index",
+        "i-toast": "/dist/toast/index"
+  }
+}

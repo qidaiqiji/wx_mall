@@ -1,0 +1,92 @@
+<view class="wrap">
+  <view class="top">
+    <image class="topImg" src="{{gift_title}}" />
+    <view class="topTxt">支付成功</view>
+  </view>
+  <view class="conter_wrap">
+    <view class="conter">
+      <view class="conter_title">订单信息</view>
+      <view class="conter_price">订单金额：¥<text class="conter_money">{{moneyPaid}}</text></view>
+      <view class="conter_number">订单编号：{{groupId}}</view>
+    </view>
+  </view>
+  <view class='pay_coupon' wx:if="{{couponList.length > 0}}">
+    <view class="pay_coupon_txt">恭喜你获得以下优惠券： 可在<text catchtap='myCoupon'>我的券包查</text>看</view>
+    <scroll-view scroll-x="true" style=" white-space: nowrap; display: flex" wx:if="{{couponList.length > 3}}">
+      <block wx:for="{{couponList}}" wx:for-item='couponList' wx:key='index'>
+        <view class="coupon_img_wrap" style="background-image: url({{img_discount}});">
+          <view class="coupon_img">
+            <text>{{couponList.cut}}</text>
+            <text>元</text>
+          </view>
+          <view class="">{{couponList.subType}}</view>
+        </view>
+      </block>
+    </scroll-view>
+    <view class="pay_coupon_flex" wx:else>
+      <block wx:for="{{couponList}}" wx:for-item='couponList' wx:key='index'>
+        <view class="coupon_img_wrap" style="background-image: url({{img_discount}});">
+          <view class="coupon_img">
+            <text>{{couponList.cut}}</text>
+            <text>元</text>
+          </view>
+          <view class="">{{couponList.subType}}</view>
+        </view>
+      </block>
+    </view>
+  </view>
+
+  <view class="bottom_wrap">
+    <view class="bottom" wx:if="{{zhifaGift.goodsList.length > 0}}">
+      <view class="bottom_title">
+        <image class="bottom_title_img" src="/images/icon_complimentary@2x.png" mode="aspectFit|aspectFill|widthFix" />
+        <text class="bottom_title_txt">赠品信息</text>
+      </view>
+      <view class="bottom_for">
+        <block wx:for="{{zhifaGift.goodsList}}" wx:for-item='goodsItem' wx:key='index'>
+          <view class="for_wrap">
+            <view class="bottom_left">
+              <image class="bottom_img" src="{{goodsItem.goodsThumb}}" mode="widthFix" lazy-load="true" />
+            </view>
+            <view class="bottom_right">
+              <view class="bottom_goodsName">{{goodsItem.goodsName}}</view>
+              <view class="bottom_price_wrap">
+                <view class="bottom_number">数量：{{goodsItem.num}}</view>
+                <view class="bottom_price">零售价：¥{{goodsItem.marketPrice}}</view>
+              </view>
+            </view>
+          </view>
+        </block>
+      </view>
+    </view>
+    <view class="bottom" wx:if="{{integralGoodsList.length > 0}}">
+      <view class="bottom_title">
+        <image class="bottom_title_img" src="/images/icon_complimentary@2x.png" mode="aspectFit|aspectFill|widthFix" />
+        <text class="bottom_title_txt">抽奖订单商品</text>
+      </view>
+      <view class="bottom_for">
+        <block wx:for="{{integralGoodsList}}" wx:for-item='goodsItem' wx:key='index'>
+          <view class="for_wrap">
+            <view class="bottom_left">
+              <image class="bottom_img" src="{{goodsItem.goodsThumb}}" mode="widthFix" lazy-load="true" />
+            </view>
+            <view class="bottom_right">
+              <view class="bottom_goodsName">{{goodsItem.goodsName}}</view>
+              <view class="bottom_price_wrap">
+                <view class="bottom_number">数量：{{goodsItem.num}}</view>
+                <view class="bottom_price">零售价：¥{{goodsItem.marketPrice}}</view>
+              </view>
+            </view>
+          </view>
+
+        </block>
+
+      </view>
+    </view>
+  
+  </view>
+  <view class='successPage_btn'>
+    <view class="look_order" bindtap='lookOrder'>查看订单</view>
+    <view class="go_to_idex" bindtap='goToIndex'>返回首页</view>
+  </view>
+</view>

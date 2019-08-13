@@ -1,0 +1,24 @@
+{
+  "navigationBarTitleText": "购物车",
+  "usingComponents": {
+    "i-sticky": "../../dist/sticky/index",
+    "i-modal": "../../dist/modal/index",
+    "i-sticky-item": "../../dist/sticky-item/index",
+    "c-checkGoodsItem": "/components/checkGoodsItem/index",
+    "c-goodsItem_row": "/components/goodsItem_row/index",
+    "c-goodsShow_active": "/components/goodsShow_active/index",
+    "c-disabledGoods": "/components/disabledGoods/index",
+    "c-coudanTopTip": "/components/coudanTopTip/index",
+    "c-coudanBottomTip": "/components/coudanBottomTip/index",
+    "c-autoPopup": "/components/cartPopup/autoPopup/index",
+    "c-bottomModal": "/components/bottomModal/index",
+    "c-nGoods_cart": "/components/nGoods_cart/index",
+    "c-navigationTools": "/components/navigationTools/index",
+    "c-navigationToolsTwo":"/components/navigationToolsTwo/index",
+    "c-goodsItem_col": "/components/goodsItem_col/index",
+    "c-shopba": "/components/product_b/shopba/index",
+    "i-toast": "../../../dist/toast/index",
+    "c-reachTheBottom": "/components/reachTheBottom/index",
+    "c-modal": "/components/modal/index"
+  }
+}

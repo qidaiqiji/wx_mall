@@ -1,0 +1,7 @@
+{
+  "usingComponents": {
+    "c-choose_address": "../../../components/choose_address/index",
+    "i-toast": "../../dist/toast/index",
+    "i-modal": "../../dist/modal/index"
+  }
+}

@@ -1,0 +1,87 @@
+<view class='container'>
+  <view class='bg'>
+    <view class='row'> <text>用户ID</text>
+      <view>{{userId}}</view>
+    </view>
+    <view class='row'> <text>联系人</text>
+      <view>{{nickname}}</view>
+    </view>
+    <view class='row'> <text>手机号</text>
+      <view>{{mobilePhone}}</view>
+    </view>
+    <view class='row'> <text>店铺名称</text>
+      <view>{{companyName}}</view>
+    </view>
+    <view class='row'> <text>生日</text>
+      <view class='input_box'>
+        <view bindtap='getBirthday' class='inputClick'>
+          <view wx:if='{{!birthday}}' style='color:#D4D4D4'>
+            请输入出生日期
+          </view>
+          <view wx:else>
+            {{birthday}}
+          </view>
+
+        </view>
+        <view class='delete_icon' bindtap='deleteValue' data-kind='birthday'>
+          <image wx:if='{{!!birthday}}' src='/images/icon_search_delete.png'></image>
+        </view>
+      </view>
+    </view>
+    <view class='row'><text>性别</text>
+      <view class='input_box'>
+        <view bindtap='getSex' class='inputClick'>
+
+          <view wx:if='{{!sexName}}' style='color:#D4D4D4'>请输入性别 </view>
+          <view wx:else>{{sexName}}</view>
+        </view>
+        <view class='delete_icon' bindtap='deleteValue' data-kind='sex'>
+          <image wx:if='{{!!sexName}}' src='/images/icon_search_delete.png'></image>
+        </view>
+      </view>
+    </view>
+    <view class='row'><text>联系方式</text>
+      <view class='input_box'><input value='{{contactWay}}'  placeholder='请输入您的其他联系方式。例：邮箱或者QQ' placeholder-style='color:#D4D4D4'
+          bindinput='getValue'></input>
+        <view class='delete_icon' bindtap='deleteValue' data-kind='contactWay'>
+          <image wx:if='{{!!contactWay}}' src='/images/icon_search_delete.png'></image>
+        </view>
+
+      </view>
+    </view>
+    <view class='qualificationPicture'>
+      <view class='picture_title'>资质照片</view>
+      <view class='pictures'>
+        <block wx:for='{{license}}' wx:key='index'>
+          <image mode="aspectFill" src='{{item}}'></image>
+        </block>
+
+      </view>
+    </view>
+    <c-navigationToolsTwo toTheTop="{{toTheTop}}" bottomToTheTop='150' catchtoUpImgs="ontoUpImgs" />
+  </view>
+  <view class='saveBtn' bindtap='handleSaveMsg'>确定修改</view>
+
+
+
+</view>
+<view class='mask' wx:if='{{isShowBirthday}}' catchtouchmove='move' bindtap='pickerViewCancel'></view>
+<view class='choose' wx:if='{{isShowBirthday}}'>
+  <view class='pickerView'>
+    <view bindtap='pickerViewCancel' class='cancel'>取消</view>
+    <view class='confirm' bindtap='pickerViewConfirm'>确定</view>
+  </view>
+  <picker-view indicator-style="height: 30px;" style="width: 100%; height: 200px;" value="{{value}}" bindchange="bindChange">
+    <picker-view-column>
+      <view wx:for="{{years}}" style="line-height: 30px;text-align:center">{{item}}</view>
+    </picker-view-column>
+    <picker-view-column>
+      <view wx:for="{{months}}" style="line-height: 30px;text-align:center">{{item}}</view>
+    </picker-view-column>
+    <picker-view-column>
+      <view wx:for="{{days}}" style="line-height: 30px;text-align:center">{{item}}</view>
+    </picker-view-column>
+  </picker-view>
+</view>
+<i-action-sheet visible="{{ isactionSheet }}" actions="{{ actiions }}" show-cancel bind:cancel="actionSheetCancel"
+  bind:click="actionSheetClickItem" />

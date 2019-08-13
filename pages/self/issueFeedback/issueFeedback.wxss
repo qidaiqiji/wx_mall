@@ -1,0 +1,33 @@
+/* pages/self/issueFeedback/issueFeedback.wxss */
+page{
+  background: #f3f3f3;
+  
+}
+.section{
+  margin-top: 20rpx;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+button{
+width:662rpx;
+height:88rpx;
+margin: 0 auto;
+background:#FFAEC2;
+border-radius:4rpx;
+font-size:32rpx;
+font-family:PingFangSC-Regular;
+font-weight:400;
+color:rgba(255,255,255,1);
+}
+.awaitText{
+background:rgba(255,51,102,1);
+}
+.textBg{
+width:750rpx;
+height:388rpx;
+background:rgba(255,255,255,1);
+padding: 30rpx 24rpx;
+margin-bottom: 80rpx;
+}

@@ -1,0 +1,5 @@
+
+<view class="pop_main {{showToast?'fixedShows':''}}" >
+<view class='pop_content'>采购数不可低于最低起订量采购数不可低于最低起订量</view>
+</view>
+<!-- /// 可能作废 -->

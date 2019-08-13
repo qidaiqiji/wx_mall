@@ -1,0 +1,9 @@
+{
+  "navigationBarTitleText": "选品专辑",
+  "usingComponents": {
+    "c-navigationTools": "/components/navigationTools/index",
+    "c-navigationToolsTwo":"/components/navigationToolsTwo/index",
+    "reachTheBottom": "/components/reachTheBottom/index",
+    "colllistSwiper": "/components/colllistSwiper/index"
+  }
+}

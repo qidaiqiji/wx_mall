@@ -1,0 +1,17 @@
+<!--components/choose_integral/index.wxml-->
+<view class='Mask' catchtouchmove='move' bindtap="cancels"></view>
+<view class='choose_integral_wrap'>
+    <view class="cityheader">
+        <view bindtap="cancels" class="city-cancel">取消</view>
+        <view bindtap="confirm" class="city-true">确定</view>
+    </view>
+    <picker-view class="picker-view" indicator-style="height: 47px;" value="{{value}}" bindchange="bindChange">
+        <picker-view-column>
+            <view wx:for="{{integralList}}" wx:key="{{index}}" style="line-height: 94rpx">
+                <view >{{item.integra}}</view>
+              
+            </view>
+
+        </picker-view-column>
+    </picker-view>
+</view>

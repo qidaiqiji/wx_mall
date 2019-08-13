@@ -1,0 +1,118 @@
+<view class="shopba" catchtap='showModal' data-modal="bottomModal">
+  <slot name='shopba' class="nav-title" wx:if="{{kind==='addCart'}}"></slot>
+</view>
+<!-- 底部 maskLayer -->
+<view class="Mask {{modalName !== null?'show':''}}" catchtap='onConfirm' catchtouchmove='move' wx:if="{{!maskLayer}}"></view>
+<view class="Mask_hide" catchtap='onConfirm' catchtouchmove='move' wx:if="{{maskLayer}}"></view>
+<view class="shopba_content {{modalName !== null?'showTwo':''}}" style="height: {{shbpbaWrapHeight}}rpx;" catchtouchmove='move' animation="{{animation}}">
+  <view class="shopba_content_wrap">
+    <view class="shopba_content_top">
+      <!-- 左图 -->
+      <view class="shopba_ConTopLL">
+        <image class="shopba_ConTopL" src="{{addCartList.goodsThumb}}"></image>
+        <!-- 中间内容 -->
+        <view class="shopba_CTopC">
+          <view class="shopba_CTopC_one">{{addCartList.goodsName}}</view>
+          <view class="shopba_CTopC_two">
+            <view class="shopba_CTopC_t_wrap">
+              <text class="shopba_CTopC_two_tex">起批量≥{{addCartList.start}}</text>
+            </view>
+            <view class="shopba_CTopC_two_tex">库存: {{addCartList.goodsNum}}</view>
+            <view class="shopba_CTopC_two_biao">
+              <view wx:if="{{addCartList.isBuyByBox}}">
+                <image class="shopba_tag_color2 " src="/images/product_anxiang.png" />
+              </view>
+              <view wx:if="{{addCartList.isMix}}">
+                <image class="shopba_tag_color3 " src="/images/product_hunpi.png" />
+              </view>
+            </view>
+          </view>
+        </view>
+      </view>
+      <!-- 右边关闭 -->
+      <view class="shopba_CTopR" catchtap='onConfirm'>
+        <image class="shopba_ConTopL_img" src="/images/icon_close.png"></image>
+      </view>
+    </view>
+    <view class="shopba_content_conter">
+      <text>选择类型</text>
+      <text>采购数量</text>
+    </view>
+    <view class="shopba_content_bottom" style="height: {{shbpbaListHeight}}rpx;">
+      <scroll-view scroll-y class='goodsSn_num' style="height: {{shbpbaListHeight}}rpx;">
+        <view class="shopbaConBWrap" wx:for="{{addCartList.spuList}}" wx:for-item="spu" wx:for-index="spu_in" wx:key="{{spu_in}}" wx:if="{{bottomSwitch?spu_in=='0'?true:false:true}}">
+          <!-- 左图 -->
+          <view class="shopbaConBoL">
+            <image class="shopbaConBoL_img" src="{{spu.goodsThumb}}"></image>
+          </view>
+          <!-- 中间 -->
+          <view class="shopbaConBoCon">
+            <!-- 海水 -->
+            <view class="shopbaConBoCon_zero">
+              <view class="shopbaConBoCon_text_one">{{spu.skuSize}}</view>
+              <view class="shopbaConBoCon_text_two" style='color:{{vip?"#271D1E":""}}'>
+                ￥{{spu.price}}
+              </view>
+            </view>
+            <!-- 条形码 -->
+            <view class="shopbaConBoCon_ze">
+              <view class="shopbaConBoCon_text_three">
+                <text class="shopba_interval">条形码</text>
+                <text>:{{spu.goodsSn}}</text>
+              </view>
+              <view>
+                <text class="shopba_interval">库存:</text>
+                <text>{{spu.goodsNum}}</text>
+              </view>
+            </view>
+          </view>
+          <view>
+            <!-- 判断列表右侧现实的样式 -->
+            <view wx:if="{{spu.goodsNum>0&&spu.goodsNum-spu.startNum>=0}}">
+              <view class="shopbaConBoRiOne">
+                <view class="shopbaConBoRiTwo" bindtap='reduce' data-sgoodsId="{{spu.goodsId}}" data-value='{{spu.value}}' data-sstartNum="{{spu.startNum}}" data-snumberPerBox="{{spu.numberPerBox}}" data-price="{{spu.price}}" data-buyByBox='{{spu.buyByBox}}'>
+                  <image src="{{spu.value>spu.startNum&&spu.value>0?'/images/icon_stepper_minus_big_black.png':'/images/icon_stepper_minus_big_disabled.png'}}" style="width: 30rpx;height: 30rpx;"></image>
+                </view>
+                <view class="shopbaConBoRiT">
+                  <input class="shopba_input" value="{{spu.value}}" data-value='{{spu.value}}' bindblur='changenum' type='number' data-sgoodsId="{{spu.goodsId}}" data-sstartNum="{{spu.startNum}}" data-maxNum='{{spu.maxNum}}' data-snumberPerBox="{{spu.numberPerBox}}" data-price="{{spu.price}}" data-goodsNum='{{spu.goodsNum}}' />
+                </view>
+                <!-- 加号 -->
+                <view class="shopbaConBoRiTwo" data-value='{{spu.value}}' bindtap='addnum' data-sgoodsId="{{spu.goodsId}}" data-sstartNum="{{spu.startNum}}" data-snumberPerBox="{{spu.numberPerBox}}" data-price="{{spu.price}}" data-maxNum='{{spu.maxNum}}' data-buyByBox='{{spu.buyByBox}}' data-goodsNum='{{spu.maxNum}}'>
+                  <image class="" src="{{spu.value>=spu.maxNum?'/images/icon_stepper_add_big_disabled.png':'/images/icon_stepper_add_big_black.png'}}" style="width: 30rpx;height: 30rpx;"></image>
+                </view>
+              </view>
+            </view>
+            <view wx:else class='type_btn'>
+              <view class="shopbaConBoRi" wx:if="{{spu.isActivity}}">
+                <text>已售罄</text>
+              </view>
+              <view wx:else>
+                <form bindsubmit="unsetreminder" report-submit='true' class="shopbaConBoRi_add" wx:if="{{spu.reminder==2}}" data-reminder="{{spu.reminder}}" data-goodsId="{{spu.goodsId}}">
+                  <button hover-class='none' formType="submit">{{isNew == 1?'我想要':'到货提醒'}}</button>
+                </form>
+                <view class="shopbaConBoRi_un" wx:if="{{spu.reminder==1}}" catchtap="setreminder" data-reminder="{{spu.reminder}}" data-goodsId="{{spu.goodsId}}">
+                  <text>{{isNew == 1?'已想要':'取消提醒'}}</text>
+                </view>
+                <view class="shopbaConBoRi" wx:if="{{spu.reminder==0}}">
+                  <text>已售罄</text>
+                </view>
+              </view>
+            </view>
+          </view>
+        </view>
+      </scroll-view>
+    </view>
+    <view class="shopba_bottom_bb" style='color:{{vip?"#271D1E":""}}'>
+      <text class="shopba_bottom_bb_one">{{num}}</text>
+      <text>￥{{totalprice}}</text>
+    </view>
+    <view class='addCarShop {{vip?"shopba_bottom_vip":"shopba_bottom"}}' bindtap="goshop" data-vip='{{vip}}'>
+      <text>{{bottomSwitch?'立即购买':'加入采购车'}}</text>
+    </view>
+  </view>
+  <view class="content_bottom" wx:if="{{contentBOn}}">
+    <view class="content_bottom_two">
+      <view class="content_bottom_txt">{{content}}</view>
+    </view>
+  </view>
+</view>

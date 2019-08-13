@@ -1,0 +1,208 @@
+<!-- <c-headSearch keywords='{{keywords}}' /> -->
+<!-- <c-searchLists kind='index'  /> -->
+<!-- <c-navigationTools /> -->
+<import src="/components/cartPopup/global/index" />
+<template is="toast" data="{{..._toast_}}" />
+<view class="add_top_tag_wrap" wx:if="{{addTopTagWrap}}" style='background-image:url({{img_top_tag}});'>
+  <view class="cancel_top_tag_txt" catchtap='addTopTag'></view>
+</view>
+<view wx:if='{{indexWeek}}'>
+  <view class='Mask' catchtouchmove='move' wx:if='{{isIntoIndex}}'></view>
+  <view class='fixedAd' catchtouchmove='move' wx:if='{{isIntoIndex}}'>
+    <view class='fixedAd_cancel' bindtap='cancelIndexFixedAd'>
+      <image src='/images/homepage_icon_close@2x.png'></image>
+    </view>
+    <image class='realAd' src='{{ads[0].img}}' data-item='{{ads[0]}}' catchtap='goAdvertising'></image>
+  </view>
+</view>
+<view class='fixedBg serach '>
+  <c-headSearch keywords='{{keywords}}' iscolor='iscolor' index='index' noLook='{{noLook}}' />
+  <view class='message' bindtap='jumpToHeadlineNews'>
+    <image src='/images/icon_news.png'></image>
+    <view class='dot' wx:if='{{!!isNew}}'></view>
+  </view>
+</view>
+<view class='{{isActTime?"isActivePage":""}} all'>
+  <view class='banner'>
+    <view class="index_translate">
+      <view class="pro_swipe_top {{indextop?'pro_swipe_top_two':''}} ">
+        <view class="pro_swipe_img_wrap ">
+          <image style="width: 36rpx;height: 36rpx;margin-left: 13rpx;margin-top: 6.5rpx;" src="/images/img_portrait.png"></image>
+          <text class="pro_swipe_top_txt">{{arr}}</text>
+        </view>
+      </view>
+    </view>
+    <swiper class='banner_swiper' autoplay="true" interval='5000' circular="true" indicator-dots='true' duration='500' indicator-color='rgba(rgba(215,184,191,1)' indicator-active-color='rgba(255,255,255,1)'>
+      <block wx:for="{{bannerList}}" wx:for-item='bannerItem' wx:key='index'>
+        <swiper-item>
+          <image src="{{bannerItem.img}}" class="slide-image" catchtap='goAdvertising' data-item='{{bannerItem}}' />
+        </swiper-item>
+      </block>
+    </swiper>
+  </view>
+  <view class='classify_into  {{isActTime?"isActive_cla":""}}' wx:if='{{category.length>0}}'>
+    <block wx:for='{{category}}' wx:for-item='categoryItem' wx:key='index'>
+      <view class='classify_into_item' catchtap='goAdvertising' data-item='{{categoryItem}}'>
+        <image src='{{categoryItem.icon}}'></image>
+        <view>{{categoryItem.title}}</view>
+      </view>
+    </block>
+  </view>
+  <view class='headlineNews'>
+    <view class='headlineNews_'>
+      <view class='headlineNews_img'>
+        <image src='/images/headlineNewsLogo.png'></image>
+      </view>
+      <view class='cutOffRule'></view>
+      <view class='headlineNew'>
+        <swiper duration='1000' interval='2000' circular vertical autoplay class='headlineNew_swiper' bindtap='jumpToHeadlineNews'>
+          <block wx:for='{{notifyList}}' wx:key='{{index}}'>
+            <swiper-item class='headlineNew_swiperItem'>
+              <view class='headlineNew_swiperItem_tag' wx:if="{{item.tag}}">{{item.tag}}</view>
+              <view class='headlineNew_swiperItem_title'>{{item.title}}</view>
+            </swiper-item>
+          </block>
+        </swiper>
+      </view>
+    </view>
+  </view>
+  <!-- <view class="linshiclass" catchtap='linshiclass'>保湿季</!-->
+  <!-- <view class="linshiclass" catchtap='biaobaiji'>口令</!--> 
+  <!-- <view class="linshiclass" catchtap='linshiclass2'>活动</view> -->
+  <view class='indexUnpaidDrawAd' wx:if='{{unpaidDrawAd.length>0}}'>
+    <block wx:for='{{unpaidDrawAd}}' wx:key='index'>
+      <image bindtap='jumpToUrl' data-url='{{item.url}}' src='{{item.img}}'></image>
+    </block>
+  </view>
+  <!-- 大型活动广告位 -->
+  <view class=' {{isActTime?"active_ad":""}}' wx:if='{{isActTime&&bigActivityAd.length>0}}'>
+    <block wx:for='{{bigActivityAd}}' wx:key='index' wx:if='{{bigActivityAd.length>0}}'>
+      <image bindtap='jumpToUrl' data-url='{{item.url}}' src='{{item.img}}'></image>
+    </block>
+  </view>
+  <view class='vip_into   {{isActTime?"active_vip":""}}' bindtap='vip' wx:if='{{isVip}}'>
+    <image src='/images/homepage_vip@2x.png'></image>
+  </view>
+  <!-- <view class="linshi" catchtap='linshi'>临时</view> -->
+  <view class='ad    {{isActTime?"active_ads":""}}' wx:if='{{midAds.length>0}}'>
+    <block wx:for='{{midAds}}' wx:for-item='midAdItem' wx:key='index'>
+      <image src='{{midAdItem.img}}' catchtap='goAdvertising' data-item='{{midAdItem}}'></image>
+    </block>
+  </view>
+  <view class='miaosha'>
+    <view class='miaosha_title'>
+      <view class='m_title_left'>
+        <image src='/images/miaosha@2x.png'></image>
+        <c-times id="miaoshaIndex" mytimes='{{flashSaleNew.date}}' kind='index' wx:if="{{flashSaleNew}}" />
+        <!-- <c-times mytimes='{{flashSale.date}}' kind='index' wx:else /> -->
+      </view>
+      <view class='m_title_right' bindtap='jumpToMiaoSha'>
+        <view>更多</view>
+        <image src='/images/icon_more_white.png'></image>
+      </view>
+    </view>
+    <view class='miaosha_good' bindtap='jumpToMiaoSha'>
+      <view wx:if="{{flashSaleNew}}">
+        <block wx:for='{{flashSaleNew.goodsList}}' wx:for-item='goodsList' wx:for-index='flashSaleIndex' wx:key='flashSaleIndex'>
+          <view class="miaosh_ad">
+            <view class="miaosh_ad_top">
+              <image src='{{goodsList.thumb}}' />
+              <view class='left_tag' style='background:url({{img_tag_miaosha}});background-size:100%;background-repeat: no-repeat;' wx:if="{{goodsList.isHot}}">
+                必抢
+              </view>
+            </view>
+            <view class="miaosh_province">{{goodsList.desc}}</view>
+            <view class='miaosh_produce' wx:if='{{noLook}}'>认证看价</view>
+            <view class="miaosh_produce" wx:else>￥{{goodsList.goodsPrice}}</view>
+          </view>
+        </block>
+      </view>
+      <!-- <view wx:else>
+        <c-miaoshaAd hotGoods='{{flashSale.goods}}' isJumpToDetail='{{false}}' noLook='{{noLook?true:false}}'
+          indexGoods="{{false}}" />
+      </view> -->
+    </view>
+  </view>
+  <view wx:if='{{newBrandList.length>0}}' style="margin-top: 40rpx;">
+    <view class="new_activities " catchtap='allXinPin'>
+      <view class="new_activities_txt   {{isActTime?'active_color':''}}">红盒子新品</view>
+      <view class="new_activities_txt_wrap  {{isActTime?'active_color':''}}">
+        <view>更多</view>
+        <image class="new_activities_right" src="{{isActTime?'/images/icon_more_white.png':'/images/icon_putaway_black@2x.png'}}" />
+      </view>
+    </view>
+    <view class="newBrandList_flex">
+      <block wx:for="{{newBrandList}}" wx:for-item='newBrandList' wx:key='index'>
+        <view class="newBrandList_wrap" data-brandId="{{newBrandList.brandId}}" catchtap='allXinPin'>
+          <view class="newBrandList_brandBanner">
+            <image class="huadongimg" src="{{newBrandList.brandBanner}}" />
+            <view class="newBrandList_wrap_txt">{{newBrandList.sellingPoint}}</view>
+          </view>
+          <view class="newBrandList_bottom">
+            <text>{{newBrandList.discount}}折起</text>
+            <text>{{newBrandList.brandName}}</text>
+          </view>
+        </view>
+      </block>
+    </view>
+  </view>
+  <view class='discounts' wx:if="{{actPage.length > 0}}">
+    <view class='discounts_title  {{isActTime?"active_bg":""}}'>
+      <view class='discounts_title_  {{isActTime?"active_color":""}}'>特卖专场</view>
+    </view>
+    <view class='discounts_goods  {{isActTime?"active_bg":""}}'>
+      <block wx:for="{{actPage}}" wx:for-item='actPage' wx:key='index'>
+        <view class='discounts_goodsItem' data-pageId="{{actPage.pageId}}" catchtap='goDiscounts'>
+          <view class="discounts_top">
+            <image class="discounts_img" src="{{actPage.img}}" />
+            <view class="discounts_top_txt_wrap">
+              <image class="discounts_tag" src="{{actPage.icon}}" />
+              <view class="discounts_txt">
+                <text class="discounts_txt_name">{{actPage.name}}</text>
+              </view>
+            </view>
+          </view>
+          <view class="discounts_bottom">
+            <view class="discounts_knock">{{actPage.sellingPoint}}</view>
+            <view class="discounts_time_wrap">
+              <view class="discounts_time_txt1">仅剩 :</view>
+              <view>
+                <c-times id="actPageTimes{{index}}" mytimes="{{actPage.endTime}}" kind='tehui' wx:if="{{actPageTimesTwo}}"></c-times>
+              </view>
+            </view>
+          </view>
+        </view>
+      </block>
+    </view>
+  </view>
+  <view class='adTitle' wx:if='{{botAds.length>0}}'>
+    <swiper duration='500' circular='{{true}}' autoplay="{{true}}" class='adTitle_swiper'>
+      <block wx:for="{{botAds}}" wx:for-item='botAdItem' wx:key='index'>
+        <swiper-item>
+          <image src='{{botAdItem.img}}' mode='widthFix' bindtap='handleJump' data-id="{{botAdItem.id}}" data-url='{{botAdItem.url}}'></image>
+        </swiper-item>
+      </block>
+    </swiper>
+  </view>
+  <view class='goodsListAll' wx:if='{{goodsList.length>0}}'>
+    <view class='discounts_title_all'>
+      <view class='discounts_title_txt   {{isActTime?"active_color":""}}'>为您推荐</view>
+    </view>
+    <c-goodsItem_col bindevokeAddCart='onevokeAddCart' goodsList='{{goodsList}}' noLook='{{noLook?true:false}}' isAccredit='{{isAccredit}}' homeage='homeage' />
+    <view style='display:flex;justify-content:center;margin-top:-20rpx;'>
+      <image wx:if='{{isLoading}}' style='width:100rpx;height:100rpx;margin:0 auto;' src='/images/bottomLoading.gif' />
+    </view>
+    <c-reachTheBottom wx:if='{{reachTheBottom}}' />
+  </view>
+  <c-navigationToolsTwo toTheTop="{{toTheTop}}" catchtoUpImgs="ontoUpImgs" />
+</view>
+<c-shopba kind='addCart' wx:if='{{isPopCart}}' goodsId='{{addGoodsId}}' catchtouchmove='true' goodsList='{{addGoodslist}}' id="addCart" bindhideCart="onhideCart">
+  <view class="pro_bottom_two" slot='shopba'>
+    <!-- <image class='addCart_img' mode="widthFix" src='image/car.png' /> -->
+  </view>
+</c-shopba>
+<i-toast id="toast" />
+<!-- 去认证的蒙层和tag -->
+<view class="renzheng_mark" wx:if='{{noLookHide}}' catchtouchmove='move' catchtap='noLookHide'></view>
+<image class="icon_renzheng" src="/images/icon_renzheng.png" catchtap='renzhengGo' wx:if='{{noLookTwo}}' />
+<image class="img_tishi" src="/images/img_tishi.png" wx:if='{{noLookHide}}' catchtap='noLookHide' />

@@ -1,0 +1,61 @@
+.payOrder {
+  width: 100%;
+  height: 98rpx;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #fff;
+}
+
+.payOrder_left {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-left: 23rpx;
+  font-size: 24rpx;
+}
+
+.price {
+  font-size: 32rpx;
+  color: #f36;
+  font-weight: bold;
+}
+
+.price::before {
+  content: '￥';
+  font-weight: normal;
+}
+
+.number {
+  color: #f36;
+}
+
+.payOrder_right {
+  width: 240rpx;
+  height: 98rpx;
+  line-height: 98rpx;
+  text-align: center;
+  background: #f36;
+  color: #fff;
+  font-size: 32rpx;
+}
+
+button {
+  background: transparent;
+  border-radius: 0rpx;
+  display: inline-block;
+  line-height: 98rpx;
+  font-size: 32rpx;
+  font-family: PingFang-SC-Bold;
+  font-weight: bold;
+  color: rgba(255, 254, 254, 1);
+}
+
+button::after {
+  border: none;
+}
+
+.button-hover {
+  color: #fff;
+  background: transparent;
+}

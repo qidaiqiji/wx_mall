@@ -1,0 +1,161 @@
+<view class='bgHeight'>
+  <view wx:if="{{hasCartGoods}}">
+    <view class="all">
+      <view class='allGoods' style='padding-bottom:{{zhifaInfo.hasZhifa?"170rpx":"92rpx"}}'>
+        <!-- <view class='edit' id='edit' bindtap='onAllEdit' wx:if='{{!isAllEdit}}'>
+
+          <text>编辑商品</text>
+        </view> -->
+        <!-- <view class='edits' id='edit' bindtap='onAllEditCancel' wx:if='{{isAllEdit}}'>
+          完成
+        </view> -->
+        <view class='topTip' wx:if="{{fullCutInfo.status}}">
+          <c-coudanTopTip kind='zhifaCd' higherAmount='{{fullCutInfo.higherAmount}}'
+            higherCut='{{fullCutInfo.higherCut}}' eventId='{{fullCutInfo.eventId}}'
+            fullCutNeedsMoreAmount='{{fullCutInfo.fullCutNeedsMoreAmount}}' subtotal='{{fullCutInfo}}'
+            typess='manjian' />
+        </view>
+        <block wx:for="{{!isAllEdit?validGoodsList:copyValidGoodsList}}" wx:if='{{validGoodsList.length>0}}'
+          wx:for-item="goods" wx:for-index="goodsIndex" wx:key="goodsIndex">
+          <view class='headline'>
+            <view class='headline_left'>
+              <image src="{{ !!goods.isSelect?'/images/secleted.png':'/images/unsecletd.png' }}" class="check_img"
+                bindtap="goodsCheck" isSelect='{{goods.isSelect}}' data-brandid="{{goods.brandId}}" />
+              <!-- 是不是直发 -->
+              <view wx:if="{{goods.isZhiFa}}">
+                <navigator
+                  url="/pages/aboutCart/coudanList/coudanList?title=直发凑单&kind=zhifa&isid=''&typess=zhifa&discount={{total.discount}}&provinceId={{provinceId}}&hasZhifa={{zhifaInfo.hasZhifa}}"
+                  hover-class="none">
+                  <view class='iszhifa_'>
+                    <text class="iszhifa">{{goods.title }}</text>
+                    <image class="iszhifa_img" src="/images/icon_return.png" />
+                  </view>
+                </navigator>
+              </view>
+              <!-- 不是 -->
+              <view wx:else>
+                <navigator url="/pages/aboutCart/coudanList/coudanList?title=品牌凑单&isid={{goods.brandId}}&typess=pinpai"
+                  hover-class="none">
+                  <view class='iszhifa_'>
+                    <text class="iszhifa">{{goods.title}}</text>
+                    <image class="iszhifa_img" src="/images/icon_return.png" />
+                  </view>
+                </navigator>
+              </view>
+            </view>
+            <view class='headline_right' wx:if='{{goods.canTakeCoupon}}' bindtap='handleShowCoupon'
+              data-goodsIdList='{{goods.couponItem}}'>
+              <text>领券</text>
+            </view>
+          </view>
+          <view slot="content">
+            <view class='goods'>
+              <c-checkGoodsItem goodsList='{{goods.goodsList}}' bindwhatDelete='onAllDelete' brandId="{{goods.brandId}}"
+                bindcheck="onCheck" bindgetNum="onGetNum" isAllEdit='{{isAllEdit}}' bindshowToast="onShowToast"
+                my-class="badge danger radius tags" />
+            </view>
+            <view class='kindTotal'>
+              <view class='Kleft'>共{{goods.goodsNum}}件</view>
+              <view class='Kright'>小计
+                <text class='price'>{{goods.amount}}</text>
+              </view>
+            </view>
+          </view>
+        </block>
+        <view class='disTitle' wx:if="{{invalidGoodsList.length > 0}}">
+          <view class='disTitle_left'>
+            <text>失效商品</text>
+          </view>
+          <view class='disTitle_right' bindtap='onDisDelete'>
+            清空
+          </view>
+        </view>
+        <view slot="content">
+          <block wx:for="{{invalidGoodsList}}" wx:for-item="goodsItem" wx:for-index="index" wx:key="index">
+            <c-disabledGoods goodsName="{{goodsItem.goodsName}}" goodsThumb="{{goodsItem.thumb}}"
+              status="{{goodsItem.status}}" recId='{{goodsItem.recId}}' goodsId='{{goodsItem.goodsId}}'
+              catchhideModal='hideModals' />
+          </block>
+        </view>
+      </view>
+    </view>
+    <view class='bottomFix'>
+      <c-coudanBottomTip kind='zhifaCd' bindchooseAddr='onChooseAddr' provinceName='{{provinceName}}'
+        provinceId='{{provinceId}}' hasZhifa="{{zhifaInfo.hasZhifa}}"
+        shippingAmountAbove='{{zhifaInfo.shippingAmountAbove}}'
+        shippingFreeNeedsMoreAmount='{{zhifaInfo.shippingFreeNeedsMoreAmount}}' discount='{{total.discount}}'
+        typess='zhifa' wx:if='{{zhifaInfo.hasZhifa}}' />
+      <!-- 去结算 -->
+      <view class="jiesuan-box">
+        <view class="left-price">
+          <image src="{{copyAllChecked?'/images/secleted.png':'/images/unsecletd.png' }}" class='check_img'
+            bindtap='onAllcheck' wx:if='{{isAllEdit}}' />
+          <image src="{{total.isSelect?'/images/secleted.png':'/images/unsecletd.png' }}" class='check_img'
+            bindtap='onAllcheck' wx:else />
+          <view class="all_select">全选</view>
+          <view wx:if="{{!isAllEdit}}" class="total">
+            <view class='total_'>合计：
+              <text class='total_money'>{{total.goodsAmount}}</text>
+            </view>
+            <view wx:if="{{total.discount>0}}">可立减：￥{{total.discount}}(不含运费)</view>
+          </view>
+        </view>
+        <view wx:if="{{!isAllEdit}}" class='toPayOrder' bindtap='handleToPayOrder'>
+          去结算
+        </view>
+        <view wx:else bindtap='onAllDelete' class='toDelete'>删除</view>
+      </view>
+    </view>
+    <!-- 弹出的提示 开始-->
+    <!-- <c-navigationTools /> -->
+    <c-autoPopup showToast="{{showToast}}" wx:if="{{visible}}" warning='{{warning}}' />
+    <view class='needClickTips' wx:if="{{FixedTips}}">
+      <view class='needClickTips_left'>
+        <view>
+          <text>由于库存实时变更，以下标记“</text>
+          <image src='/images/tips.png' />
+          <text>”符号的商品， 系统已自动调整为可购买数量</text>
+        </view>
+      </view>
+      <view class='needClickTips_right' bindtap='onCancelFixedTips'>
+        x
+      </view>
+    </view>
+    <i-message id="message" />
+    <!-- 弹出的提示结束 -->
+  </view>
+  <!-- //购物车没有数据时 -->
+  <view class='cartNGoods' wx:else>
+    <view class='cartNGoods_top'>
+      <view class='top_img'>
+        <image class='top_img_' src='/images/empty-car.png' />
+      </view>
+      <view class='top_title'>您的购物车空空如也，快去采购吧</view>
+      <view class='top_toGoBuy' bindtap='handleToPurchase'>去采购</view>
+    </view>
+    <view class='cartNGoods_content' wx:if='{{goodsList.length>0}}'>
+      <view class='tuijian_content'>
+        <view class='content_title'>为您推荐</view>
+        <c-goodsItem_col bindevokeAddCart='onevokeAddCart' goodsList='{{goodsList}}' />
+        <c-reachTheBottom />
+      </view>
+    </view>
+  </view>
+  <!-- 结束 -->
+</view>
+<c-bottomModal kind='lingquan' wx:if='{{isShowCoupon}}' goodsIdList='{{showCouponList}}' bindhideMask='onhideMask'
+  id='showCoupon'>
+</c-bottomModal>
+<c-shopba kind='addCart' wx:if='{{isPopCart}}' goodsId='{{addGoodsId}}' catchtouchmove='true'
+  goodsList='{{addGoodslist}}' id="addCart" bindhideCart="onhideCart">
+  <view class="pro_bottom_two" slot='shopba'>
+    <!-- <image class='addCart_img' mode="widthFix" src='image/car.png' /> -->
+  </view>
+</c-shopba>
+<i-toast id="toast" />
+<!-- <c-navigationToolsTwo toTheTop="{{toTheTop}}" catchtoUpImgs="ontoUpImgs" /> -->
+<i-modal i-add-class='deleteTip' title="提示" visible="{{ visible1 }}" actions="{{ actions}}" bind:click='handleDelete'>
+  <view class='deleteTipTitle'>确定要删除该商品吗？</view>
+</i-modal>
+<c-modal wx:if="{{pagesModal}}" desc="{{desc}}" confirm='{{confirm}}' catchconfirmTo='confirmTos'
+  catchpagesModal="pagesModals"></c-modal>

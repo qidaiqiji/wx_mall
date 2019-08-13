@@ -1,0 +1,20 @@
+<!--components/receiveSecurities/index.wxml-->
+<view class="receiveCouponWrap">
+    <scroll-view scroll-x="true" style=" white-space: nowrap; display: flex">
+        <block wx:for="{{couponList}}" wx:for-item="couponItem" wx:for-index="couponIndex" wx:key="{{couponIndex}}">
+            <view class="receiveCoupon"
+                style="background-image: url({{couponItem.takeCoupon==1?img_quan:img_quan_ling}})"
+                wx:if="{{couponItem.takeCoupon}}">
+                <view class="receiveCouponFlex">
+                    <view class="couponWrap {{couponItem.takeCoupon=='2'?'couponWrap_':''}}">
+                        <view>{{couponItem.cut}}</view>
+                        <view >{{couponItem.ruleName}}</view>
+                    </view>
+                    <view class="couponReceive" data-ruleId="{{couponItem.ruleId}}" catchtap="toReceive"
+                        wx:if="{{couponItem.takeCoupon=='1'}}">领取</view>
+                    <view class="HaveToReceive" catchtap='haveToReceive' wx:if="{{couponItem.takeCoupon=='2'}}">已领</view>
+                </view>
+            </view>
+        </block>
+    </scroll-view>
+</view>

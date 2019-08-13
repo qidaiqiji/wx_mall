@@ -1,0 +1,8 @@
+<!-- components/noGoods/index.wxml -->
+<view class="noGoodsWrap" style="height:{{calc}}rpx">
+    <view class="noGoodsImgWrap">
+    <image class="noGoodsImg" src="{{img_no}}"  />
+      
+        <view class="noGoodsTxt">暂无商品信息</view>
+    </view>
+</view>

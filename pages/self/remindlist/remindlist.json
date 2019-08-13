@@ -1,0 +1,12 @@
+{
+  "navigationBarTitleText": "到货提醒",
+  "usingComponents": {
+    "c-shopba": "/components/product_b/shopba/index",
+    "i-toast": "../../../dist/toast/index",
+    "c-goodsItem_row": "/components/goodsItem_row/index",
+    "c-notData": "/components/notData/index",
+    "c-goodsSwipeout_row": "/components/goods_swipeout/index",
+    "c-navigationTools": "/components/navigationTools/index",
+    "c-navigationToolsTwo": "/components/navigationToolsTwo/index"
+  }
+}

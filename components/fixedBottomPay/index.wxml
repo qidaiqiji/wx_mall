@@ -1,0 +1,16 @@
+<view class='payOrder'>
+  <view class='payOrder_left'>
+    <view class='left_should'>应付：
+      <text class='price'>{{totalAmount}}</text>
+    </view>
+    <view class='left_num'>共
+      <text class='number'>{{goodsCount}}</text>个商品</view>
+  </view>
+  <view class='payOrder_right'>
+    <form bindsubmit="handlePayOrder" report-submit='true'>
+
+      <button hover-class='none' formType="submit">支付订单</button>
+    </form>
+  </view>
+
+</view>

@@ -1,0 +1,55 @@
+<!--components/product_b/pro_bottom/index.wxml-->
+<!-- vip 1 套餐 2 聚划算3 秒杀4 直发5 代发6 -->
+<!-- 直发 -->
+<view class="pro_bottom_wrap">
+  <view class="pro_bottom_one">
+    <view class="a0" bindtap='myup'>
+      <view class="a1_wrap">
+        <image class="a1_img" src="/images/home_2.png"></image>
+      </view>
+      <view class="a1_text">首页</view>
+    </view>
+    <view class="a0" bindtap='gouwuup'>
+      <view class="a1_wrap">
+        <image class="a1_img" src="/images/car_2.png"></image>
+        <view class="pro_bottom_car_yuan" wx:if="{{totalCount=='0'?false:true}}">{{totalCount}}</view>
+      </view>
+      <view class="a1_text">采购车</view>
+    </view>
+    <view class="a0" catchtap='brandDetail' wx:if='{{dibu==5||dibu==6}}'>
+      <view class="a1_wrap">
+        <image class="a1_img" src="/images/tab_brandhome.png"></image>
+      </view>
+      <view class="a1_text">品牌主页</view>
+    </view>
+  </view>
+  <view
+    class='toBuy {{dibu==1?"pro_bottom_vip":dibu==2?"pro_bottom_taocan":dibu==3?"pro_bottom_juhuashang":dibu==4?"pro_bottom_juhuashang":dibu==5?"pro_bottom_zhifa":dibu==6?"pro_bottom_daifa":""}}'
+    data-goodsId='{{goodsId}}' catchtap='handleToBuy' data-goodsList="{{addCartList}}"  wx:if='{{isSpell==1}}'>
+    <view class="">{{dibu==4?'立即采购':'加入采购车'}}</view>
+  </view>
+  <view class="toBuySpell" wx:if='{{isSpell==2}}'>
+    <view class="buyAlone buyAloneBorder" data-goodsId='{{goodsId}}' catchtap='handleToBuy' data-goodsList="{{addCartList}}">
+      <view>¥{{price}}</view>
+      <view>单独购买</view>
+    </view>
+    <view class="aSpellGroup" data-isSpell="spell" data-goodsId='{{goodsId}}' catchtap='handleToSpells'
+      data-goodsList="{{addCartList}}" wx:if='{{dibu==8}}'>
+      <view>¥{{actPrice}}</view>
+      <view>发起拼团</view>
+    </view>
+    <view class="aboutBegin" wx:if='{{dibu==7}}'>即将开始</view>
+  </view>
+  <!-- 拼团详情 -->
+  <view class="detailsBottom" data-isSpell="spell" data-goodsId='{{groupInfo.goodsId}}' data-groupId="{{groupInfo.groupId}}" catchtap='handleToSpell' data-goodsList="{{addCartList}}"
+    wx:if="{{spellBottom==1}}">
+    <view>仅差{{groupInfo.needNum}}人，<c-times mytimes="{{groupInfo.endTime}}" kind='componentsSpell' wx:if="{{spellDetailsHide}}"></c-times>
+    </view>
+    <view>立即拼团</view>
+  </view>
+  <view class="initiateSpell" data-isSpell="spell" data-groupId="{{groupInfo.groupId}}" data-goodsId='{{goodsId}}'  data-goodsList="{{addCartList}}" catchtap='handleToSpell'
+    wx:if="{{spellBottom==2}}">
+    <view>{{actPrice}}</view>
+    <view>发起拼团</view>
+  </view>
+</view>

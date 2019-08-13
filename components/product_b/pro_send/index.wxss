@@ -1,0 +1,134 @@
+/* 大框 */
+.pro_send_wrap {
+    width: 750rpx;
+    background: rgba(255, 255, 255, 1);
+    display: flex;
+    flex-direction: column;
+     font-family: PingFangSC-regular !important;
+}
+
+.pro_send_right_img {
+    width: 30rpx;
+    height: 30rpx;
+    position: relative;
+    left: 0rpx;
+    top: 7rpx;
+}
+.pro_send_right_img_two {
+    padding: 0 9rpx;
+}
+
+/* 1/3 */
+.pro_send_wrap1 {
+    width: 750rpx;
+    height: 136rpx;
+    background: rgba(255, 255, 255, 1);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-left: 26rpx;
+    padding-right: 33rpx;
+    border-bottom: 1rpx solid #DCE4E6;
+}
+.zhenghuo{
+  width: 100%;
+  height: 88rpx;
+}
+/* 2/4 */
+.pro_send_wrap2,.pro_send_wrap_hanghuo {
+    width: 750rpx;
+    height: 88rpx;
+    background: rgba(255, 255, 255, 1);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-left: 26rpx;
+    padding-right: 33rpx;
+    border-bottom: 1rpx solid #DCE4E6;
+}
+
+.pro_send_wrap5 {
+    display: flex;
+}
+
+.pro_text {
+    width: 46rpx;
+    height: 23rpx;
+    font-size: 24rpx;
+    font-family: PingFangSC-Regular;
+    font-weight: 500;
+    color: rgba(136, 150, 150, 1);
+    line-height: 42rpx;
+    padding-right: 29rpx;
+}
+
+.pro_text_one {
+    width: 46rpx;
+    height: 23rpx;
+    font-size: 24rpx;
+    font-family: PingFang-SC-regular;
+    font-weight: 400;
+    color: rgba(136, 150, 150, 1);
+    line-height: 42rpx;
+    padding-right: 29rpx;
+}
+
+.pro_text_two {
+    width: 76rpx;
+    height: 25rpx;
+    font-size: 26rpx;
+    font-family: PingFang-SC-Regular;
+    /* font-weight: 400; */
+    color: rgba(47, 58, 64, 1);
+    line-height: 42rpx;
+    padding-left: 4rpx;
+}
+
+.pro_send_left3 {
+    display: flex;
+}
+
+.pro_text_gui {
+    font-size: 24rpx;
+    font-family: PingFang-SC-Regular;
+    font-weight: 400;
+    color: rgba(136, 150, 150, 1);
+    line-height: 43rpx;
+    padding-right: 32rpx;
+}
+
+.skuSizeList0 {
+    width: 540rpx;
+    height: 43rpx;
+    text-overflow: -o-ellipsis-lastline;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
+}
+
+.sklist {
+    font-size: 26rpx;
+    font-family: PingFang-SC-Regular;
+    font-weight: 400;
+    color: rgba(47, 58, 64, 1);
+    line-height: 43rpx;
+}
+
+
+.pro_send_text_three {
+    width: 94rpx;
+    height: 23rpx;
+    font-size: 24rpx;
+    font-family: PingFang-SC-Regular;
+    font-weight: 500;
+    color: rgba(136, 150, 150, 1);
+    line-height: 42rpx;
+    padding-left: 4rpx;
+    padding-right: 38rpx;
+}
+
+.pro__sendtext_four {
+    padding-left: 40rpx;
+}

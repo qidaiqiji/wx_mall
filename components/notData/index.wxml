@@ -1,0 +1,6 @@
+<!--components/notData/notData.wxml-->
+<view class='noGoodsItem' >
+  <image src='/images/img_search.png' class='noGoodsItem_img'></image>
+    
+      <view class='noGoodsItem_txt'><slot></slot></view>
+</view>

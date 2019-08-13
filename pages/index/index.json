@@ -1,0 +1,14 @@
+{
+  "navigationBarTitleText": "小美诚品",
+  "usingComponents": {
+    "c-goodsItem_col": "/components/goodsItem_col/index",
+    "c-reachTheBottom": "/components/reachTheBottom/index",
+    "c-times": "/components/times/index",
+    "c-headSearch": "/components/headSearch/index",
+    "c-navigationTools": "/components/navigationTools/index",
+    "c-shopba": "/components/product_b/shopba/index",
+    "c-navigationToolsTwo":"/components/navigationToolsTwo/index",
+    "c-miaoshaAd":"/components/miaoshaAd/index",
+    "i-toast": "../../../dist/toast/index"
+  }
+}

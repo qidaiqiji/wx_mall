@@ -1,0 +1,98 @@
+<!--components/Integralshopping/index.wxml-->
+<!-- 底部 -->
+<view class="Mask" catchtouchmove='move' wx:if='{{hideIntegra}}' catchtap='onConfirm'> </view>
+<view class="shop_wrap {{modalName?'showTwo':''}}"  wx:if='{{hideIntegra}}' animation="{{animation}}" catchtouchmove='move'>
+  <!-- top -->
+  <view class="integra_top">
+    <!-- left -->
+    <view class="integra_t_left">
+      <!-- 商品图 -->
+      <view class="ConTopL_wrap">
+        <image class="ConTopL" src="{{addCartList.goodsThumb}}" />
+      </view>
+      <!-- 商品情 -->
+      <view class="integra_title_wrap">
+        <view class="integra_title">{{addCartList.goodsName}}</view>
+        <view class="integra_txt_wrap">
+          <text class="integra_txt_distance">规格：</text>
+          <text>{{addCartList.start}}</text>
+          <text>{{addCartList.unit}}</text>
+        </view>
+        <view class="integra_txt_wrap">
+          <text class="integra_txt_distance">库存：</text>
+          <text>{{addCartList.goodsNum}}</text>
+        </view>
+      </view>
+    </view>
+    <!-- right -->
+    <view class="integra_right" catchtap='onConfirm'>
+      <image class="ConTopL_img" src="/images/icon_close.png"></image>
+    </view>
+  </view>
+  <!-- bottom -->
+  <view class="integra_bottom">
+    <view class="integra_bottom_txt_wrap">
+      <view class="integra_bottom_txt">所需积分</view>
+      <view class="integra_bottom_txt">兑换数量</view>
+    </view>
+    <view class="integra_shop_wrap">
+      <scroll-view scroll-y class='integra_shop_wrap'>
+        <view class="integra_shop" wx:for="{{goodsList}}" wx:for-item="spu" wx:for-index="spu_in" wx:key="{{spu_in}}">
+          <view>
+            <text class="integra_jifen">{{spu.price}}</text>
+            <text class="integra_jifen integra_jifen_two">积分</text>
+            <text class="integra_price">￥{{marketPrice}}</text>
+          </view>
+          <!-- 右侧数量 -->
+          <view class="shopbaConBoRiOne" wx:if="{{spu.startNum}}">
+            <!-- 减号 -->
+            <view class="shopbaConBoRiTwo" data-value='{{spu.value}}' data-goodsId="{{spu.goodsId}}"
+              data-goodsNum="{{spu.goodsNum}}" data-numberPerBox="{{spu.numberPerBox}}" data-price="{{spu.price}}"
+              bindtap='reduce'>
+              <image
+                src="{{spu.value>spu.startNum&&spu.value>0?'/images/icon_stepper_minus_big_black.png':'/images/icon_stepper_minus_big_disabled.png'}}"
+                style="width: 30rpx;height: 30rpx;"></image>
+            </view>
+            <view class="shopbaConBoRiT">
+              <input class="shopba_input" value="{{spu.value}}" data-value="{{spu.value}}" />
+            </view>
+            <!-- 加号 -->
+            <view class="shopbaConBoRiTwo" data-value='{{spu.value}}' data-goodsId="{{spu.goodsId}}"
+              data-goodsNum="{{spu.goodsNum}}" data-numberPerBox="{{spu.numberPerBox}}" data-price="{{spu.price}}"
+              bindtap='addnum'>
+              <image class=""
+                src="{{spu.startNum>=spu.goodsNum?'/images/icon_stepper_add_big_disabled.png':'/images/icon_stepper_add_big_black.png'}}"
+                style="width: 30rpx;height: 30rpx;"></image>
+            </view>
+          </view>
+          <view wx:else>
+            <view class="shopbaConBoRi">
+              <text>已售罄</text>
+            </view>
+          </view>
+        </view>
+
+      </scroll-view>
+    </view>
+  </view>
+  <view class="integar_bottom_add" catchtap="goshop">
+    确定
+  </view>
+</view>
+
+
+
+<remind kind="rectangle" id="premind" class="c_remind"></remind>
+<view class="add_tag" wx:if="{{isAddTag}}">
+  <view class="add_tag_flex">
+    <view class="tag_header">提示</view>
+    <view class="tag_body">兑换成功！您可在积分商城>积分订单里查看已兑换的商品。</view>
+    <view class="tag_bottom">
+      <view class="tag_bottom_txt1" catchtap='istoView'>去查看</view>
+      <view class="tag_bottom_txt2" catchtap='ShutDown'>关闭</view>
+    </view>
+  </view>
+</view>
+<view>
+
+</view>

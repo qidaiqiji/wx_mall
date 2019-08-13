@@ -1,0 +1,192 @@
+.billOfGoods {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  padding: 10rpx 0;
+  width: 100%;
+}
+
+.billOfGoods_main {
+  width: 100%;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  margin-bottom: 16rpx;
+}
+
+.main_left {
+  margin-left: 24rpx;
+  margin-right: 10rpx;
+}
+
+.main_left image {
+  width: 100rpx;
+  height: 100rpx;
+}
+
+.main_right_top {
+  display: flex;
+  justify-content: space-around;
+  align-items: flex-start;
+  width: 606rpx;
+}
+
+.main_right_bottom text {
+  font-size: 22rpx;
+  padding: 0rpx 8rpx;
+  background: #f36;
+  color: #fff;
+  border-radius: 4rpx;
+  height: 32rpx;
+  line-height: 32rpx;
+}
+.main_right_top_left{
+  width: 458rpx;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+}
+.main_right_top_right {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  text-align: end;
+  margin-right: 24rpx;
+}
+
+.main_right_top_right_price {
+  font-size: 24rpx;
+  color: #333;
+}
+
+.main_right_top_right_price::before {
+  content: '￥';
+}
+
+.main_right_top_right_number {
+  color: #889696;
+  font-size: 24rpx;
+}
+
+.main_right_top_right_number::before {
+  content: 'x';
+}
+
+.billOfGoods_about {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  width: 100%;
+}
+
+.billOfGoods_about_item {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.billOfGoods_about_item_tag {
+  margin-left: 16rpx;
+  margin-right: 10rpx;
+}
+
+.billOfGoods_about_item_tag text {
+  font-size: 22rpx;
+  padding: 4rpx 8rpx;
+  background: #f36;
+  color: #fff;
+}
+
+billOfGoods_about_item_ {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.billOfGoods_about_item_msg {
+  padding-top: 8rpx;
+  flex: 1;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 22rpx;
+  color: #889696;
+}
+
+.billOfGoods_about_item_msg_title {
+  width: 560rpx;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.billOfGoods_about_item_msg_number {
+  width: 80rpx;
+  margin-right: 16rpx;
+  text-align: end;
+}
+
+.billOfGoods_about_item_taocan {
+  width: 702rpx;
+  margin: 0 auto;
+  padding: 10rpx;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  background: #e8f0f3;
+}
+
+.about_item_taocan_left {
+  width: 80rpx;
+  height: 80rpx;
+  margin-right: 20rpx;
+}
+
+.about_item_taocan_left image {
+  width: 80rpx;
+  height: 80rpx;
+}
+
+.about_item_taocan_right {
+  flex: 1;
+  font-size: 24rpx;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: flex-start;
+}
+
+.about_item_taocan_right_top {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  overflow: hidden;
+}
+
+.about_item_taocan_right_bottom {
+  width: 100%;
+  color: #2f3a40;
+  display: flex;
+  justify-content: space-between;
+}
+
+.about_item_taocan_right_price {
+  margin-left: 10rpx;
+}
+
+.about_item_taocan_right_price::before {
+  content: '￥';
+}
+
+.about_item_taocan_right_number {
+  margin-right: 10rpx;
+  padding: 2rpx 8rpx;
+  border: 1rpx solid #ddd;
+}
+
+.about_item_taocan_right_number::before {
+  content: 'x';
+}

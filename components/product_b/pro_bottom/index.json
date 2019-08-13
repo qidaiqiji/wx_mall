@@ -1,0 +1,7 @@
+{
+  "component": true,
+  "usingComponents": {
+    "c-times":"/components/times/index",
+    "c-shopba": "../shopba"
+  }
+}

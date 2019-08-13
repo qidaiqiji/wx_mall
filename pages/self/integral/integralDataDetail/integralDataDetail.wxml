@@ -1,0 +1,40 @@
+<!--pages/self/integral/integralDataDetail/integralDataDetail.wxml-->
+<view class='container'>
+  <view class='header'>
+    <block wx:for='{{nav}}' wx:for-item='navItem' wx:key='index'>
+      <view class='header_title' bindtap='handleNavItem' data-index='{{index}}'>
+        <view class='title_text {{currentItem == index?"on_title":""}}'>{{navItem}}</view>
+        <view class='{{currentItem == index?"on":""}} handle_line'></view>
+      </view>
+    </block>
+  </view>
+  <view class='main' wx:if="{{integralList.length > 0}}">
+    <block wx:for='{{integralList}}' wx:for-item='integralItem' wx:key='index'>
+      <view class='integralItem'>
+        <view class='integralItem_left'>
+          <view class='item_title'>
+            积分{{integralItem.integral>0?'来源':'支出'}}：{{integralItem.msg}}
+          </view>
+          <!-- <view class='item_amount' wx:if='{{!!integralItem.orderAmount}}'>订单总额：￥{{integralItem.orderAmount}}</view> -->
+          <view class='item_sn' wx:if='{{!!integralItem.groupId}}'>
+            订单编号：{{integralItem.groupId}}
+          </view>
+          <view class='item_date'>
+            {{integralItem.time}}
+          </view>
+        </view>
+        <view class='integralItem_right {{integralItem.integral<0?"expend":""}}'>
+          {{integralItem.integral>0?'+':''}}{{integralItem.integral}}
+        </view>
+      </view>
+    </block>
+            <view style='display:flex;justify-content:center;'><image wx:if='{{isLoadings}}' style='width:100rpx;height:100rpx;margin:0 auto;'src='/images/bottomLoading.gif'/></view>
+    <c-reachTheBottom wx:if="{{reachTheBottom}}" />
+  </view>
+  <view class="remindlist_bottom_B" wx:else>
+    <image class="remindlist_bottom_img" src="/images/img_search.png" />
+    <view class="remindlist_bottom_txt">暂无数据</view>
+  </view>
+</view>
+<c-navigationTools />
+<c-navigationToolsTwo toTheTop="{{toTheTop}}" catchtoUpImgs="ontoUpImgs" />

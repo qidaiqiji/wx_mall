@@ -1,0 +1,161 @@
+/* pages/integral/intergralProduct/intergralProduct.wxss */
+.product{
+  background: rgba(243, 243, 243, 1);
+}
+/* 锚点浮动 */
+.product_zhi_flex {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+}
+
+.product_zhi {
+  width: 750rpx;
+  height: 78rpx;
+  background: rgba(255, 255, 255, 1);
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  font-size: 28rpx;
+  font-family: PingFang-SC-Medium;
+  font-weight: 500;
+  color: #FF3366;
+}
+
+.text_tap {
+  padding: 16rpx 0rpx;
+}
+
+.border_border {
+  width: 52rpx;
+  height: 4rpx;
+  background: rgba(255, 51, 102, 1);
+  border-radius: 2rpx;
+}
+#zhifatop_wrap{
+  position: relative;
+  width: 100%;
+  height: 78rpx;
+  left: 0rpx;
+  top: 0rpx;
+}
+.isRelitive{
+  position: absolute;
+  left: 0rpx;
+  top: 0rpx;
+}
+.isabsolute{
+  position: fixed;
+  left: 0rpx;
+  top: 0rpx;
+  z-index: 20;
+}
+.product_straight_one0 {
+  font-size: 28rpx;
+  font-family: PingFang-SC-Medium;
+  font-weight: 500;
+  color: rgba(255, 51, 102, 1);
+ 
+}
+
+.product_details_one {
+  color: rgba(47, 58, 64, 1);
+}
+
+.pro_jia_img {
+  width: 111rpx;
+  height: 32rpx;
+  position: relative;
+  left: 0rpx;
+  top: 5rpx;
+}
+.title_w{
+  padding-top: 32rpx;
+  background: rgba(255, 255, 255, 1);
+}
+.title_wrap {
+  width: 700rpx;
+  height: 93rpx;
+  text-overflow: -o-ellipsis-lastline;
+  margin-left: 24rpx;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+}
+
+.title_txt {
+  height: 93rpx;
+  font-size: 32rpx;
+  font-family: PingFang-SC-Bold;
+  font-weight: bold;
+  color: rgba(47, 58, 64, 1);
+  line-height: 42rpx;
+}
+
+.title_txt_bottom {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 21rpx;
+  margin: 21rpx 24rpx 15rpx 24rpx;
+}
+
+.title_number {
+  font-size: 32rpx;
+  font-family: PingFang-SC-Bold;
+  font-weight: bold;
+  color: rgba(255, 51, 102, 1);
+  line-height: 42rpx;
+}
+
+.title_price {
+  font-size: 24rpx;
+  font-family: PingFang-SC-Medium;
+  font-weight: 500;
+  color: rgba(136, 150, 150, 1);
+  line-height: 42rpx;
+}
+
+.detailsTxt {
+  width: 750rpx;
+  height: 88rpx;
+  background: rgba(255, 255, 255, 1);
+  font-size: 28rpx;
+  font-family: PingFang-SC-Bold;
+  font-weight: bold;
+  color: rgba(47, 58, 64, 1);
+  line-height: 88rpx;
+  padding-left: 25rpx;
+  margin: 20rpx 0rpx;
+}
+
+.detailsImg {
+  width: 750rpx;
+  vertical-align: top;
+}
+
+.bottom {
+  width: 100%;
+  height: 98rpx;
+  background: rgba(255, 51, 102, 1);
+  font-size: 32rpx;
+  font-family: PingFang-SC-Medium;
+  font-weight: 500;
+  color: rgba(255, 255, 255, 1);
+  line-height: 98rpx;
+  text-align: center;
+  position: fixed;
+  left: 0rpx;
+  bottom: 0rpx;
+}
+
+#bottom {
+  width: 750rpx;
+  height: 88rpx;
+}
+.scroll-view{
+  z-index: 100;
+}

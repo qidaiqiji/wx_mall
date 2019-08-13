@@ -1,0 +1,8 @@
+{
+  "navigationBarTitleText": "管理收货地址",
+  "usingComponents": {
+    "i-toast": "../../dist/toast/index",
+    "c-navigationToolsTwo": "/components/navigationToolsTwo/index",
+    "i-message": "../../dist/message/index"
+  }
+}

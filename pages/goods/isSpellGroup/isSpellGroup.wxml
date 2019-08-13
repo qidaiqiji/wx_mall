@@ -1,0 +1,7 @@
+<!--pages/goods/isSpellGroup/isSpellGroup.wxml-->
+<view class="wrap">
+    <c-spellGroupList></c-spellGroupList>
+    <reachTheBottom></reachTheBottom>
+</view>
+<c-navigationTools totalCount='{{totalCounts}}' />
+<c-navigationToolsTwo toTheTop="{{toTheTop}}" bottomToTheTop="20" catchtoUpImgs="ontoUpImgs" />

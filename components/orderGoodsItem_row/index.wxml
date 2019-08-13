@@ -1,0 +1,34 @@
+<!-- 订单列表商品信息 -->
+
+<view class='orderGoodsItem_row' wx:if="{{kind==='orderGoodsList_item'}}">
+  <view class='row_left'>
+    <image class='row_left_img' src='{{thumb}}'></image>
+  </view>
+  <view class='row_center'>
+    <text>{{goodsName}}</text>
+  </view>
+  <view class='row_right'>
+    <text class='row_right_price'>{{price}}</text>
+    <text class='row_right_number'>{{num}}</text>
+  </view>
+</view>
+<!-- 分单号商品信息 -->
+<block wx:for='{{orderGoodsList}}' wx:for-item="goodsItem" wx:key="index">
+<view class='orderGoodsItem_row_border' data-goodsId="{{goodsItem.goodsId}}" data-kind="{{goodsItem.isVip}}" catchtap='goProduct' wx:if="{{kind==='orderGoodsSn_item'}}">
+  <view class='row_left'>
+    <image class='row_left_img' mode='widthFix' src='{{goodsItem.thumb}}'></image>
+  </view>
+  <view class='orderGoodsItem_row_center'>
+    <text class="row_center_title">{{goodsItem.goodsName}}</text>
+    <view class="row_center_desc">
+      <text class="row_center_desc_price">{{goodsItem.goodsPrice}}</text>
+      <text class="row_center_desc_numb">{{goodsItem.num}}件</text>
+    </view>
+  </view>
+  <view class='row_right'>
+    <text class='row_right_type' style="border:1rpx solid #FF3366;color:#FF3366" wx:if='{{goodsItem.status =="未发货"}}'>{{goodsItem.status}}</text>
+        <text class='row_right_type' style="border:1rpx solid #58A803;color:#58A803" wx:if='{{goodsItem.status =="部分发货"}}'>{{goodsItem.status}}</text>
+            <text class='row_right_type' style="border:1rpx solid #A8B6B8;color:#A8B6B8" wx:if='{{goodsItem.status =="已发货"}}'>{{goodsItem.status}}</text>
+  </view>
+</view>
+</block>

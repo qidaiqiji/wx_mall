@@ -1,0 +1,168 @@
+/* pages/thirdAnniversary/thirdAnniversary.wxss */
+page{
+  background: #b72529;
+}
+.anniverSary_banner{
+  width: 100%;
+  height: 460rpx;
+  overflow: hidden;
+}
+.anniverSary_banner>image{
+  width: 100%;
+  height: 460rpx;
+}
+.anniverSary_topAd{
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  align-items: center;
+}
+.anniverSary_topAd>view{
+  margin-top: 24rpx;
+  width: 702rpx;
+  height: 120rpx;
+}
+.anniverSary_topAd>view>image{
+  width: 702rpx;
+  height: 120rpx;
+}
+.blockDesign,.blockDesignTheme{
+  width: 100%;
+  padding: 0 24rpx;
+}
+.blockDesign>view{
+  margin-top: 24rpx;
+  width: 702rpx;
+}
+.blockDesign>view:nth-child(1){
+    height: 100rpx;
+}
+.blockDesign>view:nth-child(1)>image{
+    width: 702rpx;
+    height: 100rpx;
+}
+.blockDesignTheme>view:nth-child(1){
+  margin-top: 24rpx;
+  width: 702rpx;
+      height: 100rpx;
+}
+.blockDesignTheme>view:nth-child(1)>image{
+  width: 702rpx;
+      height: 100rpx;
+}
+.blockDesignTheme>view:nth-child(2){
+    padding-top: 12rpx;
+  width: 702rpx;
+  margin:0 auto;
+    display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+.coupons{
+  height: 202rpx;
+  display: flex;
+  align-items: center;
+  padding-left: 15rpx;
+  background:linear-gradient(-22deg,rgba(246,201,172,1) 0%,rgba(253,222,202,1) 100%);
+border-radius:10rpx;
+}
+.coupons>view{
+  width: 220rpx;
+  height: 150rpx;
+  margin-right: 6rpx;
+}
+.coupons>view>image{
+    width: 220rpx;
+  height: 150rpx;
+}
+.anniverSary_giveGifts>.giveGifts{
+  display: flex;
+  justify-content: space-between;
+  height: 400rpx;
+}
+.giveGifts>view{
+  width: 345rpx;
+  height: 400rpx;
+}
+.giveGifts>view>image{
+    width: 345rpx;
+    height: 400rpx;
+}
+.anniverSary_chouj>view:nth-child(2){
+  height: 404rpx;
+}
+.anniverSary_chouj>view:nth-child(2)>image{
+  height: 404rpx;
+}
+/* .choujiangInto */
+.choujiangInto>image{
+  width: 702rpx;
+}
+/* .miaosha{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  
+} */
+.temai>view{
+  width: 702rpx;
+  height: 314rpx;
+  margin-top: 12rpx;
+}
+.temai>view>image{
+ width: 702rpx;
+    height: 314rpx;
+}
+.conmonGoods{
+    width: 347rpx;
+  height: 582rpx;
+  margin-top: 12rpx;
+}
+.pinpai>view{
+      width: 347rpx;
+  height: 270rpx;
+  margin-top: 12rpx;
+}
+.pinpai>view>image{
+      width: 347rpx;
+  height: 270rpx;
+}
+.xingguangguan>view{
+        width: 347rpx;
+  height: 425rpx;
+  margin-top: 12rpx;
+}
+.xingguangguan>view>image{
+        width: 347rpx;
+  height: 425rpx;
+}
+.jumpToTop{
+  width: 180rpx;
+  height: 100rpx;
+  text-align: center;
+  margin: 0 auto;
+  margin-bottom: 36rpx;
+  margin-top: 30rpx;
+}
+
+.jumpToTop>image{
+  width: 180rpx;
+  height: 100rpx;
+}
+.jumpToTopBottom{
+  width: 750rpx;
+  height: 104rpx;
+  background: #b72529;
+}
+.navigation_button{
+  position: fixed;
+  top: 50%;
+  right: 0;
+  transform: translateY(-50%);
+
+}
+.navigation_button>image{
+  width: 66rpx;
+  height: 186rpx;
+}
+

@@ -1,0 +1,16 @@
+<!--pages/self/oftenBuyList/oftenBuyList.wxml-->
+<view class="container" wx:if='{{isLoading==2}}'>
+  <c-loading />
+</view>
+<view class='main' wx:elif='{{isLoading==1}}'>
+  <c-goodsItem_row bindevokeAddCart='onevokeAddCart' goodsList='{{goodsList}}' />
+</view>
+<view class='noGoodsItem' wx:elif='{{isLoading==0}}'>
+  <image src='/images/img_search.png' class='noGoodsItem_img'></image>
+  <view class='noGoodsItem_txt'>搜索不到相关商品噢</view>
+</view>
+
+<c-shopba kind='addCart' wx:if='{{isPopCart}}' goodsId='{{addGoodsId}}' catchtouchmove='true' goodsList='{{addGoodslist}}' id="addCart" bindhideCart="onhideCart"  bindgetTotle='ongetTotle'/>
+<i-toast id="toast" />
+<c-navigationTools totalCount='{{totalCounts}}'/>
+<c-navigationToolsTwo toTheTop="{{toTheTop}}" catchtoUpImgs="ontoUpImgs" />

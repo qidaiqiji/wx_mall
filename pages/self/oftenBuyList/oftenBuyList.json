@@ -1,0 +1,10 @@
+{
+    "navigationBarTitleText": "常购清单",
+  "usingComponents": {
+        "c-goodsItem_row": "/components/goodsItem_row/index",
+        "c-shopba": "/components/product_b/shopba/index",
+        "c-navigationTools": "/components/navigationTools/index",
+        "c-navigationToolsTwo":"/components/navigationToolsTwo/index",
+        "i-toast": "../../../dist/toast/index"
+  }
+}

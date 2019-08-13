@@ -1,0 +1,224 @@
+<view class="bottomModal" bindtap='showModal' data-modal="bottomModal">
+  <!-- <view class="nav-title">底部弹出层</view> -->
+  <slot name='lingquan' class="nav-title" wx:if="{{kind==='lingquan'}}"></slot>
+  <slot name='showGoods' class="nav-title" wx:if="{{kind==='billOfGoods'}}"> </slot>
+  <slot name='yunfei' class="nav-title" wx:if="{{kind==='daifayoufei'}}"></slot>
+  <slot name='yunfei' class="nav-title" wx:if="{{kind==='zhifayoufei'}}"></slot>
+  <slot name='postages' class="nav-title" wx:if="{{kind==='postage'}}"></slot>
+  <slot name='seeBrand' class="nav-title" wx:if="{{kind==='seeBrand'}}"></slot>
+  <slot name='BrandMsg' class="nav-title" wx:if="{{kind==='BrandMsg'}}"></slot>
+  <slot name='vip' class="nav-title" wx:if="{{kind==='vip'}}"></slot>
+</view>
+
+<view class='Mask' bindtap='onConfirm' wx:if="{{modalName !== null}}" catchtouchmove='move'></view>
+
+
+<view wx:if="{{modalName ==='lingquan'}}">
+  <view class="bottomModal_content {{modalNames?'bottomModal_content_two':''}}" catchtouchmove='move'>
+    <view class='bottomModal_title'>优惠券</view>
+    <view class='bottomModal_quan'>
+      <scroll-view scroll-y class='car_lingquan_num'>
+        <c-coupon couponList='{{couponList}}' />
+      </scroll-view>
+    </view>
+    <view class='bottomModal_tip_wrap'>
+      <view class='bottomModal_tip'>秒杀、巨划算、满减、套餐、直降等活动商品不能与优惠券同享</view>
+      <view class='bottomModal_click' bindtap='onCommonConfirm'>确定</view>
+    </view>
+  </view>
+</view>
+<!-- vip活动规则 -->
+<view wx:if="{{modalName ==='vip'}}">
+  <view class="bottomModal_content {{modalNames?'bottomModal_content_two':''}}">
+    <view class='bottomModal_title'>活动规则</view>
+    <view class='bottomModal_vip'>
+      <view>1. 贵宾专区产品不再参加任何活动</view>
+      <view>2. 贵宾专区，享满额包邮</view>
+      <view>3. VIP价仅在贵宾专区内结算享受</view>
+
+    </view>
+    <view class='bottomModal_click' bindtap='onCommonConfirm'>确定</view>
+  </view>
+
+</view>
+
+
+<view wx:if="{{modalName==='billOfGoods'}}">
+  <view class="bottomModal_content {{modalNames?'bottomModal_content_two':''}}">
+    <view class='billOfGoods_titles' catchtouchmove='move'>
+      <view class='billOfGoods_titles_'>货品清单</view>
+      <view class='billOfGoods_titles_goods'>共{{goodsAllNum}}个商品</view>
+    </view>
+    <view class='billOfGoods_container'>
+      <view>
+        <c-billOfGoods goodsList='{{goodsList}}' />
+      </view>
+    </view>
+    <view class='bottomModal_click' bindtap='onCommonConfirm'>确定</view>
+  </view>
+</view>
+
+<view wx:if="{{modalName==='daifayoufei'}}">
+  <view class="bottomModal_content {{modalNames?'bottomModal_content_two':''}}">
+    <view class='billOfGoods_titles'>
+      <view class='billOfGoods_titles_'>代发邮费政策</view>
+    </view>
+    <view class='billOfGoods_container'>
+      <view class='youfeimsg'>
+        <view> 采购非小美直发商品，小美平台提供优惠一定条件的包邮政策，具体视品牌而不同，请留意商品详情页指示信息</view>
+        <view class='youfeimsg_title'>① 全国包邮</view>
+        <view>全国大部分地区包邮，港澳台地区除外</view>
+        <view class='youfeimsg_title'>② 满额包邮</view>
+        <view>单品牌采购满足一定条件，如1000元、满2000元、</view>
+        <view class='youfeimsg_title'>③ 21省包邮</view>
+        <view>以下省份包邮</view>
+        <view>北京, 天津, 河北, 山西, 上海, 江苏, 浙江, 安徽, 福建, 江西,山东, 河南, 湖北, 湖南, 广东, 广西, 重庆, 四川, 贵州, 云南, 陕西；</view>
+        <view class='youfeimsg_title'>其他省份到付</view>
+        <view>内蒙古, 辽宁, 吉林, 黑龙江, 海南, 西藏, 甘肃, 青海, 宁夏, 新疆</view>
+        <view>特别说明：由于品牌方政策变化以及合作物流公司的差异，实际邮费政策以品牌方提供的信息为准。</view>
+      </view>
+    </view>
+    <view class='bottomModal_click' bindtap='onCommonConfirm'>确定</view>
+  </view>
+</view>
+
+
+
+<view wx:if="{{modalName==='zhifayoufei'}}">
+  <view class="bottomModal_content {{modalNames?'bottomModal_content_two':''}}">
+    <view class='billOfGoods_titles'>
+      <view class='billOfGoods_titles_'>邮费政策</view>
+    </view>
+    <view class='billOfGoods_container_zhifa'>
+      <view class='youfeimsg'>
+        <view> 小美商品邮费优惠分为3个阶梯，根据收货地址匹配相应的优惠，详情如下：</view>
+        <view class='youfeimsg_title'>① 订单金额满2999元包邮，不足2999元收取物流费用20元</view>
+        <view>收货地址为广东、湖南、湖北、福建、广西、贵州、江西、浙江</view>
+        <view class='youfeimsg_title'>② 订单金额满3999元包邮，不足3999元收取物流费用30元；</view>
+        <view>收货地址为云南、重庆、四川、陕西、山西、河北、宁夏、北京、天津、上海、山东、江苏、安徽、河南</view>
+        <view class='youfeimsg_title'>③ 订单金额满4999元包邮，不足4999元收取物流费用50元</view>
+        <view>收货地址为新疆、西藏、青海、甘肃、内蒙、辽宁、吉林、黑龙江、海南的订单</view>
+
+      </view>
+    </view>
+    <view class='bottomModal_click' bindtap='onCommonConfirm'>确定</view>
+  </view>
+</view>
+
+
+<view wx:if="{{modalName==='seeBrand'}}">
+  <view class="bottomModal_content {{modalNames?'bottomModal_content_two':''}}" catchtouchmove='move'>
+
+    <view class='billOfGoods_titles'>
+      <view class='billOfGoods_titles_'>品牌信息</view>
+    </view>
+    <view class='billOfGoods_container'>
+      <view class='brand_msg'>
+        <view>
+          <text class='brand_msg_title '>品牌归属地</text>
+          <text>{{brandPop.country}}</text>
+        </view>
+        <view>
+          <text class='brand_msg_title '>主营品类</text>
+          <text>{{brandPop.mainCat}}</text>
+        </view>
+        <view>
+          <text class='brand_msg_title '>供应产品</text>
+          <text>{{brandPop.goodsCount}}款</text>
+        </view>
+        <view>
+          <text class='brand_msg_title '>市场渠道</text>
+          <text>{{brandPop.shortDesc}}</text>
+        </view>
+
+      </view>
+
+      <view class='brand_desc'>
+        <text>{{brandPop.longDesc}}</text>
+
+      </view>
+      <view class='brandDetail_msg' wx:if='{{isarticle}}'>
+        <text bindtap='jumpToDetailMsg'>查看详情</text>
+      </view>
+
+    </view>
+    <view class='bottomModal_click' bindtap='onConfirm'>确定</view>
+  </view>
+</view>
+
+
+
+<view wx:if="{{modalName==='BrandMsg'}}">
+  <view class="bottomModal_content {{modalNames?'bottomModal_content_two':''}}">
+    <view class='billOfGoods_titles'>
+      <view class='billOfGoods_titles_'>活动详情</view>
+    </view>
+    <view class='billOfGoods_container'>
+      <view class='taocan_msg' wx:if='{{pkgList.goodsList.length>0}}'>
+        <view class='taocan_msg_title'>
+          <view class='taocan_msg_tag'>套餐</view>
+          <view class='taocan_msg_title_'>该商品参与以下套餐</view>
+        </view>
+        <view class='taocanGoodsList'>
+
+          <block wx:for='{{pkgList.goodsList}}' wx:for-item='pkgItem' wx:key='index'>
+            <view class='taocanGoodsItem' bindtap='jumpToGoodsDetail' data-goodsId='{{pkgItem.goodsId}}'>
+              <view class='taocanGoodsItem_desc'>
+                <image src='{{pkgItem.thumb}}'></image>
+                <view>{{pkgItem.name}}</view>
+              </view>
+              <view class='taocanGoodsItem_price'>
+                ￥{{pkgItem.price}}
+              </view>
+            </view>
+          </block>
+
+        </view>
+      </view>
+      <view class='lingquan_msg' wx:if='{{couponList.length>0}}'>
+        <view class='lingquan_msg_title'>
+          <view class='lingquan_msg_tag'>领券</view>
+          <view class='active_quan'>
+            <block wx:for='{{couponList}}' wx:for-item='couponItem' wx:key='index'>
+              <view>{{couponItem.ruleName}}</view>
+            </block>
+          </view>
+        </view>
+        <view class='lingquan_msg_all'>
+          <block wx:for='{{couponList}}' wx:for-item='couponItem' wx:key='index'>
+            <c-coupon couponItem='{{couponItem}}' />
+          </block>
+        </view>
+        <view class='lingquan_msg_tip'>满减、秒杀、套餐、巨划算等活动商品不能与优惠券同享</view>
+      </view>
+      <view class='youfei_msg'>
+        <view class='youfei_title'>邮费政策</view>
+        <view class='youfei_txt'>{{shippingInfo.shippingDesc}}</view>
+      </view>
+    </view>
+    <view class='bottomModal_click' bindtap='onConfirmBrandActive'>确定</view>
+  </view>
+</view>
+
+
+<view wx:if="{{modalName=='postage'}}">
+  <view class="bottomModal_content {{modalNames?'bottomModal_content_two':''}}">
+    <view class='billOfGoods_titles'>
+      <view class='billOfGoods_titles_'>邮费</view>
+    </view>
+    <view class='billOfGoods_container'>
+      <view class='youfeimsg'>
+        <radio-group class="radio-group" bindchange="radioChange">
+          <label class="radio" wx:for="{{shippingSelections}}" wx:for-item="shippingSelections" wx:for-index="indexs"
+            wx:key="{{indexs}}">
+            <view class="ispostage"></view>
+            <radio value="{{shippingSelections.prepay}}" checked="{{shippingSelections.prepay==prepay}}" />
+            <text>{{shippingSelections.shippingName}}</text>
+            <text wx:if="{{shippingSelections.shippingFee}}">{{shippingSelections.shippingFee}}</text>
+          </label>
+        </radio-group>
+      </view>
+    </view>
+    <view bindtap='onConfirms'></view>
+  </view>
+</view>

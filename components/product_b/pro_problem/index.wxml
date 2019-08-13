@@ -1,0 +1,11 @@
+<!--components/product_b/pro_problem/index.wxml-->
+<view class="pro_blem_wrap">
+  <view class='pro_blem_title'>常见问题</view>
+  <view wx:for="{{textbox}}" wx:for-item="title" wx:for-index="title_i" wx:key="{{title_i}}">
+    <view class="pro_blem_one">{{title.title}}</view>
+    <view class="pro_blem_two">{{title.die}}</view>
+  </view>
+  <view>
+   
+  </view>
+</view>

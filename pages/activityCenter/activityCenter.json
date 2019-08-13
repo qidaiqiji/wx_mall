@@ -1,0 +1,14 @@
+{
+  "navigationBarTitleText": "活动中心",
+  "backgroundColor":"#f3f3f3",
+  "usingComponents": {
+    "regularactivity": "/components/routineActivity/index",
+    "regularactivityT": "/components/routineActivity_T/index",
+    "c-reachTheBottom": "/components/reachTheBottom/index",
+    "c-navigationTools": "/components/navigationTools/index",
+    "reachTheBottom": "/components/reachTheBottom/index",
+    "c-navigationToolsTwo":"/components/navigationToolsTwo/index",
+    "c-shopba": "/components/product_b/shopba/index",
+    "i-toast": "../../dist/toast/index"
+  }
+}

@@ -1,0 +1,44 @@
+<!--components/product_b/pro_brand/index.wxml-->
+<view class="pro_brand_wrap">
+  <view class="prod_brand_onea" wx:if="{{mystatus==2?false:true}}">
+    <view class="prod_brand_onea_heights">
+      <image mode="widthFix" class="prod_brand_onea_height_logio" src="{{brand.logo}}"></image>
+    </view>
+    <view class="prod_brand_onea_height_middle">
+      <view class="prod_brand_onea_hone">{{brand.brandName}}</view>
+      <view>
+        <text class="prod_brand_onea_htwo">{{brand.goodsCount}}件商品</text>
+        <text class="prod_brand_onea_hthree">{{brand.desc}}</text>
+      </view>
+    </view>
+    <view class="prod_brand_onea_height">
+      <image mode="widthFix" class="prod_brand_onea_img" src="/images/icon_look_pink.png" bindtap='jumpToBrandDetail'
+        data-brandId='{{brand.brandId}}'></image>
+    </view>
+  </view>
+
+  <!-- 相关搭配 -->
+  <view wx:if="{{mystatus==2?false:true}}">
+    <view class="txtt_spacing"></view>
+    <view wx:if="{{linkGoods.length}}">
+      <view class="template_one">
+        <text class="template_two">相关搭配</text>
+      </view>
+      <view class="uploadWrap_wrap">
+        <scroll-view scroll-x="true" style=" white-space: nowrap; display: flex">
+          <block wx:for="{{linkGoods}}" wx:for-item="habb" wx:for-index="hbbb" wx:key="{{hbbb}}">
+            <view class="uploadWrap_two" data-goodsid='{{habb.goodsId}}' catchtap='linkGoods'>
+              <image class="upload_Item_img" src="{{habb.thumb}}"></image>
+              <view class="upload_Item_text">￥{{habb.price}}</view>
+
+            </view>
+          </block>
+        </scroll-view>
+      </view>
+    </view>
+  </view>
+  <!-- 广告位 -->
+  <view class="pro_brand_advertising">
+    <image src="/images/the_real_thing.png" catchtap='midad' />
+  </view>
+</view>

@@ -1,0 +1,141 @@
+.searchPage {
+  width: 100%;
+  padding: 0 26rpx;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
+.searchPage_edit {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 20rpx;
+}
+
+.searchPage_edit_search {
+  width: 618rpx;
+  height: 60rpx;
+  background: rgba(243, 243, 243, 1);
+  border-radius: 30rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.icon_search {
+  width: 30rpx;
+  height: 30rpx;
+  margin-left: 16rpx;
+  margin-right: 20rpx;
+
+}
+
+.search_tag_img {
+  width: 30rpx;
+  height: 30rpx;
+}
+
+.searchPage_edit_search_input {
+  flex: 1;
+  font-size: 26rpx;
+  font-family: PingFang-SC-regular;
+  font-weight: 400;
+  color: #2f3a40;
+}
+
+.search_delete {
+  width: 50rpx;
+  height: 50rpx;
+  display: flex;
+  align-items: center;
+}
+
+.icon_search_delete {
+  width: 30rpx;
+  height: 30rpx;
+}
+
+.searchPage_edit_cancel {
+  font-size: 28rpx;
+  color: #ff3366;
+  margin-right: 8rpx;
+}
+
+.searchPage_history {
+  width: 100%;
+  margin-top: 40rpx;
+  min-height: 180rpx;
+
+}
+
+.searchPage_history_title {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.searchPage_history_title text {
+  font-size: 28rpx;
+  color: rgba(47, 58, 64, 1);
+}
+
+.searchPage_history_title image {
+  width: 42rpx;
+  height: 42rpx;
+}
+
+.searchPage_history_allType,
+.searchPage_hot_allType {
+  width: 100%;
+  padding-top: 24rpx;
+  display: flex;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+}
+
+.searchPage_history_item,
+.searchPage_hot_item {
+  margin-right: 24rpx;
+  margin-bottom: 24rpx;
+  padding: 16rpx 16rpx 12rpx;
+  background: rgba(243, 243, 243, 1);
+  border-radius: 8rpx;
+  display: flex;
+  align-items: center;
+}
+
+.searchPage_hot {
+  width: 100%;
+  margin-top: 40rpx;
+}
+
+.searchPage_hot_title {
+  font-size: 28rpx;
+  color: #2F3A40;
+}
+
+.scrollview {
+  height: 60%;
+}
+
+.itemview {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  padding: 20rpx 20rpx 20rpx 20rpx;
+  border-bottom: 1rpx solid #DCE4E6;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.itemview image {
+  width: 30rpx;
+  height: 30rpx;
+}
+.search_delete_wrap{
+  width: 100px;
+  height: 100px;
+  border: 1rpx solid red;
+}

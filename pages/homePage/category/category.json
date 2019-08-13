@@ -1,0 +1,15 @@
+{
+  "navigationBarTitleText": "品类馆",
+  "usingComponents": {
+    "c-goodsItem_col": "/components/goodsItem_col/index",
+    "c-goodsItem_row": "/components/goodsItem_row/index",
+    "c-bottomModal": "/components/bottomModal/index",
+    "c-reachTheBottom": "/components/reachTheBottom/index",
+    "c-headSearch": "/components/headSearch/index",
+    "c-categoryGoodsList": "/components/categoryGoodsList/index",
+    "c-navigationTools": "/components/navigationTools/index",
+    "c-shopba": "/components/product_b/shopba/index",
+    "c-navigationToolsTwo":"/components/navigationToolsTwo/index",
+    "i-toast": "../../../dist/toast/index"
+  }
+}

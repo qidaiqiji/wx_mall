@@ -1,0 +1,12 @@
+{
+  "navigationBarTitleText": "3周年庆",
+  "backgroundColor":"#b72529",
+  "usingComponents": {
+    "c-remind_right": "/components/remind_right/index",
+    "c-shopba": "/components/product_b/shopba/index",
+    "c-goodsItemThree_col": "/components/goodsItemThree_col/index",
+    "c-navigationTools": "/components/navigationTools/index",
+    "c-navigationToolsTwo": "/components/navigationToolsTwo/index",
+    "i-toast": "../../../../dist/toast/index"
+  }
+}

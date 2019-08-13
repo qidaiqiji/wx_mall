@@ -1,0 +1,147 @@
+<!-- pages/activity/activity.wxml -->
+<view class="wrap" style="background:{{wrapColor}}">
+    <view class="headerWrap">
+        <view class="topDateAds">
+            <image class="topDateAdsImg" src="{{topDateAds[0].img}}" catchtap='goIndex' />
+        </view>
+        <view class="backgroundImage" style="background-image: url({{bannerAds[0].img}})">
+            <view class="leftHerder {{indextop?'pro_swipe_top_two':''}}">
+                <image class="leftHerderImg" src="/images/img_portrait.png" />
+                <view class="leftHerderTxt BeyondHidden">{{arr}}</view>
+            </view>
+            <!-- <image class="conterHerder" mode="widthFix" src="/images/homepage_interests.gif" /> -->
+        </view>
+    </view>
+    <!-- 轮播图 -->
+    <view class="activitySwiper" wx:if="{{activityListTwo.length >0}}">
+        <swiper class="card-swiper" autoplay="{{true}}" circular="true" interval="5000" duration="500">
+            <swiper-item class="swiperItem{{index%4}}" wx:for="{{activityListTwo}}" wx:key="{{index}}">
+                <view class="swiperItemImg{{index%4}} swiperItemImg" animation="{{index=='0' ||index=='2'?animationOne:index=='1'?animationTwo:animationThree }}" data-goodsId="{{item.goodsId}}" catchtap="goShop">
+                <image class="swiperItemImg_" src="{{item.thumb}}" />
+                    <view class="activityPricrWrap">
+                        <view class="activityPricr">
+                            <view class="activityNumInt">{{item.objectPrice.numInt}}</view>
+                            <view class="activityDecimal">.{{item.objectPrice.decimal}}</view>
+                        </view>
+                    </view>
+                </view>
+            </swiper-item>
+        </swiper>
+    </view>
+    <view class="couponWrap" wx:if="{{blackAds.length >0}}">
+        <view class="couponTop">
+            <view class="couponTopTitle">全场下单立减</view>
+            <view class="couponTopData">
+                <view class="">活动时间：2019.7.9-7.10</view>
+                <view class="">不限订单数，不予优惠券叠加哦~</view>
+            </view>
+        </view>
+        <image class="couponsImg" src="{{blackAds[0].img}}" data-item='{{blackAds[0]}}' catchtap='goAdvertising' />
+    </view>
+    <view class="couponWrap" wx:if="{{fullBackAds.length > 0}}">
+        <view class="couponTop">
+            <view class="couponTopTitle">全场货返  膜力十足</view>
+            <view class="couponTopData">
+                <view class="">活动时间：2019.7.11-7.16</view>
+            </view>
+        </view>
+        <view class="orderCanKnock">
+            <block wx:for="{{fullBackAds}}" wx:key="{{index}}">
+                <image class="" src="{{item.img}}" data-item='{{item}}' catchtap='goAdvertising' />
+            </block>
+        </view>
+    </view>
+    <image class="advertisingImage" src="{{freeShippingAds[0].img}}" data-item='{{freeShippingAds[0]}}' catchtap='goAdvertising' wx:if="{{freeShippingAds.length > 0}}" />
+    <image class="advertisingImage" src="{{integralAds[0].img}}" data-item='{{integralAds[0]}}' catchtap='goAdvertising' wx:if="{{integralAds.length > 0}}" />
+    <view class="secondsWrap" style=" background: {{actConfig.flash.bgColor}};" wx:if="{{flashSaleList.length > 0}}">
+        <view class="secondsTop" style="background-image: url({{miaosha_title}})" catchtap="goParticulars">
+            <view>
+                <view class="secondsTitle">{{actConfig.flash.title}}</view>
+                <view class="secondsBuySome">{{actConfig.flash.subTitle}}</view>
+                <view>
+                    <c-countDown kind="moisturizeFlashSale" mytimes="{{flashSaleEndTime}}" wx:if="{{countDownShow}}"></c-countDown>
+                </view>
+            </view>
+        </view>
+        <view class="secondsShopWrap">
+            <block wx:for="{{flashSaleList}}" wx:key="{{index}}">
+                <view class="secondsWillRob" wx:if="{{index==0}}" data-goodsId="{{item.goodsId}}" catchtap="goShop">
+                    <view class="willBackground" style="background-image: url({{will_rob_background}})">
+                        <image src="{{will_rob}}" />
+                    </view>
+                    <view class="secondsRight">
+                        <image class="secondsThum" src="{{item.img}}" />
+                        <view class="secondsTxt">
+                            <view class="secondsName">{{item.goodsName}}</view>
+                            <view class="secondsBuySomeRmb">{{item.desc}}</view>
+                            <view class="secondsPriceWrap">
+                                <view>
+                                    <view class="secondPrice">{{item.goodsPrice}}</view>
+                                    <view class="secondPrices">￥{{item.marketPrice}}</view>
+                                </view>
+                                <view class="secondsText">秒</view>
+                            </view>
+                        </view>
+                    </view>
+                    <view class="secondsIntroduction">
+                        <view>{{item.brief}}</view>
+                    </view>
+                </view>
+                <view class="secondsShopMore" wx:if="{{index >0}}" data-goodsId="{{item.goodsId}}" catchtap="goShop">
+                    <image class="" src="{{item.img}}" />
+                    <view>{{item.desc}}</view>
+                    <view>{{item.goodsName}}</view>
+                    <view class="secondsMorePrice">
+                        <view class="">
+                            <view class="secondPrice">{{item.goodsPrice}}</view>
+                            <view class="secondPrices">￥{{item.marketPrice}}</view>
+                        </view>
+                        <view class="secondsMoreSec">秒</view>
+                    </view>
+                </view>
+            </block>
+        </view>
+    </view>
+    <!-- 特卖 -->
+    <view class="saleWrap temai" style="background: #F75632" wx:if="{{pkgList.length > 0}}">
+        <view class="saleTop" style="background-image: url({{temai_title}})">
+            <view>
+                <view class="saleTitle">{{actConfig.actPage.title}}</view>
+                <view class="saleBuySome">{{actConfig.actPage.subTitle}}</view>
+            </view>
+        </view>
+        <view class="saleList" style="background:{{actBgColor.actPage}}">
+            <c-saleComponents actPageList="{{actPageList}}"></c-saleComponents>
+        </view>
+    </view>
+    <view class=""></view>
+    <!-- 巨划算/套餐/满赠 -->
+    <view wx:if="{{juhuasuanList.length > 0}}">
+        <c-activityList url="{{juhuasuangurl}}" titleTop="{{juhuasuan_title}}" title="{{actConfig.groupBuy}}" goodsList="{{juhuasuanList}}"></c-activityList>
+    </view>
+    <view wx:if="{{pkgList.length > 0}}">
+        <c-activityList url="{{taocanurl}}" titleTop="{{taocan_title}}" title="{{actConfig.giftPkg}}" goodsList="{{pkgList}}"></c-activityList>
+    </view>
+    <view wx:if="{{fullGiftList.length > 0}}">
+        <c-activityList url="{{manzengurl}}" titleTop="{{manzeng_title}}" title="{{actConfig.fullGift}}" goodsList="{{fullGiftList}}"></c-activityList>
+    </view>
+    <view class="likeWrap" wx:if="{{goodsListLive.length > 0}}">
+        <view class="likeWrapTop">猜你喜欢</view>
+        <view class="likeList">
+            <block wx:for="{{goodsListLive}}" wx:for-item='goodsList' wx:for-index='listIndex' wx:key="{{listIndex}}">
+                <goodlsListTwo_col class="youhui_list" goodsList="{{goodsList}}" bindevokeAddCart='onevokeAddCart'></goodlsListTwo_col>
+            </block>
+        </view>
+        <view style='display:flex;justify-content:center;margin-top:-20rpx;'>
+            <image wx:if='{{isLoading}}' style='width:100rpx;height:100rpx;margin:0 auto;' src='/images/bottomLoading.gif' />
+        </view>
+    </view>
+</view>
+<view class="navigation_button" catchtap="allremind" wx:if='{{isActTime}}'>
+    <image src="/images/navigation_tag.png" />
+</view>
+<c-remind_right id="remind_right" isPageId="{{isPageId}}" menus="{{menus}}" autoJump='{{false}}' bindallPreferential='onallPreferential' bindupMenus='handleMenus' wx:if="{{isShowNavigation}}" title='膜法保湿节会场直达'></c-remind_right>
+<c-shopba kind='addCart' wx:if='{{isPopCart}}' shbpbaWrapHeight='999' shbpbaListHeight='444' goodsId='{{addGoodsId}}' catchtouchmove='true' goodsList='{{addGoodslist}}' id="addCart" bindhideCart="onhideCart"></c-shopba>
+<i-toast id="toast" />
+<c-navigationToolsTwo toTheTop="{{toTheTop}}" catchtoUpImgs="ontoUpImgs" />
+<c-navigationTools totalCount='{{totalCounts}}' />

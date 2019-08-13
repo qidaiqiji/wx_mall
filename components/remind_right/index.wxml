@@ -1,0 +1,24 @@
+<!--components/remind_right/index.wxml-->
+<view class="mark" catchtouchmove='move'></view>
+<view class="remind_two_wrap" catchtouchmove='move' catchtap='imgShow'>
+    <view class="remind_two_center_wrap {{imgWith?'':'whatShow'}}">
+        <view class="remind_two_left" catchtap='imgShow'>
+            <image class="remind_two_img" src="/images/icon_white_more.png" />
+        </view>
+        <view class="remind_two_right">
+            <view class="remind_two_title">{{title}}</view>
+            <view class="remind_two_list">
+                <scroll-view class="remind_right_scroll_view" scroll-y style="width: 100%">
+                    <block wx:for="{{menus}}" wx:for-item='menus' wx:for-index='menusIndex' wx:key="menusIndex">
+                        <view class="{{isId == menus.pageId?'remind_two_list_red':'remind_two_list_wrap'}}"
+                            data-pageId="{{menus.pageId}}" catchtap='goMenus' data-index ="{{menusIndex}}">
+                            <view class="remind_two_list_tetle">{{menus.name}}</view>
+                            <view class="remind_two_list_txt">{{menus.sellingPoint}}</view>
+                        </view>
+                    </block>
+                </scroll-view>
+
+            </view>
+        </view>
+    </view>
+</view>

@@ -1,0 +1,21 @@
+<!--pages/exchangeFair/exchangeFair.wxml-->
+<!-- 订货季 -->
+<view class='bannerImg' wx:if="{{banner.length > 0}}">
+    <block wx:for='{{banner}}' wx:key='1-{{index}}'>
+        <image src='{{item.img}}' mode='widthFix' catchtap='jumpToUrl' data-url="{{item.url}}"></image>
+    </block>
+</view>
+<view class='adImg' wx:if="{{topAds.length > 0}}">
+    <block wx:for='{{topAds}}' wx:key='2-{{index}}'>
+        <view catchtap='jumpToUrl' data-url="{{item.url}}">
+            <image src='{{item.img}}'></image>
+        </view>
+    </block>
+</view>
+<view class='goodsMain' wx:if="{{botAds.length > 0}}">
+    <block wx:for='{{botAds}}' wx:key='3-{{index}}'>
+        <view catchtap='jumpToUrl' data-url="{{item.url}}">
+            <image src='{{item.img}}'></image>
+        </view>
+    </block>
+</view>

@@ -1,0 +1,62 @@
+<!-- pages/groupBiPinList/groupBiPinList.wxml -->
+<view class='control_change'>
+  <view class='bipin_tabs'>
+    <view class='bipin_tab {{type ==1?"clickTabs":""}}' bindtap='handleChangeTabs' data-index='1'>
+      正在热拼
+    </view>
+    <view class='bipin_tab {{type ==2?"clickTabs":""}}' bindtap='handleChangeTabs' data-index='2'>
+      即将开始
+    </view>
+    <view class='bipin_tab_tag  {{type ==2?"clickTabs_right":"clickTabs_left"}}'></view>
+  </view>
+  <view class='bipin_countDown' style='background-image:url({{type ==2?img_yuji:img_pin}})'>
+    <view wx:if='{{type ==1}}'>
+      距结束：
+      <c-times mytimes="{{time}}" kind='commonCountDown_d' i-class="countDown_bgEnd" wx:if="{{groupBiPinListTime}}" />
+    </view>
+    <view wx:if='{{type ==2}}'>
+      距开始：
+      <c-times mytimes="{{time}}" kind='commonCountDown_d' i-class="countDown_bgStart" wx:if="{{groupBiPinListTime}}" />
+    </view>
+  </view>
+</view>
+<view class='goodsList' wx:if="{{!isNoGoods}}">
+  <block wx:for='{{goodsList}}' wx:key='index'>
+    <view class='goodsItem' data-goodsId="{{item.goodsId}}" catchtap="goProduct">
+      <view class='itemThumb'>
+        <image src='{{item.img}}'></image>
+      </view>
+      <view class='itemMsg'>
+        <view class='msgTop'>
+          <view>{{item.goodsName}}</view>
+          <view class='msgTop_desc'>
+            <image src='/images/icon_groupBuyingHot.png' />
+            <view>已拼{{item.saleCount}}件</view>
+          </view>
+        </view>
+        <view class='msgBottom'>
+          <view>
+            <view class='msgBtm_discounts'>
+              <view class='msgBtm_discounts_memb'>{{item.fullNum}}人团</view>
+              <view class='msgBtm_discounts_price'>
+                <view>{{item.objectPrice.numInt}}</view>
+                <view>.{{item.objectPrice.decimal}}</view>
+              </view>
+            </view>
+            <view class='msgBtm_price'>单买价¥{{item.shopPrice}}</view>
+          </view>
+          <view class='gotoGroupBuying {{type ==1?"":"gotoGroupBuying_"}}'>去拼团</view>
+        </view>
+      </view>
+    </view>
+  </block>
+</view>
+<view  wx:if="{{!isNoGoods}}">
+  <view style='display:flex;justify-content:center;margin-top:-20rpx;'>
+    <image wx:if='{{isLoading}}' style='width:100rpx;height:100rpx;margin:0 auto;' src='/images/bottomLoading.gif' />
+  </view>
+  <reachTheBottom wx:if="{{goodsList.length >0 && !isLoading}}"></reachTheBottom>
+</view>
+<c-noGoods wx:if="{{isNoGoods}}" />
+<c-navigationTools totalCount='{{totalCounts}}' />
+<c-navigationToolsTwo toTheTop="{{toTheTop}}" catchtoUpImgs="ontoUpImgs" />

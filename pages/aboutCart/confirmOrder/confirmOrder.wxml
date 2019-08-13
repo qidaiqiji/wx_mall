@@ -1,0 +1,202 @@
+<view class='confirm_order'>
+  <view class='order_main'>
+    <view class='order_addr' bindtap="onJumptoAddr">
+      <view class='addr_top' wx:if='{{address.addressId}}'>
+        <text class='addr_top_name'>{{address.consignee}}</text>
+        <text class='addr_top_phone'>{{address.mobile}}</text>
+      </view>
+      <view class='addr_middle' wx:if='{{address.addressId}}'>
+        <image class='addr_middle_location' src='/images/add.png' />
+        <text class='addr_middle_desc'>{{address.provinceName}}{{address.cityName}}{{address.districtName?address.districtName:''}}{{address.address}}</text>
+        <image class='addr_middle_arrow' src='/images/arrow-_right.png' />
+      </view>
+      <view wx:else class='noAddress'>
+        <text>还没有收货地址，</text>
+        <view>去添加</view>
+      </view>
+      <view class='addr_bottom'>
+        <image class='addr_bottom_img' src='/images/map-line.png' />
+      </view>
+    </view>
+    <view class='order_goods'>
+      <block wx:for='{{groupList}}' wx:for-item="goodsItem" wx:key='index'>
+        <view class='goods_item'>
+          <view class='goods_item_head'>
+            <view class='item_title'>{{goodsItem.title}}</view>
+            <view class='item_num' bindtap='onShowAllGoods' data-kind='billOfGoods' data-goodsList='{{goodsItem.goodsList}}' data-goodsNum='{{goodsItem.goodsNum}}'>
+              <view class='lookAllGoods'>
+                <view class='item_num_number'>共
+                  <text>{{!!groupShoppingId?goodsItem.goodsList[0].cartNum:goodsItem.goodsNum}}</text>个商品
+                </view>
+                <image class='item_num_image' src='/images/arrow-_right.png' />
+              </view>
+            </view>
+
+          </view>
+          <view class='goods_item_show' bindtap='onShowAllGoods' data-kind='billOfGoods' data-goodsList='{{goodsItem.goodsList}}' data-goodsNum='{{goodsItem.goodsNum}}' wx:if='{{!groupShoppingId}}'>
+            <c-orderGoods_row kind='confirmOrder_com' goodsList='{{goodsItem.goodsList}}' />
+          </view>
+          <view class='goods_item_show_buying' wx:if='{{!!groupShoppingId}}'>
+            <c-orderGoods_row kind='confirmOrder_buyConfirm' goodsListConfirm='{{goodsItem.goodsList}}' />
+          </view>
+          <view class='goods_item_freight'>
+            <view class='freight_left'>
+              <image class='freight_left_car' src='/images/freight.png' />
+              <text class='freight_left_title'>运费方式</text>
+              <image class='freight_left_query' src='/images/issue.png' bindtap='handleShowPostage' data-kind='{{goodsItem.isZhiFa?"zhifayoufei":"daifayoufei"}}' />
+
+            </view>
+
+            <view>
+              <view class='freight_right1' wx:if="{{goodsItem.isZhiFa}}">
+                <view class='freight_right1' wx:if="{{goodsItem.shippingName=='包邮'||goodsItem.shippingSelections.length<=0}}">
+                  <text>包邮</text>
+                </view>
+
+                <view class='freight_right1 freight_right_wrap' wx:else>
+                  <view class="freight_right_position" bindtap='handleSelectPostAge' data-kind='postage' data-shippingSelections="{{goodsItem.shippingSelections}}">
+                    <view wx:if="{{prepay==0}}">
+                      <text> {{goodsItem.shippingSelections[0].shippingName}}</text>
+                      <image class='item_num_images' src='/images/arrow-_right.png' />
+                    </view>
+                    <view wx:else>
+                      <text>
+                          {{goodsItem.shippingSelections[1].shippingName}}{{goodsItem.shippingSelections[1].shippingFee}}</text>
+                      <image class='item_num_images' src='/images/arrow-_right.png' />
+                    </view>
+                  </view>
+                </view>
+              </view>
+              <view class='freight_right1 freight_right2' wx:else>
+                <text wx:if="{{goodsItem.shippingName}}">{{goodsItem.shippingName}}</text>
+              </view>
+            </view>
+          </view>
+          <view class='subTotal'>
+            <text>小计</text>
+
+            <text class='price'>{{goodsItem.amount}}</text>
+          </view>
+        </view>
+      </block>
+    </view>
+    <view class='order_msg_leav'>
+      <input placeholder='订单留言：' placeholder-class='order_placeHolder' bindinput='onOrderMsg' />
+    </view>
+    <view class='order_coupon'>
+      <view class="coupon_desc" wx:if="{{total.membersDiscount>0}}">
+        <view class='coupon_left'>
+          <image class='left_tick' src='/images/car_huang_guan.png' />
+          <text>会员日</text>
+        </view>
+        <view class='coupon_right'>
+          <view class="rightpadding zhekou">
+            全场{{membersDayDiscount}}折
+          </view>
+        </view>
+      </view>
+      <view class="coupon_desc" wx:if="{{extCode != 'group_shopping'}}">
+        <view class='coupon_left'>
+          <image class='left_tick' src='/images/ticket.png' />
+          <text>优惠券</text>
+          <text class='left_tag'>{{couponList.canUseCount}}张可用</text>
+        </view>
+        <view class='coupon_right' catchtap='ordercoupon'>
+          <view wx:if="{{total.couponDiscount}}">-￥{{total.couponDiscount}}</view>
+          <view wx:else></view>
+
+          <view class="rightpadding">
+            <image class='right_arrow' src='/images/arrow-_right.png' />
+          </view>
+        </view>
+      </view>
+
+      <view class="coupon_desc_integral" wx:if="{{canUseIntegral}}">
+        <view class='coupon_left' catchtap="onIconguiZe">
+          <text>积分抵扣</text>
+          <image class='freight_left_query' src='/images/issue.png' />
+        </view>
+        <view class='coupon_right' catchtap='integralUp'>
+          <view class="integral_txt_left integral_txt_left_" wx:if="{{integralNo=='-1'}}">共{{total.totalIntegral}}积分，可用{{total.maxIntegral}}积分</view>
+          <view class="integral_txt_left" wx:else>{{integralIndex}}</view>
+          <view class="rightpadding">
+            <image class='right_arrow' src='/images/arrow-_right.png' />
+          </view>
+        </view>
+      </view>
+      <!-- <view class="integral_txt">如果您没有选择要使用的优惠券，系统将自动使用满减规则</view> -->
+      <view class='coupon_Tip' wx:if='{{isShowFullCutCouponTips}}'>
+        <view class='account_title'>{{FullCutCouponTips}}</view>
+      </view>
+    </view>
+    <view class='order_account'>
+      <view class='account_content'>
+        <view class='account_item'>
+          <text class='account_text_left'>采购总额</text>
+          <text class='account_text_right'>{{total.goodsAmount}}</text>
+        </view>
+        <view class='account_item' wx:if="{{total.integralDiscount >0}}">
+          <text class='account_text_left'>积分抵扣</text>
+          <text class='account_text_right_'>{{total.integralDiscount}}</text>
+        </view>
+        <view class='account_item'>
+          <text class='account_text_left'>满减立减</text>
+          <text class='account_text_right' wx:if="{{total.isComposition == 0}}">{{total.fullCutDiscount}}</text>
+          <text class='account_text_right' wx:if="{{total.isComposition > 0}}">0</text>
+        </view>
+        <view class='account_item' wx:if="{{total.membersDiscount>0}}">
+          <text class='account_text_left'>会员日</text>
+          <view class='account_text_right account_reducer'>
+            <text>{{total.membersDiscount}}</text>
+          </view>
+        </view>
+        <view class='account_item'>
+          <text class='account_text_left'>优惠券</text>
+          <view class='account_text_right account_reducer'>
+            <text>{{total.couponDiscount}}</text>
+          </view>
+        </view>
+        <view class='account_item' wx:if='{{zhifaInfo.hasZhifa}}'>
+          <view class='account_text_left  left_more'>
+            <text>直发运费</text>
+            <image class='account_text_left_img' src='/images/issue.png' bindtap='handleShowPostage' data-kind='zhifayoufei' />
+            <view wx:if='{{zhifaInfo.shippingFreeNeedsMoreAmount>0}}'>（优惠后，直发总额未满{{zhifaInfo.shippingAmountAbove}}元)
+            </view>
+          </view>
+          <text class='account_text_right'>{{total.zhifaShippingFee}}</text>
+        </view>
+        <view class='account_item'>
+          <text class='account_text_left'>应付总额</text>
+          <text class='account_text_right account_stress' wx:if="{{prepay==0}}">{{total.totalAmount}}</text>
+          <text class='account_text_right account_stress' wx:if="{{prepay==1}}">{{
+            total.totalAmount}}</text>
+        </view>
+      </view>
+      <view class='account_rule'>
+        <view class='account_rule_img'>
+          <image class='account_rule_img_' src='/images/account_bottom.png' />
+        </view>
+        <!-- 520黑卡 -->
+        <view class='exclusive_black_wrap' style="background-image: url({{exclusive_black}})" wx:if="{{total.isComposition > 0}}">
+          <text wx:if="{{total.isComposition > 0}}"> -￥{{total.fullCutDiscount}}</text>
+        </view>
+      </view>
+    </view>
+  </view>
+  <view class='order_fixed'>
+    <view wx:if='{{zhifaInfo.hasZhifa&& zhifaInfo.shippingFreeNeedsMoreAmount>0}}' class="p_zhifa_bottom">
+      <c-coudanBottomTip kind='confirmOrder' hasZhifa="{{zhifaInfo.hasZhifa}}" shippingAmountAbove='{{zhifaInfo.shippingAmountAbove}}' discount='{{discount}}' provinceId='{{addressDefault.provinceId}}' shippingFreeNeedsMoreAmount='{{zhifaInfo.shippingFreeNeedsMoreAmount}}'
+      />
+    </view>
+    <view>
+      <c-fixedBottomPay goodsCount='{{total.goodsCount}}' prepay="{{prepay}}" totalAmount='{{total.totalAmount}}' bindtoPayOrder='toPayOrder' wx:if="{{prepay==0 || prepay==1}}" />
+
+    </view>
+  </view>
+</view>
+<i-toast id="toast" />
+<c-modal wx:if="{{pagesModal}}" desc="{{desc}}" confirm='{{confirm}}' catchpagesModal="pagesModals"></c-modal>
+<c-choose_integral integralList="{{integralList}}" bindclose='handleClose' bindcloses='onCloses' wx:if="{{chooseIntegral}}" />
+<c-popupWindow kind='integralRules' integralArticleTxt="{{integralArticleTxt}}" bindmyshow="onMyshow" wx:if="{{hidePopupWindow}}"></c-popupWindow>
+<c-bottomModal kind='{{showKind}}' wx:if='{{isShowBottomModal}}' prepay="{{prepay}}" goodsItemAll='{{showGoodsList}}' goodsAllNum='{{showGoodsNum}}' bindhideMask='onhideMask' shippingSelections='{{shippingSelections}}' bindselectPostage="parentComponent"
+  id='showBottomModal'></c-bottomModal>

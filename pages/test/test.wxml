@@ -1,0 +1,32 @@
+<!-- pages/activeDirectory/ledPassword/ledPassword.wxml -->
+<view class="wrap" style="background:{{viewColor}}">
+    <image class="bannerImg" src="/images/lingshi.png" />
+    <view class="">
+        <block wx:for="{{[1]}}" wx:key="{{index}}">
+            <!-- type  1商品列表 2广告位 -->
+            <view class="" wx:if="{{true}}">
+                
+            </view>
+            <view class="advertisingWrap" wx:if="{{true}}">
+                <!-- 标题 -->
+                <view class="titleWrap">
+                    <!-- 文字/图片 -->
+                    <view class="titleImg" wx:if="{{true}}">
+                        <image class="" src="" />
+                    </view>
+                    <!-- isShowTitle 是否展示文字标题 -->
+                    <view class="titleTxtWrap">
+                        <view class="title">猜你喜欢</view>
+                        <view class="subTitle">千万爆款团,最低2折起</view>
+                    </view>
+                </view>
+                <!-- 广告 -->
+                <view class="advertising">
+                    <block wx:for="{{[1,2,3,4]}}" wx:key="{{index}}">
+                        <image class="advertisingImg" src="" mode="widthFix" />
+                    </block>
+                </view>
+            </view>
+        </block>
+    </view>
+</view>

@@ -1,0 +1,113 @@
+<!-- pages/goods/spellDetails/spellDetails.wxml -->
+<view class="container" wx:if='{{isLoading==2}}'>
+  <c-loading />
+</view>
+<view class="product" wx:else>
+  <view class="spellDetailsTop">
+    <view class="spellShop">
+      <image class='spellShopThum' src="{{groupInfo.img}}" />
+      <view class="commodityInformation">
+        <view>
+          <view class="spellGoosdName">{{groupInfo.goodsName}}</view>
+          <view class="spellAlreadyWrap">
+            <view class="spellAlready">
+              <image class='search_tag_img' src="/images/hotNum@2x.png" />
+              <view>已拼{{groupInfo.saleCount}}件</view>
+            </view>
+          </view>
+        </view>
+        <view>
+          <view class="peopleWithPrice">
+            <view class="peopleNumber">{{groupInfo.fullNum}}人团</view>
+            <view class="spellPrice">
+              <view>{{objectPrice.numInt}}</view>
+              <view>.{{objectPrice.decimal}}</view>
+            </view>
+          </view>
+          <view class="singlePurchase">单买价{{groupInfo.shopPrice}}</view>
+        </view>
+      </view>
+    </view>
+  </view>
+  <view class="spellInformation " wx:if="{{groupInfo.needNum > 0}}">
+    <view class="spellPrompt_">
+      <view>
+        还差
+        <text class="remainingPeople">{{groupInfo.needNum}}</text>
+        人拼团成功
+      </view>
+      <view class="remainingTime">
+        <view>剩余</view>
+        <times mytimes="{{groupInfo.endTime}}" kind='details' wx:if="{{spellDetailsHide}}"></times>
+      </view>
+    </view>
+    <view class="spellPeopleImgWrap spellPeopleImgWrap_">
+      <view class="spellPeopleImg">
+        <image src='/images/icon_colonel.png'></image>
+        <view>团长</view>
+      </view>
+      <block wx:for="{{groupInfo.fullNum -groupInfo.needNum -1}}" wx:key='index'>
+        <view class="spellPeopleImg">
+          <image src='/images/icon_member.png'></image>
+        </view>
+      </block>
+      <block wx:for="{{groupInfo.needNum}}" wx:key='index'>
+        <view class="spellPeopleImg">
+          <image src='/images/icon_empty.png'></image>
+        </view>
+      </block>
+    </view>
+  </view>
+  <view class="spellInformation" wx:if="{{groupInfo.needNum == 0}}">
+    <view class="spellPrompt">
+      <image class='search_tag_img' src="/images/icon_tishi.png" />
+      <view class="spellPromptTxt">拼团已满</view>
+    </view>
+    <view class="spellPeopleImgWrap">
+      <block wx:for="{{groupInfo.fullNum}}" wx:key='index'>
+        <view class="spellPeopleImg">
+          <image src='{{index ==0 ?"/images/icon_colonel.png":"/images/icon_member.png"}}' mode='widthFix'></image>
+          <view wx:if="{{index ==0}}">团长</view>
+        </view>
+      </block>
+    </view>
+    <view class="img_pintuan_bg" style="background-image: url({{img_pintuan_bg}})" wx:if="{{adviceLists.length > 0}}">
+      <view>推荐您参与以下拼团</view>
+      <c-spellGroupList groupList="{{adviceLists}}" kind='details' goodsId='{{goodsId}}' addCartList="{{addCartList}}" bindevokeAddCart='onGroupCart'></c-spellGroupList>
+    </view>
+  </view>
+  <view class="spellWrapTop" catchtap="isSpellRules">
+    <view class="spellingRules">
+      <view class="">拼团规则</view>
+      <view class="">支付开团并邀请{{groupInfo.fullNum}}人成团，人数不足自动退款</view>
+    </view>
+    <image src="/images/icon_return.png" style="width: 30rpx;height: 30rpx;"></image>
+  </view>
+  <!-- 市场参谋/市场评价/客户反馈 -->
+  <view>
+    <txtInfo isDaiFa="{{isZhifa?'isZhifa':'isDaiFa'}}" marketSuggest="{{marketSuggest}}" marketComment="{{marketComment}}" feedback="{{feedback}}"></txtInfo>
+  </view>
+  <!-- 品牌 -->
+  <view class="product_spacing">
+    <pro_brand brand="{{brand}}" linkGoods="{{linkGoods}}"></pro_brand>
+  </view>
+  <!-- 商品图 -->
+  <view class="product_shop_photo" wx:for="{{goodsDesc}}" wx:for-item="pro_brand_img" wx:for-index="pro_brand_imgi" wx:key="{{pro_brand_imgi}}" wx:if="{{goodsDesc}}">
+    <image mode="widthFix" class="pro_brand_detail_img product_shop_photo_" src="{{pro_brand_img}}" data-imgs="{{goodsDesc}}" data-img="{{pro_brand_img}}" catchtap='isMaxShow'></image>
+  </view>
+  <!-- 问题 -->
+  <view>
+    <pro_problem></pro_problem>
+  </view>
+  <reachTheBottom></reachTheBottom>
+  <!-- 底部 -->
+  <view id="pro_bottom"></view>
+  <view class="pro_bottom">
+    <pro_bottom spellDetailsHide="{{spellDetailsHide}}" groupInfo="{{groupInfo}}" addCartList="{{addCartList}}" totalCount="{{totalCount}}" spellBottom='{{groupInfo.needNum==0?"2":"1"}}' actPrice="{{groupInfo.price}}" goodsId='{{groupInfo.goodsId}}' bindevokeAddCart='onGroupCart'></pro_bottom>
+  </view>
+</view>
+<i-toast id="toast" />
+<c-navigationToolsTwo toTheTop="{{toTheTop}}" bottomToTheTop="118" catchtoUpImgs="ontoUpImgs" />
+<c-popupWindow bindmyshow="onMyshow" ruleText="{{groupInfo.desc}}" kind="spell" wx:if="{{hidePopupWindow}}"></c-popupWindow>
+<c-shopba kind='addCart' id="addCart" shbpbaWrapHeight='999' shbpbaListHeight='444' bottomSwitch="{{bottomSwitch}}" groupShopping="{{mystatus==8?'groupShopping':''}}" isSpell="{{isSpell}}" groupId="{{groupId}}" groupShoppingInfo='{{groupShoppingInfo}}' goodsId="{{addGoodsId}}" addCartList="{{addGoodslist}}" catchtouchmove='true' actGoodsId="{{groupInfo.actGoodsId}}" bindhideCart="onhideCart" wx:if='{{isPopCart}}'></c-shopba>
+<c-groupShoppingCart checkoutList="{{checkoutList}}" groupId="{{groupId}}" actGoodsId='{{groupInfo.actGoodsId}}' bindgroupCartHide='ongroupCartHide' wx:if="{{onGroupCartShow}}" />

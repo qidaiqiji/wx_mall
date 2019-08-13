@@ -1,0 +1,6 @@
+{
+  "navigationBarTitleText": "分享推荐",
+  "usingComponents": {
+    "i-toast": "../../../dist/toast/index"
+  }
+}

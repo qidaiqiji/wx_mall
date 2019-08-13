@@ -1,0 +1,11 @@
+{
+  "navigationBarTitleText": "专辑详情",
+  "usingComponents": {
+    "c-navigationTools": "/components/navigationTools/index",
+    "c-navigationToolsTwo":"/components/navigationToolsTwo/index",
+    "c-shopba": "/components/product_b/shopba/index",
+    "c-goodsItem_row": "/components/goodsItem_row/index",
+    "reachTheBottom": "/components/reachTheBottom/index",
+    "i-toast": "../../../dist/toast/index"
+  }
+}

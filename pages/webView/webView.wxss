@@ -1,0 +1,4 @@
+/* pages/webView/webView.wxss */
+.webViewClass{
+    width: 750rpx;
+}

@@ -1,0 +1,77 @@
+<!--components/routineActivity_T/index.wxml-->
+<!-- 限时秒杀 -->
+<scroll-view scroll-y style='height:{{windowHeight}}rpx;'>
+  <view class="t_wrap">
+    <view class="routineActivity_T_img" wx:if='{{date}}'>
+      <image class="" src="/images/img_miaosha.png" style="width: 750rpx;height: 78rpx;" lazy-load="false" />
+      <view class="routineActivity_T_txt">
+        <view class="routineActivity_T_txt2">
+          <view class="routineActivity_T_txt0">限时限量疯抢</view>
+          <view>
+            <times mytimes="{{date}}" kind='normal'></times>
+          </view>
+
+        </view>
+      </view>
+    </view>
+    <view class="activityfullcut_wrap" wx:if="{{startTime}}">
+      <image class="activityfullcut_img" src="/images/banner.png"></image>
+      <view class="activityfullcut_txt_wrap">
+        <view class="activityfullcut_txt_wraps">
+          <view class="activityfullcut_txt_one">{{fullCutTitle}}</view>
+          <view class="activityfullcut_txt_two" wx:if="{{startTime}}">
+            <text>活动时间：</text>
+            <text>{{startTime}}</text>
+          </view>
+        </view>
+      </view>
+    </view>
+    <view>
+      <block wx:for="{{goodsList}}" wx:for-item="miaoshaList" wx:for-index="miaoshaindex" wx:key="miaoshaindex">
+        <view class="t_goodsList_wrap" data-goodsId="miaoshaList.goodsInfo.goodsName.goodsId">
+          <view class="routineActivity_T_left" data-goodId="{{miaoshaList.goodsInfo.goodsId}}" bindtap="showListdetails">
+            <image class="" style="width: 190rpx;height: 190rpx;margin-top: 23rpx;" src="{{miaoshaList.goodsInfo.thumb}}" />
+            <!-- <image class="" style="width: 116rpx;height: 30rpx;" src="{{miaoshaList.thumb}}" /> -->
+            <view class="jijiang"  wx:if="{{miaoshaList.goodsInfo.stock==0}}">售罄</view>
+            <view wx:else>
+              <view class="jijiang" wx:if="{{currentTab !==2&&miaoshaList.goodsInfo.stockStatus !==2&&miaoshaList.goodsInfo.stockStatus}}">{{miaoshaList.goodsInfo.stockStatus==3?'大货到仓':miaoshaList.goodsInfo.stockStatus==2?'':'货源紧张'}}</view>
+            </view>
+          </view>
+          <view class="routineActivity_T_right">
+            <view class="routineActivity_T_one">
+              <view class="routineActivity_T_right_o">{{miaoshaList.goodsInfo.goodsName}}
+              </view>
+              <view class="routineActivity_T_right_t0" wx:if="{{fullCutTitle?false:true}}">
+                <text class="routineActivity_T_right_t">{{miaoshaList.tags}}</text>
+              </view>
+              <view class='spare_tag'>
+                <text class="routineActivity_T_right_discount spare_tag_" wx:if="{{miaoshaList.price.discount>=10?false:true}}">{{miaoshaList.price.discount}}折</text>
+                <text class="routineActivity_T_right_s spare_tag_" wx:if="{{miaoshaList.price.savePrice<=10?false:true}}">省￥{{miaoshaList.price.savePrice}}</text>
+              </view>
+            </view>
+            <view class="routineActivity_T_two">
+              <view>
+                <view>
+                  <text class="routineActivity_T_right_rmb">￥</text>
+                  <text class="routineActivity_T_right_f">{{miaoshaList.price.goodsPrice}}</text>
+                </view>
+                <view class="routineActivity_T_right_fi">销量:{{miaoshaList.goodsInfo.salesCount}}</view>
+              </view>
+
+
+              <view catchtap='handleToBuy' data-goodsId='{{miaoshaList.goodsInfo.goodsId}}' data-goodsList="{{miaoshaList}}">
+                <view class="routineActivity_T_right_six" slot='shopba'>
+                  立即抢
+                </view>
+              </view>
+            </view>
+
+          </view>
+        </view>
+      </block>
+
+    </view>
+    <c-reachTheBottom wx:if="{{goodsList.length > 4?true:false}}" />
+  
+  </view>
+</scroll-view>

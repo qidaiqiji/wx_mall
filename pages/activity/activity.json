@@ -1,0 +1,15 @@
+{
+  "navigationBarTitleText": "",
+  "usingComponents": {
+    "goodlsListTwo_col": "/components/goodsItemTwo_col/index",
+    "c-remind_right": "/components/remind_right/index",
+    "c-activityList":"/components/activityList/index",
+    "c-saleComponents":"/components/saleComponents/index",
+    "c-countDown":"/components/countDown/index",
+    "c-navigationToolsTwo": "/components/navigationToolsTwo/index",
+    "c-navigationTools": "/components/navigationTools/index",
+    "c-shopba": "/components/product_b/shopba/index",
+    "i-toast": "/dist/toast/index"
+  }
+
+}

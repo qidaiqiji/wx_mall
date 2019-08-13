@@ -1,0 +1,28 @@
+<!--pages/anniversary/anniversary.wxml-->
+<view style="background: {{isBackgroundColor}}">
+    <view class="top">
+        <block wx:for="{{bannerAd}}" wx:for-item="bannerAd" wx:for-index="bannerAd_in" wx:key="{{bannerAd_in}}">
+            <image class="top_img" src="{{bannerAd.img}}" mode="widthFix" data-url="{{bannerAd.url}}" />
+        </block>
+    </view>
+    <view class="conter" style="background: {{isBackgroundColor}}">
+        <block wx:for="{{goodsList}}" wx:for-item="goodsList" wx:for-index="arr_in" wx:key="{{arr_in}}">
+            <c-goodsItemThree_col goodsList="{{goodsList}}" bindevokeAddCart='onevokeAddCart'>
+            </c-goodsItemThree_col>
+        </block>
+    </view>
+    <view class="anniversary_bottom" style="background: {{isBackgroundColor}}" wx:if="{{goodsList.length > 0}}"></view>
+    <view class='navigation_button' bindtap='handleShowNavigation' wx:if='{{isActTime}}'>
+        <image src='/images/navigation_button.png'></image>
+    </view>
+</view>
+
+<c-remind_right id="remind_right" isPageId="{{isPageId}}" menus="{{menus}}" autoJump='{{false}}'
+    bindallPreferential='onallPreferential' bindupMenus='handleMenus' wx:if="{{isShowNavigation}}"  title='膜法保湿节会场直达'></c-remind_right>
+
+<c-shopba kind='addCart' wx:if='{{isPopCart}}' shbpbaWrapHeight='999' shbpbaListHeight='444' goodsId='{{addGoodsId}}'
+    catchtouchmove='true' goodsList='{{addGoodslist}}' id="addCart" bindhideCart="onhideCart" bindgetTotle='ongetTotle'>
+</c-shopba>
+<c-navigationTools totalCount='{{totalCounts}}' />
+<c-navigationToolsTwo backTop='{{true}}' toTheTop="{{toTheTop}}" catchtoUpImgs="ontoUpImgs" />
+<i-toast id="toast" />

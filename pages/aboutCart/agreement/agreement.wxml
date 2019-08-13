@@ -1,0 +1,17 @@
+<!--pages/agreement/agreement.wxml-->
+<view class="wrap">
+    <view class="txt_one">
+        本协议是您与小美诚品（简称“本站”，网址：www.xiaomei360.com）所有者深圳小美网络科技有限公司（以下简称为“小美诚品”）之间就小美诚品服务等相关事宜所订立的契约，请您仔细阅读本注册协议，您点击“同意并继续”按钮后，本协议即构成对双方有约束力的法律文件。 
+    </view>
+    <block wx:for="{{txt}}" wx:key="{{index}}">
+        <view>
+            <view  class="txt_two">{{item.title}}</view>
+            <block wx:for="{{item.die}}" wx:for-item='die' wx:for-index='dieIndex' wx:key="{{dieIndex}}">
+                <view  class="txt_three">{{die}}</view>
+            </block>
+          
+        </view>
+        
+    </block>
+     <view class="bottom"></view> 
+</view>

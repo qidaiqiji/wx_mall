@@ -1,0 +1,32 @@
+<!--pages/ordercoupon/ordercoupon.wxml-->
+<view class='container'>
+
+  <view class='main'>
+    <view  >
+      <view wx:if='{{mycouponList.canUse.length>0}}'>
+        <c-coupon win="isno" couponLists="{{mycouponList}}" couponList='{{mycouponList.canUse}}' currentTab='0'
+          catchcheck='checkid' couponId='{{couponId}}' />
+      </view>
+      <view wx:if='{{mycouponList.canNotUse.length>0}}'>
+        <c-coupon win="isno" couponList='{{mycouponList.canNotUse}}' currentTab='1' catchcheck='checkid' />
+      </view>
+      <view class="my_coupon_list_bottom"></view>
+    </view>
+   
+  </view>
+   <view  class='not_data'  wx:if="{{mycouponList.canUse.length==0 && mycouponList.canNotUse.length==0}}">
+      
+      <image src='{{not_coupon}}'></image>
+      <view>暂无优惠券</view>
+    </view>
+  <view class="bottom_wrap" style='width:100%'>
+    <view class='bottom_msg'>
+      <view class='bottom_tip'>
+        秒杀、满减、直降、套餐、巨划算等活动商品不能与优惠券同享
+      </view>
+      <view class='my_coupon'>
+        <view class='noOrderList_text' data-yesOrNo="2" catchtap='jumpToCoupon'>确定</view>
+      </view>
+    </view>
+  </view>
+</view>

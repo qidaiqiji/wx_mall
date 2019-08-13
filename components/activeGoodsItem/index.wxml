@@ -1,0 +1,12 @@
+<!--components/activeGoodsItem/index.wxml-->
+<view class='active_goodsItem' bindtap='jumpToDetail' data-id='{{goodsItem.goodsId}}'>
+  <view class='goodsItem_main'>
+    <view class='thumb'>  <image src='{{goodsItem.thumb}}' /></view>
+    <view class='goodsItem_name'>{{goodsItem.goodsName}}</view>
+    <view class='goodsItem_desc'>{{goodsItem.desc}}</view>
+  </view>
+  <view class='goodsItem_bottom'>
+    <view>￥{{goodsItem.goodsPrice}}</view>
+    <view>立即采购</view>
+  </view>
+</view>

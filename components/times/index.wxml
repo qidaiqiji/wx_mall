@@ -1,0 +1,88 @@
+<!--components/times/index.wxml-->
+<view class="temes_txt2" wx:if='{{kind=="normal"}}'>
+  <view class="times_txt1">{{hTotal}}</view>
+  <view class="times_colon">:</view>
+  <view class="times_txt1">{{timeH}}</view>
+  <view class="times_colon">:</view>
+  <view class="times_txt1">{{times}}</view>
+</view>
+<view class='times_big' wx:if='{{kind=="index"}}'>
+  <view class="times_big_txt1">
+    <view class="{{system =='iOS'?'times_big_txt_ios':''}}">{{day}}</view>
+  </view>
+  <view class="times_big_colon"> 天</view>
+  <view class="times_big_txt1">
+    <view class="{{system =='iOS'?'times_big_txt_ios':''}}">{{timsD}}</view>
+  </view>
+  <view class="times_big_colon"> 时</view>
+  <view class="times_big_txt1">
+    <view class="{{system =='iOS'?'times_big_txt_ios':''}}">{{timeH}}</view>
+  </view>
+  <view class="times_big_colon"> 分</view>
+  <view class="times_big_txt1">
+    <view class="{{system =='iOS'?'times_big_txt_ios':''}}">{{times}}</view>
+  </view>
+  <view class="times_big_colon"> 秒</view>
+</view>
+<!-- 首页特惠时间 -->
+<view class='times_tehui' wx:if='{{kind=="tehui"}}'>
+  <view>
+    <view class="times_tehui_txt1">
+      {{actPageData}}
+    </view>
+    <view class="times_tehui_colon">{{actPageTxt}}</view>
+  </view>
+</view>
+
+<view class='preferentialTop' wx:if='{{kind=="preferentialTop"}}'>
+  <text class="tehui_day_number">{{day}}</text>
+  <text class="tehui_day_txt">天</text>
+  <text>{{timsD}}:</text>
+  <text>{{timeH}}:</text>
+  <text>{{times}}</text>
+</view>
+<view class='activity_wrap' wx:if='{{kind=="activity"}}'>
+  <view class="activity_number">{{day}}</view>
+  <view class="activity_txt">天</view>
+  <view class="activity_number">{{timsD}}</view>
+  <view class="activity_txt">时</view>
+  <view class="activity_number">{{timeH}}</view>
+  <view class="activity_txt">分</view>
+  <view class="activity_number">{{times}}</view>
+  <view class="activity_txt">秒</view>
+  <view>
+    <image class="love_times" src="/images/countdown.gif" />
+
+  </view>
+</view>
+<view class='componentsSpell' wx:if='{{kind=="componentsSpell"}}'>
+  <view>{{timsD}}:</view>
+  <view>{{timeH}}:</view>
+  <view>{{times}}</view>
+</view>
+
+<view class='componentsSpell' wx:if='{{kind=="details"}}'>
+  <view class="times_txt1">{{timsD}}</view>
+  <view class="timeesWhen">时</view>
+  <view class="times_txt1">{{timeH}}</view>
+  <view class="timeesPoints">分</view>
+  <view class="times_txt1">{{times}}</view>
+  <view class="timeesSeconds">秒</view>
+</view>
+<view class="groupBuyTimes" wx:if='{{kind=="groupBuy"}}'>
+  <view>{{hTotal}}</view>
+  <view>:</view>
+  <view>{{timeH}}</view>
+  <view>:</view>
+  <view>{{times}}</view>
+</view>
+<view class='common_wrap' wx:if='{{kind=="commonCountDown_d"}}'>
+  <view class="common_number i-class">{{day}}</view>
+  <view class="common_txt">天</view>
+  <view class="common_number i-class">{{timsD}}</view>
+  <view class="common_txt">时</view>
+  <view class="common_number i-class">{{timeH}}</view>
+  <view class="common_txt">分</view>
+  <view class="common_number i-class">{{times}}</view>
+  <view class="common_txt">秒</view>
+</view>

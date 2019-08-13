@@ -1,0 +1,32 @@
+/* pages/anniversary/anniversary.wxss */
+image {
+    vertical-align: top;
+}
+
+.top_img {
+    width: 750rpx;
+    height: 620rpx;
+}
+
+.conter {
+    width: 750rpx;
+    display: flex;
+    flex-wrap: wrap;
+    padding: 0rpx 24rpx;
+    justify-content: space-between;
+}
+.navigation_button{
+  position: fixed;
+  top: 50%;
+  right: 0;
+  transform: translateY(-50%);
+  z-index: 30;
+}
+.navigation_button>image{
+  width: 66rpx;
+  height: 186rpx;
+}
+.anniversary_bottom{
+  width: 750rpx;
+  height: 104rpx;
+}

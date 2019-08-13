@@ -1,0 +1,7 @@
+{
+  "component": true,
+  "usingComponents": {
+    "c-shopba": "/components/product_b/shopba/index",
+    "c-spellGroupList": "/components/spellGroupList/index" 
+  }
+}

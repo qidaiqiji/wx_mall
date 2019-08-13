@@ -1,0 +1,15 @@
+{
+  "navigationBarTitleText": "确认订单",
+  "backgroundColor":"#F3F5F7",
+  "usingComponents": {
+    "c-coudanBottomTip": "/components/coudanBottomTip/index",
+    "c-fixedBottomPay": "/components/fixedBottomPay/index",
+    "c-orderGoods_row": "/components/orderGoods_row/index",
+    "c-bottomModal": "/components/bottomModal/index",
+    "i-action-sheet": "../../../dist/action-sheet/index",
+    "c-modal":"/components/modal/index",
+    "i-toast": "../../../dist/toast/index",
+    "c-popupWindow": "/components/popupWindow/index",
+    "c-choose_integral": "/components/choose_integral/index" 
+  }
+}

@@ -1,0 +1,116 @@
+<!-- pages/groupBuying/groupBuying.wxml -->
+<view wx:if="{{!isNoGoods}}" class="wrap">
+  <view class='bannerBg'>
+    <view class='bannerBg_color'></view>
+    <swiper indicator-dots="true" autoplay="true" circular='true' interval="5000" duration="500" class='header_nav_slideshow' current='{{current}}' indicator-color='rgba(rgba(215,184,191,1)' indicator-active-color='rgba(255,255,255,1)'>
+      <block wx:for='{{banner}}' wx:for-item='bannerItem' wx:key='index'>
+        <swiper-item>
+          <image src="{{bannerItem.img}}" class="slide-image" catchtap='goAdvertising' data-item='{{bannerItem}}' />
+        </swiper-item>
+      </block>
+    </swiper>
+  </view>
+  <view class='bipinCountDown'>
+    <view class='bipinCountDown_' style='background-image:url({{img_bipin}})'>
+      <view class='bipin_top'>
+        <view class='bipin_top_left'>
+          <text>本场必拼</text>
+          <c-times mytimes="{{time}}" kind='commonCountDown_d' wx:if="{{groupBuying}}" />
+        </view>
+        <view class='bipin_top_right' bindtap='jumpToBiPin'>
+          <text>更多</text>
+          <image src='/images/icon_putaway_black@2x.png'></image>
+        </view>
+      </view>
+      <view class='bipin_bottom'>
+        <scroll-view scroll-x="true" style=" white-space: nowrap; display: flex">
+        <block wx:for='{{hotList}}' wx:for-item='itemHot' wx:key='{{index}}'>
+          <view class="bipin_goodsItem" data-goodsid='{{habb.goodsId}}' catchtap='linkGoods'>
+            <image mode="aspectFill" src="{{itemHot.img}}" data-imgs="{{foundArticle.imgs}}" data-goodsid="{{itemHot.goodsId}}" catchtap='goProduct' />
+            <view>{{itemHot.price}}</view>
+          </view>
+        </block>
+      </scroll-view>
+        <!-- <swiper indicator-dots autoplay interval='5000' duration="500" circular class='bipin_swiper' indicator-color='rgba(rgba(212,212,212,1)' indicator-active-color='rgba(255,51,102,1)'>
+          <block wx:for='{{hotLists}}' wx:for-item='itemHot' wx:key='{{index}}'>
+            <swiper-item>
+              <block wx:for='{{itemHot}}' wx:key='{{item.goodsId}}'>
+                <view class='bipin_goodsItem'>
+                  <image mode="aspectFill" src="{{item.img}}" data-imgs="{{foundArticle.imgs}}" data-goodsid="{{item.goodsId}}" catchtap='goProduct' />
+                  <view>{{item.price}}</view>
+                </view>
+              </block>
+            </swiper-item>
+          </block>
+        </swiper> -->
+      </view>
+    </view>
+  </view>
+  <view class='rexiao' style='background-image:url({{img_rexiao}})' wx:if="{{topList.length > 0}}">
+    <view class='rexiao_title'>热销榜</view>
+    <view class='rexiao_all'>
+      <block wx:for='{{topList}}' wx:for-item='topListItem' wx:key='index'>
+        <view class='rexiaoItem'>
+          <image src='/images/icon_no{{index+1}}_mask.png' class='goodsItem_tag'></image>
+          <view class='getGoodsItemBorder getMargin{{index+1}}'>
+            <view class='goodsItem_img' catchtap='goProduct' data-goodsId='{{topListItem.goodsId}}'>
+              <image src='{{topListItem.img}}' class='goodsItem_img_'></image>
+            </view>
+            <view class='rexiao_prices'>
+              <view class='realPrice'>{{topListItem.price}}</view>
+              <view class='referencePrice'>{{topListItem.marketPrice}}</view>
+              <view></view>
+            </view>
+            <view class='rexiao_numb'>
+              <image src='/images/hotNum@2x.png'></image>
+              <view>已拼{{topListItem.saleCount}}件</view>
+            </view>
+          </view>
+        </view>
+      </block>
+      <!-- </view> -->
+    </view>
+  </view>
+  <view class='groupBuy_recommend' wx:if="{{goodsList.length > 0}}">
+    <view class='recommend_title'>为您推荐</view>
+    <view class='goodsList'>
+      <block wx:for='{{goodsList}}' wx:for-item="itemList" wx:key='index'>
+        <view class='goodsItem' data-goodsId="{{itemList.goodsId}}" catchtap="goProduct">
+          <view class='itemThumb'>
+            <image src='{{itemList.img}}'></image>
+          </view>
+          <view class='itemMsg'>
+            <view class='msgTop'>
+              <view>{{itemList.goodsName}}</view>
+              <view class='msgTop_desc'>
+                <image src='/images/icon_groupBuyingHot.png' />
+                <view>已拼{{itemList.saleCount}}件</view>
+              </view>
+            </view>
+            <view class='msgBottom'>
+              <view>
+                <view class='msgBtm_discounts'>
+                  <view class='msgBtm_discounts_memb'>{{itemList.fullNum}}人团</view>
+                  <view class='msgBtm_discounts_price'>
+                    <view>{{itemList.objectPrice.numInt}}</view>
+                    <view>.{{itemList.objectPrice.decimal}}</view>
+                  </view>
+                </view>
+                <view class='msgBtm_price'>单买价¥{{itemList.shopPrice}}</view>
+              </view>
+              <view class='gotoGroupBuying'>去拼团</view>
+            </view>
+          </view>
+        </view>
+      </block>
+    </view>
+  </view>
+  <view style='display:flex;justify-content:center;margin-top:-20rpx;'>
+    <image wx:if='{{isLoading}}' style='width:100rpx;height:100rpx;margin:0 auto;' src='/images/bottomLoading.gif' />
+  </view>
+  <reachTheBottom wx:if="{{goodsList.length >=0 && !isLoading}}"></reachTheBottom>
+</view>
+<c-noGoods wx:if="{{isNoGoods}}"/>
+
+<c-navigationTools totalCount='{{totalCounts}}' />
+<c-navigationToolsTwo toTheTop="{{toTheTop}}" bottomToTheTop="20" catchtoUpImgs="ontoUpImgs" />

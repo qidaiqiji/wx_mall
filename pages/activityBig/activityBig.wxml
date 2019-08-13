@@ -1,0 +1,112 @@
+<!--pages/activityBig/activityBig.wxml-->
+<view class="wrap" wx:if="{{banner.length > 0}}">
+    <block wx:for='{{banner}}' wx:for-item='bannerItem' wx:key='1-{{index}}'>
+        <image class="banner_act_img" src='{{bannerItem.img}}' mode='widthFix' data-url="{{bannerItem.url}}"
+            catchtap='bannerGo' />
+    </block>
+</view>
+<!-- 黑卡 -->
+<view class="wrap">
+    <image class="black_card_img" src='{{black_card_two}}' catchtap='blackCard' />
+</view>
+
+<!-- 爱心礼遇 -->
+<view class="wrap" wx:if="{{loveAd.length > 0}}">
+    <image class="love_courtesy_img" src='{{love_courtesy}}' />
+    <view class="love_conter_for">
+        <block wx:for='{{loveAd}}' wx:for-item='' wx:key='2-{{index}}'>
+            <image class="love_advertising_img" src='{{item.img}}' data-url="{{item.url}}" catchtap='bannerGo' />
+        </block>
+    </view>
+    <view class="love_bottom">
+        <view class="love_bottom_top">
+            <view class="love_bottom_title">
+                <image class="seconds_kill_img" src='{{seconds_kill}}' />
+                <image class="more_and_more" src="/images/more_and_more.png" catchtap='moreAndMore' />
+            </view>
+            <view class="love_bottom_conter">
+                <view>本场距离结束还剩</view>
+                <c-times id="love_times" mytimes="{{flashSaleEndTime}}" kind='activity'></c-times>
+            </view>
+        </view>
+        <view class="Seconds_row" data-goodid="{{flashSaleListOne.goodsId}}" catchtap='goShop'>
+            <view class="">
+             <view class="Seconds_img_thrie_wrap">
+                <image class="Seconds_img_thrie" src='{{flashSaleListOne.img}}' />
+             </view>
+                <view class="Seconds_img_tag">限时秒杀</view>
+            </view>
+            <view class="">
+                <view class="Seconds_row_title">{{flashSaleListOne.goodsName}}</view>
+                <view class="made_with">{{flashSaleListOne.desc}}</view>
+                <view class="bottom_price">
+                    <view class="">
+                        <view class="price_max">{{flashSaleListOne.goodsPrice}}</view>
+                        <view class="price_min">{{flashSaleListOne.marketPrice}}</view>
+                    </view>
+                    <view class="seconds">秒</view>
+                </view>
+            </view>
+        </view>
+        <!-- 秒杀col -->
+        <view class="seconds_col">
+            <block wx:for='{{flashSaleList}}' wx:for-index='colIndex' wx:key='{{colIndex}}'>
+                <c-goodsListGoShop class="seconds_col_list" goodsList="{{item}}"></c-goodsListGoShop>
+            </block>
+        </view>
+    </view>
+</view>
+<!-- 特卖 -->
+<view class="wrap">
+    <view id="activityBigSale"></view>
+    <image class="sale_img" src='{{sale}}' wx:if="{{actPageAd.length > 0}}" />
+    <view class="sale_list_wrap">
+        <block wx:for='{{actPageAd}}' wx:key='3-{{index}}'>
+            <image class="sale_list_img" src='{{item.img}}' mode='widthFix' data-url="{{item.url}}"
+                catchtap='bannerGo' />
+        </block>
+    </view>
+</view>
+<!-- 巨划算 -->
+<view class="wrap" wx:if="{{juhuasuanList.length > 0}}">
+    <image class="big_deal_img" src='{{big_deal}}' />
+    <view class="big_deal_list_wrap">
+        <block wx:for='{{juhuasuanList}}' wx:key='4-{{index}}'>
+            <c-goodsItemThree_col goodsList="{{item}}" bindevokeAddCart='onevokeAddCart'></c-goodsItemThree_col>
+        </block>
+    </view>
+</view>
+<!-- 超值 -->
+<view class="wrap" wx:if="{{fullGiftList.length > 0}}">
+    <image class="bargain_gift_img" src='{{bargain_gift}}' />
+    <view class="bargain_gift_list_wrap">
+        <block wx:for='{{fullGiftList}}' wx:for-item='' wx:for-index='' wx:key='4-{{index}}'>
+            <c-goodsItemThree_col goodsList="{{item}}" bindevokeAddCart='onevokeAddCart'></c-goodsItemThree_col>
+        </block>
+    </view>
+</view>
+<!-- 精选 -->
+<view class="wrap" wx:if="{{pkgList.length > 0}}">
+    <image class="select_img" src='{{select}}' />
+    <view class="select_list_wrap">
+        <block wx:for='{{pkgList}}' wx:for-item='' wx:for-index='' wx:key='4-{{index}}'>
+            <c-goodsItemThree_col goodsList="{{item}}" bindevokeAddCart='onevokeAddCart'></c-goodsItemThree_col>
+        </block>
+    </view>
+</view>
+
+<!-- 返回顶部 -->
+<view class="wrap">
+    <image class="return_top_img" src='{{return_top}}' catchtap='goToTop' />
+</view>
+<view class="hichangdaohang_wrap" catchtap="allremind">
+    <image src="/images/hichangdaohang.png" />
+</view>
+<remind_right id="remind_right" isPageId="{{isPageId}}" menus="{{menus}}" bindallPreferential='onallPreferential'
+    bindupMenus='onUpMenus' wx:if="{{ishide}}" title='520表白季会场直达'></remind_right>
+<c-navigationTools totalCount='{{totalCounts}}' />
+<c-navigationToolsTwo toTheTop="{{toTheTop}}" catchtoUpImgs="ontoUpImgs" />
+<c-shopba kind='addCart' wx:if='{{isPopCart}}' shbpbaWrapHeight='999' shbpbaListHeight='444' goodsId='{{addGoodsId}}'
+    catchtouchmove='true' goodsList='{{addGoodslist}}' id="addCart" bindhideCart="onhideCart" bindgetTotle='ongetTotle'>
+</c-shopba>
+<i-toast id="toast" />

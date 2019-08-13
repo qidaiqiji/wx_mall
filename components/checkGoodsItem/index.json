@@ -1,0 +1,9 @@
+{
+  "component": true,
+  "usingComponents": {
+    "i-checkbox-group": "../../dist/checkbox-group/index",
+    "i-checkbox": "../../dist/checkbox/index",
+    "i-swipeout": "../../dist/swipeout/index",
+    "c-goodsShow_active": "/components/goodsShow_active/index"
+  }
+}

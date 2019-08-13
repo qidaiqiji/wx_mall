@@ -1,0 +1,54 @@
+/* pages/blackCard/blackCard.wxss */
+@import "/utils/wxParse/wxParse.wxss";
+
+page {
+    background: #F3F3F3;
+}
+
+image {
+    vertical-align: top;
+}
+
+.wrap {
+    position: relative;
+    left: 0rpx;
+    top: 0rpx;
+}
+
+.banner_img {
+    width: 750rpx;
+    height: 538rpx;
+}
+
+.card_img {
+    width: 638rpx;
+    height: 370rpx;
+    position: absolute;
+    left: 54rpx;
+    top: 342rpx;
+    z-index: 2;
+}
+
+.rules {
+    margin-top: 214rpx;
+    width: 638rpx;
+    background: rgba(255, 255, 255, 1);
+    border-radius: 18rpx;
+    margin-left: 56rpx;
+    padding-bottom: 36rpx;
+    overflow: hidden;
+    margin-bottom: 52rpx;
+}
+
+.main_venue {
+    font-size: 22rpx;
+    font-family: PingFang-SC-Regular;
+    font-weight: 400;
+    color: rgba(102, 160, 255, 1);
+    padding-left: 481rpx;
+    padding-top: 58rpx;
+}
+.is_wxParse{
+    padding-left: 46rpx;
+    padding-top: 43rpx;
+}

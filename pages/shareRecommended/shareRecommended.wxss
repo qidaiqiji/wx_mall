@@ -1,0 +1,31 @@
+/* pages/shareRecommended/shareRecommended.wxss */
+page {
+    background: #F3F3F3;
+}
+
+.wrap {
+    width: 750;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding-top: 30rpx;
+}
+
+.img_tag {
+    width: 556rpx;
+    height: 990rpx;
+}
+
+.button_bottom {
+    width: 316rpx;
+    height: 88rpx;
+    background: rgba(255, 51, 102, 1);
+    border-radius: 4rpx;
+    font-size: 32rpx;
+    font-family: PingFangSC-Regular;
+    font-weight: 400;
+    color: rgba(255, 255, 255, 1);
+    line-height: 88rpx;
+    text-align: center;
+    margin-top: 58rpx;
+}

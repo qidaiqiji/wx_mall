@@ -1,0 +1,13 @@
+{
+  "navigationBarTitleText": "订单列表",
+  "usingComponents": {
+    "c-orderGoodsItem_row": "/components/orderGoodsItem_row/index",
+    "c-navigationTools": "/components/navigationTools/index",
+    "c-navigationToolsTwo": "/components/navigationToolsTwo/index",
+    "c-reachTheBottom": "/components/reachTheBottom/index",
+    "c-orderGoods_row": "/components/orderGoods_row/index",
+    "c-modal": "/components/modal/index",
+    "c-times": "/components/times/index",
+    "i-toast": "../../../dist/toast/index"
+  }
+}

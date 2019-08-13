@@ -1,0 +1,15 @@
+{
+  "navigationBarTitleText": "发现",
+  "enablePullDownRefresh": true,
+  "backgroundColor":"#f3f3f3",
+  "usingComponents": {
+    "c-foundParameter": "/components/foundParameter/index",
+    "c-shopba": "/components/product_b/shopba/index",
+    "c-navigationTools": "/components/navigationTools/index",
+    "c-navigationToolsTwo":"/components/navigationToolsTwo/index",
+    "remind": "../../components/remind/remind",
+    "reachTheBottom": "/components/reachTheBottom/index",
+    "i-toast": "../../../dist/toast/index"
+  }
+        
+}

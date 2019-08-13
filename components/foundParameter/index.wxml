@@ -1,0 +1,29 @@
+<!--components/foundParameter/index.wxml-->
+<view class="Mask {{modalName !== null?'showZero':''}}" catchtap='onConfirm' catchtouchmove='move'></view>
+<view class="parameter_wrap {{modalName !== null?'show':''}}" catchtouchmove='move' animation="{{animation}}">
+    <view class="parameter_top">
+        参数详情
+    </view>
+    <scroll-view scroll-y class='parameter_num' bindscrolll="scroll">
+        <block wx:for="{{foundgoods}}" wx:for-item="foundgoods" wx:for-index="titleIndex" wx:key="{{titleIndex}}">
+            <view class="parameter_bottom">
+                <view class="parameter_img" data-goodsId="{{foundgoods.goodsInfo.goodsId}}" catchtap='isprice'>
+                    <image class="parameter_img_" src="{{foundgoods.goodsInfo.thumb}}" />
+                </view>
+                <view class="parameter_txt">
+                    <view class="parameter_title" data-goodsId="{{foundgoods.goodsInfo.goodsId}}" catchtap='isprice'>
+                        {{foundgoods.goodsInfo.goodsName}}
+                    </view>
+                    <view class="parameter_price">
+                        <view class="parameter_price_">
+                            ¥{{foundgoods.goodsInfo.goodsPrice}}
+                        </view>
+                        <view catchtap='shopShow' data-goodsId="{{foundgoods.goodsInfo.goodsId}}" data-foundgoods="{{foundgoods.goodsInfo}}">
+                            <image class="parameter_cart" src="/images/icon_shop@2x.png" />
+                        </view>
+                    </view>
+                </view>
+            </view>
+        </block>
+    </scroll-view>
+</view>

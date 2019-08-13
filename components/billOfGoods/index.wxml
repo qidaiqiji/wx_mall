@@ -1,0 +1,72 @@
+<block wx:for='{{goodsList}}' wx:for-item='goodsItem' wx:key='index'>
+  <view class='billOfGoods'>
+    <view class='billOfGoods_main'>
+      <view class='main_left'>
+        <image src='{{goodsItem.thumb}}' mode='widthFix'></image>
+      </view>
+      <view class='main_right'>
+        <view class='main_right_top'>
+          <view class='main_right_top_left'>
+            <text>{{goodsItem.goodsName}}</text>
+          </view>
+          <view class='main_right_top_right'>
+            <text class='main_right_top_right_price'>{{goodsItem.price}}</text>
+            <text class='main_right_top_right_number'>{{goodsItem.cartNum}}</text>
+          </view>
+        </view>
+        <view class='main_right_bottom' wx:if='{{goodsItem.tag}}'>
+          <text style="background:{{goodsItem.bgColor}};color:{{goodsItem.textColor}}">{{goodsItem.tag}}</text>
+        </view>
+      </view>
+    </view>
+    <view class='billOfGoods_about' >
+<!-- item开始 -->
+      <view class='billOfGoods_about_item' wx:if='{{goodsItem.giftList.length>0}}'>
+        <view class='billOfGoods_about_item_tag'>
+          <text style="background:{{goodsItem.giftList[0].bgColor}};color:{{goodsItem.textColor}}">{{goodsItem.giftList[0].tag}}</text>
+        </view>
+        <view class='billOfGoods_about_item_'>
+<block wx:for='{{goodsItem.giftList}}' wx:for-item='giftItem' wx:key='index'>
+          <view class='billOfGoods_about_item_msg'>
+            <view class='billOfGoods_about_item_msg_title'>{{giftItem.goodsName}}</view>
+            <view class='billOfGoods_about_item_msg_number'>x{{giftItem.cartNum}}</view>
+          </view>
+</block>
+        </view>
+      </view>
+<!-- item结束 -->
+<!-- item开始 -->
+      <view class='billOfGoods_about_item' wx:if='{{goodsItem.wuliaoList.length>0}}'>
+        <view class='billOfGoods_about_item_tag'>
+          <text style="background:{{goodsItem.wuliaoList[0].bgColor}};color:{{goodsItem.textColor}}">{{goodsItem.wuliaoList[0].tag}}</text>
+        </view>
+        <view class='billOfGoods_about_item_'>
+<block wx:for='{{goodsItem.wuliaoList}}' wx:for-item='wuliaoItem' wx:key='index'>
+          <view class='billOfGoods_about_item_msg'>
+            <view class='billOfGoods_about_item_msg_title'>{{wuliaoItem.goodsName}}</view>
+            <view class='billOfGoods_about_item_msg_number'>x{{wuliaoItem.cartNum}}</view>
+          </view>
+</block>
+        </view>
+      </view>
+<!-- item结束 -->
+<!-- item开始 -->
+<block wx:for='{{goodsItem.pkgList}}' wx:for-item='pkgItem' wx:key='index'>
+      <view class='billOfGoods_about_item_taocan' wx:if='{{goodsItem.pkgList.length>0}}'>
+        <view class='about_item_taocan_left'>
+          <image src='{{pkgItem.thumb}}'></image>
+        </view>
+        <view class='about_item_taocan_right'>
+          <view class='about_item_taocan_right_top'>{{pkgItem.goodsName}}</view>
+          <view class='about_item_taocan_right_bottom'>
+            <view class='about_item_taocan_right_price'>{{pkgItem.price}}</view>
+            <view class='about_item_taocan_right_number'>{{pkgItem.cartNum}}</view>
+          </view>
+        </view>
+
+      </view>
+      </block>
+<!-- item结束 -->
+    </view>
+  </view>
+</block>

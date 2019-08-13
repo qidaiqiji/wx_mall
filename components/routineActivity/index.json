@@ -1,0 +1,7 @@
+{
+  "component": true,
+  "usingComponents": {
+    "reachTheBottom": "/components/reachTheBottom/index",
+    "myswiper": "../swiper_conter/index"
+  }
+}

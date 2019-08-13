@@ -1,0 +1,16 @@
+{
+  "backgroundColor": "#f3f3f3",
+  "usingComponents": {
+    "i-icon": "../../../dist/icon/index",
+    "c-searchLists": "/components/searchLists/index",
+    "c-shopba": "/components/product_b/shopba/index",
+    "c-bottomModal": "/components/bottomModal/index",
+    "c-navigationTools": "/components/navigationTools/index",
+    "c-filtrateDrawer": "/components/filtrateDrawer/index",
+    "c-navigationToolsTwo":"/components/navigationToolsTwo/index",
+        "c-sizerLine": "/components/sizerLine/index",
+        "c-goodsItem_row": "/components/goodsItem_row/index",
+        "c-reachTheBottom": "/components/reachTheBottom/index",
+    "i-toast": "../../../dist/toast/index"
+  }
+}

@@ -1,0 +1,11 @@
+{
+  "navigationBarTitleText": "红盒子新品",
+  "backgroundColor": "#f3f3f3",
+  "usingComponents": {
+    "c-xinpinGoodsItem": "/components/xinpinGoodsItem/index",
+    "c-reachTheBottom": "/components/reachTheBottom/index",
+    "c-navigationTools": "/components/navigationTools/index",
+    "c-navigationToolsTwo": "/components/navigationToolsTwo/index",
+    "i-toast": "/dist/toast/index"
+  }
+}

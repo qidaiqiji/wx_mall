@@ -1,0 +1,27 @@
+<!-- components/activityList/index.wxml -->
+<view class="giantPackageGift" style="background: {{title.bgColor}}">
+    <view class="aggregationTop" style="background-image: url({{titleTop}})" data-url="{{url}}" catchtap="goParticulars">
+        <view class="listTopConter">
+            <view class="aggregationTitle">{{title.title}}</view>
+            <view class="aggregationBuySome">{{title.subTitle}}</view>
+        </view>
+    </view>
+    <view class="listWrap">
+        <block wx:for="{{goodsList}}" wx:for-index="activityIndex" wx:key="{{activityIndex}}">
+            <view class="listShopWrap" data-goodsId='{{item.goodsInfo.goodsId}}' catchtap="goPrice">
+                <view class="listThum" style="background-image: url({{item.goodsInfo.thumb}})">
+                    <view>热销:{{item.goodsInfo.salesCount}}</view>
+                </view>
+                <view class="listName">{{item.goodsInfo.goodsName}}</view>
+                <view class="listPriceDesc">{{item.desc}}</view>
+                <view class="listPriceWrap">
+                    <view class="alistPriceWrap">
+                        <view class='listPrice'>{{item.goodsInfo.objectPrice.numInt}}.</view>
+                        <view class='listPriceFloor'>{{item.goodsInfo.objectPrice.decimal}}</view>
+                    </view>
+                    <view class="listSec">￥{{item.goodsInfo.marketPrice}}</view>
+                </view>
+            </view>
+        </block>
+    </view>
+</view>

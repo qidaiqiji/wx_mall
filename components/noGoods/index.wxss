@@ -1,0 +1,32 @@
+/* components/noGoods/index.wxss */
+image {
+    vertical-align: top;
+}
+
+.noGoodsWrap {
+    width: 750rpx;
+    height: 100%;
+    background: #F3F3F3;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.noGoodsImgWrap{
+    width: 560rpx;
+}
+.noGoodsImg {
+    width: 560rpx;
+    height: 560rpx;
+}
+
+.noGoodsTxt {
+    width: 100%;
+    height: 24rpx;
+    font-size: 24rpx;
+    font-family: PingFangSC-Regular;
+    font-weight: 400;
+    color: rgba(212, 212, 212, 1);
+    line-height: 24rpx;
+    text-align: center;
+    margin-top: 24rpx;
+}

@@ -1,0 +1,48 @@
+<!--pages/self/shareSignIn/shareSignIn.wxml-->
+<view>
+    <view class='title_img'>
+        <image mode='widthFix' src='{{bannerImg}}' wx:if='{{imgHead}}coupon/youhui_title.png?version={{version}}'></image>
+    </view>
+    <view class='main'>
+        <view class='changes'></view>
+
+        <view class="main_top {{isfixed?'fixed':''}}">
+            <scroll-view scroll-x="true" class="tabTitle">
+                <block wx:for="{{typeList}}" wx:for-item="item" wx:key="index">
+                    <view class="tabTitle_item">
+                        <view class=" {{currentTab==(index) ? 'on' : ''}}" bindtap="switchTab" data-current="{{index}}">{{item}}
+                        </view>
+                    </view>
+                </block>
+            </scroll-view>
+        </view>
+
+        <!-- ////// -->
+        <view>
+            <swiper current="{{currentTab}}" duration="500" style="height:{{windowHeight}}rpx;" bindchange="switchSwiper">
+                <block wx:for='{{typeList}}' wx:key='index'>
+                    <swiper-item class="swiper_item" data-index='{{index}}' scroll-y style='height:{{windowHeight}}rpx;'>
+                        <view  wx:if='{{couponList.length>0}}' bindscroll='gundong'>
+                            <c-coupon couponList='{{currentTab == index?couponList:[]}}' bindchangeType='onchangeType' bindgetCouponList='ongetCouponList' />
+                        </view>
+                        <view wx:else class='not_data'>
+                            <image src='{{imgHead}}coupon/not_coupon.png?version={{version}}'></image>
+                            <view>暂无优惠券</view>
+                        </view>
+                    </swiper-item>
+
+                </block>
+            </swiper>
+        </view>
+    </view>
+    <view class='bottom_msg'>
+        <view class='bottom_tip'>
+            除秒杀、巨划算、满减、套餐、直降等活动外可用
+        </view>
+        <view class='my_coupon' bindtap='jumptoOWnCoupon'>
+            <text class='noOrderList_text'>查看我的优惠券</text>
+        </view>
+    </view>
+
+</view>
+<c-navigationToolsTwo backTop='false' bottomToTheTop='172' toTheTop="{{toTheTop}}" catchtoUpImgs="ontoUpImgs" />

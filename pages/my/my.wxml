@@ -1,0 +1,166 @@
+<view class='container'>
+  <view class='my_top' style='background-image:url({{topBg}})'>
+    <view class='my_header'>
+      <view class='my_msg'>
+        <view class='my_msg_img' bindtap='jumpToMyInformation'>
+          <open-data type="userAvatarUrl"></open-data>
+        </view>
+        <view class='my_msg_show'>
+          <view class='my_msg_text'>{{userInfo.nickName}}
+          </view>
+          <view class='my_msg_sign'>
+            <view class='my_msg_sign_tag'>已认证</view>
+            <view class='my_msg_sign_num'>{{userInfo.balance}}积分</view>
+          </view>
+        </view>
+        <view class='userLevel' wx:if='{{!!userInfo.rankName}}'>
+          <image src='{{userInfo.userRank==4&&"/images/icon_crown_white@2x.png"}}' wx:if='{{userInfo.userRank==4}}'>
+          </image>
+          <text>{{userInfo.rankName}}</text>
+        </view>
+      </view>
+    </view>
+    <view class='orders'>
+      <view bindtap='jumpToOrderList' data-orders=''>
+        <image src='{{person_icon_order}}'></image>
+        <text>全部订单</text>
+      </view>
+      <view bindtap='jumpToOrderList' data-orders='needPay'>
+        <i-badge count="{{needPay}}" overflow-count="99" i-class-alone='dots'>
+          <image src='{{person_icon_payment}}'></image>
+        </i-badge>
+        <text>待付款</text>
+      </view>
+      <view bindtap='jumpToOrderList' data-orders='needReceive'>
+        <i-badge count="{{needReceive}}" overflow-count="99" i-class-alone='dots'>
+          <image src='{{person_icon_receive}}'></image>
+        </i-badge>
+        <text>待收货</text>
+      </view>
+      <view bindtap='jumpToOrderList' data-orders='refuse'>
+        <i-badge count="{{refuse}}" overflow-count="99" i-class-alone='dots'>
+          <image src='{{person_icon_return}}'></image>
+        </i-badge>
+        <text>退货中</text>
+      </view>
+    </view>
+  </view>
+  <view class='InviteFriends' data-item='{{inviteAd[0]}}' bindtap='handleJump' wx:if='{{inviteAd.length>0}}'>
+    <image src='{{inviteAd[0].img}}'></image>
+  </view>
+  <view class='InviteFriends' bindtap='handleJump' data-item='{{blackAd[0]}}' wx:if='{{blackAd.length>0}}'>
+    <image src='{{blackAd[0].img}}'></image>
+  </view>
+  <view class='check-in'>
+    <view class='check-in_top'>
+      <view class='check-in_top_left'>每日签到送积分</view>
+      <view class='check-in_top_right {{isCheckIn? "checkInClass": ""}}' bindtap='handleSignIn'>{{isCheckIn?'已签到':'签到'}}
+      </view>
+    </view>
+    <view class='check-in_days'>
+      <block wx:for='{{checkInArr}}' wx:for-item='checkInItem' wx:key='index'>
+        <view class='check-in_item'>
+          <view class='item_num {{checkInItem.isCheckIn? "haveDone":checkInItem.omit? "omit": "" }}'>{{checkInItem.date}}</view>
+          <view class='item_integral'>+10</view>
+        </view>
+      </block>
+    </view>
+  </view>
+  <view class='feature'>
+
+    <view class='feature_item' bindtap='handleJumpToIntegral'>
+      <view class='feature_item_img'>
+        <image src='{{jifen}}'></image>
+      </view>
+      <view class='feature_item_txt'>积分商城</view>
+    </view>
+
+
+    <view class='feature_item' bindtap='jumpToCoupon'>
+      <view class='feature_item_img'>
+        <image src='{{icon_my_lingquan}}'></image>
+      </view>
+      <view class='feature_item_txt'>领券中心</view>
+    </view>
+    <view class='feature_item' bindtap='jumpToOwnCoupon'>
+      <view class='feature_item_img'>
+        <image src='{{coupon}}'></image>
+      </view>
+      <view class='feature_item_txt'>我的券包</view>
+    </view>
+    <view class='feature_item' bindtap='handleOftenBuyList'>
+      <view class='feature_item_img'>
+        <image src='{{person_icon_service}}'></image>
+      </view>
+      <view class='feature_item_txt'>常购清单</view>
+    </view>
+    <view class='feature_item' bindtap='jumpToAddress'>
+      <view class='feature_item_img'>
+        <image src='{{person_icon_add}}'></image>
+      </view>
+      <view class='feature_item_txt'>收货地址</view>
+    </view>
+    <view class='feature_item' bindtap='daohuotixing'>
+      <view class='feature_item_img'>
+        <image src='{{icon_remind}}'></image>
+      </view>
+      <view class='feature_item_txt'>到货提醒</view>
+    </view>
+    <view class='feature_item' bindtap='handletipssss' wx:if='{{false}}'>
+      <view class='feature_item_img'>
+        <image src='{{icon_buyagain}}'></image>
+      </view>
+      <view class='feature_item_txt'>重置手机号</view>
+    </view>
+    <view class='feature_item' bindtap='myCollection'>
+      <view class='feature_item_img'>
+        <image src='/images/icon_collect_red.png'></image>
+      </view>
+      <view class='feature_item_txt'>我的收藏</view>
+    </view>
+    <view class='feature_item' bindtap='jumpToHelpCenter'>
+      <view class='feature_item_img'>
+        <image src='{{help}}'></image>
+      </view>
+      <view class='feature_item_txt'>帮助中心</view>
+    </view>
+    <view class='feature_item' bindtap='handlePhoneCall'>
+      <view class='feature_item_img'>
+        <image src='{{person_icon_contact}}'></image>
+      </view>
+      <view class='feature_item_txt'>客服热线</view>
+    </view>
+    <view class='feature_item' bindtap='handleOfficialAccounts'>
+      <view class='feature_item_img'>
+        <image src='/images/icon_wechat.png'></image>
+      </view>
+      <view class='feature_item_txt'>公众号</view>
+    </view>
+    <view class='feature_item' wx:if='{{false}}'>
+      <view class='feature_item_img'>
+        <image src='/images/icon_wechat.png'></image>
+      </view>
+      <view class='feature_item_txt'>切换账号</view>
+    </view>
+
+  </view>
+  <view class='officialShow' wx:if='{{!officialShow}}'>
+
+    <official-account bindload='officialShow' binderror='officialShow'></official-account>
+  </view>
+  <view class='logOut' bindtap='handleLogOut'>
+    切换账号
+  </view>
+</view>
+<view>
+</view>
+<!-- <c-autoPopup showToast='{{showToast}}'   content="{{content}}"></c-autoPopup> -->
+<i-toast id="toast" />
+<view class='Mask' catchtouchmove='move' wx:if='{{isShowSignInMsg}}' bindtap='handleConfirm'></view>
+<view class='isShowSignInMsg' catchtouchmove='move' wx:if='{{isShowSignInMsg}}'
+  style='background-image:url({{img_checkin}})'>
+  <view class='isShowSignInMsg_data'>{{msg}}</view>
+  <view class='isShowSignInMsg_cancel' bindtap='handleConfirm'>确定</view>
+</view>
+<c-navigationToolsTwo toTheTop="{{toTheTop}}" catchtoUpImgs="ontoUpImgs" />
+<c-modal wx:if="{{pagesModal}}" desc="{{desc}}" confirm='{{confirm}}' catchpagesModal="pagesModals"></c-modal>

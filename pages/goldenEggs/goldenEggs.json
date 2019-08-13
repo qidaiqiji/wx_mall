@@ -1,0 +1,8 @@
+{
+  "navigationBarTitleText": "积分砸金蛋",
+  "backgroundColor":"#f3f3f3",
+  "usingComponents": {
+    "c-popupWindow": "/components/popupWindow/index",
+    "i-toast": "../../../dist/toast/index"
+  }   
+}
